@@ -1,0 +1,431 @@
+[
+ {
+  "set": "pano",
+  "scene": "worldInsurance",
+  "file": "pano-worldInsurance.svg",
+  "title": "A coverage route linking five stations",
+  "hero": null,
+  "stations": 5,
+  "kb": 67.2
+ },
+ {
+  "set": "pano",
+  "scene": "worldSolutions",
+  "file": "pano-worldSolutions.svg",
+  "title": "A delivery route from order to home with four product stations",
+  "hero": null,
+  "stations": 4,
+  "kb": 52.4
+ },
+ {
+  "set": "pano",
+  "scene": "worldPartners",
+  "file": "pano-worldPartners.svg",
+  "title": "Two partner stations on one connected ground",
+  "hero": null,
+  "stations": 2,
+  "kb": 25.3
+ },
+ {
+  "set": "pano",
+  "scene": "worldResources",
+  "file": "pano-worldResources.svg",
+  "title": "A route through four reading stations",
+  "hero": null,
+  "stations": 4,
+  "kb": 54.2
+ },
+ {
+  "set": "pano",
+  "scene": "worldAbout",
+  "file": "pano-worldAbout.svg",
+  "title": "News, availability and a mailbox along one route",
+  "hero": null,
+  "stations": 4,
+  "kb": 44.1
+ },
+ {
+  "set": "atelier",
+  "scene": "xInsurance",
+  "file": "atelier-xInsurance.svg",
+  "title": "Plate, parcel and shield assembling into one",
+  "hero": null,
+  "kb": 11.2
+ },
+ {
+  "set": "atelier",
+  "scene": "xSolutions",
+  "file": "atelier-xSolutions.svg",
+  "title": "Three plates stacking under a parcel",
+  "hero": null,
+  "kb": 6.9
+ },
+ {
+  "set": "atelier",
+  "scene": "xPartners",
+  "file": "atelier-xPartners.svg",
+  "title": "A storefront and a laptop settling onto one teal plate",
+  "hero": null,
+  "kb": 9.4
+ },
+ {
+  "set": "atelier",
+  "scene": "xResources",
+  "file": "atelier-xResources.svg",
+  "title": "Loose sheets settling into a neat stack, the top one teal",
+  "hero": null,
+  "kb": 7.6
+ },
+ {
+  "set": "atelier",
+  "scene": "xAbout",
+  "file": "atelier-xAbout.svg",
+  "title": "A shield assembling from its back, face and check on a plate",
+  "hero": null,
+  "kb": 15.1
+ },
+ {
+  "set": "atelier",
+  "scene": "xMultiCarrier",
+  "file": "atelier-xMultiCarrier.svg",
+  "title": "Four carrier-coloured slabs stacking onto one teal plate",
+  "hero": null,
+  "kb": 8.4
+ },
+ {
+  "set": "atelier",
+  "scene": "xUps",
+  "file": "atelier-xUps.svg",
+  "title": "A small shield dropping into a UPS box before the lid closes",
+  "hero": null,
+  "kb": 10.6
+ },
+ {
+  "set": "atelier",
+  "scene": "xSpecial",
+  "file": "atelier-xSpecial.svg",
+  "title": "Box walls rising to fit around a blue block on a teal plate",
+  "hero": null,
+  "kb": 8.9
+ },
+ {
+  "set": "atelier",
+  "scene": "xSelect",
+  "file": "atelier-xSelect.svg",
+  "title": "A dial assembling with its needle in the teal band",
+  "hero": null,
+  "kb": 10.8
+ },
+ {
+  "set": "atelier",
+  "scene": "xQuote",
+  "file": "atelier-xQuote.svg",
+  "title": "A balance with parcels on one pan and teal coins on the other",
+  "hero": null,
+  "kb": 21.8
+ },
+ {
+  "set": "atelier",
+  "scene": "xCommerce",
+  "file": "atelier-xCommerce.svg",
+  "title": "A teal check-ring gate lowering onto a route in front of a parcel",
+  "hero": null,
+  "kb": 10.4
+ },
+ {
+  "set": "atelier",
+  "scene": "xDefense",
+  "file": "atelier-xDefense.svg",
+  "title": "A home assembling, then a teal pin landing on its roof",
+  "hero": null,
+  "kb": 5.1
+ },
+ {
+  "set": "atelier",
+  "scene": "xOrchestrate",
+  "file": "atelier-xOrchestrate.svg",
+  "title": "Three teal stepping stones dropping into a path from a parcel to a home",
+  "hero": null,
+  "kb": 9.2
+ },
+ {
+  "set": "atelier",
+  "scene": "xInsureShield",
+  "file": "atelier-xInsureShield.svg",
+  "title": "Three shield layers assembling in front of a parcel",
+  "hero": null,
+  "kb": 20.4
+ },
+ {
+  "set": "atelier",
+  "scene": "xConnect",
+  "file": "atelier-xConnect.svg",
+  "title": "A teal module seating onto a laptop",
+  "hero": null,
+  "kb": 6.4
+ },
+ {
+  "set": "atelier",
+  "scene": "xBecome",
+  "file": "atelier-xBecome.svg",
+  "title": "A storefront assembling, its teal awning settling on top",
+  "hero": null,
+  "kb": 4.7
+ },
+ {
+  "set": "atelier",
+  "scene": "xInsights",
+  "file": "atelier-xInsights.svg",
+  "title": "Small boxes assembling into one cube",
+  "hero": null,
+  "kb": 31
+ },
+ {
+  "set": "atelier",
+  "scene": "xGuides",
+  "file": "atelier-xGuides.svg",
+  "title": "Sheets falling into a neat stack with a teal tab",
+  "hero": null,
+  "kb": 8.7
+ },
+ {
+  "set": "atelier",
+  "scene": "xStories",
+  "file": "atelier-xStories.svg",
+  "title": "Coins dropping into a stack beside a damaged coral parcel",
+  "hero": null,
+  "kb": 18.7
+ },
+ {
+  "set": "atelier",
+  "scene": "xHelp",
+  "file": "atelier-xHelp.svg",
+  "title": "A document with a clock showing a short teal arc beside it",
+  "hero": null,
+  "kb": 7.7
+ },
+ {
+  "set": "atelier",
+  "scene": "xNews",
+  "file": "atelier-xNews.svg",
+  "title": "A teal sheet landing beside a stack of chalk sheets",
+  "hero": null,
+  "kb": 8.9
+ },
+ {
+  "set": "atelier",
+  "scene": "xPress",
+  "file": "atelier-xPress.svg",
+  "title": "A teal pin landing on a printed sheet with column rules",
+  "hero": null,
+  "kb": 7
+ },
+ {
+  "set": "atelier",
+  "scene": "xAvailability",
+  "file": "atelier-xAvailability.svg",
+  "title": "Four region tiles dropping together into one teal plate",
+  "hero": null,
+  "kb": 9.8
+ },
+ {
+  "set": "atelier",
+  "scene": "xContact",
+  "file": "atelier-xContact.svg",
+  "title": "A teal mailbox assembling from its post, box and raised flag",
+  "hero": null,
+  "kb": 5.5
+ },
+ {
+  "set": "icon",
+  "scene": "iMultiCarrier",
+  "file": "icon-iMultiCarrier.svg",
+  "title": "Three striped parcels on a plate",
+  "hero": null,
+  "kb": 6.7
+ },
+ {
+  "set": "icon",
+  "scene": "iUps",
+  "file": "icon-iUps.svg",
+  "title": "A parcel with a UPS band",
+  "hero": "ups",
+  "kb": 5.6
+ },
+ {
+  "set": "icon",
+  "scene": "iSpecial",
+  "file": "icon-iSpecial.svg",
+  "title": "A blue block on a puck",
+  "hero": "item",
+  "kb": 4.3
+ },
+ {
+  "set": "icon",
+  "scene": "iSelect",
+  "file": "icon-iSelect.svg",
+  "title": "Three stepped plates",
+  "hero": null,
+  "kb": 4.6
+ },
+ {
+  "set": "icon",
+  "scene": "iQuote",
+  "file": "icon-iQuote.svg",
+  "title": "A short teal coin stack",
+  "hero": null,
+  "kb": 11.7
+ },
+ {
+  "set": "icon",
+  "scene": "iCommerce",
+  "file": "icon-iCommerce.svg",
+  "title": "A parcel with a teal check ring above it",
+  "hero": null,
+  "kb": 5.1
+ },
+ {
+  "set": "icon",
+  "scene": "iDefense",
+  "file": "icon-iDefense.svg",
+  "title": "A teal pin on a puck",
+  "hero": null,
+  "kb": 4
+ },
+ {
+  "set": "icon",
+  "scene": "iOrchestrate",
+  "file": "icon-iOrchestrate.svg",
+  "title": "A short teal route to a small home",
+  "hero": null,
+  "kb": 4.9
+ },
+ {
+  "set": "icon",
+  "scene": "iInsureShield",
+  "file": "icon-iInsureShield.svg",
+  "title": "A teal shield",
+  "hero": "shield",
+  "kb": 5.8
+ },
+ {
+  "set": "icon",
+  "scene": "iConnect",
+  "file": "icon-iConnect.svg",
+  "title": "A teal block on a grey block",
+  "hero": null,
+  "kb": 2.4
+ },
+ {
+  "set": "icon",
+  "scene": "iBecome",
+  "file": "icon-iBecome.svg",
+  "title": "A small storefront with a teal awning",
+  "hero": null,
+  "kb": 4
+ },
+ {
+  "set": "icon",
+  "scene": "iInsights",
+  "file": "icon-iInsights.svg",
+  "title": "Three box bars, the tallest teal",
+  "hero": null,
+  "kb": 6.8
+ },
+ {
+  "set": "icon",
+  "scene": "iGuides",
+  "file": "icon-iGuides.svg",
+  "title": "A stack of sheets with a teal tab",
+  "hero": null,
+  "kb": 5.6
+ },
+ {
+  "set": "icon",
+  "scene": "iStories",
+  "file": "icon-iStories.svg",
+  "title": "A parcel with a teal coin stack beside it",
+  "hero": null,
+  "kb": 9.8
+ },
+ {
+  "set": "icon",
+  "scene": "iHelp",
+  "file": "icon-iHelp.svg",
+  "title": "A document with a teal check",
+  "hero": "doc",
+  "kb": 1.9
+ },
+ {
+  "set": "icon",
+  "scene": "iNews",
+  "file": "icon-iNews.svg",
+  "title": "An open box with a teal block",
+  "hero": null,
+  "kb": 4.9
+ },
+ {
+  "set": "icon",
+  "scene": "iPress",
+  "file": "icon-iPress.svg",
+  "title": "A printed sheet with a small teal shield",
+  "hero": null,
+  "kb": 8
+ },
+ {
+  "set": "icon",
+  "scene": "iAvailability",
+  "file": "icon-iAvailability.svg",
+  "title": "Two teal pins on pucks",
+  "hero": null,
+  "kb": 8.8
+ },
+ {
+  "set": "icon",
+  "scene": "iContact",
+  "file": "icon-iContact.svg",
+  "title": "A small teal mailbox",
+  "hero": "mailbox",
+  "kb": 3.4
+ },
+ {
+  "set": "feature",
+  "scene": "fInsurance",
+  "file": "feature-fInsurance.svg",
+  "title": "One kraft box splitting into a block of small teal-taped boxes",
+  "hero": null,
+  "kb": 59.1
+ },
+ {
+  "set": "feature",
+  "scene": "fSolutions",
+  "file": "feature-fSolutions.svg",
+  "title": "Four plates stacking with a shield landing on top",
+  "hero": null,
+  "kb": 10.6
+ },
+ {
+  "set": "feature",
+  "scene": "fPartners",
+  "file": "feature-fPartners.svg",
+  "title": "A row of small storefronts with teal awnings appearing one by one",
+  "hero": null,
+  "kb": 15.8
+ },
+ {
+  "set": "feature",
+  "scene": "fResources",
+  "file": "feature-fResources.svg",
+  "title": "Three stacks of sheets growing, the tallest topped in teal",
+  "hero": null,
+  "kb": 17.3
+ },
+ {
+  "set": "feature",
+  "scene": "fAbout",
+  "file": "feature-fAbout.svg",
+  "title": "Teal pins dropping onto a grid of pucks",
+  "hero": null,
+  "kb": 26
+ }
+]

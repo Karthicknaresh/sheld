@@ -1,0 +1,1454 @@
+{
+ "set": "V3-B Atelier (24 exploded views)",
+ "cards": [
+  {
+   "id": "xInsurance",
+   "scene": "xInsurance",
+   "slot": "media",
+   "frequency": "occasional",
+   "copy": {
+    "title": "Shipping Insurance",
+    "body": "Protect shipments from covered loss, damage, and theft."
+   },
+   "message": "Coverage locks into place around your parcel.",
+   "viewerQuestion": "What does coverage add to a shipment?",
+   "relationship": "protect",
+   "device": "metaphor",
+   "mapping": [
+    {
+     "concept": "the policy",
+     "object": "the plate below"
+    },
+    {
+     "concept": "your shipment",
+     "object": "the parcel"
+    },
+    {
+     "concept": "protection",
+     "object": "the shield"
+    }
+   ],
+   "breaksDown": "Floating parts can read as \"unstable\"; the assembled state must feel solid.",
+   "objects": [
+    {
+     "name": "policy plate",
+     "role": "support",
+     "material": "teal"
+    },
+    {
+     "name": "parcel",
+     "role": "support",
+     "material": "kraft"
+    },
+    {
+     "name": "shield",
+     "role": "hero",
+     "material": "teal"
+    }
+   ],
+   "layout": "L2",
+   "states": {
+    "rest": "Outline, exploded: the parts float apart on the drafting grid",
+    "active": "plate, parcel and shield assemble into one unit",
+    "meaning": "your parcel is fully covered"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "reducedMotion": "show the end state: plate, parcel and shield assemble into one unit",
+   "alt": "Plate, parcel and shield floating apart, then assembling into one.",
+   "alternatives": [
+    {
+     "angle": "transit",
+     "idea": "route past a shield (V2)"
+    },
+    {
+     "angle": "contrast",
+     "idea": "covered vs uncovered parcel"
+    }
+   ]
+  },
+  {
+   "id": "xSolutions",
+   "scene": "xSolutions",
+   "slot": "media",
+   "frequency": "occasional",
+   "copy": {
+    "title": "Solutions",
+    "body": "Tools that reduce risk before, during, and after delivery."
+   },
+   "message": "Three layers of protection lock together.",
+   "viewerQuestion": "How do the tools work together?",
+   "relationship": "scale",
+   "device": "metaphor",
+   "mapping": [
+    {
+     "concept": "before / during / after",
+     "object": "three plates"
+    },
+    {
+     "concept": "the shipment",
+     "object": "the parcel on top"
+    }
+   ],
+   "breaksDown": "Layers can read as pricing tiers; same size, stacked like a sandwich.",
+   "objects": [
+    {
+     "name": "stepped plates",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "parcel",
+     "role": "support",
+     "material": "kraft"
+    }
+   ],
+   "layout": "L4",
+   "states": {
+    "rest": "Outline, exploded: the parts float apart on the drafting grid",
+    "active": "three plates stack and the parcel lands on top",
+    "meaning": "every stage is protected"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "reducedMotion": "show the end state: three plates stack and the parcel lands on top",
+   "alt": "Three plates stacking under a parcel.",
+   "alternatives": [
+    {
+     "angle": "transit",
+     "idea": "three checks on a route (V2)"
+    },
+    {
+     "angle": "mechanism",
+     "idea": "four product blocks in a row"
+    }
+   ]
+  },
+  {
+   "id": "xPartners",
+   "scene": "xPartners",
+   "slot": "media",
+   "frequency": "occasional",
+   "copy": {
+    "title": "Partners",
+    "body": "Connect InsureShield to the platforms you already ship with."
+   },
+   "message": "One policy slides under every partner platform.",
+   "viewerQuestion": "Can partners offer coverage?",
+   "relationship": "connect",
+   "device": "metaphor",
+   "mapping": [
+    {
+     "concept": "partner platforms",
+     "object": "storefront and laptop"
+    },
+    {
+     "concept": "shared coverage",
+     "object": "one plate under both"
+    }
+   ],
+   "breaksDown": "The plate must clearly carry both, not sit beside them.",
+   "objects": [
+    {
+     "name": "policy plate",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "storefront",
+     "role": "support",
+     "material": "neutral"
+    },
+    {
+     "name": "laptop",
+     "role": "support",
+     "material": "neutral"
+    }
+   ],
+   "layout": "L3",
+   "states": {
+    "rest": "Outline, exploded: the parts float apart on the drafting grid",
+    "active": "the plate assembles under the storefront and laptop",
+    "meaning": "partners share one coverage"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "reducedMotion": "show the end state: plate assembles under the storefront and laptop",
+   "alt": "A storefront and a laptop settling onto one teal plate.",
+   "alternatives": [
+    {
+     "angle": "connect",
+     "idea": "routes into a plate (V2)"
+    },
+    {
+     "angle": "scale",
+     "idea": "many storefronts"
+    }
+   ]
+  },
+  {
+   "id": "xResources",
+   "scene": "xResources",
+   "slot": "media",
+   "frequency": "occasional",
+   "copy": {
+    "title": "Resources",
+    "body": "Guides, stories, and support for shippers."
+   },
+   "message": "Loose pages settle into one organised library.",
+   "viewerQuestion": "Is there one place to learn?",
+   "relationship": "inform",
+   "device": "number made physical",
+   "mapping": [
+    {
+     "concept": "resources",
+     "object": "many sheets"
+    },
+    {
+     "concept": "organised",
+     "object": "one neat stack"
+    }
+   ],
+   "breaksDown": "Falling sheets can read as mess; they land squarely.",
+   "objects": [
+    {
+     "name": "sheets",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "sheets",
+     "role": "support",
+     "material": "chalk"
+    }
+   ],
+   "layout": "L4",
+   "states": {
+    "rest": "Outline, exploded: the parts float apart on the drafting grid",
+    "active": "the sheets fall into one neat stack, the top in teal",
+    "meaning": "everything is in one place"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "reducedMotion": "show the end state: sheets fall into one neat stack, the top in teal",
+   "alt": "Loose sheets settling into a neat stack, the top one teal.",
+   "alternatives": [
+    {
+     "angle": "metonymy",
+     "idea": "binders (V2)"
+    },
+    {
+     "angle": "inform",
+     "idea": "open booklet"
+    }
+   ]
+  },
+  {
+   "id": "xAbout",
+   "scene": "xAbout",
+   "slot": "media",
+   "frequency": "occasional",
+   "copy": {
+    "title": "About",
+    "body": "News, availability, and how to reach us."
+   },
+   "message": "The InsureShield promise is built from its parts.",
+   "viewerQuestion": "What is InsureShield made of?",
+   "relationship": "protect",
+   "device": "metonymy",
+   "mapping": [
+    {
+     "concept": "the brand",
+     "object": "the shield"
+    },
+    {
+     "concept": "its parts",
+     "object": "back, face and check assembling"
+    }
+   ],
+   "breaksDown": "Exploding the brand mark could feel fragile; it assembles fast and lands firmly.",
+   "objects": [
+    {
+     "name": "shield",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "policy plate",
+     "role": "support",
+     "material": "neutral"
+    }
+   ],
+   "layout": "L5",
+   "states": {
+    "rest": "Outline, exploded: the parts float apart on the drafting grid",
+    "active": "the shield's back, face and check assemble on the plate",
+    "meaning": "the promise is whole"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "reducedMotion": "show the end state: shield's back, face and check assemble on the plate",
+   "alt": "A shield assembling from its back, face and check on a plate.",
+   "alternatives": [
+    {
+     "angle": "metaphor",
+     "idea": "shield on a plate with sheets (V2)"
+    },
+    {
+     "angle": "contact",
+     "idea": "route to a mailbox"
+    }
+   ]
+  },
+  {
+   "id": "xMultiCarrier",
+   "scene": "xMultiCarrier",
+   "slot": "nav-tile",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Multi-Carrier Shipments",
+    "body": "Parcel and freight across UPS, FedEx, DHL, and USPS"
+   },
+   "message": "Each carrier is one layer of the same policy.",
+   "viewerQuestion": "Do carriers need separate coverage?",
+   "relationship": "protect",
+   "device": "metaphor",
+   "mapping": [
+    {
+     "concept": "carriers",
+     "object": "four thin carrier-coloured slabs"
+    },
+    {
+     "concept": "one policy",
+     "object": "they stack onto one teal plate"
+    }
+   ],
+   "breaksDown": "Coloured slabs can read as a chart; each carries a small parcel.",
+   "objects": [
+    {
+     "name": "parcel group",
+     "role": "support",
+     "material": "carrier"
+    },
+    {
+     "name": "policy plate",
+     "role": "hero",
+     "material": "teal"
+    }
+   ],
+   "layout": "L2",
+   "states": {
+    "rest": "Outline, exploded: the parts float apart on the drafting grid",
+    "active": "four carrier slabs stack onto the teal plate",
+    "meaning": "one policy covers all carriers"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "reducedMotion": "show the end state: four carrier slabs stack onto the teal plate",
+   "alt": "Four carrier-coloured slabs stacking onto one teal plate.",
+   "alternatives": [
+    {
+     "angle": "protect",
+     "idea": "parcels on one plate (V2)"
+    },
+    {
+     "angle": "metaphor",
+     "idea": "routes merging (Panorama)"
+    }
+   ]
+  },
+  {
+   "id": "xUps",
+   "scene": "xUps",
+   "slot": "nav-tile",
+   "frequency": "frequent",
+   "copy": {
+    "title": "UPS Shipments",
+    "body": "Coverage designed for packages shipped with UPS"
+   },
+   "message": "Coverage is packed inside every UPS box.",
+   "viewerQuestion": "Is coverage built in for UPS?",
+   "relationship": "protect",
+   "device": "metonymy",
+   "mapping": [
+    {
+     "concept": "UPS package",
+     "object": "UPS-banded box"
+    },
+    {
+     "concept": "built-in coverage",
+     "object": "shield dropping in before the lid"
+    }
+   ],
+   "breaksDown": "A shield in a box could read as \"contents\"; the box is open and the lid closes over it.",
+   "objects": [
+    {
+     "name": "parcel",
+     "role": "hero",
+     "material": "carrier"
+    },
+    {
+     "name": "shield",
+     "role": "support",
+     "material": "teal"
+    }
+   ],
+   "layout": "L6",
+   "states": {
+    "rest": "Outline, exploded: the parts float apart on the drafting grid",
+    "active": "the shield drops into the box and the lid closes",
+    "meaning": "coverage ships inside the package"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "reducedMotion": "show the end state: shield drops into the box and the lid closes",
+   "alt": "A small shield dropping into a UPS box before the lid closes.",
+   "alternatives": [
+    {
+     "angle": "protect",
+     "idea": "shield behind a UPS parcel (V2)"
+    },
+    {
+     "angle": "metonymy",
+     "idea": "UPS parcel at a door (Panorama)"
+    }
+   ]
+  },
+  {
+   "id": "xSpecial",
+   "scene": "xSpecial",
+   "slot": "nav-tile",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Special Commodities",
+    "body": "High-value, perishable, and specialty goods"
+   },
+   "message": "Unusual goods get a fitted case of their own.",
+   "viewerQuestion": "How is special cargo handled?",
+   "relationship": "fit",
+   "device": "before-after",
+   "mapping": [
+    {
+     "concept": "special goods",
+     "object": "a blue block"
+    },
+    {
+     "concept": "fitted coverage",
+     "object": "the box closing round it on a teal plate"
+    }
+   ],
+   "breaksDown": "Box walls closing could read as packing service; keep it about fit.",
+   "objects": [
+    {
+     "name": "open box",
+     "role": "support",
+     "material": "kraft"
+    },
+    {
+     "name": "item",
+     "role": "hero",
+     "material": "blue"
+    },
+    {
+     "name": "policy plate",
+     "role": "support",
+     "material": "teal"
+    }
+   ],
+   "layout": "L7",
+   "states": {
+    "rest": "Outline, exploded: the parts float apart on the drafting grid",
+    "active": "the box walls rise and fit around the blue block",
+    "meaning": "special goods get special care"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "reducedMotion": "show the end state: box walls rise and fit around the blue block",
+   "alt": "Box walls rising to fit around a blue block.",
+   "alternatives": [
+    {
+     "angle": "contrast",
+     "idea": "three box types on a plate (Panorama)"
+    },
+    {
+     "angle": "before-after",
+     "idea": "item rising (V2)"
+    }
+   ]
+  },
+  {
+   "id": "xSelect",
+   "scene": "xSelect",
+   "slot": "nav-tile",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Select My Coverage",
+    "body": "Answer a few questions to find the right fit"
+   },
+   "message": "Your answers assemble the coverage that fits.",
+   "viewerQuestion": "What coverage do I need?",
+   "relationship": "fit",
+   "device": "metaphor",
+   "mapping": [
+    {
+     "concept": "your answers",
+     "object": "the dial parts"
+    },
+    {
+     "concept": "the fit",
+     "object": "needle landing in teal"
+    }
+   ],
+   "breaksDown": "A dial is a gauge; it must read as \"set for you\".",
+   "objects": [
+    {
+     "name": "dial",
+     "role": "hero",
+     "material": "teal"
+    }
+   ],
+   "layout": "L6",
+   "states": {
+    "rest": "Outline, exploded: the parts float apart on the drafting grid",
+    "active": "the dial face, ring and needle assemble, needle on teal",
+    "meaning": "coverage is set to you"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "reducedMotion": "show the end state: dial face, ring and needle assemble, needle on teal",
+   "alt": "A dial assembling with its needle in the teal band.",
+   "alternatives": [
+    {
+     "angle": "metaphor",
+     "idea": "stepped plates (V2)"
+    },
+    {
+     "angle": "fit",
+     "idea": "needle settling (Panorama)"
+    }
+   ]
+  },
+  {
+   "id": "xQuote",
+   "scene": "xQuote",
+   "slot": "nav-tile",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Get a Quote",
+    "body": "Estimate cost for your shipping volume"
+   },
+   "message": "Parcels on one side, the price on the other.",
+   "viewerQuestion": "How is the price worked out?",
+   "relationship": "scale",
+   "device": "number made physical",
+   "mapping": [
+    {
+     "concept": "volume",
+     "object": "parcels on the left pan"
+    },
+    {
+     "concept": "price",
+     "object": "coins on the right pan"
+    }
+   ],
+   "breaksDown": "A balance can read as \"equal value\"; it is an estimate, small coins.",
+   "objects": [
+    {
+     "name": "parcel group",
+     "role": "support",
+     "material": "kraft"
+    },
+    {
+     "name": "coin stack",
+     "role": "hero",
+     "material": "teal"
+    }
+   ],
+   "layout": "L7",
+   "states": {
+    "rest": "Outline, exploded: the parts float apart on the drafting grid",
+    "active": "parcels and coins drop onto the two pans of a balance",
+    "meaning": "the price matches your volume"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "reducedMotion": "show the end state: parcels and coins drop onto the two pans of a balance",
+   "alt": "A balance with parcels on one pan and teal coins on the other.",
+   "alternatives": [
+    {
+     "angle": "scale",
+     "idea": "parcel group and coins (V2)"
+    },
+    {
+     "angle": "metonymy",
+     "idea": "coin on a sheet (Panorama)"
+    }
+   ]
+  },
+  {
+   "id": "xCommerce",
+   "scene": "xCommerce",
+   "slot": "nav-tile",
+   "frequency": "frequent",
+   "copy": {
+    "title": "CommerceShield",
+    "body": "Order risk signals and chargeback protection"
+   },
+   "message": "A check gate screens the order before it ships.",
+   "viewerQuestion": "Where is the risk checked?",
+   "relationship": "verify",
+   "device": "metaphor",
+   "mapping": [
+    {
+     "concept": "the order",
+     "object": "a parcel"
+    },
+    {
+     "concept": "screening",
+     "object": "a ring gate on the route"
+    }
+   ],
+   "breaksDown": "A gate could read as customs; it sits before the parcel leaves.",
+   "objects": [
+    {
+     "name": "parcel",
+     "role": "support",
+     "material": "kraft"
+    },
+    {
+     "name": "check ring",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "route",
+     "role": "support",
+     "material": "teal"
+    }
+   ],
+   "layout": "L3",
+   "states": {
+    "rest": "Outline, exploded: the parts float apart on the drafting grid",
+    "active": "the check-ring gate lowers onto the route in front of the parcel",
+    "meaning": "orders are screened first"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "reducedMotion": "show the end state: check-ring gate lowers onto the route in front of the parcel",
+   "alt": "A teal check-ring gate lowering onto a route in front of a parcel.",
+   "alternatives": [
+    {
+     "angle": "contrast",
+     "idea": "coral order held back (Panorama)"
+    },
+    {
+     "angle": "before-after",
+     "idea": "coral ring turns teal (V2)"
+    }
+   ]
+  },
+  {
+   "id": "xDefense",
+   "scene": "xDefense",
+   "slot": "nav-tile",
+   "frequency": "frequent",
+   "copy": {
+    "title": "DeliveryDefense",
+    "body": "Address confidence scores before you ship"
+   },
+   "message": "The address is confirmed before anything ships.",
+   "viewerQuestion": "Is the address safe?",
+   "relationship": "verify",
+   "device": "metonymy",
+   "mapping": [
+    {
+     "concept": "the address",
+     "object": "the home"
+    },
+    {
+     "concept": "confirmed",
+     "object": "pin landing on its roof"
+    }
+   ],
+   "breaksDown": "Pin on a roof could read as \"listing\"; the ring confirms.",
+   "objects": [
+    {
+     "name": "home",
+     "role": "support",
+     "material": "neutral"
+    },
+    {
+     "name": "pin",
+     "role": "hero",
+     "material": "teal"
+    }
+   ],
+   "layout": "L5",
+   "states": {
+    "rest": "Outline, exploded: the parts float apart on the drafting grid",
+    "active": "the roof settles on the home and the pin lands on it",
+    "meaning": "the address is confirmed"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "reducedMotion": "show the end state: roof settles on the home and the pin lands on it",
+   "alt": "A home assembling, then a teal pin landing on its roof.",
+   "alternatives": [
+    {
+     "angle": "contrast",
+     "idea": "two homes, one pin (Panorama)"
+    },
+    {
+     "angle": "metonymy",
+     "idea": "pin on a puck at a door (V2)"
+    }
+   ]
+  },
+  {
+   "id": "xOrchestrate",
+   "scene": "xOrchestrate",
+   "slot": "nav-tile",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Delivery Orchestration",
+    "body": "Choose delivery options that lower risk"
+   },
+   "message": "Safe stepping stones are laid from parcel to door.",
+   "viewerQuestion": "How is a safer path chosen?",
+   "relationship": "transit",
+   "device": "metaphor",
+   "mapping": [
+    {
+     "concept": "delivery path",
+     "object": "teal stepping stones"
+    },
+    {
+     "concept": "safer",
+     "object": "laid one by one"
+    }
+   ],
+   "breaksDown": "Stones can read as a game; three only, evenly spaced.",
+   "objects": [
+    {
+     "name": "parcel",
+     "role": "support",
+     "material": "kraft"
+    },
+    {
+     "name": "stepped plates",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "home",
+     "role": "support",
+     "material": "neutral"
+    }
+   ],
+   "layout": "L3",
+   "states": {
+    "rest": "Outline, exploded: the parts float apart on the drafting grid",
+    "active": "three teal stones drop into place from parcel to home",
+    "meaning": "a safer path is laid"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "reducedMotion": "show the end state: three teal stones drop into place from parcel to home",
+   "alt": "Three teal stepping stones dropping into a path from a parcel to a home.",
+   "alternatives": [
+    {
+     "angle": "metaphor",
+     "idea": "forked route (V2)"
+    },
+    {
+     "angle": "fit",
+     "idea": "parcel moves to the teal plate (Panorama)"
+    }
+   ]
+  },
+  {
+   "id": "xInsureShield",
+   "scene": "xInsureShield",
+   "slot": "nav-tile",
+   "frequency": "frequent",
+   "copy": {
+    "title": "InsureShield® Shipping Insurance",
+    "body": "Protection against loss, damage, and theft"
+   },
+   "message": "The shield is complete: loss, damage and theft.",
+   "viewerQuestion": "What does the insurance cover?",
+   "relationship": "protect",
+   "device": "metaphor",
+   "mapping": [
+    {
+     "concept": "coverage",
+     "object": "shield built in three layers"
+    },
+    {
+     "concept": "the shipment",
+     "object": "the parcel before it"
+    }
+   ],
+   "breaksDown": "Three layers could read as three products; it is one shield.",
+   "objects": [
+    {
+     "name": "shield",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "parcel",
+     "role": "support",
+     "material": "kraft"
+    }
+   ],
+   "layout": "L1",
+   "states": {
+    "rest": "Outline, exploded: the parts float apart on the drafting grid",
+    "active": "three shield layers assemble in front of the parcel",
+    "meaning": "coverage is complete"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "reducedMotion": "show the end state: three shield layers assemble in front of the parcel",
+   "alt": "Three shield layers assembling in front of a parcel.",
+   "alternatives": [
+    {
+     "angle": "contrast",
+     "idea": "teal parcel among grey (V2)"
+    },
+    {
+     "angle": "metaphor",
+     "idea": "shield behind a stack (Panorama)"
+    }
+   ]
+  },
+  {
+   "id": "xConnect",
+   "scene": "xConnect",
+   "slot": "nav-tile",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Connect with a Partner",
+    "body": "Add coverage inside the platforms you use"
+   },
+   "message": "The coverage module drops into your software.",
+   "viewerQuestion": "Does it fit my software?",
+   "relationship": "connect",
+   "device": "metaphor",
+   "mapping": [
+    {
+     "concept": "your software",
+     "object": "the laptop"
+    },
+    {
+     "concept": "InsureShield",
+     "object": "a teal module seating on it"
+    }
+   ],
+   "breaksDown": "A block on a laptop could read as hardware; it is small and flush.",
+   "objects": [
+    {
+     "name": "laptop",
+     "role": "support",
+     "material": "chalk"
+    },
+    {
+     "name": "dock block",
+     "role": "hero",
+     "material": "teal"
+    }
+   ],
+   "layout": "L7",
+   "states": {
+    "rest": "Outline, exploded: the parts float apart on the drafting grid",
+    "active": "the teal module lowers and seats on the laptop",
+    "meaning": "coverage is installed"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "reducedMotion": "show the end state: teal module lowers and seats on the laptop",
+   "alt": "A teal module seating onto a laptop.",
+   "alternatives": [
+    {
+     "angle": "metaphor",
+     "idea": "block into slot (V2)"
+    },
+    {
+     "angle": "connect",
+     "idea": "route through a block (Panorama)"
+    }
+   ]
+  },
+  {
+   "id": "xBecome",
+   "scene": "xBecome",
+   "slot": "nav-tile",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Become a Partner",
+    "body": "Offer InsureShield to your customers"
+   },
+   "message": "Your store, with coverage as part of the shopfront.",
+   "viewerQuestion": "What does partnering add?",
+   "relationship": "protect",
+   "device": "metonymy",
+   "mapping": [
+    {
+     "concept": "your store",
+     "object": "storefront walls"
+    },
+    {
+     "concept": "offering coverage",
+     "object": "teal awning settling on top"
+    }
+   ],
+   "breaksDown": "An awning alone is decoration; it is the teal (InsureShield) part.",
+   "objects": [
+    {
+     "name": "storefront",
+     "role": "hero",
+     "material": "teal"
+    }
+   ],
+   "layout": "L6",
+   "states": {
+    "rest": "Outline, exploded: the parts float apart on the drafting grid",
+    "active": "the walls rise and the teal awning settles on top",
+    "meaning": "coverage becomes part of your store"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "reducedMotion": "show the end state: walls rise and the teal awning settles on top",
+   "alt": "A storefront assembling, its teal awning settling on top.",
+   "alternatives": [
+    {
+     "angle": "metonymy",
+     "idea": "awning turns teal (V2)"
+    },
+    {
+     "angle": "scale",
+     "idea": "parcels popping up (Panorama)"
+    }
+   ]
+  },
+  {
+   "id": "xInsights",
+   "scene": "xInsights",
+   "slot": "nav-tile",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Insights",
+    "body": "Articles on shipping risk and protection"
+   },
+   "message": "One loss figure, broken into the parcels behind it.",
+   "viewerQuestion": "What do the numbers mean?",
+   "relationship": "scale",
+   "device": "number made physical",
+   "mapping": [
+    {
+     "concept": "the figure",
+     "object": "one big cube"
+    },
+    {
+     "concept": "the parcels",
+     "object": "small boxes assembling it"
+    }
+   ],
+   "breaksDown": "A cube of boxes reads as storage; it assembles from separate parcels.",
+   "objects": [
+    {
+     "name": "stack of boxes",
+     "role": "hero",
+     "material": "teal"
+    }
+   ],
+   "layout": "L6",
+   "states": {
+    "rest": "Outline, exploded: the parts float apart on the drafting grid",
+    "active": "small boxes drop together into one cube",
+    "meaning": "insight from real parcels"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "reducedMotion": "show the end state: small boxes drop together into one cube",
+   "alt": "Small boxes assembling into one cube.",
+   "alternatives": [
+    {
+     "angle": "number made physical",
+     "idea": "parcel bars (V2)"
+    },
+    {
+     "angle": "metonymy",
+     "idea": "cloud on a sheet (Panorama)"
+    }
+   ]
+  },
+  {
+   "id": "xGuides",
+   "scene": "xGuides",
+   "slot": "nav-tile",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Whitepapers & Guides",
+    "body": "In-depth research and how-to guides"
+   },
+   "message": "Page by page, a complete guide.",
+   "viewerQuestion": "Is there a full guide?",
+   "relationship": "inform",
+   "device": "number made physical",
+   "mapping": [
+    {
+     "concept": "the guide",
+     "object": "sheets falling into a stack"
+    },
+    {
+     "concept": "complete",
+     "object": "the teal tab on top"
+    }
+   ],
+   "breaksDown": "Falling pages read as mess; they land squarely, tab last.",
+   "objects": [
+    {
+     "name": "sheets",
+     "role": "hero",
+     "material": "chalk"
+    },
+    {
+     "name": "sheets",
+     "role": "support",
+     "material": "teal"
+    }
+   ],
+   "layout": "L6",
+   "states": {
+    "rest": "Outline, exploded: the parts float apart on the drafting grid",
+    "active": "sheets fall into a stack and a teal tab marks it",
+    "meaning": "the guide is complete"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "reducedMotion": "show the end state: sheets fall into a stack and a teal tab marks it",
+   "alt": "Sheets falling into a neat stack with a teal tab.",
+   "alternatives": [
+    {
+     "angle": "metaphor",
+     "idea": "route on a sheet (V2)"
+    },
+    {
+     "angle": "double meaning",
+     "idea": "open booklet with shield (Panorama)"
+    }
+   ]
+  },
+  {
+   "id": "xStories",
+   "scene": "xStories",
+   "slot": "nav-tile",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Customer Stories",
+    "body": "How businesses recover faster"
+   },
+   "message": "Next to the damaged parcel, the payout stacks up.",
+   "viewerQuestion": "How fast did others recover?",
+   "relationship": "recovery",
+   "device": "cause-effect",
+   "mapping": [
+    {
+     "concept": "the loss",
+     "object": "coral parcel"
+    },
+    {
+     "concept": "recovery",
+     "object": "coins stacking beside it"
+    }
+   ],
+   "breaksDown": "Coral must not end the story; the coins finish it.",
+   "objects": [
+    {
+     "name": "parcel",
+     "role": "support",
+     "material": "coral"
+    },
+    {
+     "name": "coin stack",
+     "role": "hero",
+     "material": "teal"
+    }
+   ],
+   "layout": "L5",
+   "states": {
+    "rest": "Outline, exploded: the parts float apart on the drafting grid",
+    "active": "coins drop one by one into a stack beside the coral parcel",
+    "meaning": "the loss is paid back"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "reducedMotion": "show the end state: coins drop one by one into a stack beside the coral parcel",
+   "alt": "Coins dropping into a stack beside a damaged coral parcel.",
+   "alternatives": [
+    {
+     "angle": "cause-effect",
+     "idea": "route to coins (V2)"
+    },
+    {
+     "angle": "before-after",
+     "idea": "storefront mark to check (Panorama)"
+    }
+   ]
+  },
+  {
+   "id": "xHelp",
+   "scene": "xHelp",
+   "slot": "nav-tile",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Help & Support",
+    "body": "Answers about coverage, billing, and claims"
+   },
+   "message": "Questions get answered quickly.",
+   "viewerQuestion": "How fast is support?",
+   "relationship": "verify",
+   "device": "metonymy",
+   "mapping": [
+    {
+     "concept": "your question",
+     "object": "a document"
+    },
+    {
+     "concept": "quick answer",
+     "object": "a clock with a short teal arc"
+    }
+   ],
+   "breaksDown": "A clock can read as \"waiting\"; the arc is short.",
+   "objects": [
+    {
+     "name": "claim document",
+     "role": "support",
+     "material": "chalk"
+    },
+    {
+     "name": "clock",
+     "role": "hero",
+     "material": "teal"
+    }
+   ],
+   "layout": "L7",
+   "states": {
+    "rest": "Outline, exploded: the parts float apart on the drafting grid",
+    "active": "the clock face and its short teal arc settle beside the document",
+    "meaning": "answers come fast"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "reducedMotion": "show the end state: clock face and its short teal arc settle beside the document",
+   "alt": "A document with a clock showing a short teal arc beside it.",
+   "alternatives": [
+    {
+     "angle": "metonymy",
+     "idea": "ring with check (V2)"
+    },
+    {
+     "angle": "cause-effect",
+     "idea": "document route to check (Panorama)"
+    }
+   ]
+  },
+  {
+   "id": "xNews",
+   "scene": "xNews",
+   "slot": "nav-tile",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Announcements",
+    "body": "Product and company news"
+   },
+   "message": "The newest update lands beside the archive.",
+   "viewerQuestion": "What is new?",
+   "relationship": "inform",
+   "device": "before-after",
+   "mapping": [
+    {
+     "concept": "archive",
+     "object": "chalk stack"
+    },
+    {
+     "concept": "the news",
+     "object": "teal sheet landing next to it"
+    }
+   ],
+   "breaksDown": "Two stacks read as a comparison; the teal one is a single fresh sheet.",
+   "objects": [
+    {
+     "name": "sheets",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "sheets",
+     "role": "support",
+     "material": "chalk"
+    }
+   ],
+   "layout": "L7",
+   "states": {
+    "rest": "Outline, exploded: the parts float apart on the drafting grid",
+    "active": "a teal sheet drops beside the archive stack",
+    "meaning": "something new is out"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "reducedMotion": "show the end state: a teal sheet drops beside the archive stack",
+   "alt": "A teal sheet landing beside a stack of chalk sheets.",
+   "alternatives": [
+    {
+     "angle": "before-after",
+     "idea": "sheet onto stack (V2)"
+    },
+    {
+     "angle": "relatable moment",
+     "idea": "item out of box (Panorama)"
+    }
+   ]
+  },
+  {
+   "id": "xPress",
+   "scene": "xPress",
+   "slot": "nav-tile",
+   "frequency": "frequent",
+   "copy": {
+    "title": "In The News",
+    "body": "Press coverage of UPS Capital"
+   },
+   "message": "The story gets pinned to the front page.",
+   "viewerQuestion": "Is UPS Capital in the press?",
+   "relationship": "inform",
+   "device": "metonymy",
+   "mapping": [
+    {
+     "concept": "the press",
+     "object": "a printed sheet"
+    },
+    {
+     "concept": "featured",
+     "object": "a teal pin landing on it"
+    }
+   ],
+   "breaksDown": "A pin on paper reads as a map; keep the column rules.",
+   "objects": [
+    {
+     "name": "sheets",
+     "role": "support",
+     "material": "chalk"
+    },
+    {
+     "name": "pin",
+     "role": "hero",
+     "material": "teal"
+    }
+   ],
+   "layout": "L6",
+   "states": {
+    "rest": "Outline, exploded: the parts float apart on the drafting grid",
+    "active": "a teal pin lands on the printed sheet",
+    "meaning": "UPS Capital is featured"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "reducedMotion": "show the end state: a teal pin lands on the printed sheet",
+   "alt": "A teal pin landing on a printed sheet with column rules.",
+   "alternatives": [
+    {
+     "angle": "double meaning",
+     "idea": "shield stamp (V2)"
+    },
+    {
+     "angle": "contrast",
+     "idea": "teal sheet sliding out (Panorama)"
+    }
+   ]
+  },
+  {
+   "id": "xAvailability",
+   "scene": "xAvailability",
+   "slot": "nav-tile",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Product Availability",
+    "body": "Where coverage is offered"
+   },
+   "message": "Region by region, the coverage map is built.",
+   "viewerQuestion": "Where is it offered?",
+   "relationship": "reach",
+   "device": "metonymy",
+   "mapping": [
+    {
+     "concept": "regions",
+     "object": "plate tiles"
+    },
+    {
+     "concept": "offered",
+     "object": "tiles assembling in teal"
+    }
+   ],
+   "breaksDown": "Tiles assembling can read as a puzzle; they are flat, quick and orderly.",
+   "objects": [
+    {
+     "name": "policy plate",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "puck",
+     "role": "support",
+     "material": "neutral"
+    }
+   ],
+   "layout": "L6",
+   "states": {
+    "rest": "Outline, exploded: the parts float apart on the drafting grid",
+    "active": "four region tiles drop into one plate",
+    "meaning": "coverage spans these regions"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "reducedMotion": "show the end state: four region tiles drop into one plate",
+   "alt": "Four region tiles dropping together into one teal plate.",
+   "alternatives": [
+    {
+     "angle": "metonymy",
+     "idea": "pins on pucks (V2)"
+    },
+    {
+     "angle": "reach",
+     "idea": "tiles filling (Panorama)"
+    }
+   ]
+  },
+  {
+   "id": "xContact",
+   "scene": "xContact",
+   "slot": "nav-tile",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Contact Us",
+    "body": "Reach our team"
+   },
+   "message": "Your message box is ready for our team.",
+   "viewerQuestion": "How do I reach the team?",
+   "relationship": "contact",
+   "device": "metonymy",
+   "mapping": [
+    {
+     "concept": "contact",
+     "object": "the mailbox"
+    },
+    {
+     "concept": "ready",
+     "object": "post, box and flag assembling"
+    }
+   ],
+   "breaksDown": "An exploded mailbox reads as broken; it assembles quickly.",
+   "objects": [
+    {
+     "name": "mailbox",
+     "role": "hero",
+     "material": "teal"
+    }
+   ],
+   "layout": "L6",
+   "states": {
+    "rest": "Outline, exploded: the parts float apart on the drafting grid",
+    "active": "post, box and raised flag assemble",
+    "meaning": "we are ready to hear from you"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "reducedMotion": "show the end state: post, box and raised flag assemble",
+   "alt": "A teal mailbox assembling from its post, box and raised flag.",
+   "alternatives": [
+    {
+     "angle": "metonymy",
+     "idea": "flag raising (V2)"
+    },
+    {
+     "angle": "cause-effect",
+     "idea": "document route to mailbox (Panorama)"
+    }
+   ]
+  }
+ ]
+}

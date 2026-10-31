@@ -1,0 +1,8 @@
+node_modules/
+**/node_modules/
+npm-debug.log*
+**/prof/
+**/prof*/
+/conversations/
+/redesign/test-output/
+/redesign/v5shots/

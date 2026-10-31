@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en" data-brand="insureshield" data-theme="light"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>InsureShield Lattice Header</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&amp;display=swap">
+<style>
+/* Momentum tokens, insureshield brand (light only, D-126) */
+:root{
+  color-scheme:light;
+  --m-surface:#f8f8fb; --m-surface-bright:#fff; --m-surface-low:#efeff2; --m-surface-inverse:#363230; --m-on-inverse:#f0ede9;
+  --m-ink:#121212; --m-ink-medium:#5f5753; --m-ink-low:#85858e;
+  --m-outline:#85858e; --m-outline-variant:#b2b2bb; --m-outline-low:#1a1a1f1f;
+  --m-primary:#0a8080; --m-primary-hover:#6fb1b1; --m-primary-pressed:#075a5a; --m-primary-container:#cfe5e5; --m-primary-low:#e7f2f2; --m-primary-lowest:#f3f9f9; --m-primary-high:#9fcbcb;
+  --m-font:Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --m-radius-sm:4px; --m-radius-md:8px; --m-radius-pill:999px;
+  --m-shadow-3:0 2px 4px 0 #0000000f,0 4px 8px 0 #00000014;
+  --m-shadow-4:0 4px 8px 0 #00000014,0 8px 16px 0 #0000001f;
+  --m-shadow-5:0 8px 16px 0 #0000001f,0 16px 32px 0 #00000029;
+  --fast:.1s; --base:.2s; --slow:.32s;
+  --ease:cubic-bezier(.2,0,0,1); --ease-enter:cubic-bezier(0,0,0,1); --ease-exit:cubic-bezier(.3,0,1,1);
+  --control:2.75rem;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--m-surface-bright);color:var(--m-ink);font:400 1rem/1.5rem var(--m-font);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--m-outline);outline-offset:.25rem;border-radius:var(--m-radius-sm)}
+.ctr{max-width:1200px;margin-inline:auto;padding-left:max(32px, env(safe-area-inset-left,0px));padding-right:max(32px, env(safe-area-inset-right,0px))}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+svg{display:block}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:var(--control);padding:8px 20px;border-radius:var(--m-radius-pill);border:1px solid transparent;font:500 1rem/1.5rem var(--m-font);white-space:nowrap;cursor:pointer;background:transparent;transition:box-shadow var(--fast) var(--ease),scale var(--fast) var(--ease),filter var(--fast) var(--ease),background-color var(--fast) var(--ease)}
+.btn svg{width:18px;height:18px;transition:translate var(--fast) var(--ease)}
+.btn:hover svg{translate:3px 0}
+.btn-primary{background:var(--m-primary);color:#fff}
+.btn-primary:hover{box-shadow:var(--m-shadow-3);scale:1.03;filter:brightness(.92)}
+.btn-secondary{border-color:var(--m-ink);color:var(--m-ink)}
+.btn-secondary:hover{background:var(--m-surface-low)}
+.btn-sm{min-height:36px;padding:6px 16px;font-size:.9375rem;line-height:1.25rem}
+
+/* ---------- Header ---------- */
+.hdr{position:sticky;top:0;z-index:100;background:var(--m-surface-bright)}
+.hdr-util{border-bottom:1px solid var(--m-outline-low)}
+.hdr-util .ctr{display:flex;justify-content:flex-end;align-items:center;gap:4px;height:32px}
+.hdr-util a{display:inline-flex;align-items:center;gap:6px;font-size:.8125rem;line-height:1;color:var(--m-ink-medium);padding:6px 10px;border-radius:var(--m-radius-sm)}
+.hdr-util a:hover{color:var(--m-ink)}
+.hdr-util svg{width:15px;height:15px}
+.hdr-main{position:relative;border-bottom:1px solid var(--m-outline-low)}
+.hdr-main .ctr{display:flex;align-items:center;height:64px;gap:24px}
+.logo{display:flex;align-items:center;flex:none;height:52px;border-radius:var(--m-radius-sm)}
+.logo img{height:46px;width:auto}
+.nav{position:relative;height:100%;margin-left:clamp(16px, 9vw, 130px)}
+.nav-list{display:flex;align-items:center;height:100%;list-style:none;margin:0;padding:0;gap:2px}
+.nav-list li{height:100%;display:flex;align-items:center}
+.nav-t{appearance:none;border:0;background:none;cursor:pointer;display:inline-flex;align-items:center;gap:6px;height:var(--control);padding:0 12px;border-radius:var(--m-radius-sm);font:450 .9375rem/1.25rem var(--m-font);color:#2b2a29;white-space:nowrap;position:relative;transition:color var(--fast) var(--ease)}
+.nav-t .chev{width:12px;height:12px;color:var(--m-ink-low);transition:rotate var(--base) var(--ease),color var(--fast) var(--ease)}
+.nav-t[aria-expanded="true"]{color:var(--m-primary-pressed)}
+.nav-t[aria-expanded="true"] .chev{rotate:180deg;color:var(--m-primary)}
+.nav-t:hover{color:var(--m-ink)}
+.nav-t[aria-current="page"]::after{content:"";position:absolute;left:12px;right:12px;bottom:-10px;height:2px;background:var(--m-outline-variant);border-radius:2px}
+.nav-ind{position:absolute;left:0;bottom:-1px;height:2px;width:0;background:var(--m-primary);border-radius:2px;opacity:0;pointer-events:none;transition:translate var(--slow) var(--ease),width var(--slow) var(--ease),opacity var(--base) var(--ease)}
+.nav-ind.on{opacity:1}
+.hdr-cta{margin-left:auto;display:flex;align-items:center;gap:8px}
+.icon-btn{appearance:none;border:0;background:none;width:var(--control);height:var(--control);border-radius:var(--m-radius-pill);display:grid;place-items:center;cursor:pointer;color:var(--m-ink)}
+.icon-btn:hover{background:var(--m-surface-low)}
+.icon-btn svg{width:22px;height:22px}
+.burger{display:none}
+#dd-root{position:absolute;left:0;right:0;top:100%;height:0}
+.scrim{position:fixed;inset:0;z-index:90;background:#1212120d;opacity:0;pointer-events:none;transition:opacity var(--base) var(--ease)}
+body.menu-open .scrim{opacity:1}
+
+/* ---------- Mega panel shell ---------- */
+.mega{position:absolute;left:0;right:0;top:0;height:0;overflow:hidden;visibility:hidden;background:var(--m-surface-bright);border-bottom:1px solid var(--m-outline-low);box-shadow:var(--m-shadow-4);transition:height var(--slow) var(--ease),visibility 0s linear var(--slow)}
+.mega.open{visibility:visible;transition:height var(--slow) var(--ease),visibility 0s}
+.lyr{position:absolute;top:0;left:0;right:0;opacity:0;visibility:hidden}
+.lyr.in{visibility:visible;opacity:1}
+.lyr.out{visibility:visible;animation:lyrOut .14s var(--ease-exit) both}
+@keyframes lyrOut{to{opacity:0;transform:translateY(var(--ty,0))}}
+.lyr.in .rise{animation:rise .34s var(--ease) both;animation-delay:calc(var(--i,0) * 30ms + 60ms)}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+.gt{margin:0 0 8px;font:600 .6875rem/1rem var(--m-font);letter-spacing:.08em;text-transform:uppercase;color:var(--m-ink-low)}
+.ul-link{display:inline-flex;align-items:center;gap:6px;font:500 .875rem/1.25rem var(--m-font);color:var(--m-primary-pressed);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
+.ul-link:hover{text-decoration-thickness:2px}
+.ul-link svg{width:14px;height:14px}
+
+/* the illustration stage */
+.stage{position:relative;border-radius:var(--m-radius-md);background:var(--m-primary-lowest);overflow:hidden}
+.stage::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px,#0a808030 1px,transparent 0);background-size:14px 14px;-webkit-mask-image:radial-gradient(ellipse at 50% 58%,#000 25%,transparent 72%);mask-image:radial-gradient(ellipse at 50% 58%,#000 25%,transparent 72%);pointer-events:none}
+.isov{position:relative;width:100%;height:100%;overflow:visible}
+.iso-g{transition:opacity .16s var(--ease-exit),transform .2s var(--ease-exit)}
+.iso-g.out{opacity:0;transform:translateY(6px)}
+.cp{position:absolute;top:10px;right:10px;z-index:2;appearance:none;display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 10px;border:1px solid var(--m-outline-low);border-radius:var(--m-radius-pill);background:#ffffffd9;font:500 .75rem/1 var(--m-font);color:var(--m-ink-medium);cursor:pointer;opacity:0;transition:opacity var(--base) var(--ease),color var(--fast) var(--ease)}
+.stage:hover .cp,.cp:focus-visible{opacity:1}
+.cp:hover{color:var(--m-ink)}
+.cp svg{width:14px;height:14px}
+.toast{position:fixed;left:50%;bottom:84px;translate:-50% 12px;z-index:300;padding:10px 16px;border-radius:var(--m-radius-pill);background:var(--m-surface-inverse);color:var(--m-on-inverse);font:500 .8125rem/1 var(--m-font);opacity:0;pointer-events:none;transition:opacity var(--base) var(--ease),translate var(--base) var(--ease)}
+.toast.on{opacity:1;translate:-50% 0}
+
+/* ===== Concept A — Stage ===== */
+.A .ctr{display:grid;grid-template-columns:360px minmax(0,1fr);gap:44px;padding-top:24px;padding-bottom:28px}
+.A .stage{height:268px}
+.A .cap{position:relative;height:58px;margin-top:14px;overflow:hidden}
+.A .cap>div{position:absolute;inset:0;transition:opacity var(--base) var(--ease),translate var(--base) var(--ease)}
+.A .cap>div.leave{opacity:0;translate:0 -10px}
+.A .cap>div.enter{opacity:0;translate:0 10px;transition:none}
+.cap-t{margin:0;font:600 1rem/1.4rem var(--m-font)}
+.cap-d{margin:2px 0 0;font:400 .8125rem/1.2rem var(--m-font);color:var(--m-ink-medium);max-width:40ch}
+.A .view{position:relative}
+.A .cols{display:flex;gap:40px;flex-wrap:wrap}
+.A .grp ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(var(--cols,1),250px);column-gap:24px}
+.it{position:relative;display:grid;gap:2px;padding:10px 12px 10px 14px;margin:0 -14px;border-radius:var(--m-radius-md);transition:background-color var(--base) var(--ease)}
+.it::before{content:"";position:absolute;left:0;top:12px;bottom:12px;width:2px;border-radius:2px;background:var(--m-primary);scale:1 0;transition:scale var(--base) var(--ease)}
+.it-l{display:flex;align-items:center;gap:6px;font:500 .9375rem/1.375rem var(--m-font);color:var(--m-ink);transition:color var(--fast) var(--ease)}
+.it-l svg{width:14px;height:14px;color:var(--m-primary);opacity:0;translate:-4px 0;transition:opacity var(--fast) var(--ease),translate var(--base) var(--ease)}
+.it-d{font:400 .8125rem/1.2rem var(--m-font);color:var(--m-ink-medium)}
+.it.act{background:var(--m-primary-lowest)}
+.it.act::before{scale:1 1}
+.it.act .it-l{color:var(--m-primary-pressed)}
+.it.act .it-l svg{opacity:1;translate:0 0}
+.A .foot{display:flex;align-items:center;gap:16px;margin-top:18px;padding-top:14px;border-top:1px solid var(--m-outline-low);font-size:.8125rem;color:var(--m-ink-medium)}
+
+/* ===== Concept B — Spotlight ===== */
+.B .ctr{display:grid;grid-template-columns:300px minmax(0,1fr);gap:40px;padding-top:24px;padding-bottom:28px}
+.B .list{position:relative;min-height:320px}
+.B .lyr{right:auto;width:100%}
+.B .lead{margin:0 0 14px;font:400 .875rem/1.3rem var(--m-font);color:var(--m-ink-medium);max-width:30ch}
+.B ul{position:relative;list-style:none;margin:0;padding:0;border-left:1px solid var(--m-outline-low)}
+.B .sp-ind{position:absolute;left:-1px;top:0;width:2px;height:0;background:var(--m-primary);border-radius:2px;transition:translate var(--slow) var(--ease),height var(--slow) var(--ease)}
+.sp-it{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:44px;padding:0 12px 0 18px;font:500 .9375rem/1.25rem var(--m-font);color:#2b2a29;border-radius:0 var(--m-radius-sm) var(--m-radius-sm) 0;transition:color var(--fast) var(--ease),background-color var(--base) var(--ease)}
+.sp-it svg{width:14px;height:14px;color:var(--m-primary);opacity:0;translate:-4px 0;transition:opacity var(--fast) var(--ease),translate var(--base) var(--ease)}
+.sp-it.act{color:var(--m-primary-pressed);background:linear-gradient(90deg,var(--m-primary-lowest),transparent)}
+.sp-it.act svg{opacity:1;translate:0 0}
+.B .list .ul-link{margin-top:16px}
+.B .spot{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:0;border-radius:var(--m-radius-md);border:1px solid var(--m-outline-low);overflow:hidden;min-height:320px}
+.B .stage{border-radius:0;height:100%;min-height:320px}
+.B .txt{position:relative;padding:28px 28px 24px;display:flex;flex-direction:column;overflow:hidden}
+.B .txt .k{font:600 .6875rem/1rem var(--m-font);letter-spacing:.08em;text-transform:uppercase;color:var(--m-primary-pressed)}
+.B .txt h3{margin:10px 0 8px;font:500 1.5rem/2rem var(--m-font);letter-spacing:-.01em;text-wrap:balance}
+.B .txt p{margin:0;font-size:.9375rem;line-height:1.4rem;color:var(--m-ink-medium)}
+.B .txt .btn{margin-top:auto;align-self:flex-start}
+.B .txt .sw{transition:opacity var(--base) var(--ease),translate var(--base) var(--ease)}
+.B .txt .sw.leave{opacity:0;translate:0 -8px}
+.B .txt .sw.enter{opacity:0;translate:0 8px;transition:none}
+
+/* ===== Concept C — Diorama ===== */
+.C .ctr{padding-top:22px;padding-bottom:26px}
+.C .head{display:flex;align-items:baseline;gap:16px;margin-bottom:16px}
+.C .head h3{margin:0;font:600 1rem/1.4rem var(--m-font)}
+.C .head p{margin:0;font-size:.875rem;color:var(--m-ink-medium)}
+.C .head .ul-link{margin-left:auto}
+.C .view{position:relative}
+.C .row{display:grid;grid-template-columns:repeat(var(--n,5),minmax(0,1fr));gap:12px}
+.card{display:flex;flex-direction:column;border-radius:var(--m-radius-md);border:1px solid var(--m-outline-low);overflow:hidden;transition:border-color var(--base) var(--ease),box-shadow var(--base) var(--ease),translate var(--base) var(--ease)}
+.card .stage{height:150px;border-radius:0;background:var(--m-surface);transition:background-color var(--slow) var(--ease)}
+.card .stage::before{opacity:.5}
+.card .tx{padding:12px 14px 14px}
+.card .tl{display:flex;align-items:center;gap:6px;font:500 .9375rem/1.3rem var(--m-font);transition:color var(--fast) var(--ease)}
+.card .tl svg{width:14px;height:14px;color:var(--m-primary);opacity:0;translate:-4px 0;transition:opacity var(--fast) var(--ease),translate var(--base) var(--ease)}
+.card .td{margin-top:2px;font-size:.8125rem;line-height:1.2rem;color:var(--m-ink-medium)}
+.card.act{border-color:var(--m-primary-high);box-shadow:var(--m-shadow-3);translate:0 -2px}
+.card.act .stage{background:var(--m-primary-lowest)}
+.card.act .tl{color:var(--m-primary-pressed)}
+.card.act .tl svg{opacity:1;translate:0 0}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;overflow:hidden;background:var(--m-surface-bright)}
+.hero canvas.lattice{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero .ctr{position:relative;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:64px;align-items:center;padding-top:64px;padding-bottom:88px;min-height:620px}
+.hero h1{margin:0;font:600 3rem/3.5rem var(--m-font);letter-spacing:-.025em;max-width:500px}
+.term{position:relative;color:var(--m-primary);text-decoration:underline dotted 3px;text-decoration-color:var(--m-primary-high);text-underline-offset:8px;cursor:help;border-radius:var(--m-radius-sm)}
+.term:hover,.term:focus-visible{text-decoration-color:var(--m-primary)}
+.tip{position:absolute;left:0;top:calc(100% + 14px);z-index:5;width:280px;padding:14px 16px;background:var(--m-surface-bright);border:1px solid var(--m-outline-variant);border-radius:var(--m-radius-md);box-shadow:var(--m-shadow-4);font:400 .875rem/1.3rem var(--m-font);letter-spacing:0;color:var(--m-ink-medium);opacity:0;translate:0 -4px;pointer-events:none;transition:opacity var(--fast) var(--ease),translate var(--base) var(--ease)}
+.tip b{display:block;font-weight:600;color:var(--m-ink);margin-bottom:2px}
+.term:hover .tip,.term:focus .tip{opacity:1;translate:0 0}
+.hero .body{margin:24px 0 0;font:400 1.25rem/1.75rem var(--m-font);color:var(--m-ink-medium);max-width:33em}
+.hero .acts{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap}
+.est{justify-self:end;width:100%;max-width:480px;background:var(--m-surface-bright);border:1px solid var(--m-ink);padding:32px;display:grid;position:relative}
+.est::after{content:"";position:absolute;inset:auto -9px -9px auto;width:100%;height:100%;border-right:1px solid var(--m-outline-variant);border-bottom:1px solid var(--m-outline-variant);pointer-events:none;z-index:-1}
+.est h2{margin:0 0 28px;font:400 1.75rem/2.25rem var(--m-font);letter-spacing:-.01em;max-width:13em}
+.hist{display:flex;align-items:flex-end;gap:3px;height:64px}
+.hist i{flex:1;background:var(--m-primary-low);transition:background-color var(--base) var(--ease)}
+.hist i.on{background:var(--m-primary)}
+.est-range{margin:10px 0 8px;font:500 .9375rem/1.25rem var(--m-font);font-variant-numeric:tabular-nums}
+.trk{position:relative;height:28px;touch-action:none;cursor:pointer}
+.trk .base{position:absolute;left:0;right:0;top:50%;height:12px;margin-top:-6px;background:var(--m-primary-low);border-radius:6px}
+.trk .sel{position:absolute;top:50%;height:12px;margin-top:-6px;background:var(--m-primary);cursor:grab;transition:left var(--base) var(--ease),width var(--base) var(--ease)}
+.trk.drag .sel,.trk.drag .hd{transition:none}
+.trk .hd{position:absolute;top:0;width:20px;height:28px;margin-left:-10px;display:grid;place-items:center;background:none;border:0;padding:0;cursor:ew-resize;transition:left var(--base) var(--ease)}
+.trk .hd::before{content:"";width:3px;height:26px;border-radius:2px;background:var(--m-primary-pressed);box-shadow:0 0 0 3px #fff}
+.est-k{margin:28px 0 2px;font-size:.9375rem;color:var(--m-ink-medium)}
+.est-v{margin:0;font:400 1.875rem/2.375rem var(--m-font);font-variant-numeric:tabular-nums}
+.est .btn{justify-self:start;margin-top:16px}
+.est-note{display:flex;gap:8px;margin:20px 0 0;padding-top:16px;border-top:1px solid var(--m-outline-low);font-size:.75rem;line-height:1rem;color:var(--m-ink-medium)}
+.est-note svg{width:14px;height:14px;flex:none;margin-top:1px}
+
+/* ---------- Concept switcher (review only) ---------- */
+.switch{position:fixed;left:50%;bottom:max(20px, env(safe-area-inset-bottom,0px));translate:-50% 0;z-index:200;display:flex;align-items:center;gap:4px;padding:5px;background:var(--m-surface-inverse);border-radius:var(--m-radius-pill);box-shadow:var(--m-shadow-5)}
+.switch span{font:500 .75rem/1 var(--m-font);color:#b9b2ac;padding:0 10px 0 12px;letter-spacing:.02em;white-space:nowrap}
+.switch a{white-space:nowrap;font:500 .8125rem/1 var(--m-font);color:var(--m-on-inverse);padding:9px 14px;border-radius:var(--m-radius-pill);transition:background-color var(--fast) var(--ease)}
+.switch a:hover{background:#ffffff14}
+.switch a[aria-current="true"]{background:var(--m-on-inverse);color:var(--m-ink)}
+
+/* ---------- Mobile ---------- */
+.mdrawer{position:fixed;left:0;right:0;bottom:0;top:var(--hdr-h,60px);z-index:95;background:var(--m-surface-bright);display:flex;flex-direction:column;opacity:0;translate:0 -8px;transition:opacity var(--base) var(--ease-exit),translate var(--base) var(--ease-exit)}
+.mdrawer.open{opacity:1;translate:0 0;transition-timing-function:var(--ease-enter)}
+.md-vp{position:relative;flex:1;overflow:hidden}
+.md-track{position:absolute;inset:0;display:flex;width:200%;transition:translate var(--slow) var(--ease)}
+.md-track.deep{translate:-50% 0}
+.md-lvl{width:50%;height:100%;overflow-y:auto;padding:8px 20px 24px}
+.md-l1{list-style:none;margin:0;padding:0}
+.md-l1 li{border-bottom:1px solid var(--m-outline-low)}
+.md-row{appearance:none;border:0;background:none;width:100%;min-height:58px;display:flex;align-items:center;justify-content:space-between;font:500 1.0625rem/1.5rem var(--m-font);text-align:left;cursor:pointer;padding:0 2px}
+.md-row svg{width:18px;height:18px;color:var(--m-ink-low)}
+.md-util{display:grid;margin-top:16px}
+.md-util a{display:flex;align-items:center;min-height:var(--control);font-size:.9375rem;color:var(--m-ink-medium)}
+.md-back{appearance:none;border:0;background:none;display:inline-flex;align-items:center;gap:6px;min-height:var(--control);font:500 .9375rem/1 var(--m-font);color:var(--m-primary-pressed);cursor:pointer;padding:0 6px 0 0}
+.md-back svg{width:18px;height:18px}
+.md-stage{height:170px;margin:4px 0 10px}
+.md-sec{display:none}
+.md-sec.on{display:block}
+.md-sec h2{margin:4px 0 2px;font:600 1.5rem/2rem var(--m-font)}
+.md-sec>p{margin:0 0 6px;color:var(--m-ink-medium);font-size:.9375rem}
+.md-sec ul{list-style:none;margin:0;padding:0}
+.md-sec .it{margin:0;padding:10px 0}
+.md-sec .it::before{display:none}
+.md-foot{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:12px 20px calc(12px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--m-outline-low)}
+
+@media (max-width:1180px){ .hdr-cta .btn-sm{display:none} }
+@media (max-width:1023px){
+  .hdr-util,.nav,.hdr-cta .btn-sm,#dd-root{display:none}
+  .burger{display:grid}
+  .hdr-main .ctr{height:60px}
+  .logo img{height:40px}
+  .hero .ctr{grid-template-columns:minmax(0,1fr);gap:40px;padding-top:40px;padding-bottom:96px;min-height:0}
+  .est{justify-self:stretch;max-width:none}
+}
+@media (max-width:560px){
+  .ctr{padding-left:max(16px, env(safe-area-inset-left,0px));padding-right:max(16px, env(safe-area-inset-right,0px))}
+  .hero h1{font-size:2.375rem;line-height:2.875rem}
+  .hero .body{font-size:1.0625rem;line-height:1.6rem}
+  .est{padding:24px}
+  .est h2{font-size:1.375rem;line-height:1.875rem}
+  .tip{width:240px}
+  .switch span{display:none}
+  .switch a{padding:9px 10px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important;transition-delay:0s!important}
+}
+</style>
+</head>
+<body data-opt="stage" class="menu-open">
+<a class="sr" href="#main">Skip to content</a>
+<header class="hdr" id="hdr">
+  <div class="hdr-util"><div class="ctr">
+    <a href="#">Log in</a><a href="#">Contact us</a>
+    <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3c3 3.4 3 14.6 0 18M12 3c-3 3.4-3 14.6 0 18"></path></svg>United States - English</a>
+    <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="M20 20l-4.2-4.2"></path></svg>Search</a>
+  </div></div>
+  <div class="hdr-main"><div class="ctr">
+    <a class="logo" href="#" aria-label="InsureShield Shipping Insurance by UPS Capital, home"><img alt="" src="data:image/png;base64,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"></a>
+    <nav class="nav" aria-label="Main"><ul class="nav-list" id="nav-list"><li><button class="nav-t" type="button" data-id="insurance" aria-expanded="true" aria-controls="dd-insurance" aria-current="page">Shipping Insurance<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></button></li><li><button class="nav-t" type="button" data-id="solutions" aria-expanded="false" aria-controls="dd-solutions">Solutions<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></button></li><li><a class="nav-t" href="#">Claims</a></li><li><button class="nav-t" type="button" data-id="partners" aria-expanded="false" aria-controls="dd-partners">Partners<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></button></li><li><button class="nav-t" type="button" data-id="resources" aria-expanded="false" aria-controls="dd-resources">Resources<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></button></li><li><button class="nav-t" type="button" data-id="about" aria-expanded="false" aria-controls="dd-about">About<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></button></li></ul><span class="nav-ind on" aria-hidden="true" style="width: 155.219px; translate: 12px;"></span></nav>
+    <div class="hdr-cta">
+      <a class="btn btn-primary btn-sm" href="#">Get a quote</a>
+      <button class="icon-btn burger" type="button" aria-expanded="false" aria-controls="mdrawer" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
+    </div>
+  </div></div>
+  <div id="dd-root"><div class="mega A open" id="mega" style="height: 392px;"><div class="ctr"><div><div class="stage"><svg class="isov" aria-hidden="true" preserveAspectRatio="xMidYMid meet" viewBox="-160 -169.9 320 270"><g class="iso-g"></g></svg><button class="cp" type="button" aria-label="Copy illustration as SVG for Figma"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"></rect><path d="M16 8V5a1 1 0 00-1-1H5a1 1 0 00-1 1v10a1 1 0 001 1h3"></path></svg>Copy SVG</button></div><div class="cap"><div class=""><p class="cap-t">Special Commodities</p><p class="cap-d">High-value, perishable, and specialty goods</p></div></div></div><div class="view"><div class="lyr in" data-id="insurance" id="dd-insurance" role="region" aria-label="Shipping Insurance"><div class="cols"><div class="grp" style="--cols:1"><p class="gt rise" style="--i:0">Coverage by shipment</p><ul><li><a class="it rise" href="#" style="--i:1" data-scene="globeRoutes" data-t="Multi-Carrier Shipments" data-d="Parcel and freight across UPS, FedEx, DHL, and USPS"><span class="it-l">Multi-Carrier Shipments<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span><span class="it-d">Parcel and freight across UPS, FedEx, DHL, and USPS</span></a></li><li><a class="it rise" href="#" style="--i:2" data-scene="truck" data-t="UPS Shipments" data-d="Coverage designed for packages shipped with UPS"><span class="it-l">UPS Shipments<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span><span class="it-d">Coverage designed for packages shipped with UPS</span></a></li><li><a class="it rise act" href="#" style="--i:3" data-scene="gemCase" data-t="Special Commodities" data-d="High-value, perishable, and specialty goods"><span class="it-l">Special Commodities<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span><span class="it-d">High-value, perishable, and specialty goods</span></a></li></ul></div><div class="grp" style="--cols:1"><p class="gt rise" style="--i:4">Get started</p><ul><li><a class="it rise" href="#" style="--i:5" data-scene="gauge" data-t="Select My Coverage" data-d="Answer a few questions to find the right fit"><span class="it-l">Select My Coverage<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span><span class="it-d">Answer a few questions to find the right fit</span></a></li><li><a class="it rise" href="#" style="--i:6" data-scene="coins" data-t="Get a Quote" data-d="Estimate cost for your shipping volume"><span class="it-l">Get a Quote<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span><span class="it-d">Estimate cost for your shipping volume</span></a></li></ul></div></div>
+      <div class="foot rise" style="--i:7"><a class="ul-link" href="#" data-scene="shieldParcel" data-t="Shipping Insurance" data-d="Protect shipments from covered loss, damage, and theft.">Explore shipping insurance<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a><span>Point at an option to preview it</span></div></div><div class="lyr" data-id="solutions" id="dd-solutions" role="region" aria-label="Solutions" inert=""><div class="cols"><div class="grp" style="--cols:2"><p class="gt rise" style="--i:0">Products</p><ul><li><a class="it rise" href="#" style="--i:1" data-scene="scanTile" data-t="CommerceShield" data-d="Order risk signals and chargeback protection"><span class="it-l">CommerceShield<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span><span class="it-d">Order risk signals and chargeback protection</span></a></li><li><a class="it rise" href="#" style="--i:2" data-scene="house" data-t="DeliveryDefense" data-d="Address confidence scores before you ship"><span class="it-l">DeliveryDefense<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span><span class="it-d">Address confidence scores before you ship</span></a></li><li><a class="it rise" href="#" style="--i:3" data-scene="route" data-t="Delivery Orchestration" data-d="Choose delivery options that lower risk"><span class="it-l">Delivery Orchestration<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span><span class="it-d">Choose delivery options that lower risk</span></a></li><li><a class="it rise" href="#" style="--i:4" data-scene="bigShield" data-t="InsureShield® Shipping Insurance" data-d="Protection against loss, damage, and theft"><span class="it-l">InsureShield® Shipping Insurance<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span><span class="it-d">Protection against loss, damage, and theft</span></a></li></ul></div></div>
+      <div class="foot rise" style="--i:5"><a class="ul-link" href="#" data-scene="layers" data-t="Solutions" data-d="Tools that reduce risk before, during, and after delivery.">See all solutions<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a><span>Point at an option to preview it</span></div></div><div class="lyr" data-id="partners" id="dd-partners" role="region" aria-label="Partners" inert=""><div class="cols"><div class="grp" style="--cols:1"><p class="gt rise" style="--i:0">Work with us</p><ul><li><a class="it rise" href="#" style="--i:1" data-scene="linkBlocks" data-t="Connect with a Partner" data-d="Add coverage inside the platforms you use"><span class="it-l">Connect with a Partner<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span><span class="it-d">Add coverage inside the platforms you use</span></a></li><li><a class="it rise" href="#" style="--i:2" data-scene="building" data-t="Become a Partner" data-d="Offer InsureShield to your customers"><span class="it-l">Become a Partner<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span><span class="it-d">Offer InsureShield to your customers</span></a></li></ul></div></div>
+      <div class="foot rise" style="--i:3"><a class="ul-link" href="#" data-scene="storefront" data-t="Partners" data-d="Connect InsureShield to the platforms you already ship with.">Partners overview<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a><span>Point at an option to preview it</span></div></div><div class="lyr" data-id="resources" id="dd-resources" role="region" aria-label="Resources" inert=""><div class="cols"><div class="grp" style="--cols:1"><p class="gt rise" style="--i:0">Learn</p><ul><li><a class="it rise" href="#" style="--i:1" data-scene="chart" data-t="Insights" data-d="Articles on shipping risk and protection"><span class="it-l">Insights<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span><span class="it-d">Articles on shipping risk and protection</span></a></li><li><a class="it rise" href="#" style="--i:2" data-scene="document" data-t="Whitepapers &amp; Guides" data-d="In-depth research and how-to guides"><span class="it-l">Whitepapers &amp; Guides<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span><span class="it-d">In-depth research and how-to guides</span></a></li><li><a class="it rise" href="#" style="--i:3" data-scene="storefront" data-t="Customer Stories" data-d="How businesses recover faster"><span class="it-l">Customer Stories<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span><span class="it-d">How businesses recover faster</span></a></li></ul></div><div class="grp" style="--cols:1"><p class="gt rise" style="--i:4">Get help</p><ul><li><a class="it rise" href="#" style="--i:5" data-scene="bubble" data-t="Help &amp; Support" data-d="Answers about coverage, billing, and claims"><span class="it-l">Help &amp; Support<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span><span class="it-d">Answers about coverage, billing, and claims</span></a></li></ul></div></div>
+      <div class="foot rise" style="--i:6"><a class="ul-link" href="#" data-scene="docStack" data-t="Resources" data-d="Guides, stories, and support for shippers.">All resources<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a><span>Point at an option to preview it</span></div></div><div class="lyr" data-id="about" id="dd-about" role="region" aria-label="About" inert=""><div class="cols"><div class="grp" style="--cols:1"><p class="gt rise" style="--i:0">Company</p><ul><li><a class="it rise" href="#" style="--i:1" data-scene="docStack" data-t="Announcements" data-d="Product and company news"><span class="it-l">Announcements<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span><span class="it-d">Product and company news</span></a></li><li><a class="it rise" href="#" style="--i:2" data-scene="document" data-t="In The News" data-d="Press coverage of UPS Capital"><span class="it-l">In The News<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span><span class="it-d">Press coverage of UPS Capital</span></a></li><li><a class="it rise" href="#" style="--i:3" data-scene="mapPins" data-t="Product Availability" data-d="Where coverage is offered"><span class="it-l">Product Availability<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span><span class="it-d">Where coverage is offered</span></a></li></ul></div><div class="grp" style="--cols:1"><p class="gt rise" style="--i:4">Talk to us</p><ul><li><a class="it rise" href="#" style="--i:5" data-scene="bubble" data-t="Contact Us" data-d="Reach our team"><span class="it-l">Contact Us<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span><span class="it-d">Reach our team</span></a></li></ul></div></div>
+      <div class="foot rise" style="--i:6"><a class="ul-link" href="#" data-scene="globePlinth" data-t="About" data-d="News, availability, and how to reach us.">About InsureShield<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a><span>Point at an option to preview it</span></div></div></div></div></div></div>
+</header>
+<div class="scrim" aria-hidden="true"></div>
+<div class="mdrawer" id="mdrawer" hidden=""><nav class="md-vp" aria-label="Main"><div class="md-track"><div class="md-lvl md-a"><ul class="md-l1"><li><button class="md-row" type="button" data-drill="insurance">Shipping Insurance<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></button></li><li><button class="md-row" type="button" data-drill="solutions">Solutions<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></button></li><li><a class="md-row" href="#">Claims<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></a></li><li><button class="md-row" type="button" data-drill="partners">Partners<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></button></li><li><button class="md-row" type="button" data-drill="resources">Resources<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></button></li><li><button class="md-row" type="button" data-drill="about">About<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></button></li></ul>
+    <div class="md-util"><a href="#">Log in</a><a href="#">Contact us</a><a href="#">Search</a><a href="#">United States - English</a></div></div>
+    <div class="md-lvl md-b" inert=""><button class="md-back" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg>All menus</button><div class="stage md-stage"><svg class="isov" aria-hidden="true" preserveAspectRatio="xMidYMid meet"></svg></div><div class="md-sec" data-id="insurance"><h2>Shipping Insurance</h2><p>Protect shipments from covered loss, damage, and theft.</p><ul><li><a class="it rise" href="#" style="--i:0" data-scene="globeRoutes" data-t="Multi-Carrier Shipments" data-d="Parcel and freight across UPS, FedEx, DHL, and USPS"><span class="it-l">Multi-Carrier Shipments<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span><span class="it-d">Parcel and freight across UPS, FedEx, DHL, and USPS</span></a></li><li><a class="it rise" href="#" style="--i:1" data-scene="truck" data-t="UPS Shipments" data-d="Coverage designed for packages shipped with UPS"><span class="it-l">UPS Shipments<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span><span class="it-d">Coverage designed for packages shipped with UPS</span></a></li><li><a class="it rise" href="#" style="--i:2" data-scene="gemCase" data-t="Special Commodities" data-d="High-value, perishable, and specialty goods"><span class="it-l">Special Commodities<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span><span class="it-d">High-value, perishable, and specialty goods</span></a></li><li><a class="it rise" href="#" style="--i:3" data-scene="gauge" data-t="Select My Coverage" data-d="Answer a few questions to find the right fit"><span class="it-l">Select My Coverage<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span><span class="it-d">Answer a few questions to find the right fit</span></a></li><li><a class="it rise" href="#" style="--i:4" data-scene="coins" data-t="Get a Quote" data-d="Estimate cost for your shipping volume"><span class="it-l">Get a Quote<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span><span class="it-d">Estimate cost for your shipping volume</span></a></li></ul></div><div class="md-sec" data-id="solutions"><h2>Solutions</h2><p>Tools that reduce risk before, during, and after delivery.</p><ul><li><a class="it rise" href="#" style="--i:0" data-scene="scanTile" data-t="CommerceShield" data-d="Order risk signals and chargeback protection"><span class="it-l">CommerceShield<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span><span class="it-d">Order risk signals and chargeback protection</span></a></li><li><a class="it rise" href="#" style="--i:1" data-scene="house" data-t="DeliveryDefense" data-d="Address confidence scores before you ship"><span class="it-l">DeliveryDefense<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span><span class="it-d">Address confidence scores before you ship</span></a></li><li><a class="it rise" href="#" style="--i:2" data-scene="route" data-t="Delivery Orchestration" data-d="Choose delivery options that lower risk"><span class="it-l">Delivery Orchestration<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span><span class="it-d">Choose delivery options that lower risk</span></a></li><li><a class="it rise" href="#" style="--i:3" data-scene="bigShield" data-t="InsureShield® Shipping Insurance" data-d="Protection against loss, damage, and theft"><span class="it-l">InsureShield® Shipping Insurance<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span><span class="it-d">Protection against loss, damage, and theft</span></a></li></ul></div><div class="md-sec" data-id="partners"><h2>Partners</h2><p>Connect InsureShield to the platforms you already ship with.</p><ul><li><a class="it rise" href="#" style="--i:0" data-scene="linkBlocks" data-t="Connect with a Partner" data-d="Add coverage inside the platforms you use"><span class="it-l">Connect with a Partner<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span><span class="it-d">Add coverage inside the platforms you use</span></a></li><li><a class="it rise" href="#" style="--i:1" data-scene="building" data-t="Become a Partner" data-d="Offer InsureShield to your customers"><span class="it-l">Become a Partner<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span><span class="it-d">Offer InsureShield to your customers</span></a></li></ul></div><div class="md-sec" data-id="resources"><h2>Resources</h2><p>Guides, stories, and support for shippers.</p><ul><li><a class="it rise" href="#" style="--i:0" data-scene="chart" data-t="Insights" data-d="Articles on shipping risk and protection"><span class="it-l">Insights<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span><span class="it-d">Articles on shipping risk and protection</span></a></li><li><a class="it rise" href="#" style="--i:1" data-scene="document" data-t="Whitepapers &amp; Guides" data-d="In-depth research and how-to guides"><span class="it-l">Whitepapers &amp; Guides<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span><span class="it-d">In-depth research and how-to guides</span></a></li><li><a class="it rise" href="#" style="--i:2" data-scene="storefront" data-t="Customer Stories" data-d="How businesses recover faster"><span class="it-l">Customer Stories<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span><span class="it-d">How businesses recover faster</span></a></li><li><a class="it rise" href="#" style="--i:3" data-scene="bubble" data-t="Help &amp; Support" data-d="Answers about coverage, billing, and claims"><span class="it-l">Help &amp; Support<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span><span class="it-d">Answers about coverage, billing, and claims</span></a></li></ul></div><div class="md-sec" data-id="about"><h2>About</h2><p>News, availability, and how to reach us.</p><ul><li><a class="it rise" href="#" style="--i:0" data-scene="docStack" data-t="Announcements" data-d="Product and company news"><span class="it-l">Announcements<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span><span class="it-d">Product and company news</span></a></li><li><a class="it rise" href="#" style="--i:1" data-scene="document" data-t="In The News" data-d="Press coverage of UPS Capital"><span class="it-l">In The News<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span><span class="it-d">Press coverage of UPS Capital</span></a></li><li><a class="it rise" href="#" style="--i:2" data-scene="mapPins" data-t="Product Availability" data-d="Where coverage is offered"><span class="it-l">Product Availability<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span><span class="it-d">Where coverage is offered</span></a></li><li><a class="it rise" href="#" style="--i:3" data-scene="bubble" data-t="Contact Us" data-d="Reach our team"><span class="it-l">Contact Us<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span><span class="it-d">Reach our team</span></a></li></ul></div></div></div></nav>
+    <div class="md-foot"><a class="btn btn-primary" href="#">Get a quote</a><a class="btn btn-secondary" href="#">Claims</a></div></div>
+
+<main id="main">
+  <section class="hero" aria-labelledby="hero-h">
+    <canvas class="lattice" aria-hidden="true" width="1416" height="669"></canvas>
+    <div class="ctr">
+      <div>
+        <h1 id="hero-h">Shipping insurance for
+          <span class="term" tabindex="0" aria-describedby="tip-lost">lost<span class="tip" role="tooltip" id="tip-lost"><b>Lost shipments</b>A package that never arrives. It may be missing in transit, delivered to the wrong location, or no longer showing tracking updates.</span></span>,
+          <span class="term" tabindex="0" aria-describedby="tip-dmg">damaged<span class="tip" role="tooltip" id="tip-dmg"><b>Damaged shipments</b>A parcel or its contents arrive visibly broken, crushed, cracked, or otherwise physically damaged.</span></span>, or
+          <span class="term" tabindex="0" aria-describedby="tip-stl">stolen<span class="tip" role="tooltip" id="tip-stl"><b>Stolen shipments</b>A package taken after delivery, including porch theft or “porch piracy.”</span></span> shipments</h1>
+        <p class="body">InsureShield® Shipping Insurance helps businesses recover faster after covered loss or damage to a shipment. Explore options for UPS packages, multi-carrier shipments, LTL freight, and international freight.</p>
+        <div class="acts"><a class="btn btn-secondary" href="#">Talk to an expert</a></div>
+      </div>
+      <form class="est" id="est" aria-labelledby="est-h" onsubmit="return false">
+        <h2 id="est-h">What’s your average package value?</h2>
+        <div class="hist" id="hist" aria-hidden="true"><i style="height:14%"></i><i style="height:16%"></i><i style="height:19%"></i><i style="height:23%"></i><i style="height:26%" class="on"></i><i style="height:30%" class="on"></i><i style="height:34%" class="on"></i><i style="height:39%" class="on"></i><i style="height:43%" class="on"></i><i style="height:48%" class="on"></i><i style="height:53%" class="on"></i><i style="height:57%" class="on"></i><i style="height:62%" class="on"></i><i style="height:68%" class="on"></i><i style="height:73%" class="on"></i><i style="height:78%"></i><i style="height:83%"></i><i style="height:89%"></i><i style="height:94%"></i><i style="height:100%"></i></div>
+        <p class="est-range" id="est-range">$100 to $1,000</p>
+        <div class="trk" id="trk"><span class="base"></span><span class="sel" id="sel" style="left: 20%; width: 55%;"></span>
+          <button type="button" class="hd" id="hd-lo" role="slider" aria-label="Lowest package value" aria-valuemin="10" aria-valuemax="3000" aria-valuenow="100" aria-valuetext="$100" style="left: 20%;"></button>
+          <button type="button" class="hd" id="hd-hi" role="slider" aria-label="Highest package value" aria-valuemin="10" aria-valuemax="3000" aria-valuenow="1000" aria-valuetext="$1,000" style="left: 75%;"></button></div>
+        <p class="est-k">Estimated premium per package</p>
+        <p class="est-v" id="est-v" aria-live="polite">$0.80 to $10.50</p>
+        <button class="btn btn-primary" type="submit">Estimate monthly premium <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button>
+        <p class="est-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v6M12 7.5v.5"></path></svg>Estimate only. Actual pricing and availability depend on the shipment, customer, coverage option, and applicable policy terms.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<nav class="switch" aria-label="Header concept">
+  <span>Lattice concept</span>
+  <a href="#stage" data-o="stage" aria-current="true">A · Stage</a>
+  <a href="#spotlight" data-o="spotlight" aria-current="false">B · Spotlight</a>
+  <a href="#diorama" data-o="diorama" aria-current="false">C · Diorama</a>
+</nav>
+<div class="toast" id="toast" role="status"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function(){
+"use strict";
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const RM=matchMedia('(prefers-reduced-motion: reduce)');
+const NS='http://www.w3.org/2000/svg';
+const ICON={
+  chev:'<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>',
+  arrow:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
+  right:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>',
+  left:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>',
+  copy:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 00-1-1H5a1 1 0 00-1 1v10a1 1 0 001 1h3"/></svg>'
+};
+
+/* ============ Content: every live link, each with its own illustration ============ */
+const NAV=[
+ {id:'insurance',label:'Shipping Insurance',current:true,lead:'Protect shipments from covered loss, damage, and theft.',over:'Explore shipping insurance',scene:'shieldParcel',
+  groups:[{t:'Coverage by shipment',l:[['Multi-Carrier Shipments','Parcel and freight across UPS, FedEx, DHL, and USPS','globeRoutes'],['UPS Shipments','Coverage designed for packages shipped with UPS','truck'],['Special Commodities','High-value, perishable, and specialty goods','gemCase']]},
+          {t:'Get started',l:[['Select My Coverage','Answer a few questions to find the right fit','gauge'],['Get a Quote','Estimate cost for your shipping volume','coins']]}]},
+ {id:'solutions',label:'Solutions',lead:'Tools that reduce risk before, during, and after delivery.',over:'See all solutions',scene:'layers',
+  groups:[{t:'Products',cols:2,l:[['CommerceShield','Order risk signals and chargeback protection','scanTile'],['DeliveryDefense','Address confidence scores before you ship','house'],['Delivery Orchestration','Choose delivery options that lower risk','route'],['InsureShield® Shipping Insurance','Protection against loss, damage, and theft','bigShield']]}]},
+ {id:'claims',label:'Claims',href:'#'},
+ {id:'partners',label:'Partners',lead:'Connect InsureShield to the platforms you already ship with.',over:'Partners overview',scene:'storefront',
+  groups:[{t:'Work with us',l:[['Connect with a Partner','Add coverage inside the platforms you use','linkBlocks'],['Become a Partner','Offer InsureShield to your customers','building']]}]},
+ {id:'resources',label:'Resources',lead:'Guides, stories, and support for shippers.',over:'All resources',scene:'docStack',
+  groups:[{t:'Learn',l:[['Insights','Articles on shipping risk and protection','chart'],['Whitepapers & Guides','In-depth research and how-to guides','document'],['Customer Stories','How businesses recover faster','storefront']]},{t:'Get help',l:[['Help & Support','Answers about coverage, billing, and claims','bubble']]}]},
+ {id:'about',label:'About',lead:'News, availability, and how to reach us.',over:'About InsureShield',scene:'globePlinth',
+  groups:[{t:'Company',l:[['Announcements','Product and company news','docStack'],['In The News','Press coverage of UPS Capital','document'],['Product Availability','Where coverage is offered','mapPins']]},{t:'Talk to us',l:[['Contact Us','Reach our team','bubble']]}]}
+];
+const MENUS=NAV.filter(n=>!n.href), byId=id=>MENUS.find(m=>m.id===id);
+const amp=s=>s.replace(/&/g,'&amp;');
+const allLinks=m=>m.groups.flatMap(g=>g.l);
+
+/* ======================================================================
+   ISO ENGINE — three.js does the 3D maths (camera, transforms, normals);
+   every frame is written out as plain SVG paths, so it stays vector.
+   Timing follows the live site's illustration tracks:
+   guides 0–.3 · edges .04–.46 · hidden edges .1–.4 · planes .42–.86 ·
+   hidden clear .55–.88 · guides retract .66–1  (of a 1.4s build), then one action.
+   ====================================================================== */
+const CAM=new THREE.OrthographicCamera(-1,1,1,-1,.1,100); CAM.position.set(10,8.2,10); CAM.lookAt(0,0,0); CAM.updateMatrixWorld(true);
+const VIEW=CAM.matrixWorldInverse.clone(), DIR=CAM.position.clone().normalize(), PX=44;
+const BUILD_S=1.4;
+const INK='#121212', MUTE='#b2b2bb', TEAL='#0a8080', DEEP='#075a5a';
+const TONES={
+  base:{t:'#ffffff',l:'#e7f2f2',r:'#cfe5e5'}, soft:{t:'#f3f9f9',l:'#ffffff',r:'#e7f2f2'},
+  light:{t:'#cfe5e5',l:'#9fcbcb',r:'#6fb1b1'}, acc:{t:'#3f9898',l:'#0a8080',r:'#075a5a'},
+  dark:{t:'#5f5753',l:'#363230',r:'#2a2725'}, glass:{t:TEAL,l:TEAL,r:TEAL,o:.14,stroke:TEAL}
+};
+const E={c:x=>Math.max(0,Math.min(1,x)),out:x=>1-Math.pow(1-E.c(x),3),
+  back:x=>{x=E.c(x);const a=1.5,b=a+1;return 1+b*Math.pow(x-1,3)+a*Math.pow(x-1,2);},
+  io:x=>{x=E.c(x);return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;}};
+const seg=(t,a,b)=>E.c((t-a)/(b-a));
+const V3=(x,y,z)=>new THREE.Vector3(x,y,z);
+const f1=n=>(Math.round(n*10)/10).toString();
+function pj(v){ const p=v.clone().applyMatrix4(VIEW); return [p.x*PX,-p.y*PX]; }
+function newell(vs){ const n=V3(0,0,0); for(let i=0;i<vs.length;i++){const a=vs[i],b=vs[(i+1)%vs.length]; n.x+=(a.y-b.y)*(a.z+b.z); n.y+=(a.z-b.z)*(a.x+b.x); n.z+=(a.x-b.x)*(a.y+b.y);} return n.normalize(); }
+function hull(P){ const p=P.slice().sort((a,b)=>a[0]-b[0]||a[1]-b[1]); const cr=(o,a,b)=>(a[0]-o[0])*(b[1]-o[1])-(a[1]-o[1])*(b[0]-o[0]); const lo=[],up=[];
+  for(const q of p){ while(lo.length>=2&&cr(lo[lo.length-2],lo[lo.length-1],q)<=0) lo.pop(); lo.push(q); }
+  for(let i=p.length-1;i>=0;i--){ const q=p[i]; while(up.length>=2&&cr(up[up.length-2],up[up.length-1],q)<=0) up.pop(); up.push(q); }
+  up.pop(); lo.pop(); return lo.concat(up); }
+const dpath=(P,close)=>'M'+P.map(q=>f1(q[0])+' '+f1(q[1])).join('L')+(close?'Z':'');
+const dash=dp=>dp<1?` pathLength="1" stroke-dasharray="1 1" stroke-dashoffset="${(1-dp).toFixed(3)}"`:'';
+
+/* --- geometry: convex solids. Faces are auto-oriented outward. --- */
+function solid(verts,faces,o={}){
+  const c=verts.reduce((a,v)=>a.add(v),V3(0,0,0)).multiplyScalar(1/verts.length);
+  faces.forEach(f=>{ const vs=f.i.map(k=>verts[k]); const fc=vs.reduce((a,v)=>a.add(v.clone()),V3(0,0,0)).multiplyScalar(1/vs.length); if(newell(vs).dot(fc.sub(c))<0) f.i.reverse(); });
+  return {kind:'solid',verts,faces,tone:o.tone||'base',smooth:!!o.smooth,lines:o.lines||[],node:new THREE.Object3D()};
+}
+function box(w,h,d,o={}){ const x=w/2,z=d/2,y0=o.center?-h/2:0,y1=y0+h;
+  const v=[V3(-x,y0,-z),V3(x,y0,-z),V3(x,y1,-z),V3(-x,y1,-z),V3(-x,y0,z),V3(x,y0,z),V3(x,y1,z),V3(-x,y1,z)];
+  return solid(v,[{i:[0,1,2,3]},{i:[4,5,6,7]},{i:[0,4,7,3]},{i:[1,5,6,2]},{i:[3,2,6,7]},{i:[0,1,5,4]}],o); }
+function frustum(n,r0,r1,h,o={}){ const v=[],f=[],y0=o.center?-h/2:0;
+  for(let i=0;i<n;i++){const a=i/n*Math.PI*2; v.push(V3(Math.cos(a)*r0,y0,Math.sin(a)*r0));}
+  for(let i=0;i<n;i++){const a=i/n*Math.PI*2; v.push(V3(Math.cos(a)*r1,y0+h,Math.sin(a)*r1));}
+  for(let i=0;i<n;i++){const j=(i+1)%n; f.push({i:[i,j,n+j,n+i]});}
+  f.push({i:[...Array(n).keys()],cap:true}); f.push({i:[...Array(n).keys()].map(k=>k+n),cap:true});
+  return solid(v,f,Object.assign({smooth:true},o)); }
+const prism=(n,r,h,o)=>frustum(n,r,r,h,o);
+function extrude(pts,d,o={}){ const n=pts.length,v=[],f=[];
+  pts.forEach(([x,y])=>v.push(V3(x,y,d/2))); pts.forEach(([x,y])=>v.push(V3(x,y,-d/2)));
+  for(let i=0;i<n;i++){const j=(i+1)%n; f.push({i:[i,j,n+j,n+i]});}
+  f.push({i:[...Array(n).keys()],cap:true}); f.push({i:[...Array(n).keys()].map(k=>k+n),cap:true});
+  return solid(v,f,o); }
+function gem(o={}){ const v=[],f=[],n=8;
+  for(let i=0;i<n;i++){const a=(i+.5)/n*Math.PI*2; v.push(V3(Math.cos(a)*.34,.52,Math.sin(a)*.34));}
+  for(let i=0;i<n;i++){const a=(i+.5)/n*Math.PI*2; v.push(V3(Math.cos(a)*.62,.3,Math.sin(a)*.62));}
+  v.push(V3(0,-.34,0));
+  f.push({i:[...Array(n).keys()]});
+  for(let i=0;i<n;i++){const j=(i+1)%n; f.push({i:[i,j,n+j,n+i]}); f.push({i:[n+i,n+j,2*n]});}
+  return solid(v,f,o); }
+function line(pts,o={}){ return Object.assign({kind:'line',pts,node:new THREE.Object3D()},o); }
+function plate(w,d){ const x=w/2,z=d/2; return line([[-x,0,-z],[x,0,-z],[x,0,z],[-x,0,z]],{closed:true,color:MUTE,w:1,dashed:'3 4',plate:true}); }
+function globe(r){ return {kind:'globe',r,spin:0,node:new THREE.Object3D()}; }
+function arc(g,a,b,h=.32){ return {kind:'arc',g,a,b,h,node:new THREE.Object3D()}; }
+function ball(r,tone='acc'){ return {kind:'ball',r,tone,node:new THREE.Object3D()}; }
+const circ=(r,y,n=28)=>Array.from({length:n},(_,i)=>{const a=i/n*Math.PI*2;return [Math.cos(a)*r,y,Math.sin(a)*r];});
+
+const SHIELD=[[-.75,1.62],[0,1.82],[.75,1.62],[.75,.95],[.58,.42],[.32,.13],[0,0],[-.32,.13],[-.58,.42],[-.75,.95]];
+const CHECK=[[-.33,.95],[-.08,.68],[.38,1.24]];
+function roundRect(w,h,r,k=4){ const p=[],cs=[[w/2-r,h/2-r,0],[-w/2+r,h/2-r,1],[-w/2+r,-h/2+r,2],[w/2-r,-h/2+r,3]];
+  cs.forEach(([cx,cy,q])=>{ for(let i=0;i<=k;i++){const a=(q*90+i*90/k)*Math.PI/180; p.push([cx+Math.cos(a)*r,cy+Math.sin(a)*r]);} }); return p; }
+
+/* --- scene builder --- */
+function S(){ const root=new THREE.Group(), parts=[], n={};
+  return {root,parts,n,top:2.2,dur:2.6,
+    add(p,{at=[0,0,0],rot=[0,0,0],sc=null,parent=root,t0=0,name}={}){ p.node.position.set(...at); p.node.rotation.set(...rot); if(sc) p.node.scale.set(...sc); parent.add(p.node); p.t0=t0; parts.push(p); if(name) n[name]=p; return p; },
+    grp(name,{at=[0,0,0],rot=[0,0,0],parent=root}={}){ const g=new THREE.Group(); g.position.set(...at); g.rotation.set(...rot); parent.add(g); n[name]=g; return g; } };
+}
+
+/* --- the scenes (draw order = array order, back to front) --- */
+const SCENES={
+ shieldParcel(){ const s=S(); s.top=2.1;
+   s.add(plate(4.4,4.4));
+   s.add(box(2,1.4,2,{lines:[{pts:[[-1,1.402,0],[1,1.402,0]],color:TEAL,w:3,delay:.35},{pts:[[1.002,1.4,0],[1.002,.95,0]],color:TEAL,w:3,delay:.45}]}),{at:[-.55,0,-.55],t0:.06});
+   const g=s.grp('sh',{at:[1,0,1],rot:[0,Math.PI/4,0]});
+   s.add(extrude(SHIELD,.24,{tone:'acc',smooth:true,lines:[{pts:CHECK.map(([x,y])=>[x,y,.125]),color:'#fff',w:2.4,delay:.95}]}),{parent:g,t0:.2});
+   s.update=(t,n)=>{ n.sh.position.y=.2*E.out(seg(t,1.35,1.85)); }; return s; },
+
+ globeRoutes(){ const s=S(); s.top=3.2; s.loop=true;
+   s.add(plate(4,4));
+   s.add(prism(32,.78,.22,{tone:'soft'}),{t0:.04});
+   s.add(prism(16,.08,.42,{tone:'base'}),{at:[0,.22,0],t0:.1});
+   const g=s.add(globe(1.2),{at:[0,1.86,0],t0:.12});
+   s.add(arc(g,[8,-95],[42,-12]),{t0:.75}); s.add(arc(g,[-18,-72],[22,4],.24),{t0:.95});
+   s.update=t=>{ g.spin=Math.sin(t*.35)*.22; }; return s; },
+
+ truck(){ const s=S(); s.top=2.1;
+   s.add(plate(4.8,3.2));
+   const hub={pts:circ(.13,.101,20),color:'#9fcbcb',w:1.2,closed:true,delay:.3};
+   [-1.15,.95].forEach(x=>s.add(prism(24,.33,.2,{tone:'dark',center:true,lines:[hub]}),{at:[x,.33,-.72],rot:[Math.PI/2,0,0],t0:.32}));
+   const b=s.grp('body');
+   s.add(box(3.5,.18,1,{tone:'dark'}),{parent:b,at:[-.15,.3,0],t0:.04});
+   s.add(box(2.4,1.5,1.24,{lines:[{pts:[[-.9,.35,.621],[.9,.35,.621]],color:TEAL,w:2.6,delay:.5}]}),{parent:b,at:[-.6,.48,0],t0:.08});
+   s.add(box(1,1.1,1.24,{tone:'acc',lines:[
+     {pts:[[.501,.5,-.46],[.501,.5,.46],[.501,.9,.46],[.501,.9,-.46]],closed:true,fill:'#cfe5e5',color:INK,w:1,delay:.4},
+     {pts:[[-.35,.5,.621],[.32,.5,.621],[.32,.9,.621],[-.35,.9,.621]],closed:true,fill:'#cfe5e5',color:INK,w:1,delay:.45}]}),{parent:b,at:[1.12,.48,0],t0:.18});
+   [-1.15,.95].forEach(x=>s.add(prism(24,.33,.2,{tone:'dark',center:true,lines:[hub]}),{at:[x,.33,.72],rot:[Math.PI/2,0,0],t0:.34}));
+   s.update=(t,n)=>{ n.body.position.y=.14*(1-E.back(seg(t,1.2,1.8))); }; return s; },
+
+ gemCase(){ const s=S(); s.top=2.6; s.loop=true;
+   s.add(plate(4,4));
+   const h=s.grp('hinge',{at:[0,.75,-.9]});
+   s.add(box(2,.22,1.8,{tone:'soft'}),{parent:h,at:[0,0,.9],t0:.1});
+   s.add(box(2,.75,1.8),{t0:.04});
+   s.add(box(1.7,.02,1.5,{tone:'light'}),{at:[0,.75,0],t0:.22});
+   const g=s.grp('gem',{at:[0,1.1,0]});
+   s.add(gem({tone:'acc'}),{parent:g,t0:.36});
+   s.update=(t,n)=>{ n.hinge.rotation.x=-(1.68+.28*E.out(seg(t,.9,1.6))); n.gem.position.y=1.06+.3*E.out(seg(t,1.25,1.9)); n.gem.rotation.y=t*.32; }; return s; },
+
+ gauge(){ const s=S(); s.top=1.7;
+   s.add(plate(4,4));
+   s.add(box(2.7,.4,2.1,{tone:'soft'}),{t0:.04});
+   const R=V3(1,0,-1).normalize(), F=V3(-1,0,-1).normalize();
+   const at=(th,r,y)=>{ const v=R.clone().multiplyScalar(Math.cos(th)*r).add(F.clone().multiplyScalar(Math.sin(th)*r)); return [v.x,y,v.z]; };
+   const ticks=[]; for(let k=0;k<=10;k++){const th=Math.PI*k/10; ticks.push({pts:[at(th,.78,.101),at(th,.93,.101)],color:INK,w:1,delay:.35+k*.02});}
+   const zone=[]; for(let k=0;k<=16;k++) zone.push(at(Math.PI*k/40,.99,.101));
+   s.add(prism(48,1.06,.1,{lines:[...ticks,{pts:zone,color:TEAL,w:3.4,delay:.55}]}),{at:[0,.4,0],t0:.12});
+   const nd=s.grp('needle',{at:[0,.502,0]});
+   s.add(line([[-.16,0,0],[.8,0,0]],{color:DEEP,w:3}),{parent:nd,t0:.7});
+   s.add(prism(16,.1,.07,{tone:'acc'}),{at:[0,.5,0],t0:.72});
+   const ang=th=>Math.atan2(-(R.z*Math.cos(th)+F.z*Math.sin(th)),R.x*Math.cos(th)+F.x*Math.sin(th));
+   s.update=(t,n)=>{ const th=Math.PI-(Math.PI-.62)*E.back(seg(t,1.25,2.2)); n.needle.rotation.y=ang(th); }; return s; },
+
+ coins(){ const s=S(); s.top=1.4; s.dur=2.9;
+   s.add(plate(4.2,4.2));
+   const L=(z,x0,x1,c=INK,w=1)=>({pts:[[x0,.051,z],[x1,.051,z]],color:c,w,delay:.35});
+   s.add(box(1.9,.05,2.5,{lines:[L(-.85,-.6,.35,TEAL,3),L(-.4,-.6,.6),L(-.05,-.6,.5),L(.3,-.6,.6),L(.8,.1,.65,TEAL,3)]}),{at:[-.85,0,-.5],rot:[0,.12,0],t0:.04});
+   s.n.coins=[]; const top={pts:circ(.3,.131,28),color:DEEP,w:1,closed:true,delay:.25};
+   const stack=(x,z,k,d0)=>{ for(let i=0;i<k;i++){ const g=s.grp('c'+x+i,{at:[x,i*.13,z]}); s.add(prism(32,.45,.13,{tone:'light',lines:i===k-1?[top]:[]}),{parent:g,t0:.18+i*.05}); s.n.coins.push({g,y:i*.13,d:d0+i*.11}); } };
+   stack(1.35,.35,4,1.2); stack(.55,1.25,3,1.55);
+   s.update=(t,n)=>{ n.coins.forEach(c=>{ c.g.position.y=c.y+.7*(1-E.back(seg(t,c.d,c.d+.45))); }); }; return s; },
+
+ layers(){ const s=S(); s.top=1.8;
+   s.add(plate(4.2,4.2));
+   const L=[[3,.32,'base'],[2.2,.32,'soft'],[1.45,.32,'light'],[.72,.72,'acc']]; let y=0; s.n.L=[];
+   L.forEach(([w,h,tone],i)=>{ const g=s.grp('l'+i,{at:[0,y,0]}); s.add(box(w,h,w,{tone}),{parent:g,t0:.04+i*.07}); s.n.L.push({g,y}); y+=h; });
+   s.update=(t,n)=>{ n.L.forEach((l,i)=>{ if(i) l.g.position.y=l.y+.5*(1-E.out(seg(t,1.1+i*.12,1.5+i*.12))); }); }; return s; },
+
+ scanTile(){ const s=S(); s.top=1.7; s.loop=true;
+   s.add(plate(4.2,4.2));
+   s.add(box(2.8,.2,2.8),{t0:.04});
+   [[-.8,-.8],[.8,-.8],[-.8,.8]].forEach(([x,z],i)=>s.add(box(.7,.05,.7,{tone:'acc',lines:[{pts:[[-.18,.051,-.18],[.18,.051,-.18],[.18,.051,.18],[-.18,.051,.18]],closed:true,color:'#fff',w:1.2,delay:.4}]}),{at:[x,.2,z],t0:.2+i*.05}));
+   [[.25,.2],[.7,.4],[.3,.75],[.85,.85],[.05,.55]].sort((a,b)=>a[0]+a[1]-b[0]-b[1]).forEach(([x,z],i)=>s.add(box(.2,.05,.2,{tone:'light'}),{at:[x,.2,z],t0:.3+i*.03}));
+   const b=s.grp('beam',{at:[-1.4,.2,0]});
+   s.add(box(.03,1.25,2.9,{tone:'glass'}),{parent:b,t0:.6});
+   s.add(line([[0,1.25,-1.45],[0,1.25,1.45]],{color:TEAL,w:2}),{parent:b,t0:.6});
+   s.update=(t,n)=>{ const p=t<1.3?0:((t-1.3)/2.6)%1; n.beam.position.x=-1.4+2.8*E.io(p<.5?p*2:2-p*2); }; return s; },
+
+ house(){ const s=S(); s.top=2.4;
+   s.add(plate(4.4,4.4));
+   s.add(box(2,1.3,1.8,{lines:[
+     {pts:[[1.002,0,-.15],[1.002,.85,-.15],[1.002,.85,.35],[1.002,0,.35]],fill:'#9fcbcb',color:INK,w:1,delay:.4},
+     {pts:[[-.65,.55,.902],[-.1,.55,.902],[-.1,.95,.902],[-.65,.95,.902]],closed:true,fill:'#e7f2f2',color:INK,w:1,delay:.45}]}),{at:[-.35,0,-.3],t0:.04});
+   s.add(extrude([[-1.18,0],[1.18,0],[0,.85]],2.05,{tone:'acc'}),{at:[-.35,1.3,-.3],rot:[0,0,0],t0:.14});
+   s.add(box(.72,.02,.9,{tone:'soft'}),{at:[1.08,0,.05],t0:.3});
+   const p=s.grp('parcel',{at:[1.08,.02,.05]});
+   s.add(box(.44,.34,.44,{tone:'light',lines:[{pts:[[-.22,.341,0],[.22,.341,0]],color:DEEP,w:1.6,delay:.3}]}),{parent:p,t0:.5});
+   s.update=(t,n)=>{ n.parcel.scale.y=Math.max(.001,E.back(seg(t,1.3,1.8))); }; return s; },
+
+ route(){ const s=S(); s.top=1.2; s.loop=true;
+   s.add(plate(4.8,3.4));
+   const A=[-1.8,0,.9], B=[1.75,0,-.9];
+   s.add(line([A,[-1.8,0,-.9],B],{color:MUTE,w:1.4,dashed:'4 5'}),{t0:.1});
+   const path=[A,[.15,0,.9],[.15,0,-.9],B];
+   s.add(line(path,{color:INK,w:1.6}),{t0:.2});
+   s.add(prism(28,.34,.22,{tone:'soft'}),{at:A,t0:.06});
+   s.add(box(.62,.62,.62,{tone:'acc'}),{at:B,t0:.14});
+   const segs=[]; let tot=0; for(let i=0;i<path.length-1;i++){const a=V3(...path[i]),b=V3(...path[i+1]); const l=a.distanceTo(b); segs.push({a,b,l}); tot+=l;}
+   s.n.arrows=[0,1,2].map(i=>{ const g=s.grp('a'+i); s.add(extrude([[.24,0],[-.16,.18],[-.16,-.18]],.1,{tone:'acc'}),{parent:g,rot:[-Math.PI/2,0,0],at:[0,.06,0],t0:.85+i*.08}); return g; });
+   s.update=(t,n)=>{ n.arrows.forEach((g,i)=>{ const u=((Math.max(0,t-.9)*.11)+(.18+i*.28))%1; let d=u*tot; for(const sg of segs){ if(d<=sg.l){ const p=sg.a.clone().lerp(sg.b,d/sg.l); g.position.set(p.x,0,p.z); g.rotation.y=Math.atan2(-(sg.b.z-sg.a.z),sg.b.x-sg.a.x); break; } d-=sg.l; } }); }; return s; },
+
+ bigShield(){ const s=S(); s.top=2.9;
+   s.add(plate(4,4));
+   s.add(prism(40,1.15,.3,{tone:'soft'}),{t0:.04});
+   const g=s.grp('sh',{at:[0,.3,0],rot:[0,Math.PI/4,0]}); g.scale.setScalar(1.28);
+   s.add(extrude(SHIELD,.24,{tone:'acc',smooth:true,lines:[{pts:CHECK.map(([x,y])=>[x,y,.125]),color:'#fff',w:2.6,delay:.95}]}),{parent:g,t0:.16});
+   s.update=(t,n)=>{ n.sh.position.y=.3+.18*E.out(seg(t,1.35,1.85)); }; return s; },
+
+ linkBlocks(){ const s=S(); s.top=1.4;
+   s.add(plate(5,3.4));
+   const a=s.grp('a'); s.add(box(1.2,1.2,1.2,{lines:[{pts:[[.601,.6,-.15],[.601,.6,.15]],color:DEEP,w:3,delay:.4}]}),{parent:a,t0:.04});
+   const br=s.grp('br',{at:[0,.47,0]}); s.add(box(1.1,.26,.38,{tone:'light'}),{parent:br,t0:1});
+   const b=s.grp('b'); s.add(box(1.2,1.2,1.2,{tone:'acc'}),{parent:b,t0:.1});
+   s.update=(t,n)=>{ const k=E.out(seg(t,.9,1.5)); n.a.position.x=-1.6+.45*k; n.b.position.x=1.6-.45*k; n.br.scale.x=Math.max(.001,E.out(seg(t,1.3,1.75))); }; return s; },
+
+ building(){ const s=S(); s.top=2.6;
+   s.add(plate(4.4,4.4));
+   const tw=s.grp('tw',{at:[-.3,0,-.3]});
+   const win=[]; [.5,.95,1.4,1.85].forEach(y=>{ win.push({pts:[[.801,y,-.55],[.801,y,.55]],color:INK,w:1,delay:.4}); win.push({pts:[[-.55,y,.801],[.55,y,.801]],color:INK,w:1,delay:.42}); });
+   win.push({pts:[[.801,.3,0],[.801,2.1,0]],color:'#9fcbcb',w:1,delay:.45},{pts:[[0,.3,.801],[0,2.1,.801]],color:'#9fcbcb',w:1,delay:.45});
+   s.add(box(1.6,2.4,1.6,{lines:win}),{parent:tw,t0:.04});
+   s.add(box(1.72,.1,1.72,{tone:'acc'}),{parent:tw,at:[0,2.4,0],t0:.35});
+   s.add(box(1.4,.9,1.2,{tone:'soft',lines:[{pts:[[.701,0,-.2],[.701,.6,-.2],[.701,.6,.2],[.701,0,.2]],fill:'#9fcbcb',color:INK,w:1,delay:.4}]}),{at:[1.2,0,.35],t0:.22});
+   s.update=(t,n)=>{ n.tw.scale.y=Math.max(.001,E.out(seg(t,.0,.7))); }; return s; },
+
+ docStack(){ const s=S(); s.top=1;
+   s.add(plate(4,4));
+   const lines=[[-.7,-.9,.3,TEAL,3],[-.7,-.45,.7],[-.7,-.1,.55],[-.7,.25,.7],[-.7,.6,.4]].map(([x0,z,x1,c=INK,w=1])=>({pts:[[x0,.081,z],[x1,.081,z]],color:c,w,delay:.4}));
+   s.n.sh=[]; [['base',0],['soft',.14],['base',-.08]].forEach(([tone,r],i)=>{ const g=s.grp('s'+i,{at:[0,i*.08,0],rot:[0,r,0]}); s.add(box(2.2,.08,2.8,{tone,lines:i===2?lines:[]}),{parent:g,t0:.04+i*.08}); s.n.sh.push({g,y:i*.08}); });
+   s.update=(t,n)=>{ n.sh.forEach((o,i)=>{ if(i) o.g.position.y=o.y+.55*(1-E.out(seg(t,1.05+i*.14,1.45+i*.14))); }); }; return s; },
+
+ chart(){ const s=S(); s.top=2.6;
+   s.add(plate(4,4));
+   s.add(box(1.3,.08,.9),{t0:.04});
+   s.add(box(.24,.9,.24,{tone:'soft'}),{at:[0,.08,0],t0:.08});
+   s.add(box(.12,1.6,2.5),{at:[0,.95,0],t0:.12});
+   s.n.bars=[]; [[-.8,.45],[-.3,.7],[.2,.55],[.7,1.05]].forEach(([z,h],i)=>{ const g=s.grp('b'+i,{at:[.09,1.1,z]}); s.add(box(.06,h,.3,{tone:'acc'}),{parent:g,t0:.5+i*.05}); s.n.bars.push(g); });
+   s.add(line([[.13,1.1+.45+.15,-.8],[.13,1.1+.7+.15,-.3],[.13,1.1+.55+.15,.2],[.13,1.1+1.05+.15,.7]],{color:DEEP,w:2}),{t0:1.05});
+   s.update=(t,n)=>{ n.bars.forEach((g,i)=>g.scale.y=Math.max(.001,E.out(seg(t,1.1+i*.1,1.5+i*.1)))); }; return s; },
+
+ document(){ const s=S(); s.top=.8;
+   s.add(plate(4,4));
+   s.add(box(2,.05,2.6,{tone:'soft'}),{at:[-.14,0,-.12],t0:.04});
+   const P=[[-1,-1.3],[1,-1.3],[1,.8],[.5,1.3],[-1,1.3]];
+   const L=(x0,y,x1,c=INK,w=1)=>({pts:[[x0,y,.036],[x1,y,.036]],color:c,w,delay:.45});
+   s.add(extrude(P,.07,{lines:[L(-.7,.9,.15,TEAL,3),L(-.7,.45,.7),L(-.7,.1,.7),L(-.7,-.25,.5),L(-.7,-.6,.6),
+     {pts:[[.5,1.3,.037],[1,.8,.037],[.5,.8,.037]],closed:true,fill:'#cfe5e5',color:INK,w:1,delay:.7}]}),{at:[0,.085,0],rot:[-Math.PI/2,0,0],t0:.1});
+   return s; },
+
+ storefront(){ const s=S(); s.top=1.8;
+   s.add(plate(4.4,4));
+   s.add(box(2.4,1.4,1.7,{lines:[
+     {pts:[[1.201,0,-.55],[1.201,.85,-.55],[1.201,.85,-.08],[1.201,0,-.08]],fill:'#9fcbcb',color:INK,w:1,delay:.4},
+     {pts:[[1.201,.3,.12],[1.201,.82,.12],[1.201,.82,.68],[1.201,.3,.68]],closed:true,fill:'#e7f2f2',color:INK,w:1,delay:.45}]}),{t0:.04});
+   s.add(box(2.5,.14,1.8,{tone:'soft'}),{at:[0,1.4,0],t0:.14});
+   const aw=s.grp('aw',{at:[1.2,1.12,0]});
+   s.add(extrude([[0,0],[.56,-.28],[.56,-.4],[0,-.12]],1.7,{tone:'acc',lines:[-.5,0,.5].map(z=>({pts:[[.04,-.05,z],[.52,-.3,z]],color:'#fff',w:1.2,delay:.4}))}),{parent:aw,t0:.24});
+   s.update=(t,n)=>{ n.aw.rotation.z=-.5*(1-E.back(seg(t,1.2,1.75))); }; return s; },
+
+ bubble(){ const s=S(); s.top=2.6;
+   s.add(plate(4,4));
+   const g=s.grp('bb',{at:[0,.5,0],rot:[0,Math.PI/4,0]});
+   s.add(extrude([[-.62,-.74],[-.12,-.74],[-.8,-1.18]],.3),{parent:g,t0:.1});
+   const dots=[-.5,0,.5].map((x,i)=>({pts:circ(.11,0,16).map(([a,_,b])=>[x+a,b,.152]),closed:true,fill:TEAL,color:TEAL,w:1,delay:.9+i*.12}));
+   s.add(extrude(roundRect(2.4,1.5,.36),.3,{smooth:true,lines:dots}),{parent:g,at:[0,.1,0],t0:.04});
+   s.update=(t,n)=>{ n.bb.position.y=.5+.14*E.out(seg(t,1.2,1.8)); }; return s; },
+
+ mapPins(){ const s=S(); s.top=1.5; s.dur=3;
+   s.add(plate(4.4,4.2));
+   s.add(box(3.4,.14,2.8,{lines:[
+     {pts:[[-1.4,.141,-1],[-.4,.141,-1.1],[-.1,.141,-.3],[-.7,.141,.2],[-1.3,.141,-.2]],closed:true,fill:'#cfe5e5',color:INK,w:1,delay:.35},
+     {pts:[[.2,.141,.1],[1.3,.141,-.3],[1.4,.141,.8],[.6,.141,1.1],[.1,.141,.7]],closed:true,fill:'#cfe5e5',color:INK,w:1,delay:.4}]}),{t0:.04});
+   s.n.pins=[[-.85,-.5,1.2],[.65,-.15,1.4],[.4,.75,1.6]].map(([x,z,d],i)=>{ const g=s.grp('p'+i,{at:[x,.14,z]});
+     s.add(line(circ(.18,.002,20),{closed:true,color:TEAL,w:1}),{parent:g,t0:.6});
+     s.add(line([[0,0,0],[0,.7,0]],{color:INK,w:1.4}),{parent:g,t0:.6});
+     s.add(ball(.17),{parent:g,at:[0,.8,0],t0:.62}); return {g,d}; });
+   s.update=(t,n)=>{ n.pins.forEach(p=>{ p.g.position.y=.14+.9*(1-E.back(seg(t,p.d,p.d+.5))); }); }; return s; },
+
+ globePlinth(){ const s=S(); s.top=3; s.loop=true;
+   s.add(plate(4,4));
+   s.add(box(1.8,.45,1.8,{tone:'soft'}),{t0:.04});
+   s.add(prism(16,.08,.2,{tone:'base'}),{at:[0,.45,0],t0:.08});
+   const g=s.add(globe(1.12),{at:[0,1.76,0],t0:.12});
+   s.update=t=>{ g.spin=t*.2; }; return s; }
+};
+
+/* --- renderer: scene + time -> SVG markup --- */
+function renderScene(sc,t,mode,o={}){
+  sc.update&&sc.update(t,sc.n);
+  sc.root.updateMatrixWorld(true);
+  const T=t/BUILD_S, outline=mode==='outline';
+  const ink=outline?MUTE:INK, col=o.collect;
+  let s='';
+  // centre guide: extends, then retracts (live site's "guides" track)
+  const gE=E.out(seg(T,0,.3)), gR=E.io(seg(T,.66,1));
+  if(gE>0 && gR<1 && !o.final){ const a=pj(V3(0,0,0)), b=pj(V3(0,sc.top*gE,0)), c=pj(V3(0,sc.top*gR,0));
+    s+=`<path d="M${f1(a[0])} ${f1(c[1])}L${f1(b[0])} ${f1(b[1])}" stroke="${TEAL}" stroke-width="1" stroke-dasharray="2 3" fill="none" opacity=".7"/>`; }
+  for(const p of sc.parts){
+    const lt=(t-p.t0)/BUILD_S;
+    const draw=o.strokeDone?1:E.io(seg(lt,.04,.46)), plane=E.out(seg(lt,.42,.86)), hid=E.c(seg(lt,.1,.4))*(1-seg(lt,.55,.88));
+    if(draw<=.02 && !o.strokeDone) continue;
+    const M=p.node.matrixWorld;
+    if(p.kind==='line'){
+      const P=p.pts.map(a=>pj(V3(...a).applyMatrix4(M))); if(col) col.push(...P);
+      if(p.plate){ s+=`<path d="${dpath(P,true)}" fill="none" stroke="${MUTE}" stroke-width="1" stroke-dasharray="3 4" opacity="${draw.toFixed(2)}"/>`; continue; }
+      const c=outline?MUTE:p.color||INK;
+      s+=`<path d="${dpath(P,p.closed)}" fill="${p.fill&&!outline?p.fill:'none'}" fill-opacity="${plane.toFixed(2)}" stroke="${c}" stroke-width="${p.w||1}" stroke-linecap="round" stroke-linejoin="round"${p.dashed?` stroke-dasharray="${p.dashed}"`:dash(draw)}/>`;
+      continue;
+    }
+    if(p.kind==='ball'){
+      const c=pj(V3().setFromMatrixPosition(M)), r=p.r*PX*V3().setFromMatrixScale(M).x; if(col) col.push([c[0]-r,c[1]-r],[c[0]+r,c[1]+r]);
+      const tn=TONES[p.tone]; s+=`<circle cx="${f1(c[0])}" cy="${f1(c[1])}" r="${f1(r)}" fill="${outline?'#fff':tn.l}" fill-opacity="${plane.toFixed(2)}" stroke="${ink}" stroke-width="1.15"${dash(draw)}/>`;
+      continue;
+    }
+    if(p.kind==='globe'){
+      const C=V3().setFromMatrixPosition(M), c=pj(C), R=p.r; const r=R*PX; if(col) col.push([c[0]-r,c[1]-r],[c[0]+r,c[1]+r]);
+      s+=`<circle cx="${f1(c[0])}" cy="${f1(c[1])}" r="${f1(r)}" fill="#fff" fill-opacity="${plane.toFixed(2)}" stroke="${ink}" stroke-width="1.15"${dash(draw)}/>`;
+      const fronts=(fn)=>{ let d='',on=false; for(let i=0;i<=64;i++){ const v=fn(i/64*Math.PI*2); const vis=v.dot(DIR)>0; const q=pj(C.clone().add(v)); if(vis){ d+=(on?'L':'M')+f1(q[0])+' '+f1(q[1]); on=true; } else on=false; } return d; };
+      let g='';
+      for(let k=0;k<6;k++){ const a=k*Math.PI/6+p.spin; g+=fronts(th=>V3(Math.cos(th)*Math.cos(a),Math.sin(th),-Math.cos(th)*Math.sin(a)).multiplyScalar(R)); }
+      [-.6,0,.6].forEach(ph=>{ g+=fronts(th=>V3(Math.cos(ph)*Math.cos(th),Math.sin(ph),Math.cos(ph)*Math.sin(th)).multiplyScalar(R)); });
+      const go=E.c(seg(lt,.3,.7));
+      if(go>0) s+=`<path d="${g}" fill="none" stroke="${outline?MUTE:'#6fb1b1'}" stroke-width="1" opacity="${go.toFixed(2)}"/>`;
+      continue;
+    }
+    if(p.kind==='arc'){
+      const C=V3().setFromMatrixPosition(p.g.node.matrixWorld), R=p.g.r, rr=R*PX, cc=pj(C);
+      const U=([la,lo])=>{ const a=la*Math.PI/180, b=lo*Math.PI/180+p.g.spin; return V3(Math.cos(a)*Math.cos(b),Math.sin(a),-Math.cos(a)*Math.sin(b)); };
+      const ua=U(p.a), ub=U(p.b), om=Math.acos(Math.min(1,ua.dot(ub)));
+      let d='',on=false; const N=40, upto=Math.round(N*draw);
+      for(let i=0;i<=upto;i++){ const u=i/N; const v=ua.clone().multiplyScalar(Math.sin((1-u)*om)/Math.sin(om)).add(ub.clone().multiplyScalar(Math.sin(u*om)/Math.sin(om)));
+        const w=C.clone().add(v.multiplyScalar(R*(1+p.h*Math.sin(Math.PI*u)))); const q=pj(w); const off=w.clone().sub(C);
+        const vis=off.dot(DIR)>0 || Math.hypot(q[0]-cc[0],q[1]-cc[1])>rr; if(vis){ d+=(on?'L':'M')+f1(q[0])+' '+f1(q[1]); on=true; } else on=false; }
+      if(d) s+=`<path d="${d}" fill="none" stroke="${outline?MUTE:TEAL}" stroke-width="2" stroke-linecap="round"/>`;
+      continue;
+    }
+    // solid
+    const W=p.verts.map(v=>v.clone().applyMatrix4(M)), P=W.map(pj); if(col) col.push(...P);
+    const tn=TONES[p.tone]; let front='', back='';
+    for(const f of p.faces){
+      const n=newell(f.i.map(k=>W[k])); const vis=n.dot(DIR)>1e-3; const fp=f.i.map(k=>P[k]);
+      if(!vis){ if(hid>0 && !p.smooth && !o.final) back+=`<path d="${dpath(fp,true)}" fill="none" stroke="${outline?MUTE:'#85858e'}" stroke-width=".8" stroke-dasharray="2 3" opacity="${hid.toFixed(2)}"/>`; continue; }
+      const key=n.y>.55?'t':(Math.abs(n.x)>=Math.abs(n.z)?'r':'l');
+      const fill=outline?'#ffffff':tn[key]; const fo=((tn.o!=null&&!outline)?tn.o:1)*plane;
+      if(p.smooth && !f.cap) front+=`<path d="${dpath(fp,true)}" fill="${fill}" fill-opacity="${fo.toFixed(2)}" stroke="${fill}" stroke-opacity="${fo.toFixed(2)}" stroke-width="1"/>`;
+      else front+=`<path d="${dpath(fp,true)}" fill="${fill}" fill-opacity="${fo.toFixed(2)}" stroke="${(tn.stroke&&!outline)?tn.stroke:ink}" stroke-width="1.15" stroke-linejoin="round"${dash(draw)}/>`;
+    }
+    if(p.smooth){ front+=`<path d="${dpath(hull(P),true)}" fill="none" stroke="${ink}" stroke-width="1.15" stroke-linejoin="round"${dash(draw)}/>`; }
+    for(const L of p.lines){ const ld=E.io(seg(lt-(L.delay||0)/BUILD_S,0,.32)); if(ld<=.02) continue;
+      const LP=L.pts.map(a=>pj(V3(...a).applyMatrix4(M))); const c=outline?MUTE:L.color||INK;
+      front+=`<path d="${dpath(LP,L.closed||!!L.fill)}" fill="${L.fill&&!outline?L.fill:'none'}" fill-opacity="${E.c(ld*1.4-.4).toFixed(2)}" stroke="${c}" stroke-width="${L.w||1}" stroke-linecap="round" stroke-linejoin="round"${dash(ld)}/>`; }
+    s+=back+front;
+  }
+  return s;
+}
+
+/* --- a live SVG view --- */
+class IsoView{
+  constructor(svg,{w=320,h=270}={}){ this.svg=svg; this.W=w; this.H=h; svg.setAttribute('preserveAspectRatio','xMidYMid meet'); this.raf=0; }
+  fit(sc){ const col=[]; renderScene(sc,30,'full',{collect:col,final:true}); let x0=1e9,y0=1e9,x1=-1e9,y1=-1e9; col.forEach(([x,y])=>{x0=Math.min(x0,x);y0=Math.min(y0,y);x1=Math.max(x1,x);y1=Math.max(y1,y);});
+    const k=Math.max(1,(x1-x0+36)/this.W,(y1-y0+36)/this.H), w=this.W*k, h=this.H*k; this.svg.setAttribute('viewBox',`${f1((x0+x1)/2-w/2)} ${f1((y0+y1)/2-h/2)} ${f1(w)} ${f1(h)}`); }
+  play(name,o={}){
+    const mode=o.mode||'full';
+    if(!o.force && this.name===name && this.mode===mode) return;
+    if(this.g){ const old=this.g; old.classList.add('out'); setTimeout(()=>old.remove(),220); }
+    this.name=name; this.mode=mode; this.opts=o; this.sc=SCENES[name](); this.fit(this.sc);
+    this.g=document.createElementNS(NS,'g'); this.g.setAttribute('class','iso-g'); this.svg.appendChild(this.g);
+    this.t0=performance.now()+(o.delay||0)*1000; this.run();
+  }
+  run(){ cancelAnimationFrame(this.raf); const g=this.g, sc=this.sc;
+    const step=now=>{ if(g!==this.g) return; const t=Math.max(0,(now-this.t0)/1000)+(this.opts.skip||0);
+      if(RM.matches || this.opts.instant){ g.innerHTML=renderScene(sc,30,this.mode,{final:true}); return; }
+      g.innerHTML=renderScene(sc,t,this.mode,this.opts);
+      if(t<sc.dur || (sc.loop && this.mode==='full')) this.raf=requestAnimationFrame(step); };
+    this.raf=requestAnimationFrame(step); }
+  pause(){ cancelAnimationFrame(this.raf); }
+  resume(){ if(this.sc) this.run(); }
+  svgString(){ const sc=SCENES[this.name](); const col=[]; const body=renderScene(sc,30,'full',{collect:col,final:true}); return `<svg xmlns="${NS}" viewBox="${this.svg.getAttribute('viewBox')}" width="${this.W*2}" height="${this.H*2}">${body}</svg>`; }
+}
+
+/* ============ Toast + copy for Figma ============ */
+const toast=(m)=>{ const t=$('#toast'); t.textContent=m; t.classList.add('on'); clearTimeout(toast.h); toast.h=setTimeout(()=>t.classList.remove('on'),2200); };
+function copyText(txt){
+  const ok=()=>toast('SVG copied. Paste it into Figma as vectors.');
+  const fb=()=>{ const ta=document.createElement('textarea'); ta.value=txt; ta.style.position='fixed'; ta.style.opacity='0'; document.body.appendChild(ta); ta.select(); try{ document.execCommand('copy'); ok(); }catch(e){ toast('Copy is blocked here. Select the text instead.'); } ta.remove(); };
+  if(navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(ok,fb); else fb();
+}
+
+/* ============ Header + concepts ============ */
+const hdr=$('#hdr'), list=$('#nav-list'), ind=$('.nav-ind'), dd=$('#dd-root');
+list.innerHTML=NAV.map(n=>n.href?`<li><a class="nav-t" href="${n.href}">${n.label}</a></li>`
+  :`<li><button class="nav-t" type="button" data-id="${n.id}" aria-expanded="false" aria-controls="dd-${n.id}"${n.current?' aria-current="page"':''}>${n.label}${ICON.chev}</button></li>`).join('');
+const triggers=$$('.nav-t[data-id]'), ids=triggers.map(t=>t.dataset.id);
+let opt='stage', openId=null, tOpen=0, tClose=0, layers=[], view=null, cards=[], hoverT=0;
+
+const itemHTML=(l,i)=>`<li><a class="it rise" href="#" style="--i:${i}" data-scene="${l[2]}" data-t="${amp(l[0])}" data-d="${amp(l[1])}"><span class="it-l">${amp(l[0])}${ICON.arrow}</span><span class="it-d">${amp(l[1])}</span></a></li>`;
+const stageHTML=`<div class="stage"><svg class="isov" aria-hidden="true"></svg><button class="cp" type="button" aria-label="Copy illustration as SVG for Figma">${ICON.copy}Copy SVG</button></div>`;
+
+const CONCEPT={
+  stage:{
+    html(){ return `<div class="mega A" id="mega"><div class="ctr"><div>${stageHTML}<div class="cap"><div><p class="cap-t"></p><p class="cap-d"></p></div></div></div><div class="view">${MENUS.map(m=>{ let i=0;
+      return `<div class="lyr" data-id="${m.id}" id="dd-${m.id}" role="region" aria-label="${m.label}"><div class="cols">${m.groups.map(g=>`<div class="grp" style="--cols:${g.cols||1}"><p class="gt rise" style="--i:${i++}">${g.t}</p><ul>${g.l.map(l=>itemHTML(l,i++)).join('')}</ul></div>`).join('')}</div>
+      <div class="foot rise" style="--i:${i}"><a class="ul-link" href="#" data-scene="${m.scene}" data-t="${m.label}" data-d="${amp(m.lead)}">${m.over}${ICON.arrow}</a><span>Point at an option to preview it</span></div></div>`; }).join('')}</div></div></div>`; },
+    mount(root){ view=new IsoView($('.isov',root)); },
+    open(id,first){ const m=byId(id); view.play(m.scene,{force:first}); caption(m.label,m.lead,first); },
+    hover(el){ view.play(el.dataset.scene); caption(el.dataset.t,el.dataset.d); },
+    height(lyr){ return Math.max(lyr.offsetHeight, 340)+52; }
+  },
+  spotlight:{
+    html(){ return `<div class="mega B" id="mega"><div class="ctr"><div class="list">${MENUS.map(m=>{ let i=0;
+      return `<div class="lyr" data-id="${m.id}" id="dd-${m.id}" role="region" aria-label="${m.label}"><p class="gt rise" style="--i:${i++}">${m.label}</p><p class="lead rise" style="--i:${i++}">${m.lead}</p>
+      <ul>${allLinks(m).map(l=>`<li><a class="sp-it rise" style="--i:${i++}" href="#" data-scene="${l[2]}" data-t="${amp(l[0])}" data-d="${amp(l[1])}">${amp(l[0])}${ICON.arrow}</a></li>`).join('')}<span class="sp-ind"></span></ul>
+      <a class="ul-link rise" style="--i:${i}" href="#" data-scene="${m.scene}" data-t="${m.label}" data-d="${amp(m.lead)}">${m.over}${ICON.arrow}</a></div>`; }).join('')}</div>
+      <div class="spot">${stageHTML}<div class="txt"><div class="sw"><span class="k"></span><h3></h3><p></p></div><a class="btn btn-secondary btn-sm" href="#">Learn more ${ICON.arrow}</a></div></div></div></div>`; },
+    mount(root){ view=new IsoView($('.isov',root),{w:300,h:280}); },
+    open(id,first){ const m=byId(id); view.play(m.scene,{force:first}); spotText(m.label,m.label,m.lead,first); const lyr=$(`#dd-${id}`); const i=$('.sp-ind',lyr); i.style.height='0px'; },
+    hover(el){ view.play(el.dataset.scene); const lyr=el.closest('.lyr'); spotText(byId(lyr.dataset.id).label,el.dataset.t,el.dataset.d);
+      const i=$('.sp-ind',lyr); if(el.classList.contains('sp-it')){ i.style.height=el.offsetHeight+'px'; i.style.translate=`0 ${el.offsetTop}px`; } else i.style.height='0px'; },
+    height(lyr){ return Math.max(lyr.offsetHeight+8, 322)+52; }
+  },
+  diorama:{
+    html(){ return `<div class="mega C" id="mega"><div class="ctr"><div class="view">${MENUS.map(m=>{ const L=allLinks(m); let i=0;
+      return `<div class="lyr" data-id="${m.id}" id="dd-${m.id}" role="region" aria-label="${m.label}"><div class="head rise" style="--i:${i++}"><h3>${m.label}</h3><p>${m.lead}</p><a class="ul-link" href="#">${m.over}${ICON.arrow}</a></div>
+      <div class="row" style="--n:${L.length}">${L.map(l=>`<a class="card rise" style="--i:${i++}" href="#" data-scene="${l[2]}"><div class="stage"><svg class="isov" aria-hidden="true"></svg></div><div class="tx"><span class="tl">${amp(l[0])}${ICON.arrow}</span><span class="td">${amp(l[1])}</span></div></a>`).join('')}</div></div>`; }).join('')}</div></div></div>`; },
+    mount(){},
+    open(id){ cards.forEach(c=>c.v.pause()); const lyr=$(`#dd-${id}`);
+      cards=$$('.card',lyr).map((el,i)=>{ const v=new IsoView($('.isov',el),{w:240,h:200}); v.play(el.dataset.scene,{mode:'outline',force:true,delay:.08+i*.09}); return {el,v}; }); },
+    hover(el){ cards.forEach(c=>{ const on=c.el===el; c.el.classList.toggle('act',on);
+      if(on) c.v.play(c.el.dataset.scene,{mode:'full',force:c.v.mode!=='full',strokeDone:true,skip:.5});
+      else if(c.v.mode!=='outline') c.v.play(c.v.name,{mode:'outline',instant:true,force:true}); }); },
+    height(lyr){ return lyr.offsetHeight+48; }
+  }
+};
+function caption(t,d,instant){ const box=$('.A .cap>div'); if(!box) return; const set=()=>{ $('.cap-t',box).textContent=t; $('.cap-d',box).textContent=d; };
+  if(instant||RM.matches){ set(); return; } box.classList.add('leave'); setTimeout(()=>{ set(); box.classList.remove('leave'); box.classList.add('enter'); void box.offsetWidth; box.classList.remove('enter'); },130); }
+function spotText(k,t,d,instant){ const sw=$('.B .txt .sw'); if(!sw) return; const set=()=>{ $('.k',sw).textContent=k; $('h3',sw).textContent=t; $('p',sw).textContent=d; };
+  if(instant||RM.matches){ set(); return; } if($('h3',sw).textContent===t) return; sw.classList.add('leave'); setTimeout(()=>{ set(); sw.classList.remove('leave'); sw.classList.add('enter'); void sw.offsetWidth; sw.classList.remove('enter'); },130); }
+
+function placeInd(t){ if(!t){ ind.classList.remove('on'); return; } const nr=$('.nav').getBoundingClientRect(), tr=t.getBoundingClientRect(); ind.style.width=(tr.width-24)+'px'; ind.style.translate=`${tr.left-nr.left+12}px 0`; ind.classList.add('on'); }
+function show(id){
+  clearTimeout(tOpen); clearTimeout(tClose); if(openId===id) return;
+  const prev=openId; openId=id;
+  triggers.forEach(t=>t.setAttribute('aria-expanded',String(t.dataset.id===id))); placeInd(triggers[ids.indexOf(id)]);
+  document.body.classList.add('menu-open');
+  const dir=prev?Math.sign(ids.indexOf(id)-ids.indexOf(prev)):0;
+  layers.forEach(l=>{ const isNew=l.dataset.id===id, isOld=l.dataset.id===prev;
+    if(isNew){ l.classList.remove('out'); l.classList.remove('in'); void l.offsetWidth; l.classList.add('in'); l.inert=false; $$('.act',l).forEach(a=>a.classList.remove('act')); }
+    else if(isOld){ l.style.setProperty('--ty',(-dir*6)+'px'); l.classList.remove('in'); l.classList.add('out'); l.inert=true; }
+    else { l.classList.remove('in','out'); l.inert=true; } });
+  const mega=$('#mega'), C=CONCEPT[opt];
+  mega.style.height=C.height($(`#dd-${id}`))+'px'; mega.classList.add('open');
+  if(!prev && view) view.resume();
+  C.open(id,!prev);
+}
+function hide(focusBack){
+  clearTimeout(tOpen); clearTimeout(tClose); if(!openId) return;
+  const t=triggers[ids.indexOf(openId)]; openId=null;
+  triggers.forEach(x=>x.setAttribute('aria-expanded','false')); placeInd(null); document.body.classList.remove('menu-open');
+  const mega=$('#mega'); mega.classList.remove('open'); mega.style.height='0px';
+  layers.forEach(l=>{ l.inert=true; l.classList.remove('in','out'); });
+  view&&view.pause(); cards.forEach(c=>c.v.pause());
+  if(focusBack&&t) t.focus();
+}
+const mouse=e=>e.pointerType==='mouse';
+triggers.forEach(t=>{
+  t.addEventListener('pointerenter',e=>{ if(!mouse(e)) return; clearTimeout(tClose); if(openId) show(t.dataset.id); else { clearTimeout(tOpen); tOpen=setTimeout(()=>show(t.dataset.id),90); } });
+  t.addEventListener('click',()=>openId===t.dataset.id?hide(false):show(t.dataset.id));
+  t.addEventListener('keydown',e=>{ if(e.key==='ArrowDown'){ e.preventDefault(); show(t.dataset.id); const f=$(`#dd-${t.dataset.id} [data-scene]`); f&&setTimeout(()=>f.focus(),40); } });
+});
+$$('.nav-t:not([data-id])').forEach(a=>a.addEventListener('pointerenter',e=>{ if(!mouse(e)) return; clearTimeout(tOpen); if(openId){ clearTimeout(tClose); tClose=setTimeout(()=>hide(false),200); } }));
+hdr.addEventListener('pointerleave',e=>{ if(!mouse(e)) return; clearTimeout(tOpen); tClose=setTimeout(()=>hide(false),260); });
+hdr.addEventListener('pointerenter',e=>{ if(mouse(e)) clearTimeout(tClose); });
+hdr.addEventListener('keydown',e=>{ if(e.key==='Escape'&&openId){ e.preventDefault(); hide(true); } });
+hdr.addEventListener('focusout',e=>{ if(openId&&!hdr.contains(e.relatedTarget)) hide(false); });
+document.addEventListener('pointerdown',e=>{ if(openId&&!hdr.contains(e.target)) hide(false); });
+window.addEventListener('scroll',()=>{ if(openId) hide(false); },{passive:true});
+window.addEventListener('resize',()=>{ if(openId){ const id=openId; openId=null; show(id); } });
+
+// hovering or focusing an option swaps the illustration (short intent delay so sweeping across doesn't flicker)
+function activate(el){
+  const lyr=el.closest('.lyr'); if(!lyr||!lyr.classList.contains('in')) return;
+  $$('.act',lyr).forEach(a=>a!==el&&a.classList.remove('act')); if(!el.classList.contains('card')) el.classList.add('act');
+  CONCEPT[opt].hover(el);
+}
+dd.addEventListener('pointerover',e=>{ const el=e.target.closest('[data-scene]'); if(!el) return; clearTimeout(hoverT); hoverT=setTimeout(()=>activate(el),70); });
+dd.addEventListener('focusin',e=>{ const el=e.target.closest('[data-scene]'); if(el) activate(el); });
+dd.addEventListener('click',e=>{ const cp=e.target.closest('.cp'); if(cp){ e.preventDefault(); view&&copyText(view.svgString()); return; } if(e.target.closest('a')) e.preventDefault(); });
+
+function setOpt(o){
+  if(!CONCEPT[o]) o='stage';
+  hide(false); cards.forEach(c=>c.v.pause()); cards=[]; view&&view.pause(); view=null;
+  opt=o; document.body.dataset.opt=o; dd.innerHTML=CONCEPT[o].html(); CONCEPT[o].mount(dd);
+  layers=$$('.lyr',dd); layers.forEach(l=>l.inert=true);
+  $$('.switch a').forEach(a=>a.setAttribute('aria-current',String(a.dataset.o===o)));
+}
+
+/* ============ Hero lattice (interactive) ============ */
+const Lattice=(function(){
+  const cv=$('canvas.lattice'), ctx=cv.getContext('2d'); let W=0,H=0,nodes=[],cols=0,rows=0,mx=-999,my=-999,raf=0,active=false;
+  const SP=58,C=Math.cos(Math.PI/6);
+  function build(){ const r=cv.getBoundingClientRect(); W=r.width; H=r.height; const dpr=Math.min(devicePixelRatio||1,2); cv.width=W*dpr; cv.height=H*dpr; ctx.setTransform(dpr,0,0,dpr,0,0);
+    nodes=[]; const dx=SP*C,dy=SP/2; cols=Math.ceil(W/dx)+2; rows=Math.ceil(H/SP)+2;
+    for(let c=0;c<cols;c++) for(let r=0;r<rows;r++) nodes.push({x:c*dx,y:r*SP+(c%2?dy:0)-dy,c,r,lift:0}); draw(); }
+  const at=(c,r)=>(c<0||r<0||c>=cols||r>=rows)?null:nodes[c*rows+r];
+  const fade=x=>Math.max(0,Math.min(1,(x-W*.38)/(W*.22)));
+  const alpha=n=>fade(n.x)*Math.max(0,1-Math.min(1,Math.abs(n.y-H*.48)/(H*.62)));
+  function draw(){ ctx.clearRect(0,0,W,H);
+    for(const n of nodes){ const al=alpha(n); if(al<=.02) continue;
+      [at(n.c,n.r+1),at(n.c+1,n.c%2?n.r:n.r-1),at(n.c+1,n.c%2?n.r+1:n.r)].forEach((m,k)=>{ if(!m||((n.c+n.r+k)%3)===0) return; const t=Math.min(1,(n.lift+m.lift)/2);
+        ctx.strokeStyle=t>.05?`rgba(10,128,128,${(.12+.5*t)*al})`:`rgba(26,26,31,${.09*al})`; ctx.lineWidth=1; ctx.beginPath(); ctx.moveTo(n.x,n.y-n.lift*8); ctx.lineTo(m.x,m.y-m.lift*8); ctx.stroke(); }); }
+    for(const n of nodes){ const al=alpha(n); if(al<=.02) continue; const t=Math.min(1,n.lift);
+      ctx.fillStyle=t>.05?`rgba(10,128,128,${(.35+.6*t)*al})`:`rgba(26,26,31,${.28*al})`; ctx.beginPath(); ctx.arc(n.x,n.y-n.lift*8,1.5+t*1.2,0,Math.PI*2); ctx.fill(); } }
+  function loop(){ let moving=false; for(const n of nodes){ const d=Math.hypot(n.x-mx,n.y-my); const tg=d<150?1-d/150:0; const nl=n.lift+(tg-n.lift)*.12; if(Math.abs(nl-n.lift)>.002) moving=true; n.lift=nl; } draw(); raf=(moving||active)?requestAnimationFrame(loop):0; }
+  const hero=$('.hero');
+  hero.addEventListener('pointermove',e=>{ if(RM.matches) return; const r=cv.getBoundingClientRect(); mx=e.clientX-r.left; my=e.clientY-r.top; active=true; if(!raf) raf=requestAnimationFrame(loop); });
+  hero.addEventListener('pointerleave',()=>{ mx=my=-999; active=false; if(!raf) raf=requestAnimationFrame(loop); });
+  addEventListener('resize',build); return {build};
+})();
+
+/* ============ Estimator ============ */
+(function(){
+  const V=[10,25,50,75,100,150,200,250,300,400,500,600,700,800,1000,1250,1500,2000,2500,3000], N=V.length; let lo=4,hi=14;
+  const hist=$('#hist'),trk=$('#trk'),sel=$('#sel'),hl=$('#hd-lo'),hh=$('#hd-hi');
+  hist.innerHTML=V.map((v,i)=>`<i style="height:${(14+Math.pow(i/(N-1),1.25)*86).toFixed(0)}%"></i>`).join(''); const bars=$$('i',hist);
+  const money=n=>'$'+n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2}), val=n=>'$'+n.toLocaleString('en-US');
+  function render(){ const a=lo/N*100,b=(hi+1)/N*100; sel.style.left=a+'%'; sel.style.width=(b-a)+'%'; hl.style.left=a+'%'; hh.style.left=b+'%';
+    bars.forEach((el,i)=>el.classList.toggle('on',i>=lo&&i<=hi)); $('#est-range').textContent=`${val(V[lo])} to ${val(V[hi])}`; $('#est-v').textContent=`${money(V[lo]*.008)} to ${money(V[hi]*.0105)}`;
+    [[hl,lo],[hh,hi]].forEach(([el,i])=>{ el.setAttribute('aria-valuemin',V[0]); el.setAttribute('aria-valuemax',V[N-1]); el.setAttribute('aria-valuenow',V[i]); el.setAttribute('aria-valuetext',val(V[i])); }); }
+  const idxAt=x=>{ const r=trk.getBoundingClientRect(); return Math.max(0,Math.min(N,Math.round((x-r.left)/r.width*N))); }; let mode=null,grab=0;
+  trk.addEventListener('pointerdown',e=>{ const t=e.target; trk.setPointerCapture(e.pointerId); trk.classList.add('drag'); if(t===hl) mode='lo'; else if(t===hh) mode='hi'; else if(t===sel){ mode='band'; grab=idxAt(e.clientX)-lo; } else { const i=idxAt(e.clientX); mode=Math.abs(i-lo)<Math.abs(i-(hi+1))?'lo':'hi'; move(e); } });
+  function move(e){ if(!mode) return; const i=idxAt(e.clientX); if(mode==='lo') lo=Math.min(Math.max(0,i),hi); else if(mode==='hi') hi=Math.max(Math.min(N-1,i-1),lo); else { const w=hi-lo; const n=Math.max(0,Math.min(N-1-w,i-grab)); lo=n; hi=n+w; } render(); }
+  trk.addEventListener('pointermove',move); trk.addEventListener('pointerup',()=>{ mode=null; trk.classList.remove('drag'); });
+  const key=w=>e=>{ const d=(e.key==='ArrowRight'||e.key==='ArrowUp')?1:(e.key==='ArrowLeft'||e.key==='ArrowDown')?-1:0; if(!d) return; e.preventDefault(); if(w==='lo') lo=Math.min(Math.max(0,lo+d),hi); else hi=Math.max(Math.min(N-1,hi+d),lo); render(); };
+  hl.addEventListener('keydown',key('lo')); hh.addEventListener('keydown',key('hi')); render();
+})();
+
+/* ============ Mobile drawer ============ */
+(function(){
+  const dr=$('#mdrawer'), bt=$('.burger');
+  dr.innerHTML=`<nav class="md-vp" aria-label="Main"><div class="md-track"><div class="md-lvl md-a"><ul class="md-l1">${NAV.map(n=>n.href?`<li><a class="md-row" href="#">${n.label}${ICON.right}</a></li>`:`<li><button class="md-row" type="button" data-drill="${n.id}">${n.label}${ICON.right}</button></li>`).join('')}</ul>
+    <div class="md-util"><a href="#">Log in</a><a href="#">Contact us</a><a href="#">Search</a><a href="#">United States - English</a></div></div>
+    <div class="md-lvl md-b" inert><button class="md-back" type="button">${ICON.left}All menus</button><div class="stage md-stage"><svg class="isov" aria-hidden="true"></svg></div>${MENUS.map(m=>`<div class="md-sec" data-id="${m.id}"><h2>${m.label}</h2><p>${m.lead}</p><ul>${allLinks(m).map((l,i)=>itemHTML(l,i)).join('')}</ul></div>`).join('')}</div></div></nav>
+    <div class="md-foot"><a class="btn btn-primary" href="#">Get a quote</a><a class="btn btn-secondary" href="#">Claims</a></div>`;
+  const tr=$('.md-track',dr), a=$('.md-a',dr), b=$('.md-b',dr), mv=new IsoView($('.md-stage .isov',dr),{w:340,h:200}); let last=null,th=0;
+  function open(){ clearTimeout(th); document.documentElement.style.setProperty('--hdr-h',hdr.getBoundingClientRect().height+'px'); dr.hidden=false; void dr.offsetWidth; dr.classList.add('open'); bt.setAttribute('aria-expanded','true'); bt.setAttribute('aria-label','Close menu'); document.body.style.overflow='hidden'; setTimeout(()=>$('.md-row',dr).focus(),40); }
+  function close(){ dr.classList.remove('open'); bt.setAttribute('aria-expanded','false'); bt.setAttribute('aria-label','Open menu'); document.body.style.overflow=''; tr.classList.remove('deep'); a.inert=false; b.inert=true; mv.pause(); th=setTimeout(()=>dr.hidden=true,220); bt.focus(); }
+  bt.addEventListener('click',()=>bt.getAttribute('aria-expanded')==='true'?close():open());
+  $$('[data-drill]',dr).forEach(x=>x.addEventListener('click',()=>{ last=x; const m=byId(x.dataset.drill); $$('.md-sec',dr).forEach(s=>s.classList.toggle('on',s.dataset.id===m.id)); b.scrollTop=0; tr.classList.add('deep'); a.inert=true; b.inert=false; mv.play(m.scene,{force:true,delay:.2}); setTimeout(()=>$('.md-back',dr).focus(),330); }));
+  $('.md-back',dr).addEventListener('click',()=>{ tr.classList.remove('deep'); a.inert=false; b.inert=true; mv.pause(); last&&setTimeout(()=>last.focus(),330); });
+  b.addEventListener('pointerover',e=>{ const el=e.target.closest('[data-scene]'); if(el) mv.play(el.dataset.scene); });
+  dr.addEventListener('keydown',e=>{ if(e.key==='Escape') close(); });
+  dr.addEventListener('click',e=>{ if(e.target.closest('a')) e.preventDefault(); });
+})();
+document.addEventListener('click',e=>{ const a=e.target.closest('a[href="#"]'); if(a) e.preventDefault(); });
+
+/* ============ Boot ============ */
+const fromHash=()=>(location.hash||'').replace('#','')||'stage';
+addEventListener('hashchange',()=>setOpt(fromHash()));
+Lattice.build(); setOpt(fromHash());
+const qs=new URLSearchParams(location.search), q=qs.get('open'), hv=qs.get('hover');
+if(q) setTimeout(()=>{ show(q); if(hv!=null) setTimeout(()=>{ const el=$$(`#dd-${q} [data-scene]`)[+hv]; el&&activate(el); },500); },300);
+window.__iso={SCENES,IsoView,renderScene};
+if(qs.get('gallery')){ const T=+(qs.get('t')||30), md=qs.get('mode')||'full'; const ov=document.createElement('div'); ov.style.cssText='position:fixed;inset:0;z-index:999;background:#fff;display:grid;grid-template-columns:repeat(5,1fr);gap:8px;padding:8px;overflow:auto';
+  Object.keys(SCENES).forEach(k=>{ const c=document.createElement('div'); c.style.cssText='border:1px solid #eee;position:relative;height:200px'; c.innerHTML=`<svg class="isov" style="width:100%;height:100%"></svg><span style="position:absolute;left:6px;top:4px;font:11px Inter">${k}</span>`; ov.appendChild(c);
+    const v=new IsoView($('svg',c),{w:300,h:250}); const sc=SCENES[k](); v.fit(sc); const g=document.createElementNS(NS,'g'); $('svg',c).appendChild(g); g.innerHTML=renderScene(sc,T,md,T>=30?{final:true}:{}); });
+  document.body.appendChild(ov); }
+})();
+</script>
+
+
+</body></html>

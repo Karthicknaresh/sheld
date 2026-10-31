@@ -1,0 +1,43 @@
+/* Momentum × InsureShield — illustration + motion tokens.
+   Colour values measured from the live shipping-insurance page and the Secure Commerce Figma file.
+   Motion and layer values are the Momentum library variables (Motion, Layer, Size collections).
+   If your app already loads the Momentum stylesheet, it defines these; keep this file as the
+   fallback for standalone prototypes and Claude artifacts. */
+:root {
+  /* ---- illustration ramps: tint · light (right face) · strong (top) · shade (left face, edges) */
+  --m-graphic-teal-tint: #e7f2f2;  --m-graphic-teal-light: #9fcbcb;  --m-graphic-teal-strong: #0a8080;  --m-graphic-teal-shade: #075a5a;
+  --m-graphic-blue-light: #99c0e1; --m-graphic-blue-strong: #0662bb; --m-graphic-blue-shade: #064d93;
+  --m-graphic-material-kraft-light: #ddbf98; --m-graphic-material-kraft-strong: #c49a6c; --m-graphic-material-kraft-shade: #8f6a44;
+  --m-graphic-material-chalk-light: #fbfaf8; --m-graphic-material-chalk-strong: #eceae6; --m-graphic-material-chalk-shade: #cfccc6;
+  --m-graphic-material-charcoal-strong: #5f5753;
+  /* neutrals used for houses, doors, ground lines, hatch */
+  --m-color-outline-default: #85858e;   /* edges of neutral objects + ALL hatch shadows */
+  --m-color-outline-variant: #b2b2bb;   /* ground plates, neutral top faces */
+  --m-color-surface-container-high: #eceae9;
+  --m-color-surface-container-low: #f0ede9;
+  --m-color-surface-container-lowest: #fcfaf8;
+  /* CONFIRM before production: these exist in the site code but weren't measured. Values are
+     placeholders until the Momentum library confirms them. Coral = "something went wrong" (one per
+     scene, always resolves to teal). Carrier colours = thin stripes on multi-carrier parcels only. */
+  --m-graphic-coral-light: #f5ab99; --m-graphic-coral-strong: #e65533; --m-graphic-coral-shade: #b22101; /* Figma-measured */
+--m-graphic-carrier-dhl-yellow: #ffcc00; --m-graphic-carrier-dhl-red: #d40511; /* Figma-measured */
+  --m-graphic-carrier-ups: #330000; /* Figma-measured */ --m-graphic-carrier-ups-gold: #ffb500;
+  --m-graphic-carrier-fedex: #4d148c; --m-graphic-carrier-dhl: #ffcc00; --m-graphic-carrier-usps: #33507a;
+
+  /* ---- motion (Momentum › Motion) */
+  --m-duration-none: 0ms;    /* reduced-motion fallback: state still applies, no movement */
+  --m-duration-fast: 100ms;  /* hover / press feedback on small controls */
+  --m-duration-base: 200ms;  /* default UI transition */
+  --m-duration-slow: 320ms;  /* larger surfaces entering or leaving */
+  --m-easing-standard: cubic-bezier(0.2, 0, 0, 1); /* state changes (≈92% of live transitions) */
+  --m-easing-enter: cubic-bezier(0, 0, 0, 1);      /* elements entering */
+  --m-easing-exit: cubic-bezier(0.3, 0, 1, 1);     /* elements leaving */
+
+  /* ---- layers (Momentum › Layer) — page stacking only; inside an SVG, order = layer */
+  --m-z-base: 0; --m-z-sticky: 100; --m-z-dropdown: 200; --m-z-overlay: 300;
+  --m-z-modal: 400; --m-z-toast: 500; --m-z-tooltip: 600;
+
+  /* ---- size + focus (Momentum › Size, Focus) */
+  --m-size-icon-md: 20px;   /* UI icon box inside controls; 16px for inline/utility icons */
+  --m-focus-ring-width: 2px; --m-focus-ring-offset: 4px;
+}

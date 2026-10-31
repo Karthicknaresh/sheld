@@ -1,0 +1,242 @@
+[
+ {
+  "title": "Shipping Insurance",
+  "scene": "coveredJourney",
+  "alt": "A parcel on a dashed route that passes a coverage shield on its way to a home, turning teal.",
+  "bytes": 15540,
+  "message": "Your parcel is covered from pickup to the customer's door.",
+  "active": "the route draws on and the parcel, now past the shield, turns from kraft to teal",
+  "meaning": "the shipment is covered all the way to the door",
+  "layout": "L3"
+ },
+ {
+  "title": "Solutions",
+  "scene": "threeChecks",
+  "alt": "A route from a parcel to a home with three check rings along it, each checked.",
+  "bytes": 20268,
+  "message": "Risk is checked before, during and after delivery.",
+  "active": "the route draws and the three rings gain their checks in order, 34 ms apart",
+  "meaning": "each stage of delivery has its own check",
+  "layout": "L3"
+ },
+ {
+  "title": "Partners",
+  "scene": "platformsJoin",
+  "alt": "A storefront and a laptop linked by dashed routes to one teal policy plate.",
+  "bytes": 15071,
+  "message": "The coverage joins the platforms you already ship with.",
+  "active": "routes draw from the storefront and the laptop into the plate, which fills teal",
+  "meaning": "your platforms connect to one coverage",
+  "layout": "L3"
+ },
+ {
+  "title": "Resources",
+  "scene": "binders",
+  "alt": "A row of binders of rising height, the teal one pulled forward.",
+  "bytes": 7721,
+  "message": "Everything a shipper needs to know is on one shelf.",
+  "active": "the teal binder slides forward out of the row",
+  "meaning": "the right resource is ready to hand",
+  "layout": "L4"
+ },
+ {
+  "title": "About",
+  "scene": "standsBehind",
+  "alt": "A teal shield on a policy plate, with news sheets and a mailbox beside it.",
+  "bytes": 15960,
+  "message": "A UPS Capital company stands behind every policy.",
+  "active": "the plate fills teal under the shield and the shield gets its check",
+  "meaning": "the company stands behind the policy",
+  "layout": "L2"
+ },
+ {
+  "title": "Multi-Carrier Shipments",
+  "scene": "carrierPlate",
+  "alt": "Four parcels with different carrier stripes stand on one teal policy plate.",
+  "bytes": 11092,
+  "message": "One policy covers you whichever carrier you use.",
+  "active": "the plate fills teal under all four parcels at once",
+  "meaning": "one policy covers every carrier",
+  "layout": "L2"
+ },
+ {
+  "title": "UPS Shipments",
+  "scene": "upsParcel",
+  "alt": "A parcel with a UPS brown-and-gold band in front of a teal shield with a check.",
+  "bytes": 9508,
+  "message": "Your UPS parcels get coverage built for UPS.",
+  "active": "the shield behind the UPS parcel gains its check",
+  "meaning": "the UPS package is covered",
+  "layout": "L1"
+ },
+ {
+  "title": "Special Commodities",
+  "scene": "risingItem",
+  "alt": "A blue item rising out of an open kraft box over a teal plate.",
+  "bytes": 8450,
+  "message": "What is unusual inside the box is covered too.",
+  "active": "the blue item rises out of the open box as the plate under it fills teal",
+  "meaning": "the contents themselves are covered",
+  "layout": "L6"
+ },
+ {
+  "title": "Select My Coverage",
+  "scene": "steppedFit",
+  "alt": "A parcel settling onto the middle one of three plates, which turns teal.",
+  "bytes": 7104,
+  "message": "A few answers find the coverage that fits your shipments.",
+  "active": "the parcel settles onto the middle plate, which turns teal",
+  "meaning": "the right coverage is found",
+  "layout": "L2"
+ },
+ {
+  "title": "Get a Quote",
+  "scene": "volumeCoins",
+  "alt": "A group of parcels beside a teal coin stack that grows with it.",
+  "bytes": 21870,
+  "message": "Your price follows your shipping volume.",
+  "active": "one parcel joins the group and the stack grows one coin",
+  "meaning": "the estimate scales with volume",
+  "layout": "L7"
+ },
+ {
+  "title": "CommerceShield",
+  "scene": "orderCheck",
+  "alt": "A parcel whose coral risk ring turns into a teal check ring.",
+  "bytes": 10449,
+  "message": "A risky order is flagged and screened before it costs you.",
+  "active": "the coral ring above the parcel resolves into a teal check ring",
+  "meaning": "the risky order is screened and protected",
+  "layout": "L6"
+ },
+ {
+  "title": "DeliveryDefense",
+  "scene": "addressPin",
+  "alt": "A teal pin landing on a puck at a home's door, a ring spreading.",
+  "bytes": 7203,
+  "message": "Know the address is a safe drop before the parcel leaves.",
+  "active": "the pin drops onto the puck at the door and a ring spreads once",
+  "meaning": "the address is confirmed",
+  "layout": "L5"
+ },
+ {
+  "title": "Delivery Orchestration",
+  "scene": "forkRoute",
+  "alt": "A parcel at a fork; the safer branch to the home is drawn in teal.",
+  "bytes": 14379,
+  "message": "Send each parcel by the lower-risk delivery option.",
+  "active": "at the fork, the safer branch draws teal to the home",
+  "meaning": "the lower-risk option is chosen",
+  "layout": "L3"
+ },
+ {
+  "title": "InsureShield® Shipping Insurance",
+  "scene": "shieldContrast",
+  "alt": "A parcel turning teal in front of a coverage shield, grey parcels behind.",
+  "bytes": 12507,
+  "message": "Your parcels are covered; others are on their own.",
+  "active": "the front parcel turns from kraft to teal in front of the shield",
+  "meaning": "this parcel is now covered",
+  "layout": "L1"
+ },
+ {
+  "title": "Connect with a Partner",
+  "scene": "dockSeat",
+  "alt": "A teal block seating into a slot in a grey platform block.",
+  "bytes": 5643,
+  "message": "Coverage plugs into the platform you already use.",
+  "active": "the teal block slides down and seats into the grey block",
+  "meaning": "coverage is connected inside the platform",
+  "layout": "L7"
+ },
+ {
+  "title": "Become a Partner",
+  "scene": "storeShips",
+  "alt": "A storefront with a teal awning; a parcel leaves its door on a teal route.",
+  "bytes": 9409,
+  "message": "Your customers' parcels leave your business covered.",
+  "active": "the awning fills teal and a route draws out from the door under the parcel",
+  "meaning": "customers ship covered through you",
+  "layout": "L3"
+ },
+ {
+  "title": "Insights",
+  "scene": "parcelBars",
+  "alt": "Bars of stacked parcels on a sheet, the tallest topped in teal.",
+  "bytes": 13219,
+  "message": "Real numbers on shipping risk, built from parcels.",
+  "active": "the parcel bars stack up one parcel at a time, the last in teal",
+  "meaning": "the numbers behind shipping risk",
+  "layout": "L6"
+ },
+ {
+  "title": "Whitepapers & Guides",
+  "scene": "routeSheet",
+  "alt": "A stack of sheets with a teal route drawn across the top one.",
+  "bytes": 9683,
+  "message": "Guides map the way from risk to coverage.",
+  "active": "a dashed teal route draws across the top sheet",
+  "meaning": "the guide shows the way",
+  "layout": "L6"
+ },
+ {
+  "title": "Customer Stories",
+  "scene": "lossToCoins",
+  "alt": "A damaged parcel with a coral mark linked by a teal route to a coin stack.",
+  "bytes": 17178,
+  "message": "Businesses that had a loss got paid back fast.",
+  "active": "the route draws from the coral parcel and the coin stack rises",
+  "meaning": "the loss is paid back quickly",
+  "layout": "L3"
+ },
+ {
+  "title": "Help & Support",
+  "scene": "answeredDoc",
+  "alt": "A document with a ring that gains a teal check.",
+  "bytes": 2863,
+  "message": "Questions about coverage, billing and claims get answered.",
+  "active": "the ring on the document gains its teal check",
+  "meaning": "your question is resolved",
+  "layout": "L6"
+ },
+ {
+  "title": "Announcements",
+  "scene": "newSheet",
+  "alt": "A teal sheet landing on top of a stack of sheets.",
+  "bytes": 6554,
+  "message": "Something new has arrived from InsureShield.",
+  "active": "a teal sheet slides down onto the top of the stack",
+  "meaning": "the newest update has arrived",
+  "layout": "L7"
+ },
+ {
+  "title": "In The News",
+  "scene": "pressStamp",
+  "alt": "A printed sheet with column rules and a teal shield stamped on it.",
+  "bytes": 10806,
+  "message": "UPS Capital, as covered by the press.",
+  "active": "a small shield stamps down onto the printed sheet",
+  "meaning": "coverage in the press",
+  "layout": "L6"
+ },
+ {
+  "title": "Product Availability",
+  "scene": "regionPins",
+  "alt": "Teal pins landed on a row of three pucks.",
+  "bytes": 13570,
+  "message": "See the places where coverage is offered.",
+  "active": "pins drop onto the pucks one after another",
+  "meaning": "coverage reaches these places",
+  "layout": "L6"
+ },
+ {
+  "title": "Contact Us",
+  "scene": "mailboxFlag",
+  "alt": "A teal mailbox on a post with its flag raised.",
+  "bytes": 4346,
+  "message": "Your message reaches our team.",
+  "active": "the mailbox flag raises",
+  "meaning": "a message is waiting for our team",
+  "layout": "L6"
+ }
+]

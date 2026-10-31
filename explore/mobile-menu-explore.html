@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>InsureShield mobile mega-menu · layout exploration (low fidelity)</title>
+<link rel="stylesheet" href="../../Updated Skill/unpacked/momentum-sections/momentum-sections/assets/momentum.css">
+<style>
+  /* EXPLORE MODE: grey boxes only. Tokens from momentum-sections (spacing ladder, type roles, radius 4/pill). */
+  body { margin: 0; padding: var(--m-space-6); background: var(--m-color-surface-container-low); font-family: var(--m-font-base); color: var(--m-color-ink); }
+  h1 { margin: 0 0 var(--m-space-2); font: var(--m-type-title-lg); }
+  .sub { margin: 0 0 var(--m-space-6); font: var(--m-type-body-sm); color: var(--m-color-ink-medium); }
+  .grid { display: flex; gap: var(--m-space-7); align-items: flex-start; }
+  .opt { display: grid; gap: var(--m-space-3); }
+  .opt > h2 { margin: 0; font: var(--m-type-title-md); }
+  .opt > p { margin: 0; font: var(--m-type-body-sm); color: var(--m-color-ink-medium); max-width: 796px; }
+  .pair { display: flex; gap: var(--m-space-4); }
+  .screen { display: grid; gap: var(--m-space-2); }
+  .screen > b { font: var(--m-type-label-md); }
+  /* phone 390 × 720, header 64, padding 16 */
+  .phone { width: 390px; height: 720px; background: var(--m-color-surface-bright); border: var(--m-border-thin) solid var(--m-color-outline-variant); border-radius: var(--m-radius-sm); overflow: hidden; display: flex; flex-direction: column; }
+  .hdr { height: var(--m-header-height); flex: none; display: flex; align-items: center; gap: var(--m-space-3); padding: 0 var(--m-space-4); border-bottom: var(--m-border-thin) solid var(--m-color-outline-variant-low); }
+  .logo { width: 120px; height: 28px; background: var(--m-color-surface-container-high); font: var(--m-type-label-sm); color: var(--m-color-ink-medium); display: grid; place-items: center; }
+  .sp { flex: 1; }
+  .pill { height: var(--m-size-control-sm); padding: 0 var(--m-space-4); border-radius: var(--m-radius-pill); border: var(--m-border-thin) solid var(--m-color-outline-default); display: inline-flex; align-items: center; font: var(--m-type-label-md); }
+  .pill.solid { background: var(--m-color-outline-default); color: var(--m-color-on-primary); border-color: transparent; }
+  .icon { width: var(--m-size-control-sm); height: var(--m-size-control-sm); border-radius: var(--m-radius-pill); border: var(--m-border-thin) solid var(--m-color-outline-variant); display: grid; place-items: center; font: var(--m-type-label-md); }
+  .body { flex: 1; overflow: hidden; padding: var(--m-space-2) var(--m-space-4) 0; display: flex; flex-direction: column; gap: var(--m-space-3); }
+  .bar { flex: none; display: grid; grid-template-columns: 1fr 1fr; gap: var(--m-space-2); padding: var(--m-space-3) var(--m-space-4); border-top: var(--m-border-thin) solid var(--m-color-outline-variant-low); }
+  .bar .pill { height: var(--m-size-control-md); justify-content: center; }
+  .row { min-height: 48px; display: flex; align-items: center; justify-content: space-between; border-bottom: var(--m-border-thin) solid var(--m-color-outline-variant-low); font: var(--m-type-title-md); }
+  .row small { font: var(--m-type-body-sm); color: var(--m-color-ink-medium); display: block; }
+  .row.sub2 { min-height: 56px; font: var(--m-type-body-md); }
+  .row.on { font-weight: 600; }
+  .chev { font: var(--m-type-label-md); color: var(--m-color-ink-medium); }
+  .art { background: var(--m-color-surface-container-high); border: var(--m-border-thin) dashed var(--m-color-outline-default); border-radius: var(--m-radius-sm); display: grid; place-items: center; text-align: center; font: var(--m-type-label-sm); color: var(--m-color-ink-medium); padding: var(--m-space-2); }
+  .meta { font: var(--m-type-meta-caps); letter-spacing: var(--m-letter-caps); text-transform: uppercase; color: var(--m-color-ink-medium); }
+  .h2 { font: var(--m-type-display-sm); }
+  .lead { font: var(--m-type-body-sm); color: var(--m-color-ink-medium); }
+  .back { font: var(--m-type-label-md); }
+  .util { font: var(--m-type-body-sm); color: var(--m-color-ink-medium); display: flex; flex-wrap: wrap; gap: var(--m-space-2) var(--m-space-4); padding-top: var(--m-space-2); }
+  .tabs { display: flex; gap: var(--m-space-4); border-bottom: var(--m-border-thin) solid var(--m-color-outline-variant-low); font: var(--m-type-label-md); white-space: nowrap; overflow: hidden; margin: 0 calc(-1 * var(--m-space-4)); padding: 0 var(--m-space-4); }
+  .tabs span { padding: var(--m-space-3) 0; } .tabs span.on { border-bottom: var(--m-border-medium) solid var(--m-color-ink); }
+  .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: var(--m-space-2); }
+  .tile { border: var(--m-border-thin) solid var(--m-color-outline-variant-low); border-radius: var(--m-radius-sm); padding: var(--m-space-2); display: grid; gap: var(--m-space-2); font: var(--m-type-label-md); }
+  .tile .art { height: 72px; }
+  .tile.on { border: var(--m-border-medium) solid var(--m-color-ink); }
+  .tl { display: grid; grid-template-columns: 24px 1fr; column-gap: var(--m-space-3); }
+  .tl .line { position: relative; } .tl .line::before { content: ""; position: absolute; left: 11px; top: 0; bottom: 0; width: 2px; background: var(--m-color-outline-variant); }
+  .tl .dot { position: relative; width: 12px; height: 12px; margin: 18px 0 0 6px; border-radius: var(--m-radius-pill); background: var(--m-color-surface-bright); border: var(--m-border-medium) solid var(--m-color-outline-default); }
+  .tl .dot.big { width: 16px; height: 16px; margin-left: 4px; background: var(--m-color-outline-default); }
+  .tl .item { padding: var(--m-space-2) 0; border-bottom: var(--m-border-thin) solid var(--m-color-outline-variant-low); display: flex; gap: var(--m-space-3); align-items: center; }
+  .tl .item .art { width: 64px; height: 48px; flex: none; }
+  .note { font: var(--m-type-body-xs); color: var(--m-color-ink-medium); }
+</style>
+</head>
+<body>
+<h1>InsureShield mobile mega-menu · 5 layout explorations (390 wide, low fidelity)</h1>
+<p class="sub">Each option: “a” = menu open at the top level, Shipping Insurance closed · “b” = Shipping Insurance open. Dashed boxes are art slots for momentum-concept (no illustrations drawn). Sticky bar = one Primary (Get a quote) + Secondary (File a claim).</p>
+<div class="grid" id="grid"></div>
+<script>
+const MENUS = ['Shipping Insurance', 'Solutions', 'Claims', 'Partners', 'Resources', 'About'];
+const SI = { lead: 'Protect shipments from covered loss, damage, and theft.',
+  groups: [['Coverage by shipment', [['Multi-Carrier Shipments', 'Parcel and freight across UPS, FedEx, DHL, and USPS'], ['UPS Shipments', 'Coverage designed for packages shipped with UPS'], ['Special Commodities', 'High-value, perishable, and specialty goods']]],
+           ['Get started', [['Select My Coverage', 'Answer a few questions to find the right fit'], ['Get a Quote', 'Estimate cost for your shipping volume']]]] };
+const LINKS = SI.groups.flatMap((g) => g[1]);
+const hdr = '<div class="hdr"><div class="logo">Logo</div><span class="sp"></span><span class="pill solid">Get a quote</span><span class="icon">✕</span></div>';
+const bar = '<div class="bar"><span class="pill solid">Get a quote</span><span class="pill">File a claim</span></div>';
+const util = '<div class="util"><span>Log in</span><span>Contact us</span><span>Search</span><span>United States - English</span></div>';
+const phone = (inner) => `<div class="phone">${hdr}<div class="body">${inner}</div>${bar}</div>`;
+const rows = (list, sel) => list.map((m) => `<div class="row${m === sel ? ' on' : ''}">${m}<span class="chev">${m === 'Claims' ? '↗' : '›'}</span></div>`).join('');
+const optRows = (list) => list.map(([t, d]) => `<div class="row sub2"><span>${t}<small>${d}</small></span><span class="chev">›</span></div>`).join('');
+
+const OPTS = [
+  { id: 1, name: 'Drill-down',
+    a: rows(MENUS) + util,
+    b: `<span class="back">‹ All menus</span><span class="h2">Shipping Insurance</span><span class="lead">${SI.lead}</span><div class="art" style="height:150px">Art slot · media (menu overview story)</div>` +
+       SI.groups.map(([g, l]) => `<span class="meta">${g}</span>${optRows(l)}`).join('') },
+  { id: 2, name: 'Accordion',
+    a: rows(MENUS).replace(/›/g, '+') + util,
+    b: `<div class="row on">Shipping Insurance<span class="chev">−</span></div><div class="art" style="height:96px">Art slot · media (compact)</div>` +
+       SI.groups.map(([g, l]) => `<span class="meta">${g}</span>${optRows(l)}`).join('') + rows(MENUS.slice(1)).replace(/›/g, '+') },
+  { id: 3, name: 'Tabs',
+    a: `<div class="tabs">${MENUS.map((m) => `<span>${m}</span>`).join('')}</div><div class="art" style="height:120px">Art slot · background / welcome</div><span class="lead">Choose a section above</span>${util}`,
+    b: `<div class="tabs">${MENUS.map((m, i) => `<span class="${i === 0 ? 'on' : ''}">${m}</span>`).join('')}</div><span class="lead">${SI.lead}</span><div class="art" style="height:120px">Art slot · media (tab story)</div>${optRows(LINKS)}` },
+  { id: 4, name: 'Cards (tile grid)',
+    a: `<div class="tiles">${MENUS.map((m) => `<div class="tile"><div class="art">Art slot · nav-tile</div>${m}</div>`).join('')}</div>${util}`,
+    b: `<span class="back">‹ All menus</span><span class="h2">Shipping Insurance</span><div class="tiles">${LINKS.map(([t]) => `<div class="tile"><div class="art">Art slot · card-72</div>${t}</div>`).join('')}<div class="tile"><div class="art">—</div>Explore all ›</div></div>` },
+  { id: 5, name: 'Timeline (journey)',
+    a: `<span class="meta">Your shipment's journey</span><div class="tl">${MENUS.map((m) => `<div class="line"><div class="dot"></div></div><div class="item"><div class="art">Art</div><span>${m}</span></div>`).join('')}</div>`,
+    b: `<div class="tl"><div class="line"><div class="dot big"></div></div><div class="item"><span class="h2" style="font:var(--m-type-title-lg)">Shipping Insurance</span></div>` +
+       LINKS.map(([t, d]) => `<div class="line"><div class="dot"></div></div><div class="item"><div class="art">Art slot · table-row</div><span>${t}<small class="note" style="display:block">${d}</small></span></div>`).join('') +
+       ['Solutions', 'Partners'].map((m) => `<div class="line"><div class="dot"></div></div><div class="item"><span>${m}</span></div>`).join('') + `</div>` }
+];
+document.getElementById('grid').innerHTML = OPTS.map((o) => `<section class="opt"><h2>Option ${o.id} · ${o.name}</h2><div class="pair">
+  <div class="screen"><b>Option ${o.id}a · Shipping Insurance closed</b>${phone(o.a)}</div>
+  <div class="screen"><b>Option ${o.id}b · Shipping Insurance open</b>${phone(o.b)}</div></div></section>`).join('');
+</script>
+</body>
+</html>

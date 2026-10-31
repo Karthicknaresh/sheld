@@ -1,0 +1,1559 @@
+{
+ "set": "InsureShield nav V6 · Light up the dream",
+ "cards": [
+  {
+   "id": "mMulti",
+   "scene": "mMulti",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Multi-Carrier Shipments",
+    "body": "Parcel and freight across UPS, FedEx, DHL, and USPS"
+   },
+   "message": "Whichever carrier takes them, every parcel from your shop is looked after.",
+   "viewerQuestion": "Am I covered whichever carrier I use?",
+   "relationship": "protect",
+   "device": "metonymy",
+   "mapping": [
+    {
+     "concept": "your business",
+     "object": "a small shop whose windows light up"
+    },
+    {
+     "concept": "every carrier",
+     "object": "three carrier-striped parcels at its door"
+    },
+    {
+     "concept": "coverage",
+     "object": "teal tape sealing each one"
+    }
+   ],
+   "breaksDown": "Tape could read as packing; it arrives only after the shop and the parcels are in place, as the last beat.",
+   "objects": [
+    {
+     "name": "parcel group",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "storefront",
+     "role": "support",
+     "material": "neutral"
+    }
+   ],
+   "layout": "L5",
+   "states": {
+    "rest": "Outline: a quiet pencil sketch, lights off",
+    "active": "the shop windows light up warm → then three carrier-striped parcels appear at the door → then each parcel is sealed with teal tape, one after another",
+    "meaning": "every carrier's parcel is covered"
+   },
+   "story": [
+    {
+     "beat": 0,
+     "at": "0 ms",
+     "what": "the shop windows light up warm"
+    },
+    {
+     "beat": 1,
+     "at": "320 ms",
+     "what": "three carrier-striped parcels appear at the door"
+    },
+    {
+     "beat": 2,
+     "at": "640 ms",
+     "what": "each parcel is sealed with teal tape, one after another"
+    }
+   ],
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "motionException": "three-beat story on hover (~1.2 s, no loop), lead-approved; see the file header",
+   "reducedMotion": "show the final lit frame: each parcel is sealed with teal tape, one after another",
+   "alt": "A small shop lights up; three carrier-striped parcels at its door are sealed with teal tape.",
+   "alternatives": [
+    {
+     "angle": "metaphor",
+     "idea": "carrier routes merging"
+    },
+    {
+     "angle": "direct claim",
+     "idea": "one plate under all parcels"
+    }
+   ]
+  },
+  {
+   "id": "mUps",
+   "scene": "mUps",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "UPS Shipments",
+    "body": "Coverage designed for packages shipped with UPS"
+   },
+   "message": "Your UPS package is protected on the doorstep where someone is waiting for it.",
+   "viewerQuestion": "Is it covered once it's delivered?",
+   "relationship": "protect",
+   "device": "metonymy",
+   "mapping": [
+    {
+     "concept": "someone waiting",
+     "object": "a home whose window lights up"
+    },
+    {
+     "concept": "the delivery",
+     "object": "a UPS parcel landing on the step"
+    },
+    {
+     "concept": "coverage",
+     "object": "the doormat lighting teal"
+    }
+   ],
+   "breaksDown": "A teal mat could read as decoration; it lights only once the parcel has landed on it.",
+   "objects": [
+    {
+     "name": "policy plate",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "home",
+     "role": "support",
+     "material": "neutral"
+    },
+    {
+     "name": "parcel",
+     "role": "support",
+     "material": "carrier"
+    }
+   ],
+   "layout": "L5",
+   "states": {
+    "rest": "Outline: a quiet pencil sketch, lights off",
+    "active": "the home's window lights up → then a UPS-banded parcel lands on the step → then the doormat under it lights teal",
+    "meaning": "the package is covered at the door"
+   },
+   "story": [
+    {
+     "beat": 0,
+     "at": "0 ms",
+     "what": "the home's window lights up"
+    },
+    {
+     "beat": 1,
+     "at": "320 ms",
+     "what": "a UPS-banded parcel lands on the step"
+    },
+    {
+     "beat": 2,
+     "at": "640 ms",
+     "what": "the doormat under it lights teal"
+    }
+   ],
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "motionException": "three-beat story on hover (~1.2 s, no loop), lead-approved; see the file header",
+   "reducedMotion": "show the final lit frame: the doormat under it lights teal",
+   "alt": "A home lights up; a UPS parcel lands on the step and the mat under it turns teal.",
+   "alternatives": [
+    {
+     "angle": "proof",
+     "idea": "coins on the step"
+    },
+    {
+     "angle": "before-after",
+     "idea": "parcel turning teal"
+    }
+   ]
+  },
+  {
+   "id": "mSpecial",
+   "scene": "mSpecial",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Special Commodities",
+    "body": "High-value, perishable, and specialty goods"
+   },
+   "message": "What is precious to you is precious to us.",
+   "viewerQuestion": "Is something this valuable covered?",
+   "relationship": "protect",
+   "device": "before-after",
+   "mapping": [
+    {
+     "concept": "something precious",
+     "object": "a blue safe"
+    },
+    {
+     "concept": "opening it",
+     "object": "the door swinging aside"
+    },
+    {
+     "concept": "covered",
+     "object": "a teal check ring rising over it"
+    }
+   ],
+   "breaksDown": "A safe reads as storage; the check ring makes it about coverage, not security.",
+   "objects": [
+    {
+     "name": "check ring",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "safe",
+     "role": "support",
+     "material": "blue"
+    },
+    {
+     "name": "policy plate",
+     "role": "support",
+     "material": "neutral"
+    }
+   ],
+   "layout": "L2",
+   "states": {
+    "rest": "Outline: a quiet pencil sketch, lights off",
+    "active": "the blue safe takes its colour on its plate → then its door slides open → then a teal check ring rises above it",
+    "meaning": "high-value goods are covered"
+   },
+   "story": [
+    {
+     "beat": 0,
+     "at": "0 ms",
+     "what": "the blue safe takes its colour on its plate"
+    },
+    {
+     "beat": 1,
+     "at": "320 ms",
+     "what": "its door slides open"
+    },
+    {
+     "beat": 2,
+     "at": "640 ms",
+     "what": "a teal check ring rises above it"
+    }
+   ],
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "motionException": "three-beat story on hover (~1.2 s, no loop), lead-approved; see the file header",
+   "reducedMotion": "show the final lit frame: a teal check ring rises above it",
+   "alt": "A blue safe opens on a plate and a teal check ring rises above it.",
+   "alternatives": [
+    {
+     "angle": "direct claim",
+     "idea": "an item rising from a box"
+    },
+    {
+     "angle": "contrast",
+     "idea": "three different boxes"
+    }
+   ]
+  },
+  {
+   "id": "mSelect",
+   "scene": "mSelect",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Select My Coverage",
+    "body": "Answer a few questions to find the right fit"
+   },
+   "message": "A few honest answers, and the right protection lights up.",
+   "viewerQuestion": "Which coverage fits what I ship?",
+   "relationship": "fit",
+   "device": "before-after",
+   "mapping": [
+    {
+     "concept": "your answers",
+     "object": "three rings on a sheet ticking"
+    },
+    {
+     "concept": "the fit",
+     "object": "a shield lighting up beside it"
+    }
+   ],
+   "breaksDown": "A checklist could read as paperwork; the shield at the end makes it the result.",
+   "objects": [
+    {
+     "name": "shield",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "claim document",
+     "role": "support",
+     "material": "chalk"
+    },
+    {
+     "name": "check ring",
+     "role": "support",
+     "material": "teal"
+    }
+   ],
+   "layout": "L3",
+   "states": {
+    "rest": "Outline: a quiet pencil sketch, lights off",
+    "active": "the question sheet takes its colour → then its three rings tick one after another → then a teal shield lights up beside it",
+    "meaning": "the right coverage is found"
+   },
+   "story": [
+    {
+     "beat": 0,
+     "at": "0 ms",
+     "what": "the question sheet takes its colour"
+    },
+    {
+     "beat": 1,
+     "at": "320 ms",
+     "what": "its three rings tick one after another"
+    },
+    {
+     "beat": 2,
+     "at": "640 ms",
+     "what": "a teal shield lights up beside it"
+    }
+   ],
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "motionException": "three-beat story on hover (~1.2 s, no loop), lead-approved; see the file header",
+   "reducedMotion": "show the final lit frame: a teal shield lights up beside it",
+   "alt": "A question sheet whose rings tick, then a teal shield lights up beside it.",
+   "alternatives": [
+    {
+     "angle": "metaphor",
+     "idea": "stepped plates"
+    },
+    {
+     "angle": "proof",
+     "idea": "a dial in the teal band"
+    }
+   ]
+  },
+  {
+   "id": "mQuote",
+   "scene": "mQuote",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Get a Quote",
+    "body": "Estimate cost for your shipping volume"
+   },
+   "message": "Your price grows only with what you ship.",
+   "viewerQuestion": "What will it cost?",
+   "relationship": "scale",
+   "device": "number made physical",
+   "mapping": [
+    {
+     "concept": "your volume",
+     "object": "a stack of parcels"
+    },
+    {
+     "concept": "the estimate",
+     "object": "coins rising to match"
+    }
+   ],
+   "breaksDown": "Coins could read as payout; they rise beside the parcels as their price.",
+   "objects": [
+    {
+     "name": "coin stack",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "parcel group",
+     "role": "support",
+     "material": "kraft"
+    }
+   ],
+   "layout": "L4",
+   "states": {
+    "rest": "Outline: a quiet pencil sketch, lights off",
+    "active": "the parcel stack takes its colour → then coins rise beside it one by one → then the top coin lights teal",
+    "meaning": "the estimate is ready"
+   },
+   "story": [
+    {
+     "beat": 0,
+     "at": "0 ms",
+     "what": "the parcel stack takes its colour"
+    },
+    {
+     "beat": 1,
+     "at": "320 ms",
+     "what": "coins rise beside it one by one"
+    },
+    {
+     "beat": 2,
+     "at": "640 ms",
+     "what": "the top coin lights teal"
+    }
+   ],
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "motionException": "three-beat story on hover (~1.2 s, no loop), lead-approved; see the file header",
+   "reducedMotion": "show the final lit frame: the top coin lights teal",
+   "alt": "A stack of parcels with coins rising beside it, the top one teal.",
+   "alternatives": [
+    {
+     "angle": "metonymy",
+     "idea": "a quote sheet with a coin"
+    },
+    {
+     "angle": "contrast",
+     "idea": "small and large stacks"
+    }
+   ]
+  },
+  {
+   "id": "mDefense",
+   "scene": "mDefense",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "DeliveryDefense",
+    "body": "Address confidence scores before you ship"
+   },
+   "message": "Know the right door before the parcel leaves.",
+   "viewerQuestion": "Will this reach the right door?",
+   "relationship": "verify",
+   "device": "before-after",
+   "mapping": [
+    {
+     "concept": "the street",
+     "object": "two homes lighting up"
+    },
+    {
+     "concept": "the right address",
+     "object": "a teal pin landing at one door"
+    }
+   ],
+   "breaksDown": "A pin reads as maps; it lands before anything is shipped.",
+   "objects": [
+    {
+     "name": "pin",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "home",
+     "role": "support",
+     "material": "neutral"
+    }
+   ],
+   "layout": "L5",
+   "states": {
+    "rest": "Outline: a quiet pencil sketch, lights off",
+    "active": "two homes light up → then a pin hovers between them → then the teal pin lands at the right door",
+    "meaning": "the address is confirmed"
+   },
+   "story": [
+    {
+     "beat": 0,
+     "at": "0 ms",
+     "what": "two homes light up"
+    },
+    {
+     "beat": 1,
+     "at": "320 ms",
+     "what": "a pin hovers between them"
+    },
+    {
+     "beat": 2,
+     "at": "640 ms",
+     "what": "the teal pin lands at the right door"
+    }
+   ],
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "motionException": "three-beat story on hover (~1.2 s, no loop), lead-approved; see the file header",
+   "reducedMotion": "show the final lit frame: the teal pin lands at the right door",
+   "alt": "Two homes light up and a teal pin lands at one door.",
+   "alternatives": [
+    {
+     "angle": "mechanism",
+     "idea": "label with a check"
+    },
+    {
+     "angle": "proof",
+     "idea": "a dial"
+    }
+   ]
+  },
+  {
+   "id": "mOrchestrate",
+   "scene": "mOrchestrate",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Delivery Orchestration",
+    "body": "Choose delivery options that lower risk"
+   },
+   "message": "Take the way home that keeps the parcel safe.",
+   "viewerQuestion": "Is there a safer way?",
+   "relationship": "transit",
+   "device": "cause-effect",
+   "mapping": [
+    {
+     "concept": "the usual way",
+     "object": "a branch under a coral cloud"
+    },
+    {
+     "concept": "the safer way",
+     "object": "the other branch lighting teal to the home"
+    }
+   ],
+   "breaksDown": "Must not imply weather is stopped; the route goes round it.",
+   "objects": [
+    {
+     "name": "route",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "cloud",
+     "role": "support",
+     "material": "coral"
+    },
+    {
+     "name": "home",
+     "role": "support",
+     "material": "neutral"
+    }
+   ],
+   "layout": "L3",
+   "states": {
+    "rest": "Outline: a quiet pencil sketch, lights off",
+    "active": "the home lights up at the end of the road → then a coral cloud gathers over one branch → then the other branch lights teal all the way home",
+    "meaning": "a safer option is chosen"
+   },
+   "story": [
+    {
+     "beat": 0,
+     "at": "0 ms",
+     "what": "the home lights up at the end of the road"
+    },
+    {
+     "beat": 1,
+     "at": "320 ms",
+     "what": "a coral cloud gathers over one branch"
+    },
+    {
+     "beat": 2,
+     "at": "640 ms",
+     "what": "the other branch lights teal all the way home"
+    }
+   ],
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "motionException": "three-beat story on hover (~1.2 s, no loop), lead-approved; see the file header",
+   "reducedMotion": "show the final lit frame: the other branch lights teal all the way home",
+   "alt": "A coral cloud over one branch; the other branch lights teal to a home.",
+   "alternatives": [
+    {
+     "angle": "contrast",
+     "idea": "parcel under a cloud"
+    },
+    {
+     "angle": "proof",
+     "idea": "plates with one teal"
+    }
+   ]
+  },
+  {
+   "id": "mCommerce",
+   "scene": "mCommerce",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "CommerceShield",
+    "body": "Order risk signals and chargeback protection"
+   },
+   "message": "Sell with confidence: risky orders are flagged before they cost you.",
+   "viewerQuestion": "Can I trust this order?",
+   "relationship": "verify",
+   "device": "before-after",
+   "mapping": [
+    {
+     "concept": "your store",
+     "object": "a laptop screen lighting up"
+    },
+    {
+     "concept": "a doubt",
+     "object": "a coral mark"
+    },
+    {
+     "concept": "screened",
+     "object": "a teal check ring"
+    }
+   ],
+   "breaksDown": "Must not promise all fraud stops; the ring says the order was screened.",
+   "objects": [
+    {
+     "name": "check ring",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "laptop",
+     "role": "support",
+     "material": "neutral"
+    },
+    {
+     "name": "coral mark",
+     "role": "support",
+     "material": "coral"
+    }
+   ],
+   "layout": "L5",
+   "states": {
+    "rest": "Outline: a quiet pencil sketch, lights off",
+    "active": "the laptop screen lights up → then a coral mark appears over the order → then it turns into a teal check ring",
+    "meaning": "the order is screened"
+   },
+   "story": [
+    {
+     "beat": 0,
+     "at": "0 ms",
+     "what": "the laptop screen lights up"
+    },
+    {
+     "beat": 1,
+     "at": "320 ms",
+     "what": "a coral mark appears over the order"
+    },
+    {
+     "beat": 2,
+     "at": "640 ms",
+     "what": "it turns into a teal check ring"
+    }
+   ],
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "motionException": "three-beat story on hover (~1.2 s, no loop), lead-approved; see the file header",
+   "reducedMotion": "show the final lit frame: it turns into a teal check ring",
+   "alt": "A laptop lights up, a coral mark appears and becomes a teal check ring.",
+   "alternatives": [
+    {
+     "angle": "contrast",
+     "idea": "two parcels, one held"
+    },
+    {
+     "angle": "mechanism",
+     "idea": "a gate ring"
+    }
+   ]
+  },
+  {
+   "id": "mInsure",
+   "scene": "mInsure",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "InsureShield® Shipping Insurance",
+    "body": "Protection against loss, damage, and theft"
+   },
+   "message": "When something goes wrong, you are not left alone with it.",
+   "viewerQuestion": "What if it arrives damaged?",
+   "relationship": "recovery",
+   "device": "cause-effect",
+   "mapping": [
+    {
+     "concept": "the bad day",
+     "object": "a parcel turning coral"
+    },
+    {
+     "concept": "the promise",
+     "object": "a shield lighting up behind it"
+    }
+   ],
+   "breaksDown": "A shield behind a damaged parcel could read as \"too late\"; it is the policy that pays.",
+   "objects": [
+    {
+     "name": "shield",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "parcel",
+     "role": "support",
+     "material": "coral"
+    }
+   ],
+   "layout": "L5",
+   "states": {
+    "rest": "Outline: a quiet pencil sketch, lights off",
+    "active": "the parcel takes its kraft colour → then it is dented: it turns coral → then a large teal shield lights up behind it and the coral fades",
+    "meaning": "covered loss is made whole"
+   },
+   "story": [
+    {
+     "beat": 0,
+     "at": "0 ms",
+     "what": "the parcel takes its kraft colour"
+    },
+    {
+     "beat": 1,
+     "at": "320 ms",
+     "what": "it is dented: it turns coral"
+    },
+    {
+     "beat": 2,
+     "at": "640 ms",
+     "what": "a large teal shield lights up behind it and the coral fades"
+    }
+   ],
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "motionException": "three-beat story on hover (~1.2 s, no loop), lead-approved; see the file header",
+   "reducedMotion": "show the final lit frame: a large teal shield lights up behind it and the coral fades",
+   "alt": "A parcel turns coral, then a large teal shield lights up behind it.",
+   "alternatives": [
+    {
+     "angle": "proof",
+     "idea": "coins beside it"
+    },
+    {
+     "angle": "mechanism",
+     "idea": "claim → check → coins"
+    }
+   ]
+  },
+  {
+   "id": "mConnect",
+   "scene": "mConnect",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Connect with a Partner",
+    "body": "Add coverage inside the platforms you use"
+   },
+   "message": "Your platform and InsureShield light up together.",
+   "viewerQuestion": "Does it fit what I already use?",
+   "relationship": "connect",
+   "device": "metaphor",
+   "mapping": [
+    {
+     "concept": "your platform",
+     "object": "a laptop"
+    },
+    {
+     "concept": "the connection",
+     "object": "a teal block seating on it and a route lighting out"
+    }
+   ],
+   "breaksDown": "A block could read as hardware; the route makes it a connection.",
+   "objects": [
+    {
+     "name": "dock block",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "laptop",
+     "role": "support",
+     "material": "neutral"
+    },
+    {
+     "name": "route",
+     "role": "support",
+     "material": "teal"
+    }
+   ],
+   "layout": "L3",
+   "states": {
+    "rest": "Outline: a quiet pencil sketch, lights off",
+    "active": "the laptop lights up → then a teal block seats onto it → then a teal route lights out from it",
+    "meaning": "coverage is connected"
+   },
+   "story": [
+    {
+     "beat": 0,
+     "at": "0 ms",
+     "what": "the laptop lights up"
+    },
+    {
+     "beat": 1,
+     "at": "320 ms",
+     "what": "a teal block seats onto it"
+    },
+    {
+     "beat": 2,
+     "at": "640 ms",
+     "what": "a teal route lights out from it"
+    }
+   ],
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "motionException": "three-beat story on hover (~1.2 s, no loop), lead-approved; see the file header",
+   "reducedMotion": "show the final lit frame: a teal route lights out from it",
+   "alt": "A laptop lights up, a teal block seats on it and a route lights out.",
+   "alternatives": [
+    {
+     "angle": "proof",
+     "idea": "a row of blocks"
+    },
+    {
+     "angle": "metonymy",
+     "idea": "a storefront awning"
+    }
+   ]
+  },
+  {
+   "id": "mBecome",
+   "scene": "mBecome",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Become a Partner",
+    "body": "Offer InsureShield to your customers"
+   },
+   "message": "Your shop can protect every customer who trusts it.",
+   "viewerQuestion": "Can I offer this to my customers?",
+   "relationship": "protect",
+   "device": "metonymy",
+   "mapping": [
+    {
+     "concept": "your business",
+     "object": "a shop opening up"
+    },
+    {
+     "concept": "your customers",
+     "object": "parcels leaving the door"
+    },
+    {
+     "concept": "the offer",
+     "object": "the awning lighting teal"
+    }
+   ],
+   "breaksDown": "A teal awning could read as branding; it lights as the parcels leave, as the offer.",
+   "objects": [
+    {
+     "name": "storefront",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "parcel group",
+     "role": "support",
+     "material": "kraft"
+    }
+   ],
+   "layout": "L5",
+   "states": {
+    "rest": "Outline: a quiet pencil sketch, lights off",
+    "active": "the shop windows light up → then two parcels go out of the door → then the awning lights teal",
+    "meaning": "the shop offers coverage"
+   },
+   "story": [
+    {
+     "beat": 0,
+     "at": "0 ms",
+     "what": "the shop windows light up"
+    },
+    {
+     "beat": 1,
+     "at": "320 ms",
+     "what": "two parcels go out of the door"
+    },
+    {
+     "beat": 2,
+     "at": "640 ms",
+     "what": "the awning lights teal"
+    }
+   ],
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "motionException": "three-beat story on hover (~1.2 s, no loop), lead-approved; see the file header",
+   "reducedMotion": "show the final lit frame: the awning lights teal",
+   "alt": "A shop lights up, parcels leave and its awning turns teal.",
+   "alternatives": [
+    {
+     "angle": "connect",
+     "idea": "dock block"
+    },
+    {
+     "angle": "proof",
+     "idea": "many shops"
+    }
+   ]
+  },
+  {
+   "id": "mHelp",
+   "scene": "mHelp",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Help & Support",
+    "body": "Answers about coverage, billing, and claims"
+   },
+   "message": "Even late at night, your question gets an answer.",
+   "viewerQuestion": "Can someone help me now?",
+   "relationship": "contact",
+   "device": "before-after",
+   "mapping": [
+    {
+     "concept": "you",
+     "object": "one lit window at night"
+    },
+    {
+     "concept": "the answer",
+     "object": "a document arriving"
+    },
+    {
+     "concept": "resolved",
+     "object": "a teal check ring"
+    }
+   ],
+   "breaksDown": "A lit window could read as a mood picture; the document and check make it an answer.",
+   "objects": [
+    {
+     "name": "check ring",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "home",
+     "role": "support",
+     "material": "neutral"
+    },
+    {
+     "name": "claim document",
+     "role": "support",
+     "material": "chalk"
+    }
+   ],
+   "layout": "L3",
+   "states": {
+    "rest": "Outline: a quiet pencil sketch, lights off",
+    "active": "one window lights up → then a document arrives at the door → then a teal check ring lights over it",
+    "meaning": "the question is answered"
+   },
+   "story": [
+    {
+     "beat": 0,
+     "at": "0 ms",
+     "what": "one window lights up"
+    },
+    {
+     "beat": 1,
+     "at": "320 ms",
+     "what": "a document arrives at the door"
+    },
+    {
+     "beat": 2,
+     "at": "640 ms",
+     "what": "a teal check ring lights over it"
+    }
+   ],
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "motionException": "three-beat story on hover (~1.2 s, no loop), lead-approved; see the file header",
+   "reducedMotion": "show the final lit frame: a teal check ring lights over it",
+   "alt": "One window lights up, a document arrives and a teal check ring lights over it.",
+   "alternatives": [
+    {
+     "angle": "proof",
+     "idea": "a clock"
+    },
+    {
+     "angle": "contact",
+     "idea": "a mailbox flag"
+    }
+   ]
+  },
+  {
+   "id": "mStories",
+   "scene": "mStories",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Customer Stories",
+    "body": "How businesses recover faster"
+   },
+   "message": "Businesses like yours had a hard day, and got back up.",
+   "viewerQuestion": "Has this worked for others?",
+   "relationship": "recovery",
+   "device": "cause-effect",
+   "mapping": [
+    {
+     "concept": "a hard day",
+     "object": "a dark shop with a coral mark"
+    },
+    {
+     "concept": "recovery",
+     "object": "coins rising"
+    },
+    {
+     "concept": "back in business",
+     "object": "the windows lighting up"
+    }
+   ],
+   "breaksDown": "Coins could read as profit; they rise as the payout that turns the lights back on.",
+   "objects": [
+    {
+     "name": "coin stack",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "storefront",
+     "role": "support",
+     "material": "neutral"
+    },
+    {
+     "name": "coral mark",
+     "role": "support",
+     "material": "coral"
+    }
+   ],
+   "layout": "L5",
+   "states": {
+    "rest": "Outline: a quiet pencil sketch, lights off",
+    "active": "the shop shows a coral mark → then teal coins rise beside it and the mark fades → then the shop windows light up again",
+    "meaning": "the business recovered"
+   },
+   "story": [
+    {
+     "beat": 0,
+     "at": "0 ms",
+     "what": "the shop shows a coral mark"
+    },
+    {
+     "beat": 1,
+     "at": "320 ms",
+     "what": "teal coins rise beside it and the mark fades"
+    },
+    {
+     "beat": 2,
+     "at": "640 ms",
+     "what": "the shop windows light up again"
+    }
+   ],
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "motionException": "three-beat story on hover (~1.2 s, no loop), lead-approved; see the file header",
+   "reducedMotion": "show the final lit frame: the shop windows light up again",
+   "alt": "A dark shop with a coral mark; coins rise and its windows light up again.",
+   "alternatives": [
+    {
+     "angle": "proof",
+     "idea": "a damaged parcel and coins"
+    },
+    {
+     "angle": "relatable moment",
+     "idea": "storefront step"
+    }
+   ]
+  },
+  {
+   "id": "mInsights",
+   "scene": "mInsights",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Insights",
+    "body": "Articles on shipping risk and protection"
+   },
+   "message": "See the pattern before it costs you.",
+   "viewerQuestion": "What does the data say about my risk?",
+   "relationship": "inform",
+   "device": "number made physical",
+   "mapping": [
+    {
+     "concept": "the data",
+     "object": "bars on a sheet"
+    },
+    {
+     "concept": "the insight",
+     "object": "the tallest lighting teal"
+    }
+   ],
+   "breaksDown": "Bars read as growth; they stand on a sheet as an article's chart.",
+   "objects": [
+    {
+     "name": "bars",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "claim document",
+     "role": "support",
+     "material": "chalk"
+    }
+   ],
+   "layout": "L4",
+   "states": {
+    "rest": "Outline: a quiet pencil sketch, lights off",
+    "active": "the sheet takes its colour → then the bars light up one by one → then the tallest lights teal",
+    "meaning": "the pattern is clear"
+   },
+   "story": [
+    {
+     "beat": 0,
+     "at": "0 ms",
+     "what": "the sheet takes its colour"
+    },
+    {
+     "beat": 1,
+     "at": "320 ms",
+     "what": "the bars light up one by one"
+    },
+    {
+     "beat": 2,
+     "at": "640 ms",
+     "what": "the tallest lights teal"
+    }
+   ],
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "motionException": "three-beat story on hover (~1.2 s, no loop), lead-approved; see the file header",
+   "reducedMotion": "show the final lit frame: the tallest lights teal",
+   "alt": "Bars on a sheet light up one by one, the tallest teal.",
+   "alternatives": [
+    {
+     "angle": "risk shown",
+     "idea": "cloud over a sheet"
+    },
+    {
+     "angle": "metaphor",
+     "idea": "route on a sheet"
+    }
+   ]
+  },
+  {
+   "id": "mGuides",
+   "scene": "mGuides",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Whitepapers & Guides",
+    "body": "In-depth research and how-to guides"
+   },
+   "message": "The whole way through, laid out for you.",
+   "viewerQuestion": "Is there a complete guide?",
+   "relationship": "inform",
+   "device": "metaphor",
+   "mapping": [
+    {
+     "concept": "the guide",
+     "object": "a stack of sheets"
+    },
+    {
+     "concept": "the way through",
+     "object": "a route drawing across it"
+    },
+    {
+     "concept": "your place",
+     "object": "a teal tab"
+    }
+   ],
+   "breaksDown": "A route on paper could read as a map; it is a how-to path.",
+   "objects": [
+    {
+     "name": "sheets",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "route",
+     "role": "support",
+     "material": "teal"
+    }
+   ],
+   "layout": "L2",
+   "states": {
+    "rest": "Outline: a quiet pencil sketch, lights off",
+    "active": "the stack of guides takes its colour → then a teal route draws across the top sheet → then a teal tab lights at your chapter",
+    "meaning": "the way through is mapped"
+   },
+   "story": [
+    {
+     "beat": 0,
+     "at": "0 ms",
+     "what": "the stack of guides takes its colour"
+    },
+    {
+     "beat": 1,
+     "at": "320 ms",
+     "what": "a teal route draws across the top sheet"
+    },
+    {
+     "beat": 2,
+     "at": "640 ms",
+     "what": "a teal tab lights at your chapter"
+    }
+   ],
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "motionException": "three-beat story on hover (~1.2 s, no loop), lead-approved; see the file header",
+   "reducedMotion": "show the final lit frame: a teal tab lights at your chapter",
+   "alt": "A stack of guides with a teal route drawing across the top and a teal tab.",
+   "alternatives": [
+    {
+     "angle": "direct claim",
+     "idea": "a binder"
+    },
+    {
+     "angle": "proof",
+     "idea": "a tall stack"
+    }
+   ]
+  },
+  {
+   "id": "mContact",
+   "scene": "mContact",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Contact Us",
+    "body": "Reach our team"
+   },
+   "message": "A real person is ready to write back.",
+   "viewerQuestion": "Can I talk to someone?",
+   "relationship": "contact",
+   "device": "metonymy",
+   "mapping": [
+    {
+     "concept": "you",
+     "object": "a home lighting up"
+    },
+    {
+     "concept": "a reply",
+     "object": "the mailbox flag rising"
+    }
+   ],
+   "breaksDown": "A mailbox reads as post; the raised flag means a reply is waiting.",
+   "objects": [
+    {
+     "name": "mailbox",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "home",
+     "role": "support",
+     "material": "neutral"
+    }
+   ],
+   "layout": "L5",
+   "states": {
+    "rest": "Outline: a quiet pencil sketch, lights off",
+    "active": "the home lights up → then the mailbox takes its teal colour → then its flag rises",
+    "meaning": "a reply is waiting"
+   },
+   "story": [
+    {
+     "beat": 0,
+     "at": "0 ms",
+     "what": "the home lights up"
+    },
+    {
+     "beat": 1,
+     "at": "320 ms",
+     "what": "the mailbox takes its teal colour"
+    },
+    {
+     "beat": 2,
+     "at": "640 ms",
+     "what": "its flag rises"
+    }
+   ],
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "motionException": "three-beat story on hover (~1.2 s, no loop), lead-approved; see the file header",
+   "reducedMotion": "show the final lit frame: its flag rises",
+   "alt": "A home lights up and its teal mailbox raises its flag.",
+   "alternatives": [
+    {
+     "angle": "proof",
+     "idea": "document with a check"
+    },
+    {
+     "angle": "mechanism",
+     "idea": "route to a mailbox"
+    }
+   ]
+  },
+  {
+   "id": "mAvail",
+   "scene": "mAvail",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Product Availability",
+    "body": "Where coverage is offered"
+   },
+   "message": "Coverage reaches the place you call home.",
+   "viewerQuestion": "Is it offered where I am?",
+   "relationship": "reach",
+   "device": "number made physical",
+   "mapping": [
+    {
+     "concept": "places",
+     "object": "a row of pucks"
+    },
+    {
+     "concept": "yours",
+     "object": "the last one lighting teal under a pin"
+    }
+   ],
+   "breaksDown": "Pucks could read as buttons; the pins make them places.",
+   "objects": [
+    {
+     "name": "puck",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "pin",
+     "role": "support",
+     "material": "teal"
+    }
+   ],
+   "layout": "L4",
+   "states": {
+    "rest": "Outline: a quiet pencil sketch, lights off",
+    "active": "the row of pucks takes its colour → then pins land on them one by one → then the nearest puck lights teal",
+    "meaning": "coverage reaches you"
+   },
+   "story": [
+    {
+     "beat": 0,
+     "at": "0 ms",
+     "what": "the row of pucks takes its colour"
+    },
+    {
+     "beat": 1,
+     "at": "320 ms",
+     "what": "pins land on them one by one"
+    },
+    {
+     "beat": 2,
+     "at": "640 ms",
+     "what": "the nearest puck lights teal"
+    }
+   ],
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "motionException": "three-beat story on hover (~1.2 s, no loop), lead-approved; see the file header",
+   "reducedMotion": "show the final lit frame: the nearest puck lights teal",
+   "alt": "Pins land on a row of pucks; the nearest lights teal.",
+   "alternatives": [
+    {
+     "angle": "proof",
+     "idea": "region tiles"
+    },
+    {
+     "angle": "metaphor",
+     "idea": "route to a home"
+    }
+   ]
+  },
+  {
+   "id": "mAnnounce",
+   "scene": "mAnnounce",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Announcements",
+    "body": "Product and company news"
+   },
+   "message": "News for you arrives at your door.",
+   "viewerQuestion": "What's new with InsureShield?",
+   "relationship": "inform",
+   "device": "metonymy",
+   "mapping": [
+    {
+     "concept": "you",
+     "object": "a home lighting up"
+    },
+    {
+     "concept": "the news",
+     "object": "a teal sheet landing on the mat"
+    }
+   ],
+   "breaksDown": "A sheet on a mat could read as junk mail; it lands teal, the brand voice.",
+   "objects": [
+    {
+     "name": "sheets",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "home",
+     "role": "support",
+     "material": "neutral"
+    }
+   ],
+   "layout": "L5",
+   "states": {
+    "rest": "Outline: a quiet pencil sketch, lights off",
+    "active": "the home lights up → then a sheet drops onto the doormat → then it lights teal",
+    "meaning": "the news has arrived"
+   },
+   "story": [
+    {
+     "beat": 0,
+     "at": "0 ms",
+     "what": "the home lights up"
+    },
+    {
+     "beat": 1,
+     "at": "320 ms",
+     "what": "a sheet drops onto the doormat"
+    },
+    {
+     "beat": 2,
+     "at": "640 ms",
+     "what": "it lights teal"
+    }
+   ],
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "motionException": "three-beat story on hover (~1.2 s, no loop), lead-approved; see the file header",
+   "reducedMotion": "show the final lit frame: it lights teal",
+   "alt": "A home lights up and a teal sheet lands on its mat.",
+   "alternatives": [
+    {
+     "angle": "proof",
+     "idea": "a stack of sheets"
+    },
+    {
+     "angle": "metaphor",
+     "idea": "open box"
+    }
+   ]
+  },
+  {
+   "id": "mNews",
+   "scene": "mNews",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "In The News",
+    "body": "Press coverage of UPS Capital"
+   },
+   "message": "People are talking about the company behind your cover.",
+   "viewerQuestion": "What do others say about them?",
+   "relationship": "protect",
+   "device": "double meaning",
+   "mapping": [
+    {
+     "concept": "press",
+     "object": "printed sheets"
+    },
+    {
+     "concept": "coverage",
+     "object": "a teal shield standing up on them"
+    }
+   ],
+   "breaksDown": "A shield on paper could read as a certificate; it stands upright on the stack.",
+   "objects": [
+    {
+     "name": "shield",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "sheets",
+     "role": "support",
+     "material": "chalk"
+    }
+   ],
+   "layout": "L2",
+   "states": {
+    "rest": "Outline: a quiet pencil sketch, lights off",
+    "active": "the printed sheets take their colour → then their headlines appear → then a teal shield stands up on top",
+    "meaning": "the company is in the news"
+   },
+   "story": [
+    {
+     "beat": 0,
+     "at": "0 ms",
+     "what": "the printed sheets take their colour"
+    },
+    {
+     "beat": 1,
+     "at": "320 ms",
+     "what": "their headlines appear"
+    },
+    {
+     "beat": 2,
+     "at": "640 ms",
+     "what": "a teal shield stands up on top"
+    }
+   ],
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "motionException": "three-beat story on hover (~1.2 s, no loop), lead-approved; see the file header",
+   "reducedMotion": "show the final lit frame: a teal shield stands up on top",
+   "alt": "Printed sheets with headlines and a teal shield standing up on top.",
+   "alternatives": [
+    {
+     "angle": "proof",
+     "idea": "pin on a sheet"
+    },
+    {
+     "angle": "metaphor",
+     "idea": "shield behind homes"
+    }
+   ]
+  }
+ ]
+}

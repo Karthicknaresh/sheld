@@ -1,0 +1,76 @@
+[
+ {
+  "menu": "Shipping Insurance",
+  "file": "strip-shipping-insurance.svg",
+  "stops": [
+   "vSelect",
+   "vQuote",
+   "vMulti",
+   "vUps",
+   "vSpecial"
+  ],
+  "n": 5,
+  "pitch": 249.6,
+  "parcelStart": 30,
+  "park": 56,
+  "kb": 64.8
+ },
+ {
+  "menu": "Solutions",
+  "file": "strip-solutions.svg",
+  "stops": [
+   "vDefense",
+   "vOrchestrate",
+   "vCommerce",
+   "vInsureShield"
+  ],
+  "n": 4,
+  "pitch": 312,
+  "parcelStart": 30,
+  "park": 56,
+  "kb": 53.3
+ },
+ {
+  "menu": "Partners",
+  "file": "strip-partners.svg",
+  "stops": [
+   "vConnect",
+   "vBecome"
+  ],
+  "n": 2,
+  "pitch": 624,
+  "parcelStart": 30,
+  "park": 56,
+  "kb": 27.2
+ },
+ {
+  "menu": "Resources",
+  "file": "strip-resources.svg",
+  "stops": [
+   "vHelp",
+   "vStories",
+   "vInsights",
+   "vGuides"
+  ],
+  "n": 4,
+  "pitch": 312,
+  "parcelStart": 30,
+  "park": 56,
+  "kb": 54.6
+ },
+ {
+  "menu": "About",
+  "file": "strip-about.svg",
+  "stops": [
+   "vContact",
+   "vAvail",
+   "vAnnounce",
+   "vNews"
+  ],
+  "n": 4,
+  "pitch": 312,
+  "parcelStart": 30,
+  "park": 56,
+  "kb": 53.9
+ }
+]

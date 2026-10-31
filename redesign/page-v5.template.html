@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="en" data-brand="insureshield" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>InsureShield V5 · Journey navigation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+<style>
+/* Page tokens: momentum-sections assets/momentum.css (the Momentum library, InsureShield theme) */
+/*@@MOMENTUM@@*/
+/* Illustration ramps: momentum-iso-motion assets/tokens.css (--m-graphic-* only) */
+/*@@GRAPHIC@@*/
+/* Motion patterns: momentum-iso-motion assets/motion.css */
+/*@@MOTION@@*/
+
+/* illustration choreography (measured on the live renderers; momentum-iso-motion motion.md §3) */
+:root{ --iso-stagger:34ms; --iso-return:550ms; }
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--m-color-surface);color:var(--m-color-ink);font-family:var(--m-font-base);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font-family:var(--m-font-base);color:inherit}
+:focus-visible{outline:var(--m-focus-ring-width) solid var(--m-focus-ring-color);outline-offset:var(--m-focus-ring-offset);border-radius:var(--m-radius-sm)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+svg{display:block}
+.ic{fill:currentColor;flex:none;width:var(--m-size-icon-sm);height:var(--m-size-icon-sm)}
+.ic20{width:var(--m-size-icon-md);height:var(--m-size-icon-md)}
+
+/* ---------- Library/Button (44 / 34, pill, colour change only) ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--m-space-2);height:var(--m-size-control-md);padding:0 var(--m-space-4);border-radius:var(--m-radius-pill);border:var(--m-border-thin) solid transparent;font:var(--m-type-label-lg);white-space:nowrap;cursor:pointer;background:transparent;transition:background-color var(--m-duration-fast) var(--m-easing-standard),border-color var(--m-duration-fast) var(--m-easing-standard)}
+.btn--sm{height:var(--m-size-control-sm);font:var(--m-type-label-md)}
+.btn--primary{background:var(--m-color-primary);color:var(--m-color-on-primary)}
+.btn--primary:hover{background:var(--m-color-primary-pressed)}
+.btn--secondary{border-color:var(--m-color-outline-default);color:var(--m-color-ink)}
+.btn--secondary:hover{background:var(--m-color-surface-container-low)}
+.btn .ic{transition:translate var(--m-duration-fast) var(--m-easing-standard)}
+.btn:hover .ic,.btn:focus-visible .ic{translate:var(--m-space-1) 0}
+/* Hyperlink */
+.link{display:inline-flex;align-items:center;gap:var(--m-space-1);font:var(--m-type-label-md);color:var(--m-color-primary-pressed);text-decoration:underline;text-decoration-thickness:var(--m-border-thin);text-underline-offset:var(--m-space-1);transition:text-decoration-thickness var(--m-duration-fast) var(--m-easing-standard)}
+.link:hover{text-decoration-thickness:var(--m-border-medium)}
+.link .ic{transition:translate var(--m-duration-fast) var(--m-easing-standard)}
+.link:hover .ic{translate:var(--m-space-1) 0}
+
+/* ---------- Site header: utility bar + 64 main bar, sticky 100, raised to dropdown 200 when a menu is open ---------- */
+.hdr{position:sticky;top:0;z-index:var(--m-z-index-sticky);background:var(--m-color-surface-bright)}
+body.menu-open .hdr{z-index:var(--m-z-index-dropdown)}
+.util{border-bottom:var(--m-border-thin) solid var(--m-color-outline-variant-low)}
+.util .m-container{display:flex;justify-content:flex-end;align-items:center;gap:var(--m-space-1);height:var(--m-space-6)}
+.util a{display:inline-flex;align-items:center;gap:var(--m-space-2);font:var(--m-type-label-sm);color:var(--m-color-ink-medium);padding:var(--m-space-1) var(--m-space-2);border-radius:var(--m-radius-sm);transition:color var(--m-duration-fast) var(--m-easing-standard)}
+.util a:hover{color:var(--m-color-ink)}
+.main{position:relative;border-bottom:var(--m-border-thin) solid var(--m-color-outline-variant-low)}
+.main .m-container{display:flex;align-items:center;height:var(--m-header-height);gap:var(--m-space-5)}
+.logo{display:flex;align-items:center;flex:none;height:var(--m-size-control-md);border-radius:var(--m-radius-sm)}
+.logo img{height:var(--m-size-control-md);width:auto}
+.nav{position:relative;height:100%;margin-left:var(--m-space-7)}
+.nav-list{display:flex;align-items:center;height:100%;list-style:none;margin:0;padding:0;gap:var(--m-space-5)}
+.nav-list li{height:100%;display:flex;align-items:center}
+.nav-t{appearance:none;border:0;background:none;cursor:pointer;display:inline-flex;align-items:center;gap:var(--m-space-1);height:var(--m-size-control-md);padding:0;font:var(--m-type-label-lg);color:var(--m-color-ink);white-space:nowrap;transition:color var(--m-duration-fast) var(--m-easing-standard)}
+.nav-t .chev{color:var(--m-color-ink-medium);transition:rotate var(--m-duration-fast) var(--m-easing-standard),color var(--m-duration-fast) var(--m-easing-standard)}
+.nav-t:hover{color:var(--m-color-primary-pressed)}
+.nav-t[aria-expanded="true"]{color:var(--m-color-primary-pressed)}
+.nav-t[aria-expanded="true"] .chev{rotate:180deg;color:var(--m-color-primary)}
+/* indicator: translate + scale only */
+.nav-ind{position:absolute;left:0;bottom:-1px;height:var(--m-border-medium);width:100px;transform-origin:0 50%;scale:0 1;background:var(--m-color-primary);opacity:0;pointer-events:none;transition:translate var(--m-duration-slow) var(--m-easing-standard),scale var(--m-duration-slow) var(--m-easing-standard),opacity var(--m-duration-base) var(--m-easing-standard)}
+.nav-ind.on{opacity:1}
+.cta{margin-left:auto;display:flex;align-items:center;gap:var(--m-space-2)}
+.icon-btn{appearance:none;border:0;background:none;width:var(--m-size-control-md);height:var(--m-size-control-md);border-radius:var(--m-radius-pill);display:grid;place-items:center;cursor:pointer;color:var(--m-color-ink);transition:background-color var(--m-duration-fast) var(--m-easing-standard)}
+.icon-btn:hover{background:var(--m-color-surface-container-low)}
+.burger{display:none}
+.scrim{position:fixed;inset:0;z-index:var(--m-z-index-sticky);background:var(--m-color-ink);opacity:0;pointer-events:none;transition:opacity var(--m-duration-base) var(--m-easing-standard)}
+body.menu-open .scrim{opacity:.06}
+
+/* ---------- Mega menu (dropdown 200): clip reveal 320, panels fade 200 ---------- */
+#dd{position:absolute;left:0;right:0;top:100%;height:0}
+.mega{position:absolute;left:0;right:0;top:0;overflow:hidden;visibility:hidden;background:var(--m-color-surface-bright);border-bottom:var(--m-border-thin) solid var(--m-color-outline-variant-low);box-shadow:var(--m-elevation-3);clip-path:inset(0 0 100% 0);transition:clip-path var(--m-duration-slow) var(--m-easing-exit),visibility 0s linear var(--m-duration-slow)}
+.mega.open{visibility:visible;clip-path:inset(0 0 -48px 0);transition:clip-path var(--m-duration-slow) var(--m-easing-standard),visibility 0s}
+.lyr{position:absolute;top:0;left:0;right:0;opacity:0;visibility:hidden}
+.lyr.in{position:relative;visibility:visible;opacity:1;transition:opacity var(--m-duration-base) var(--m-easing-standard)}
+.lyr.out{visibility:visible;opacity:0;transition:opacity var(--m-duration-fast) var(--m-easing-exit)}
+.lyr .m-container{padding-block:var(--m-space-6)}
+
+/* Journey head: story line left · live status right */
+.jhead{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:var(--m-space-5);align-items:end;margin-bottom:var(--m-space-5)}
+.jhead .eyebrow{margin:0 0 var(--m-space-2);font:var(--m-type-label-sm);color:var(--m-color-ink-medium)}
+.jhead h2{margin:0;font:var(--m-type-title-lg);color:var(--m-color-ink)}
+.jhead .lead{margin:var(--m-space-2) 0 0;font:var(--m-type-body-sm);color:var(--m-color-ink-medium);max-width:720px}
+.status{display:grid;justify-items:end;gap:var(--m-space-2);text-align:right}
+.status-row{display:flex;align-items:center;gap:var(--m-space-2)}
+.badge{display:inline-flex;align-items:center;height:var(--m-space-5);padding:0 var(--m-space-2);border-radius:var(--m-radius-sm);background:var(--m-color-primary-container-low);color:var(--m-color-on-primary-container);font:var(--m-type-label-md);font-variant-numeric:tabular-nums}
+.status-t{font:var(--m-type-body-sm);color:var(--m-color-ink)}
+.status-n{font:var(--m-type-body-sm);color:var(--m-color-ink-medium)}
+.status-n b{font-weight:500;color:var(--m-color-ink)}
+
+/* Tile matrix (Library/Tile, Media=Illustration): hairline joins, no gaps, no shadows */
+.matrix{position:relative;display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr));border:var(--m-border-thin) solid var(--m-color-outline-variant-low);border-radius:var(--m-radius-sm);overflow:hidden}
+.tile{position:relative;display:grid;grid-template-rows:144px auto;background:var(--m-color-surface-bright);transition:background-color var(--m-duration-base) var(--m-easing-standard)}
+.tile+.tile{border-left:var(--m-border-thin) solid var(--m-color-outline-variant-low)}
+.tile .media{border-bottom:var(--m-border-thin) solid var(--m-color-outline-variant-low)}
+.tile .body{display:grid;gap:var(--m-space-3);align-content:start;padding:var(--m-space-5)}
+.tile .stop{font:var(--m-type-meta-caps);letter-spacing:var(--m-letter-caps);text-transform:uppercase;color:var(--m-color-ink-medium)}
+.tile h3{margin:0;font:var(--m-type-title-md);color:var(--m-color-ink);transition:color var(--m-duration-fast) var(--m-easing-standard)}
+.tile h3 .ic{display:inline-block;vertical-align:-2px;margin-left:var(--m-space-1);color:var(--m-color-primary);transition:translate var(--m-duration-fast) var(--m-easing-standard)}
+.tile .nw{white-space:nowrap}
+.tile p{margin:0;font:var(--m-type-body-sm);color:var(--m-color-ink-medium)}
+.tile:hover,.tile.act{background:var(--m-color-primary-container-lowest)}
+.tile:hover h3,.tile.act h3{color:var(--m-color-primary-pressed)}
+.tile:hover h3 .ic,.tile:focus-visible h3 .ic{translate:var(--m-space-1) 0}
+.tile.next .stop{color:var(--m-color-primary-pressed)}
+/* the strip: one SVG across every tile's media slot (pointer passes through to the tiles) */
+.strip{position:absolute;left:0;right:0;top:0;height:144px;pointer-events:none;z-index:1}
+.strip .iso{position:absolute;inset:0}
+.strip svg{width:100%;height:auto;overflow:visible}
+
+/* ---------- Journey art states ---------- */
+.iso path{transition:fill var(--m-duration-base) var(--m-easing-standard),stroke var(--m-duration-base) var(--m-easing-standard),opacity var(--m-duration-base) var(--m-easing-standard)}
+/* stops not reached yet: the pencil look (paper faces, hairline edges, faint hatch) */
+.iso [data-object*=":"]:not(.v) [data-face]{fill:var(--m-color-surface-container-lowest);stroke:var(--m-color-surface-container-lowest)}
+.iso [data-object*=":"]:not(.v) [data-face="left"]{fill:var(--m-color-surface-container-high);stroke:var(--m-color-surface-container-high)}
+.iso [data-object*=":"]:not(.v) path[fill="none"]{stroke:var(--m-color-outline-variant)}
+.iso [data-object*=":"]:not(.v) path:not([data-face]):not([fill="none"]){fill:var(--m-color-surface-container-high);stroke:var(--m-color-surface-container-high)}
+.iso [data-shadow][data-for*=":"]:not(.v){opacity:.45}
+/* each stop's one change: rest until the parcel reaches it (in = appears · out = leaves · move = travels home) */
+.iso [data-act]{transition:opacity var(--m-duration-base) var(--m-easing-standard),translate var(--m-duration-base) var(--m-easing-standard);transition-delay:calc(var(--d,0) * var(--iso-stagger))}
+.iso [data-act~="slow"]{transition-duration:var(--m-duration-slow);transition-timing-function:var(--m-easing-enter)}
+.iso :is([data-object],[data-shadow]):not(.v)[data-act~="in"],.iso [data-object]:not(.v) [data-act~="in"]{opacity:0}
+.iso :is([data-object],[data-shadow]).v[data-act~="out"],.iso [data-object].v [data-act~="out"]{opacity:0}
+.iso [data-object]:not(.v)[data-act~="move"]{translate:var(--ax,0) var(--ay,0)}
+.iso [data-object]:not(.v),.iso [data-object]:not(.v) [data-act]{transition-delay:0s}
+.iso [data-object]:not(.v) [data-act],.iso [data-object]:not(.v)[data-act]{transition-duration:var(--iso-return)}
+/* the route fills teal behind the parcel, dash by dash, in step with its travel */
+.iso [data-progress] path{opacity:0;transition:opacity var(--m-duration-fast) var(--m-easing-standard)}
+.iso [data-progress] path.lit{opacity:1}
+/* the parcel: always in colour; travels along the route only (translate, slow · enter) */
+.iso [data-object="parcel"],.iso [data-for="parcel"]{transition:translate var(--m-duration-slow) var(--m-easing-enter)}
+.iso:not([data-covered]) [data-object="parcel"] [data-act]{opacity:0}
+/* draw-on once per open: ground, then each object clip-draws left → right, 34 ms apart */
+.iso[data-phase="draw"] [data-layer="0"]>path,.iso[data-phase="draw"] [data-object]{animation:m-draw var(--m-duration-slow) var(--m-easing-standard) both;animation-delay:calc(var(--i,0) * var(--iso-stagger))}
+.iso[data-phase="draw"] [data-shadow]{opacity:0}
+.iso.leaving{opacity:0;transition:opacity var(--m-duration-fast) var(--m-easing-exit)}
+
+/* ---------- Hero (Block/Hero: split copy · Instant estimate 480, gap 48; pattern pointer-only) ---------- */
+.hero{position:relative;overflow:hidden}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero .grid{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 480px;gap:var(--m-space-7);align-items:center;min-height:560px}
+.hero h1{margin:0;max-width:640px}
+.hero h1 em{font-style:normal;color:var(--m-color-primary)}
+.hero .lead{margin:var(--m-space-4) 0 0;max-width:720px;color:var(--m-color-ink-medium)}
+.hero .acts{display:flex;flex-wrap:wrap;gap:var(--m-space-3);margin-top:var(--m-space-6)}
+.estimate{background:var(--m-color-surface-bright);border:var(--m-border-thin) solid var(--m-color-outline-variant-low);border-radius:var(--m-radius-sm);box-shadow:var(--m-elevation-2);padding:var(--m-space-5);display:grid;gap:var(--m-space-5)}
+.estimate .head{display:grid;gap:var(--m-space-1)}
+.estimate .label,.estimate .note{color:var(--m-color-ink-medium);margin:0}
+.estimate .fields{display:grid;gap:var(--m-space-3)}
+.field{display:grid;grid-template-columns:1fr auto;gap:var(--m-space-2)}
+.field input{grid-column:1 / -1;width:100%;accent-color:var(--m-color-primary);margin:0}
+
+/* ---------- Review switcher (not part of the design) ---------- */
+.switch{position:fixed;left:50%;bottom:var(--m-space-5);translate:-50% 0;z-index:var(--m-z-index-dropdown);display:flex;align-items:center;gap:var(--m-space-1);padding:var(--m-space-1);border-radius:var(--m-radius-pill);background:var(--m-color-surface-inverse);max-width:calc(100vw - var(--m-space-6));overflow-x:auto}
+.switch a{white-space:nowrap;font:var(--m-type-label-sm);color:var(--m-color-on-surface-inverse);padding:var(--m-space-2) var(--m-space-3);border-radius:var(--m-radius-pill);transition:background-color var(--m-duration-fast) var(--m-easing-standard),color var(--m-duration-fast) var(--m-easing-standard)}
+.switch a:hover{background:var(--m-color-ink-medium)}
+.switch a[aria-current="true"]{background:var(--m-color-on-surface-inverse);color:var(--m-color-ink)}
+
+/* ---------- Phone: menu button → full-screen sheet (overlay 300) ---------- */
+.sheet{position:fixed;left:0;right:0;bottom:0;top:var(--hdr-h,60px);z-index:var(--m-z-index-overlay);background:var(--m-color-surface-bright);display:flex;flex-direction:column;opacity:0;translate:0 var(--m-space-2);transition:opacity var(--m-duration-base) var(--m-easing-exit),translate var(--m-duration-base) var(--m-easing-exit)}
+.sheet[hidden]{display:none}
+.sheet:not(.open){pointer-events:none}
+.sheet.open{opacity:1;translate:0 0;transition-timing-function:var(--m-easing-enter)}
+.sh-vp{position:relative;flex:1;overflow:hidden}
+.sh-track{position:absolute;inset:0;display:flex;width:200%;transition:translate var(--m-duration-slow) var(--m-easing-standard)}
+.sh-track.deep{translate:-50% 0}
+.sh-lvl{width:50%;height:100%;overflow-y:auto;padding:var(--m-space-2) var(--m-space-4) var(--m-space-5)}
+.sh-l1{list-style:none;margin:0;padding:0}
+.sh-l1 li{border-bottom:var(--m-border-thin) solid var(--m-color-outline-variant-low)}
+.sh-row{appearance:none;border:0;background:none;width:100%;min-height:var(--m-space-8);display:flex;align-items:center;justify-content:space-between;font:var(--m-type-title-md);color:var(--m-color-ink);cursor:pointer;padding:0;text-align:left}
+.sh-util{display:grid;margin-top:var(--m-space-4)}
+.sh-util a{display:flex;align-items:center;min-height:var(--m-size-control-md);font:var(--m-type-body-md);color:var(--m-color-ink-medium)}
+.sh-back{appearance:none;border:0;background:none;display:inline-flex;align-items:center;gap:var(--m-space-1);min-height:var(--m-size-control-md);font:var(--m-type-label-md);color:var(--m-color-primary-pressed);cursor:pointer;padding:0}
+.sh-sec{display:none}
+.sh-sec.on{display:block}
+.sh-sec h2{margin:var(--m-space-1) 0 var(--m-space-2);font:var(--m-type-title-lg)}
+.sh-strip{position:relative;margin:0 0 var(--m-space-4);border:var(--m-border-thin) solid var(--m-color-outline-variant-low);border-radius:var(--m-radius-sm);overflow:hidden}
+.sh-strip svg{width:100%;height:auto}
+.sh-sec ul{list-style:none;margin:0;padding:0;border:var(--m-border-thin) solid var(--m-color-outline-variant-low);border-radius:var(--m-radius-sm)}
+.sh-sec li+li{border-top:var(--m-border-thin) solid var(--m-color-outline-variant-low)}
+.sh-sec .tile{grid-template-rows:auto;border:0}
+.sh-foot{display:grid;grid-template-columns:1fr 1fr;gap:var(--m-space-2);padding:var(--m-space-3) var(--m-space-4);border-top:var(--m-border-thin) solid var(--m-color-outline-variant-low)}
+
+@media (max-width:1023.98px){
+  .util,.nav,.cta .btn--sm,#dd{display:none}
+  .burger{display:grid}
+  .hero .grid{grid-template-columns:minmax(0,1fr);gap:var(--m-space-6);min-height:0}
+}
+@media (max-width:767.98px){ .hero .acts .btn{flex:1 1 100%} }
+.still *,.still *::before,.still *::after{animation:none!important;transition:none!important}
+
+/* ---------- Reduced motion: movement → 0 ms, slides → fades, draw-ons off; colour and focus still change ---------- */
+@media (prefers-reduced-motion: reduce){
+  .iso [data-layer]>*,.iso [data-object]{animation:none!important}
+  .iso [data-object],.iso [data-for="parcel"],.iso [data-act]{transition-duration:var(--m-duration-none)!important;transition-delay:0s!important}
+  .iso [data-object]:not(.v)[data-act~="move"]{translate:none}
+  .iso [data-progress] path{transition-duration:var(--m-duration-none)!important;transition-delay:0s!important}
+  .mega,.mega.open,.sh-track,.nav-ind{transition-duration:var(--m-duration-none)}
+  .lyr.in{transition-duration:var(--m-duration-fast)}
+  .sheet{transition-property:opacity;translate:none}
+  .btn .ic,.link .ic,.tile h3 .ic,.nav-t .chev{transition-duration:var(--m-duration-none)}
+  .btn:hover .ic,.link:hover .ic,.tile:hover h3 .ic{translate:none}
+}
+</style>
+</head>
+<body data-default="v5">
+<a class="sr" href="#main">Skip to content</a>
+<header class="hdr" id="hdr">
+  <div class="util"><div class="m-container">
+    <a href="#">Log in</a><a href="#">Contact us</a>
+    <a href="#"><svg class="ic" viewBox="0 -960 960 960" aria-hidden="true"><path d="M480-80q-82 0-155-31.5t-127.5-86Q143-252 111.5-325T80-480q0-83 31.5-155.5t86-127Q252-817 325-848.5T480-880q83 0 155.5 31.5t127 86q54.5 54.5 86 127T880-480q0 82-31.5 155t-86 127.5q-54.5 54.5-127 86T480-80Zm0-82q26-36 45-75t31-83H404q12 44 31 83t45 75Zm-104-16q-18-33-31.5-68.5T322-320H204q29 50 72.5 87t99.5 55Zm208 0q56-18 99.5-55t72.5-87H638q-9 38-22.5 73.5T584-178ZM170-400h136q-3-20-4.5-39.5T300-480q0-21 1.5-40.5T306-560H170q-5 20-7.5 39.5T160-480q0 21 2.5 40.5T170-400Zm216 0h188q3-20 4.5-39.5T580-480q0-21-1.5-40.5T574-560H386q-3 20-4.5 39.5T380-480q0 21 1.5 40.5T386-400Zm268 0h136q5-20 7.5-39.5T800-480q0-21-2.5-40.5T790-560H654q3 20 4.5 39.5T660-480q0 21-1.5 40.5T654-400Zm-16-240h118q-29-50-72.5-87T584-782q18 33 31.5 68.5T638-640Zm-234 0h152q-12-44-31-83t-45-75q-26 36-45 75t-31 83Zm-200 0h118q9-38 22.5-73.5T376-782q-56 18-99.5 55T204-640Z"/></svg>United States - English</a>
+    <a href="#"><svg class="ic" viewBox="0 -960 960 960" aria-hidden="true"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg>Search</a>
+  </div></div>
+  <div class="main"><div class="m-container">
+    <!--@@LOGO@@-->
+    <nav class="nav" aria-label="Main"><ul class="nav-list" id="nav-list"></ul><span class="nav-ind" aria-hidden="true"></span></nav>
+    <div class="cta">
+      <a class="btn btn--primary btn--sm" href="#">Get a quote</a>
+      <button class="icon-btn burger" type="button" aria-expanded="false" aria-controls="sheet" aria-label="Open menu"><svg class="ic ic20" viewBox="0 -960 960 960" aria-hidden="true"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></button>
+    </div>
+  </div></div>
+  <div id="dd"></div>
+</header>
+<div class="scrim" aria-hidden="true"></div>
+<div class="sheet" id="sheet" hidden></div>
+
+<main id="main">
+  <section class="hero m-section" aria-labelledby="hero-h">
+    <canvas aria-hidden="true"></canvas>
+    <div class="m-container grid">
+      <div>
+        <h1 id="hero-h" class="m-display-lg">Shipping insurance for <em>lost, damaged,</em> or <em>stolen</em> shipments</h1>
+        <p class="lead m-body-lg">InsureShield® Shipping Insurance helps businesses recover faster after covered loss or damage to a shipment. Explore options for UPS packages, multi-carrier shipments, LTL freight, and international freight.</p>
+        <div class="acts"><a class="btn btn--secondary" href="#">Talk to an expert</a></div>
+      </div>
+      <form class="estimate" aria-label="Instant estimate" onsubmit="return false">
+        <div class="head"><span class="label m-label-md">Estimated monthly premium</span><span class="m-title-lg" id="est-v" aria-live="polite">$135 – $190 /mo</span></div>
+        <div class="fields">
+          <label class="field"><span class="m-body-sm">Average shipments a month</span><span class="m-label-md" id="o-n">100</span><input id="i-n" type="range" min="10" max="1000" step="10" value="100"></label>
+          <label class="field"><span class="m-body-sm">Average shipment value</span><span class="m-label-md" id="o-v">$200</span><input id="i-v" type="range" min="10" max="5000" step="10" value="200"></label>
+        </div>
+        <p class="note m-body-xs">This is an estimate. Final rates may vary based on your coverage, shipment details, and risk profile.</p>
+        <div><a class="btn btn--primary" href="#">Get your pricing <span><svg class="ic ic20" viewBox="0 -960 960 960" aria-hidden="true"><path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z"/></svg></span></a></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<nav class="switch" aria-label="Design versions (review only)">
+  <a href="insureshield-nav-stage.html">A · Stage</a><a href="insureshield-nav-diorama.html">C · Diorama</a>
+  <a href="insureshield-nav-panorama.html">V3-A</a><a href="insureshield-nav-atelier.html">V3-B</a><a href="insureshield-nav-rail.html">V3-C</a>
+  <a href="insureshield-nav-relief.html">V4-A</a><a href="insureshield-nav-doorstep.html">V4-B</a><a href="insureshield-nav-askfirst.html">V4-C</a>
+  <a href="insureshield-nav-v5.html" aria-current="true">V5 · Journey</a><a href="insureshield-nav-v6.html">V6 · Light up</a><a href="insureshield-nav-v7a.html">V7-A</a><a href="insureshield-nav-v7b.html">V7-B</a>
+</nav>
+
+<!--@@ART@@-->
+
+<script>
+(function(){
+"use strict";
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const ROOT=document.documentElement, QS=new URLSearchParams(location.search), STILL=QS.has('still');
+const RM=STILL?{matches:true,addEventListener(){}}:matchMedia('(prefers-reduced-motion: reduce)');
+if(STILL) ROOT.classList.add('still');
+// every timing comes from the Momentum tokens
+const tok=n=>parseFloat(getComputedStyle(ROOT).getPropertyValue(n))||0;
+const TM={fast:tok('--m-duration-fast'),base:tok('--m-duration-base'),slow:tok('--m-duration-slow'),stagger:tok('--iso-stagger')};
+const G=(d,c='')=>`<svg class="ic ${c}" viewBox="0 -960 960 960" aria-hidden="true"><path d="${d}"/></svg>`;
+const ICON={chev:G('M480-345 240-585l56-56 184 184 184-184 56 56-240 240Z','chev'),arrow:G('M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z'),
+  right:G('M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z','ic20'),left:G('M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z','ic20')};
+const amp=s=>s.replace(/&/g,'&amp;');
+
+/* ============ Content: every live link, grouped by visitor task; the tile order is the journey order ============ */
+const NAV=[
+ {id:'insurance',label:'Shipping Insurance',story:'Follow your parcel from counter to covered.',lead:'Protect shipments from covered loss, damage, and theft.',over:'Explore shipping insurance',
+  groups:[['Find what fits',[['Select My Coverage','Answer a few questions to find the right fit'],['Get a Quote','Estimate cost for your shipping volume']]],['Cover what you ship',[['Multi-Carrier Shipments','Parcel and freight across UPS, FedEx, DHL, and USPS'],['UPS Shipments','Coverage designed for packages shipped with UPS'],['Special Commodities','High-value, perishable, and specialty goods']]]]},
+ {id:'solutions',label:'Solutions',story:'Lower the risk at every stop.',lead:'Tools that reduce risk before, during, and after delivery.',over:'See all solutions',
+  groups:[['Before you ship',[['DeliveryDefense','Address confidence scores before you ship'],['Delivery Orchestration','Choose delivery options that lower risk']]],['At checkout',[['CommerceShield','Order risk signals and chargeback protection']]],['If it goes wrong',[['InsureShield® Shipping Insurance','Protection against loss, damage, and theft']]]]},
+ {id:'claims',label:'Claims',href:'#'},
+ {id:'partners',label:'Partners',story:'Plug coverage into the way you sell.',lead:'Connect InsureShield to the platforms you already ship with.',over:'Partners overview',
+  groups:[['You sell on a platform',[['Connect with a Partner','Add coverage inside the platforms you use']]],['You run a platform',[['Become a Partner','Offer InsureShield to your customers']]]]},
+ {id:'resources',label:'Resources',story:'Help is never more than one stop away.',lead:'Guides, stories, and support for shippers.',over:'All resources',
+  groups:[['Need help now',[['Help & Support','Answers about coverage, billing, and claims']]],['Learn from others',[['Customer Stories','How businesses recover faster'],['Insights','Articles on shipping risk and protection'],['Whitepapers & Guides','In-depth research and how-to guides']]]]},
+ {id:'about',label:'About',story:'The team that rides along with you.',lead:'News, availability, and how to reach us.',over:'About InsureShield',
+  groups:[['Talk to us',[['Contact Us','Reach our team']]],['Where we cover',[['Product Availability','Where coverage is offered']]],["What's new",[['Announcements','Product and company news'],['In The News','Press coverage of UPS Capital']]]]}
+];
+const MENUS=NAV.filter(n=>!n.href), byId=id=>MENUS.find(m=>m.id===id);
+const stopsOf=m=>m.groups.flatMap(([g,l])=>l.map(x=>({t:x[0],d:x[1],g})));
+const STATUS=/*@@STATUS@@*/{};   // one tracking line per stop = the stop's concept message
+const ART={}; $$('template[data-art] [data-n]').forEach(()=>{}); { const t=$('template[data-art="v5"]'); $$('[data-n]',t.content).forEach(d=>ART[d.dataset.n]=d.innerHTML); }
+
+/* ============ The journey: one strip per menu; the parcel travels to the pointed stop ============
+   Phases on .iso: draw (once per open) → live. Stop k: stops ≤ k get .v (visited, in colour, change played),
+   the route's teal dashes light up to the parcel in step with its travel (slow · enter), the next tile is
+   marked "Next stop". Reduced motion: no draw, no travel; the end state shows at once. */
+class Journey{
+  constructor(host,m,status,tiles){ this.host=host; this.m=m; this.status=status; this.tiles=tiles; this.stops=stopsOf(m); this.k=-1; this.tm=0; this.t2=0; this.el=null; }
+  mount(){ const old=this.el; if(old){ old.classList.add('leaving'); setTimeout(()=>old.remove(),TM.fast); }
+    const el=document.createElement('div'); el.className='iso'; el.innerHTML=ART[this.m.label]; this.host.appendChild(el); this.el=el;
+    const svg=el.firstElementChild; this.svg=svg; this.pitch=+svg.dataset.pitch;
+    $$('[data-object*=":"]',svg).forEach(g=>g.dataset.st=g.dataset.object.split(':')[0].slice(1));
+    $$('[data-shadow][data-for*=":"]',svg).forEach(g=>g.dataset.st=g.dataset.for.split(':')[0].slice(1));
+    this.parcel=$$('[data-object="parcel"],[data-for="parcel"]',svg); this.dashes=$$('[data-progress] path',svg).map(p=>({p,x:+p.dataset.x})).sort((a,b)=>a.x-b.x);
+    this.k=-1; this.render(true);
+    if(RM.matches){ el.dataset.phase='live'; return; }
+    el.dataset.phase='draw'; clearTimeout(this.tm); this.tm=setTimeout(()=>el.dataset.phase='live',TM.slow+(+svg.dataset.objects||1)*TM.stagger); }
+  xAt(k){ return k<0?30:(k+.5)*this.pitch-56; }
+  go(k){ if(k===this.k) return; const from=this.xAt(this.k), to=this.xAt(k); this.k=k; this.render(false,from,to); }
+  render(instant,from=30,to=30){
+    const k=this.k, dx=to-30, x0=Math.min(from,to), span=Math.max(1,Math.abs(to-from));
+    this.parcel.forEach(n=>n.style.translate=`${dx}px 0`);
+    if(k>=0) this.svg.dataset.covered=''; else delete this.svg.dataset.covered;
+    // dashes light (or go out) in travel order, timed to finish with the parcel
+    this.dashes.forEach(({p,x})=>{ const on=k>=0&&x<=to+12, was=p.classList.contains('lit'); if(on===was) return;
+      const f=instant||RM.matches?0:Math.abs((to>from?x-x0:x0+span-x)/span); p.style.transitionDelay=`${Math.round(f*TM.slow)}ms`; p.classList.toggle('lit',on); });
+    // stops ahead fall back at once; the stop reached changes on arrival
+    $$('[data-st]',this.svg).forEach(g=>{ if(+g.dataset.st>k) g.classList.remove('v'); });
+    clearTimeout(this.t2);
+    const arrive=()=>$$('[data-st]',this.svg).forEach(g=>g.classList.toggle('v',+g.dataset.st<=k));
+    if(instant||RM.matches) arrive(); else this.t2=setTimeout(arrive,TM.slow);
+    this.tiles.forEach((t,i)=>{ t.classList.toggle('act',i===k); t.classList.toggle('next',i===k+1); });
+    const n=this.stops.length, s=this.stops[k], nx=this.stops[k+1];
+    $('.badge',this.status).textContent=k<0?'Ready to ship':`Stop ${k+1} of ${n}`;
+    $('.status-t',this.status).textContent=k<0?'Point at a stop to send your parcel there':(STATUS[s.t]||s.d);
+    $('.status-n',this.status).innerHTML=nx?`Next stop: <b>${amp(nx.t)}</b>`:(k<0?'':'Last stop on this route');
+  }
+  pause(){ clearTimeout(this.tm); clearTimeout(this.t2); if(this.el&&this.el.dataset.phase==='draw') this.el.dataset.phase='live'; }
+}
+
+/* ============ Header + mega menu ============ */
+const hdr=$('#hdr'), list=$('#nav-list'), ind=$('.nav-ind'), dd=$('#dd');
+list.innerHTML=NAV.map(n=>n.href?`<li><a class="nav-t" href="${n.href}">${n.label}</a></li>`
+  :`<li><button class="nav-t" type="button" data-id="${n.id}" aria-expanded="false" aria-controls="dd-${n.id}">${n.label}${ICON.chev}</button></li>`).join('');
+dd.innerHTML=`<div class="mega" id="mega">${MENUS.map(m=>{ const S=stopsOf(m);
+  return `<div class="lyr" data-id="${m.id}" id="dd-${m.id}" role="region" aria-label="${m.label}"><div class="m-container">
+    <div class="jhead"><div><p class="eyebrow">${m.label}</p><h2>${m.story}</h2><p class="lead">${m.lead}</p></div>
+      <div class="status" aria-live="polite"><div class="status-row"><span class="badge"></span><a class="link" href="#">${m.over}${ICON.arrow}</a></div><span class="status-t"></span><span class="status-n"></span></div></div>
+    <div class="matrix" style="--n:${S.length}"><div class="strip" aria-hidden="true"></div>${S.map(tileHTML).join('')}</div></div></div>`; }).join('')}</div>`;
+function tileHTML(s,i){ return `<a class="tile" href="#" data-k="${i}"><span class="media" aria-hidden="true"></span><span class="body"><span class="stop">${String(i+1).padStart(2,'0')} · ${amp(s.g)}</span><h3>${amp(s.t).replace(/ (\S+)$/,' <span class="nw">$1')}${/ \S+$/.test(s.t)?'':'<span class="nw">'}${ICON.arrow}</span></h3><p>${amp(s.d)}</p></span></a>`; }   // hoisted: defined after the panel template so headings read h2 → h3 in the source too
+const triggers=$$('.nav-t[data-id]'), ids=triggers.map(t=>t.dataset.id), layers=$$('.lyr',dd), J={};
+layers.forEach(l=>{ l.inert=true; const m=byId(l.dataset.id); J[m.id]=new Journey($('.strip',l),m,$('.status',l),$$('.tile',l)); });
+let openId=null, tOpen=0, tClose=0, hoverT=0;
+function placeInd(t){ if(!t){ ind.classList.remove('on'); return; } const nr=$('.nav').getBoundingClientRect(), tr=t.getBoundingClientRect(); ind.style.scale=`${tr.width/100} 1`; ind.style.translate=`${tr.left-nr.left}px 0`; ind.classList.add('on'); }
+function show(id){ clearTimeout(tOpen); clearTimeout(tClose); if(openId===id) return; const prev=openId; openId=id;
+  triggers.forEach(t=>t.setAttribute('aria-expanded',String(t.dataset.id===id))); placeInd(triggers[ids.indexOf(id)]); document.body.classList.add('menu-open');
+  layers.forEach(l=>{ const isNew=l.dataset.id===id, isOld=l.dataset.id===prev; if(isNew){ l.classList.remove('out'); l.classList.add('in'); l.inert=false; } else if(isOld){ l.classList.remove('in'); l.classList.add('out'); l.inert=true; } else { l.classList.remove('in','out'); l.inert=true; } });
+  if(prev) J[prev].pause(); $('#mega').classList.add('open'); J[id].mount(); }
+function hide(focusBack){ clearTimeout(tOpen); clearTimeout(tClose); if(!openId) return; const t=triggers[ids.indexOf(openId)]; J[openId].pause(); openId=null;
+  triggers.forEach(x=>x.setAttribute('aria-expanded','false')); placeInd(null); document.body.classList.remove('menu-open'); $('#mega').classList.remove('open');
+  layers.forEach(l=>{ l.inert=true; l.classList.remove('in','out'); }); if(focusBack&&t) t.focus(); }
+const mouse=e=>e.pointerType==='mouse';
+triggers.forEach(t=>{
+  // hover intent: opens or switches only after 100 ms on a trigger, so crossing triggers on the way down doesn't swap the panel
+  t.addEventListener('pointerenter',e=>{ if(!mouse(e)) return; clearTimeout(tClose); clearTimeout(tOpen); if(openId===t.dataset.id) return; tOpen=setTimeout(()=>show(t.dataset.id),TM.fast); });
+  t.addEventListener('pointerleave',e=>{ if(mouse(e)) clearTimeout(tOpen); });
+  t.addEventListener('click',()=>openId===t.dataset.id?hide(false):show(t.dataset.id));
+  t.addEventListener('keydown',e=>{ if(e.key==='ArrowDown'){ e.preventDefault(); show(t.dataset.id); setTimeout(()=>{ const f=$(`#dd-${t.dataset.id} .tile`); f&&f.focus(); },TM.fast); } });
+});
+$$('.nav-t:not([data-id])').forEach(a=>{ a.addEventListener('pointerenter',e=>{ if(!mouse(e)) return; clearTimeout(tOpen); if(openId){ clearTimeout(tClose); tClose=setTimeout(()=>hide(false),TM.base); } }); a.addEventListener('pointerleave',e=>{ if(mouse(e)) clearTimeout(tClose); }); });
+hdr.addEventListener('pointerleave',e=>{ if(!mouse(e)) return; clearTimeout(tOpen); tClose=setTimeout(()=>hide(false),TM.slow); });
+hdr.addEventListener('pointerenter',e=>{ if(mouse(e)) clearTimeout(tClose); });
+hdr.addEventListener('keydown',e=>{ if(e.key==='Escape'&&openId){ e.preventDefault(); hide(true); }
+  // arrow keys walk the route from tile to tile
+  const t=e.target.closest('.tile'); if(t&&(e.key==='ArrowRight'||e.key==='ArrowLeft')){ e.preventDefault(); const all=$$('.tile',t.closest('.matrix')), i=all.indexOf(t)+(e.key==='ArrowRight'?1:-1); all[Math.max(0,Math.min(all.length-1,i))].focus(); } });
+hdr.addEventListener('focusout',e=>{ if(openId&&!hdr.contains(e.relatedTarget)) hide(false); });
+document.addEventListener('pointerdown',e=>{ if(openId&&!hdr.contains(e.target)) hide(false); });
+window.addEventListener('scroll',()=>{ if(openId) hide(false); },{passive:true});
+window.addEventListener('resize',()=>{ if(openId) placeInd(triggers[ids.indexOf(openId)]); });
+const goTo=el=>{ const l=el.closest('.lyr'); if(!l||!l.classList.contains('in')) return; J[l.dataset.id].go(+el.dataset.k); };
+dd.addEventListener('pointerover',e=>{ const el=e.target.closest('.tile'); if(!el) return; clearTimeout(hoverT); hoverT=setTimeout(()=>goTo(el),TM.fast); });
+dd.addEventListener('focusin',e=>{ const el=e.target.closest('.tile'); if(el) goTo(el); });
+document.addEventListener('click',e=>{ if(e.target.closest('a[href="#"]')) e.preventDefault(); });
+
+/* ============ Hero pattern: the 17.5° ground grid, still until the pointer arrives (pointer-only, no idle loop) ============ */
+(function(){
+  const cv=$('.hero canvas'), ctx=cv.getContext('2d'), TN=Math.tan(17.5*Math.PI/180), CC=Math.SQRT1_2, GAP=48, REACH=150;
+  let W=0,H=0,nodes=[],links=[],raf=0;
+  const col=n=>getComputedStyle(ROOT).getPropertyValue(n).trim();
+  function build(){ const r=cv.getBoundingClientRect(); W=r.width; H=r.height; const dpr=Math.min(devicePixelRatio||1,2); cv.width=W*dpr; cv.height=H*dpr; ctx.setTransform(dpr,0,0,dpr,0,0);
+    const ox=W*.7, oy=H*.5, R=Math.ceil((W/CC+H/(CC*TN))/2/GAP)+2, key=new Map(); nodes=[]; links=[];
+    for(let i=-R;i<=R;i++) for(let j=-R;j<=R;j++){ const sx=ox+(i-j)*GAP*CC, sy=oy+(i+j)*GAP*CC*TN; if(sx<-GAP||sx>W+GAP||sy<-GAP||sy>H+GAP) continue;
+      const a=Math.max(0,Math.min(1,(sx-W*.45)/(W*.2))); if(a<=.02) continue; key.set(i+','+j,nodes.length); nodes.push({sx,sy,a,lift:0}); }
+    for(const [k,n] of key){ const [i,j]=k.split(',').map(Number); [[i+1,j],[i,j+1]].forEach(([a,b])=>{ const m=key.get(a+','+b); if(m!=null) links.push([n,m]); }); } draw(); }
+  function draw(){ ctx.clearRect(0,0,W,H); ctx.lineWidth=1; const teal=col('--m-color-primary'), grey=col('--m-color-outline-variant');
+    for(const [p,q] of links){ const n=nodes[p], m=nodes[q], t=(n.lift+m.lift)/2; ctx.globalAlpha=Math.min(n.a,m.a)*(t>.04?.25+.6*t:.35); ctx.strokeStyle=t>.04?teal:grey;
+      ctx.beginPath(); ctx.moveTo(n.sx,n.sy-n.lift*8); ctx.lineTo(m.sx,m.sy-m.lift*8); ctx.stroke(); } ctx.globalAlpha=1; }
+  const hero=$('.hero');
+  hero.addEventListener('pointermove',e=>{ if(RM.matches||e.pointerType==='touch') return; const r=cv.getBoundingClientRect(), mx=e.clientX-r.left, my=e.clientY-r.top;
+    for(const n of nodes){ const d=Math.hypot(n.sx-mx,n.sy-my); n.lift=d<REACH?1-d/REACH:0; } if(!raf) raf=requestAnimationFrame(()=>{ raf=0; draw(); }); });
+  hero.addEventListener('pointerleave',()=>{ nodes.forEach(n=>n.lift=0); draw(); });
+  addEventListener('resize',build); build();
+})();
+
+/* ============ Instant estimate ============ */
+(function(){ const n=$('#i-n'), v=$('#i-v'); const money=x=>'$'+Math.round(x).toLocaleString('en-US');
+  const up=()=>{ $('#o-n').textContent=n.value; $('#o-v').textContent=money(+v.value); const p=+n.value*+v.value; $('#est-v').textContent=`${money(p*.0068)} – ${money(p*.0095)} /mo`; };
+  n.addEventListener('input',up); v.addEventListener('input',up); up(); })();
+
+/* ============ Phone: menu button → full-screen sheet; each menu shows its strip (whole route travelled) + its tiles ============ */
+(function(){
+  const sh=$('#sheet'), bt=$('.burger');
+  sh.innerHTML=`<nav class="sh-vp" aria-label="Main"><div class="sh-track"><div class="sh-lvl sh-a"><ul class="sh-l1">${NAV.map(n=>n.href?`<li><a class="sh-row" href="#">${n.label}${ICON.right}</a></li>`:`<li><button class="sh-row" type="button" data-drill="${n.id}">${n.label}${ICON.right}</button></li>`).join('')}</ul>
+    <div class="sh-util"><a href="#">Log in</a><a href="#">Contact us</a><a href="#">Search</a><a href="#">United States - English</a></div></div>
+    <div class="sh-lvl sh-b" inert><button class="sh-back" type="button">${ICON.left}All menus</button>${MENUS.map(m=>`<div class="sh-sec" data-id="${m.id}"><h2>${m.label}</h2><div class="sh-strip" aria-hidden="true"></div><ul>${stopsOf(m).map((s,i)=>`<li>${tileHTML(s,i).replace('<span class="media" aria-hidden="true"></span>','')}</li>`).join('')}</ul></div>`).join('')}</div></div></nav>
+    <div class="sh-foot"><a class="btn btn--primary" href="#">Get a quote</a><a class="btn btn--secondary" href="#">Claims</a></div>`;
+  const tr=$('.sh-track',sh), a=$('.sh-a',sh), b=$('.sh-b',sh); let last=null, th=0;
+  function open(){ clearTimeout(th); ROOT.style.setProperty('--hdr-h',hdr.getBoundingClientRect().height+'px'); sh.hidden=false; void sh.offsetWidth; sh.classList.add('open'); bt.setAttribute('aria-expanded','true'); bt.setAttribute('aria-label','Close menu'); document.body.style.overflow='hidden'; setTimeout(()=>$('.sh-row',sh).focus(),TM.fast); }
+  function close(){ sh.classList.remove('open'); bt.setAttribute('aria-expanded','false'); bt.setAttribute('aria-label','Open menu'); document.body.style.overflow=''; tr.classList.remove('deep'); a.inert=false; b.inert=true; th=setTimeout(()=>sh.hidden=true,TM.base); bt.focus(); }
+  bt.addEventListener('click',()=>bt.getAttribute('aria-expanded')==='true'?close():open());
+  $$('[data-drill]',sh).forEach(x=>x.addEventListener('click',()=>{ last=x; const m=byId(x.dataset.drill);
+    $$('.sh-sec',sh).forEach(s=>s.classList.toggle('on',s.dataset.id===m.id));
+    const host=$(`.sh-sec[data-id="${m.id}"] .sh-strip`,sh); if(!host.firstChild){ host.innerHTML=ART[m.label]; const svg=host.firstElementChild; const n=stopsOf(m).length;
+      $$('[data-object*=":"],[data-shadow][data-for*=":"]',svg).forEach(g=>g.classList.add('v')); svg.dataset.covered=''; $$('[data-progress] path',svg).forEach(p=>p.classList.add('lit'));
+      $$('[data-object="parcel"],[data-for="parcel"]',svg).forEach(p=>p.style.translate=`${(n-.5)*(+svg.dataset.pitch)-56-30}px 0`); host.classList.add('iso'); }
+    b.scrollTop=0; tr.classList.add('deep'); a.inert=true; b.inert=false; setTimeout(()=>$('.sh-back',sh).focus(),TM.slow); }));
+  $('.sh-back',sh).addEventListener('click',()=>{ tr.classList.remove('deep'); a.inert=false; b.inert=true; last&&setTimeout(()=>last.focus(),TM.slow); });
+  sh.addEventListener('keydown',e=>{ if(e.key==='Escape') close(); });
+})();
+
+RM.addEventListener('change',()=>{ $$('.iso[data-phase="draw"]').forEach(el=>el.dataset.phase='live'); });
+// review links: ?open=<menu>&stop=<index> (add &still for the end frame)
+const q=QS.get('open'), st=QS.get('stop'); if(q&&byId(q)){ show(q); if(st!=null) setTimeout(()=>J[q].go(+st),STILL?0:TM.slow*2); }
+})();
+</script>
+</body>
+</html>

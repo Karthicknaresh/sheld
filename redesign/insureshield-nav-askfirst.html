@@ -1,0 +1,1066 @@
+<!doctype html>
+<html lang="en" data-brand="insureshield" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>InsureShield Nav concepts (Momentum iso motion)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&display=swap">
+<style>
+/* Momentum tokens (momentum-iso-motion skill: assets/tokens.css) */
+/* Momentum × InsureShield — illustration + motion tokens.
+   Colour values measured from the live shipping-insurance page and the Secure Commerce Figma file.
+   Motion and layer values are the Momentum library variables (Motion, Layer, Size collections).
+   If your app already loads the Momentum stylesheet, it defines these; keep this file as the
+   fallback for standalone prototypes and Claude artifacts. */
+:root {
+  /* ---- illustration ramps: tint · light (right face) · strong (top) · shade (left face, edges) */
+  --m-graphic-teal-tint: #e7f2f2;  --m-graphic-teal-light: #9fcbcb;  --m-graphic-teal-strong: #0a8080;  --m-graphic-teal-shade: #075a5a;
+  --m-graphic-blue-light: #99c0e1; --m-graphic-blue-strong: #0662bb; --m-graphic-blue-shade: #064d93;
+  --m-graphic-material-kraft-light: #ddbf98; --m-graphic-material-kraft-strong: #c49a6c; --m-graphic-material-kraft-shade: #8f6a44;
+  --m-graphic-material-chalk-light: #fbfaf8; --m-graphic-material-chalk-strong: #eceae6; --m-graphic-material-chalk-shade: #cfccc6;
+  --m-graphic-material-charcoal-strong: #5f5753;
+  /* neutrals used for houses, doors, ground lines, hatch */
+  --m-color-outline-default: #85858e;   /* edges of neutral objects + ALL hatch shadows */
+  --m-color-outline-variant: #b2b2bb;   /* ground plates, neutral top faces */
+  --m-color-surface-container-high: #eceae9;
+  --m-color-surface-container-low: #f0ede9;
+  --m-color-surface-container-lowest: #fcfaf8;
+  /* CONFIRM before production: these exist in the site code but weren't measured. Values are
+     placeholders until the Momentum library confirms them. Coral = "something went wrong" (one per
+     scene, always resolves to teal). Carrier colours = thin stripes on multi-carrier parcels only. */
+  --m-graphic-coral-light: #f5ab99; --m-graphic-coral-strong: #e65533; --m-graphic-coral-shade: #b22101; /* Figma-measured */
+--m-graphic-carrier-dhl-yellow: #ffcc00; --m-graphic-carrier-dhl-red: #d40511; /* Figma-measured */
+  --m-graphic-carrier-ups: #330000; /* Figma-measured */ --m-graphic-carrier-ups-gold: #ffb500;
+  --m-graphic-carrier-fedex: #4d148c; --m-graphic-carrier-dhl: #ffcc00; --m-graphic-carrier-usps: #33507a;
+
+  /* ---- motion (Momentum › Motion) */
+  --m-duration-none: 0ms;    /* reduced-motion fallback: state still applies, no movement */
+  --m-duration-fast: 100ms;  /* hover / press feedback on small controls */
+  --m-duration-base: 200ms;  /* default UI transition */
+  --m-duration-slow: 320ms;  /* larger surfaces entering or leaving */
+  --m-easing-standard: cubic-bezier(0.2, 0, 0, 1); /* state changes (≈92% of live transitions) */
+  --m-easing-enter: cubic-bezier(0, 0, 0, 1);      /* elements entering */
+  --m-easing-exit: cubic-bezier(0.3, 0, 1, 1);     /* elements leaving */
+
+  /* ---- layers (Momentum › Layer) — page stacking only; inside an SVG, order = layer */
+  --m-z-base: 0; --m-z-sticky: 100; --m-z-dropdown: 200; --m-z-overlay: 300;
+  --m-z-modal: 400; --m-z-toast: 500; --m-z-tooltip: 600;
+
+  /* ---- size + focus (Momentum › Size, Focus) */
+  --m-size-icon-md: 20px;   /* UI icon box inside controls; 16px for inline/utility icons */
+  --m-focus-ring-width: 2px; --m-focus-ring-offset: 4px;
+}
+
+/* Momentum motion patterns (assets/motion.css) */
+/* Momentum motion patterns, rebuilt from the live page's @keyframes and transitions.
+   Requires tokens.css. Every pattern has its reduced-motion twin at the bottom. */
+
+/* Hover cue: trailing arrow / chevron nudges along its axis */
+.m-cue { transition: translate var(--m-duration-fast) var(--m-easing-standard); }
+.m-cue-host:hover .m-cue, .m-cue-host:focus-visible .m-cue { translate: 4px 0; }
+
+/* Disclosure chevron */
+.m-chevron { transition: rotate var(--m-duration-fast) var(--m-easing-standard); }
+[aria-expanded="true"] > .m-chevron { rotate: 180deg; }
+
+/* Tile / card hover: colour only — tiles never lift or scale */
+.m-tile { transition: background-color var(--m-duration-base) var(--m-easing-standard), outline-color var(--m-duration-base) var(--m-easing-standard); }
+
+/* Reveal: content arriving (fade + 8px rise) */
+@keyframes m-reveal { from { opacity: 0; translate: 0 8px; } }
+.m-reveal { animation: m-reveal var(--m-duration-slow) var(--m-easing-enter) both; }
+
+/* Draw-on: left-to-right clip reveal — works with non-scaling strokes (no dasharray maths) */
+@keyframes m-draw { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0); } }
+[data-draw] { animation: m-draw var(--m-duration-slow) var(--m-easing-standard) both; }
+
+/* Bars rising into a chart */
+@keyframes m-bar-in { from { translate: 0 100%; } }
+.m-bar { animation: m-bar-in var(--m-duration-slow) var(--m-easing-enter) both; }
+
+/* Loading sweep */
+@keyframes m-sweep { 0% { transform-origin: 0 50%; transform: scaleX(0); } 50% { transform-origin: 0 50%; transform: scaleX(1); }
+  51% { transform-origin: 100% 50%; transform: scaleX(1); } 100% { transform-origin: 100% 50%; transform: scaleX(0); } }
+
+/* Attention ping (the only always-on loop; 1280ms, exit curve) */
+@keyframes m-ping { 75%, 100% { opacity: 0; scale: 2.4; } }
+.m-pulse::after { animation: m-ping 1280ms var(--m-easing-exit) infinite; }
+
+/* Header hide on scroll: slide + fade out (exit), slide in (standard) */
+.m-header { transition: translate var(--m-duration-slow) var(--m-easing-exit), opacity var(--m-duration-slow) var(--m-easing-exit); }
+
+/* Success pop — the ONE sanctioned overshoot (form submitted) */
+@keyframes m-success-pop { 0% { opacity: 0; transform: scale(.65); } 70% { opacity: 1; transform: scale(1.08); } 100% { transform: scale(1); } }
+
+/* ---------------- reduced motion: movement → none, slides → fades, loops/draw-ons off */
+@media (prefers-reduced-motion: reduce) {
+  .m-cue, .m-chevron, .m-tile { transition-duration: var(--m-duration-none); }
+  .m-cue-host:hover .m-cue, .m-cue-host:focus-visible .m-cue { translate: none; }
+  .m-reveal { animation-name: m-fade; animation-duration: var(--m-duration-fast); }
+  [data-draw], .m-bar, .m-pulse::after { animation: none; }
+  .m-header { transition-property: opacity; transition-duration: var(--m-duration-fast); translate: none; }
+  html { scroll-behavior: auto; }
+}
+@keyframes m-fade { from { opacity: 0; } }
+
+
+/* Page tokens (InsureShield brand, light) */
+:root{
+  color-scheme:light;
+  --m-surface:#f8f8fb; --m-surface-bright:#fff; --m-surface-low:#efeff2; --m-surface-inverse:#363230; --m-on-inverse:#f0ede9;
+  --m-ink:#121212; --m-ink-medium:#5f5753; --m-ink-low:#85858e;
+  --m-outline:#85858e; --m-outline-low:#1a1a1f1f;
+  --m-primary:#0a8080; --m-primary-pressed:#075a5a; --m-primary-low:#e7f2f2; --m-primary-lowest:#f3f9f9; --m-primary-high:#9fcbcb;
+  --m-font:Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --m-radius-sm:4px; --m-radius-md:8px; --m-radius-pill:999px;
+  --control:2.75rem;
+  /* illustration choreography (measured on the live renderers) */
+  --iso-stagger:34ms;  /* between objects drawing on */
+  --iso-return:550ms;  /* back to rest when hover ends */
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--m-surface-bright);color:var(--m-ink);font:400 1rem/1.5rem var(--m-font);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit}
+:focus-visible{outline:var(--m-focus-ring-width) solid var(--m-primary);outline-offset:var(--m-focus-ring-offset);border-radius:var(--m-radius-sm)}
+.ctr{max-width:1200px;margin-inline:auto;padding-left:max(32px, env(safe-area-inset-left,0px));padding-right:max(32px, env(safe-area-inset-right,0px))}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+svg{display:block}
+.ic{fill:currentColor;flex:none}
+.ic16{width:16px;height:16px}
+.ic20{width:20px;height:20px}
+.ic24{width:24px;height:24px}
+
+/* Buttons: colour change only (Momentum button pattern) */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:var(--control);padding:8px 20px;border-radius:var(--m-radius-pill);border:1px solid transparent;font:500 1rem/1.5rem var(--m-font);white-space:nowrap;cursor:pointer;background:transparent;transition:background-color var(--m-duration-fast) var(--m-easing-standard),border-color var(--m-duration-fast) var(--m-easing-standard)}
+.btn .ic{transition:translate var(--m-duration-fast) var(--m-easing-standard)}
+.btn:hover .ic,.btn:focus-visible .ic{translate:4px 0}
+.btn-primary{background:var(--m-primary);color:#fff}
+.btn-primary:hover{background:var(--m-primary-pressed)}
+.btn-secondary{border-color:var(--m-ink);color:var(--m-ink)}
+.btn-secondary:hover{background:var(--m-surface-low)}
+.btn-sm{min-height:36px;padding:6px 16px;font-size:.9375rem;line-height:1.25rem}
+
+/* ---------- Header (sticky 100; raised to dropdown 200 while a menu is open) ---------- */
+.hdr{position:sticky;top:0;z-index:100;background:var(--m-surface-bright)}
+body.menu-open .hdr{z-index:200}
+.hdr-util{border-bottom:1px solid var(--m-outline-low)}
+.hdr-util .ctr{display:flex;justify-content:flex-end;align-items:center;gap:4px;height:32px}
+.hdr-util a{display:inline-flex;align-items:center;gap:6px;font-size:.8125rem;line-height:1;color:var(--m-ink-medium);padding:6px 10px;border-radius:var(--m-radius-sm);transition:color var(--m-duration-fast) var(--m-easing-standard)}
+.hdr-util a:hover{color:var(--m-ink)}
+.hdr-main{position:relative;border-bottom:1px solid var(--m-outline-low)}
+.hdr-main .ctr{display:flex;align-items:center;height:64px;gap:24px}
+.logo{display:flex;align-items:center;flex:none;height:52px;border-radius:var(--m-radius-sm)}
+.logo img{height:46px;width:auto}
+.nav{position:relative;height:100%;margin-left:clamp(16px, 9vw, 130px)}
+.nav-list{display:flex;align-items:center;height:100%;list-style:none;margin:0;padding:0;gap:2px}
+.nav-list li{height:100%;display:flex;align-items:center}
+.nav-t{appearance:none;border:0;background:none;cursor:pointer;display:inline-flex;align-items:center;gap:4px;height:var(--control);padding:0 12px;border-radius:var(--m-radius-sm);font:450 .9375rem/1.25rem var(--m-font);color:#2b2a29;white-space:nowrap;position:relative;transition:color var(--m-duration-fast) var(--m-easing-standard)}
+.nav-t .chev{color:var(--m-ink-low);transition:rotate var(--m-duration-fast) var(--m-easing-standard),color var(--m-duration-fast) var(--m-easing-standard)}
+.nav-t[aria-expanded="true"]{color:var(--m-primary-pressed)}
+.nav-t[aria-expanded="true"] .chev{rotate:180deg;color:var(--m-primary)}
+.nav-t:hover{color:var(--m-ink)}
+.nav-t[aria-current="page"]::after{content:"";position:absolute;left:12px;right:12px;bottom:-10px;height:2px;background:var(--m-color-outline-variant)}
+/* indicator: translate + scale only (no width animation) */
+.nav-ind{position:absolute;left:0;bottom:-1px;height:2px;width:100px;transform-origin:0 50%;scale:0 1;background:var(--m-primary);opacity:0;pointer-events:none;transition:translate var(--m-duration-slow) var(--m-easing-standard),scale var(--m-duration-slow) var(--m-easing-standard),opacity var(--m-duration-base) var(--m-easing-standard)}
+.nav-ind.on{opacity:1}
+.hdr-cta{margin-left:auto;display:flex;align-items:center;gap:8px}
+.icon-btn{appearance:none;border:0;background:none;width:var(--control);height:var(--control);border-radius:var(--m-radius-pill);display:grid;place-items:center;cursor:pointer;color:var(--m-ink);transition:background-color var(--m-duration-fast) var(--m-easing-standard)}
+.icon-btn:hover{background:var(--m-surface-low)}
+.burger{display:none}
+#dd-root{position:absolute;left:0;right:0;top:100%;height:0}
+.scrim{position:fixed;inset:0;z-index:100;background:#1212120d;opacity:0;pointer-events:none;transition:opacity var(--m-duration-base) var(--m-easing-standard)}
+body.menu-open .scrim{opacity:1}
+
+/* ---------- Mega panel: clip-path reveal (slow · standard in, exit out) ---------- */
+.mega{position:absolute;left:0;right:0;top:0;overflow:hidden;visibility:hidden;background:var(--m-surface-bright);border-bottom:1px solid var(--m-color-outline-variant);clip-path:inset(0 0 100% 0);transition:clip-path var(--m-duration-slow) var(--m-easing-exit),visibility 0s linear var(--m-duration-slow)}
+.mega.open{visibility:visible;clip-path:inset(0);transition:clip-path var(--m-duration-slow) var(--m-easing-standard),visibility 0s}
+.lyr{position:absolute;top:0;left:0;right:0;opacity:0;visibility:hidden}
+.lyr.in{visibility:visible;opacity:1;animation:m-reveal var(--m-duration-slow) var(--m-easing-enter) both}
+.lyr.out{visibility:visible;opacity:0;transition:opacity var(--m-duration-fast) var(--m-easing-exit)}
+
+.gt{margin:0 0 8px;font:600 .6875rem/1rem var(--m-font);letter-spacing:.08em;text-transform:uppercase;color:var(--m-ink-low)}
+.ul-link{display:inline-flex;align-items:center;gap:4px;font:500 .875rem/1.25rem var(--m-font);color:var(--m-primary-pressed);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px;transition:text-decoration-thickness var(--m-duration-fast) var(--m-easing-standard)}
+.ul-link:hover{text-decoration-thickness:2px}
+.ul-link .ic{transition:translate var(--m-duration-fast) var(--m-easing-standard)}
+.ul-link:hover .ic{translate:4px 0}
+
+/* ---------- Illustration slot + phases (Outline → Drawn → Filled) ---------- */
+.stage{position:relative;border-radius:var(--m-radius-md);background:var(--m-color-surface-container-lowest);overflow:hidden}
+.iso{position:absolute;inset:0}
+.iso svg{width:100%;height:100%;overflow:visible}
+.iso.leaving{opacity:0;transition:opacity var(--m-duration-fast) var(--m-easing-exit)}
+.iso path{transition:fill var(--m-duration-base) var(--m-easing-standard),stroke var(--m-duration-base) var(--m-easing-standard),opacity var(--m-duration-base) var(--m-easing-standard)}
+.iso [data-object],.iso [data-layer]{transition:translate var(--m-duration-base) var(--m-easing-standard)}
+/* Outline (rest) and Drawn (edges arriving): paper faces, hairline edges */
+.iso:is([data-phase="outline"],[data-phase="draw"]) [data-face]{fill:var(--m-color-surface-container-lowest);stroke:var(--m-color-surface-container-lowest)}
+.iso:is([data-phase="outline"],[data-phase="draw"]) [data-face="left"]{fill:var(--m-color-surface-container-high);stroke:var(--m-color-surface-container-high)}
+.iso:is([data-phase="outline"],[data-phase="draw"]) [data-object] path[fill="none"]{stroke:var(--m-color-outline-variant)}
+.iso:is([data-phase="outline"],[data-phase="draw"]) [data-object] path:not([data-face]):not([fill="none"]){fill:var(--m-color-surface-container-high);stroke:var(--m-color-surface-container-high)}
+.iso:is([data-phase="outline"],[data-phase="draw"]) [data-object] path[stroke-width="1"]:not([fill="none"]){stroke:var(--m-color-outline-variant)}
+.iso:is([data-phase="outline"],[data-phase="draw"]) [data-layer="0"] path:not([fill="none"]){fill:var(--m-color-outline-variant);stroke:var(--m-color-outline-variant)}
+.iso[data-phase="outline"] [data-shadow]{opacity:.45}
+.iso[data-phase="draw"] [data-shadow]{opacity:0}
+/* Drawn: ground plate, then each object, left-to-right clip draw, 34 ms apart */
+.iso[data-phase="draw"] [data-layer="0"]{animation:m-draw var(--m-duration-slow) var(--m-easing-standard) both}
+.iso[data-phase="draw"] [data-object]{animation:m-draw var(--m-duration-slow) var(--m-easing-standard) both;animation-delay:calc(var(--i,0) * var(--iso-stagger))}
+.iso[data-phase="draw"] [data-drop]{opacity:0;animation:none}
+/* Filled: tones arrive; the hero lifts 6 units and its hatch thins (suspension rule) */
+.iso[data-phase="filled"] [data-object][data-hero]{translate:0 -6px}
+.iso[data-phase="filled"] [data-shadow][data-hero]{opacity:.6}
+/* Stacks settle into place after a fresh draw (enter curve, 34 ms apart) */
+@keyframes iso-drop{from{opacity:0;translate:0 -12px}}
+.iso[data-phase="filled"][data-fresh] [data-drop]{animation:iso-drop var(--m-duration-slow) var(--m-easing-enter) both;animation-delay:calc(var(--d,0) * var(--iso-stagger))}
+/* Return to rest after hover: 550 ms, same curve */
+.iso[data-phase="outline"] path,.iso[data-phase="outline"] [data-object],.iso[data-phase="outline"] [data-layer]{transition-duration:var(--iso-return)}
+/* The concept's one state change (data-act, written by iso.js from the concept card):
+   in = appears · out = leaves (two together crossfade kraft → teal) · move = travels home from --ax/--ay.
+   Base · standard; "slow" (rises, drops, travel) = slow · enter. Ordered by --d × 34 ms. Back to rest in 550 ms. */
+.iso [data-act]{transition:opacity var(--m-duration-base) var(--m-easing-standard),translate var(--m-duration-base) var(--m-easing-standard),fill var(--m-duration-base) var(--m-easing-standard),stroke var(--m-duration-base) var(--m-easing-standard);transition-delay:calc(var(--d,0) * var(--iso-stagger))}
+.iso [data-act~="slow"]{transition-duration:var(--m-duration-slow);transition-timing-function:var(--m-easing-enter)}
+.iso:not([data-phase="filled"]) [data-act~="in"]{opacity:0}
+.iso[data-phase="filled"] [data-act~="out"]{opacity:0}
+.iso:not([data-phase="filled"]) [data-act~="move"]{translate:var(--ax,0) var(--ay,0)}
+.iso[data-phase="outline"] [data-act]{transition-duration:var(--iso-return);transition-delay:0s;transition-timing-function:var(--m-easing-standard)}
+.iso[data-phase="draw"] [data-act]{transition:none}
+
+.cp{position:absolute;top:10px;right:10px;z-index:2;appearance:none;display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 10px;border:1px solid var(--m-outline-low);border-radius:var(--m-radius-pill);background:var(--m-surface-bright);font:500 .75rem/1 var(--m-font);color:var(--m-ink-medium);cursor:pointer;opacity:0;transition:opacity var(--m-duration-fast) var(--m-easing-standard),color var(--m-duration-fast) var(--m-easing-standard)}
+.stage:hover .cp,.cp:focus-visible{opacity:1}
+.cp:hover{color:var(--m-ink)}
+.toast{position:fixed;left:50%;bottom:84px;translate:-50% 8px;z-index:500;padding:10px 16px;border-radius:var(--m-radius-pill);background:var(--m-surface-inverse);color:var(--m-on-inverse);font:500 .8125rem/1 var(--m-font);opacity:0;pointer-events:none;transition:opacity var(--m-duration-fast) var(--m-easing-standard),translate var(--m-duration-fast) var(--m-easing-standard)}
+.toast.on{opacity:1;translate:-50% 0}
+
+/* ===== Concept A: Stage ===== */
+.A .ctr{display:grid;grid-template-columns:360px minmax(0,1fr);gap:44px;padding-top:24px;padding-bottom:28px}
+.A .stage{height:268px;outline:1px solid var(--m-color-outline-variant);outline-offset:-1px}
+.mega .cap{position:relative;height:58px;margin-top:14px;overflow:hidden}
+.mega .cap>div{position:absolute;inset:0;transition:opacity var(--m-duration-fast) var(--m-easing-standard),translate var(--m-duration-fast) var(--m-easing-standard)}
+.mega .cap>div.leave{opacity:0;translate:0 -4px}
+.mega .cap>div.enter{opacity:0;translate:0 4px;transition:none}
+.cap-t{margin:0;font:600 1rem/1.4rem var(--m-font)}
+.cap-d{margin:2px 0 0;font:400 .8125rem/1.2rem var(--m-font);color:var(--m-ink-medium);max-width:40ch}
+.A .view{position:relative}
+.A .cols{display:flex;gap:40px;flex-wrap:wrap}
+.A .grp ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(var(--cols,1),250px);column-gap:24px}
+.it{position:relative;display:grid;gap:2px;padding:10px 12px 10px 14px;margin:0 -14px;border-radius:var(--m-radius-md);transition:background-color var(--m-duration-base) var(--m-easing-standard)}
+.it::before{content:"";position:absolute;left:0;top:12px;bottom:12px;width:2px;background:var(--m-primary);scale:1 0;transition:scale var(--m-duration-base) var(--m-easing-standard)}
+.it-l{display:flex;align-items:center;gap:4px;font:500 .9375rem/1.375rem var(--m-font);color:var(--m-ink);transition:color var(--m-duration-fast) var(--m-easing-standard)}
+.it-l .ic{color:var(--m-primary);opacity:0;translate:-4px 0;transition:opacity var(--m-duration-fast) var(--m-easing-standard),translate var(--m-duration-fast) var(--m-easing-standard)}
+.it-d{font:400 .8125rem/1.2rem var(--m-font);color:var(--m-ink-medium)}
+.it.act{background:var(--m-primary-lowest)}
+.it.act::before{scale:1 1}
+.it.act .it-l{color:var(--m-primary-pressed)}
+.it.act .it-l .ic{opacity:1;translate:0 0}
+.A .foot,.P .foot,.T .foot,.R .foot{display:flex;align-items:center;gap:16px;margin-top:18px;padding-top:14px;border-top:1px solid var(--m-outline-low);font-size:.8125rem;color:var(--m-ink-medium)}
+
+/* ===== Concept C: Diorama (tiles change colour only; they never lift or scale) ===== */
+.C .ctr{padding-top:22px;padding-bottom:26px}
+.C .head{display:flex;align-items:baseline;gap:16px;margin-bottom:16px}
+.C .head h3{margin:0;font:600 1rem/1.4rem var(--m-font)}
+.C .head p{margin:0;font-size:.875rem;color:var(--m-ink-medium)}
+.C .head .ul-link{margin-left:auto}
+.C .view{position:relative}
+.C .row{display:grid;grid-template-columns:repeat(var(--n,5),minmax(0,1fr));gap:12px}
+.card{display:flex;flex-direction:column;border-radius:var(--m-radius-md);outline:1px solid var(--m-color-outline-variant);outline-offset:-1px;overflow:hidden;background:var(--m-surface-bright);transition:background-color var(--m-duration-base) var(--m-easing-standard),outline-color var(--m-duration-base) var(--m-easing-standard)}
+.card .stage{height:150px;border-radius:0;transition:background-color var(--m-duration-base) var(--m-easing-standard)}
+.card .tx{padding:12px 14px 14px}
+.card .tl{display:flex;align-items:center;gap:4px;font:500 .9375rem/1.3rem var(--m-font);transition:color var(--m-duration-fast) var(--m-easing-standard)}
+.card .tl .ic{color:var(--m-primary);opacity:0;translate:-4px 0;transition:opacity var(--m-duration-fast) var(--m-easing-standard),translate var(--m-duration-fast) var(--m-easing-standard)}
+.card .td{margin-top:2px;font-size:.8125rem;line-height:1.2rem;color:var(--m-ink-medium)}
+.card.act{outline-color:var(--m-primary);background:var(--m-primary-lowest)}
+.card.act .stage{background:var(--m-primary-low)}
+.card.act .tl{color:var(--m-primary-pressed)}
+.card.act .tl .ic{opacity:1;translate:0 0}
+/* scenes without a hero lift as a whole: 4 units, hatch thins */
+.card .iso[data-phase="filled"][data-hero="0"] [data-layer="20"]{translate:0 -4px}
+.card .iso[data-phase="filled"][data-hero="0"] [data-shadow]{opacity:.6}
+
+/* ===== V3-A: Panorama — one world per menu; the window pans to the hovered option's station ===== */
+.P .ctr{display:grid;grid-template-columns:minmax(0,1fr) 560px;gap:44px;padding-top:24px;padding-bottom:28px}
+.P .view,.T .view,.R .view{position:relative}
+.P .cols,.R .cols{display:flex;gap:40px;flex-wrap:wrap}
+.P .grp ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(var(--cols,1),240px);column-gap:24px}
+.P .win{position:relative;height:280px;border-radius:var(--m-radius-md);background:var(--m-color-surface-container-lowest);outline:1px solid var(--m-color-outline-variant);outline-offset:-1px;overflow:hidden}
+/* the camera: translate pans to a station, scale zooms out for the overview (slow · standard) */
+.P .win .iso{inset:auto;left:0;top:50%;transform-origin:0 50%;translate:var(--px,0px) -50%;scale:var(--pz,1);transition:translate var(--m-duration-slow) var(--m-easing-standard),scale var(--m-duration-slow) var(--m-easing-standard)}
+.P .win .iso.leaving{transition:opacity var(--m-duration-fast) var(--m-easing-exit)}
+.P .win .iso svg{width:auto;height:auto}
+/* spotlight: stations not in focus keep the pencil look; the focused one gets colour and plays its change */
+.P .iso [data-object]:not(.on) [data-face]{fill:var(--m-color-surface-container-lowest);stroke:var(--m-color-surface-container-lowest)}
+.P .iso [data-object]:not(.on) [data-face="left"]{fill:var(--m-color-surface-container-high);stroke:var(--m-color-surface-container-high)}
+.P .iso [data-object]:not(.on) path[fill="none"]{stroke:var(--m-color-outline-variant)}
+.P .iso [data-object]:not(.on) path:not([data-face]):not([fill="none"]){fill:var(--m-color-surface-container-high);stroke:var(--m-color-surface-container-high)}
+.P .iso [data-shadow]:not(.on){opacity:.45}
+.P .iso :is([data-object],[data-shadow]):not(.on)[data-act~="in"],.P .iso [data-object]:not(.on) [data-act~="in"]{opacity:0}
+.P .iso :is([data-object],[data-shadow]):not(.on)[data-act~="out"],.P .iso [data-object]:not(.on) [data-act~="out"]{opacity:1}
+.P .iso [data-object]:not(.on)[data-act~="move"]{translate:var(--ax,0) var(--ay,0)}
+.P .iso:not([data-spot="all"]) [data-layer="0"] [data-act]{opacity:0}
+
+/* ===== V3-B: Atelier — numbered editorial list + tall drafting stage; parts assemble ===== */
+.T .ctr{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:56px;padding-top:26px;padding-bottom:30px}
+.T .head,.R .head{display:flex;align-items:baseline;gap:16px;margin-bottom:16px}
+.T .head h3,.R .head h3{margin:0;font:600 1.25rem/1.75rem var(--m-font)}
+.T .head p,.R .head p{margin:0;font-size:.875rem;color:var(--m-ink-medium)}
+.T .lst{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:32px}
+.T .ti{position:relative;display:grid;grid-template-columns:52px minmax(0,1fr);column-gap:8px;padding:14px 8px 14px 0;border-top:1px solid var(--m-outline-low)}
+.T .ti::after{content:"";position:absolute;left:0;right:0;top:-1px;height:1px;background:var(--m-primary);scale:0 1;transform-origin:0 0;transition:scale var(--m-duration-slow) var(--m-easing-standard)}
+.T .ti .num{grid-row:span 2;font:300 1.75rem/2rem var(--m-font);letter-spacing:-.02em;color:var(--m-color-outline-variant);transition:color var(--m-duration-base) var(--m-easing-standard)}
+.T .ti.act::after{scale:1 1}
+.T .ti.act .num{color:var(--m-primary)}
+.T .ti.act .it-l,.R .ri.act .it-l{color:var(--m-primary-pressed)}
+.T .ti.act .it-l .ic,.R .ri.act .it-l .ic{opacity:1;translate:0 0}
+.T .stage{height:400px;outline:1px solid var(--m-color-outline-variant);outline-offset:-1px}
+
+/* ===== V3-C: Icon rail — a small iso icon per option + a feature card that builds up ===== */
+.R .ctr{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:48px;padding-top:24px;padding-bottom:28px}
+.R .grp ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(var(--cols,1),272px);column-gap:20px}
+.R .ri{display:grid;grid-template-columns:44px minmax(0,1fr);column-gap:14px;align-items:center;padding:8px 12px 8px 8px;margin:0 -8px;border-radius:var(--m-radius-md);transition:background-color var(--m-duration-base) var(--m-easing-standard)}
+.R .ri .ico{grid-row:span 2;position:relative;width:44px;height:44px;border-radius:var(--m-radius-sm);background:var(--m-color-surface-container-lowest);outline:1px solid var(--m-outline-low);outline-offset:-1px;transition:outline-color var(--m-duration-base) var(--m-easing-standard)}
+.R .ri.act{background:var(--m-primary-lowest)}
+.R .ri.act .ico{outline-color:var(--m-primary-high)}
+.R .ico .iso[data-phase="filled"] [data-object][data-hero]{translate:0 -2px}
+.R .fc{border-radius:var(--m-radius-md);outline:1px solid var(--m-color-outline-variant);outline-offset:-1px;overflow:hidden;background:var(--m-surface-bright)}
+.R .fc .stage{height:200px;border-radius:0}
+.R .fc .tx{padding:14px 16px 16px;border-top:1px solid var(--m-outline-low)}
+.R .fc .fc-t{margin:0;font:600 1rem/1.4rem var(--m-font)}
+.R .fc .fc-d{margin:2px 0 10px;font-size:.8125rem;line-height:1.2rem;color:var(--m-ink-medium)}
+
+/* ===== V4-A: Worry → Relief — feeling column · task groups · moment panel (worry holds one beat, then resolves) ===== */
+.W .ctr{display:grid;grid-template-columns:minmax(0,1fr) 440px;gap:40px;padding-top:26px;padding-bottom:30px}
+.W .view,.D .view,.Q .view{position:relative}
+.W .feel .eyebrow,.Q .ask .eyebrow{margin:0 0 6px;font:600 .6875rem/1rem var(--m-font);letter-spacing:.08em;text-transform:uppercase;color:var(--m-ink-low)}
+.W .feel h3,.Q .ask h3{margin:0;font:600 1.5rem/2rem var(--m-font);letter-spacing:-.01em}
+.W .feel p{margin:10px 0 16px;font-size:.875rem;line-height:1.3rem;color:var(--m-ink-medium)}
+.W .grps{display:grid;gap:18px;align-content:start}
+.W .grp ul{list-style:none;margin:0;padding:0}
+.W .wi{position:relative;display:grid;grid-template-columns:14px minmax(0,1fr);column-gap:10px;padding:8px 10px;margin:0 -10px;border-radius:var(--m-radius-md);transition:background-color var(--m-duration-base) var(--m-easing-standard)}
+.W .wi .dot{grid-row:span 2;width:10px;height:10px;margin-top:6px;border-radius:50%;box-shadow:inset 0 0 0 1px var(--m-color-outline-variant);transition:background-color var(--m-duration-base) var(--m-easing-standard),box-shadow var(--m-duration-base) var(--m-easing-standard)}
+.W .wi.act{background:var(--m-primary-lowest)}
+.W .wi.act .dot{background:var(--m-primary);box-shadow:inset 0 0 0 1px var(--m-primary)}
+.W .wi.act .it-l{color:var(--m-primary-pressed)}
+.W .wi.act .it-l .ic{opacity:1;translate:0 0}
+.W .mom{position:relative;height:260px;border-radius:var(--m-radius-md);overflow:hidden;background:var(--m-color-surface-container-low);outline:1px solid var(--m-color-outline-variant);outline-offset:-1px;transition:background-color var(--m-duration-slow) var(--m-easing-standard),outline-color var(--m-duration-slow) var(--m-easing-standard)}
+.W .mom.relief{background:var(--m-primary-lowest);outline-color:var(--m-primary-high)}
+.W .lines{position:relative;margin-top:14px;display:grid;gap:4px;font-size:.875rem;line-height:1.3rem}
+.W .lines p{margin:0;display:flex;gap:8px;align-items:baseline}
+.W .lines b{flex:none;width:52px;font:600 .6875rem/1rem var(--m-font);letter-spacing:.08em;text-transform:uppercase}
+.W .lw{color:var(--m-ink-medium)} .W .lw b{color:var(--m-graphic-coral-shade)}
+.W .lr{color:var(--m-ink);opacity:.35;transition:opacity var(--m-duration-slow) var(--m-easing-standard)} .W .lr b{color:var(--m-primary)}
+.W .mom.relief+.lines .lr{opacity:1}
+/* the worry beat: colour on, the coral / grey part showing, the subject lifted 4 units (hatch thins) */
+.W .iso[data-phase="worry"] [data-layer="20"]{translate:0 -4px}
+.W .iso[data-phase="worry"] [data-shadow]{opacity:.55}
+/* relief: everything settles back onto the ground (slow · enter), then each act plays in its order */
+.W .iso [data-layer="20"]{transition:translate var(--m-duration-slow) var(--m-easing-enter)}
+
+/* ===== V4-B: Doorstep moments — a storyboard of close-up frames (pencil sketch → colour + camera push-in) ===== */
+.D .ctr{padding-top:22px;padding-bottom:26px}
+.D .head{display:flex;align-items:baseline;gap:16px;margin-bottom:14px}
+.D .head h3{margin:0;font:600 1.25rem/1.75rem var(--m-font)}
+.D .head p{margin:0;font-size:.875rem;color:var(--m-ink-medium)}
+.D .head .ul-link{margin-left:auto}
+.D .board{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));column-gap:12px;row-gap:8px}
+.D .act-t{grid-row:1;margin:0;padding-bottom:6px;border-bottom:1px solid var(--m-outline-low);font:600 .6875rem/1rem var(--m-font);letter-spacing:.08em;text-transform:uppercase;color:var(--m-ink-low)}
+.D .fr{grid-row:2;display:flex;flex-direction:column;border-radius:var(--m-radius-md);outline:1px solid var(--m-color-outline-variant);outline-offset:-1px;overflow:hidden;background:var(--m-surface-bright);transition:outline-color var(--m-duration-base) var(--m-easing-standard),background-color var(--m-duration-base) var(--m-easing-standard)}
+.D .fr .stage{height:176px;border-radius:0;background:var(--m-color-surface-container-lowest)}
+.D .fr .iso svg{overflow:hidden;transform-origin:50% 55%;transition:scale var(--m-duration-slow) var(--m-easing-enter)}
+.D .fr .iso[data-phase="outline"] svg{transition-duration:var(--iso-return);transition-timing-function:var(--m-easing-standard)}
+.D .fr .tx{padding:10px 12px 12px;border-top:1px solid var(--m-outline-low)}
+.D .fr .sc{display:block;font:500 .6875rem/1rem var(--m-font);letter-spacing:.06em;color:var(--m-ink-low);font-variant-numeric:tabular-nums;transition:color var(--m-duration-base) var(--m-easing-standard)}
+.D .fr .tl{display:flex;align-items:center;gap:4px;font:500 .9375rem/1.3rem var(--m-font);transition:color var(--m-duration-fast) var(--m-easing-standard)}
+.D .fr .tl .ic{color:var(--m-primary);opacity:0;translate:-4px 0;transition:opacity var(--m-duration-fast) var(--m-easing-standard),translate var(--m-duration-fast) var(--m-easing-standard)}
+.D .fr .td{margin-top:2px;font-size:.8125rem;line-height:1.2rem;color:var(--m-ink-medium)}
+.D .fr.act{outline-color:var(--m-primary);background:var(--m-primary-lowest)}
+.D .fr.act .iso svg{scale:1.08}
+.D .fr.act .sc,.D .fr.act .tl{color:var(--m-primary-pressed)}
+.D .fr.act .tl .ic{opacity:1;translate:0 0}
+.D .end{grid-row:2;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;padding:18px;border-radius:var(--m-radius-md);background:var(--m-color-surface-container-low)}
+.D .end p{margin:0;font-size:.875rem;line-height:1.3rem;color:var(--m-ink-medium);max-width:30ch}
+
+/* ===== V6: Light up the dream — the approved Diorama, text first (manager's comment), picture below.
+   Rest = a quiet pencil sketch. Hover = the light comes on and a three-beat story plays: every object takes its
+   colour on its beat (--b × slow), its change plays on its act beat (--ab, else --b), objects inside a beat 34 ms
+   apart. No lift, no zoom: light and colour arrive in story order. Back to the sketch in 550 ms. ===== */
+/* V7: the approved Stage layout; the caption (title + description) sits above the picture (manager's comment).
+   The story beats use the same rules as V6 (light and colour arriving in story order, no lift, no zoom). */
+.V7 .mega-cap{margin:0 0 12px}
+.V7 .cap{margin-top:0}
+.V7 .iso[data-phase="filled"] path{transition-delay:calc(var(--b,0) * var(--m-duration-slow))}
+.V7 .iso[data-phase="filled"] [data-act]{transition-delay:calc(var(--ab,var(--b,0)) * var(--m-duration-slow) + var(--d,0) * var(--iso-stagger))}
+.V7 .iso[data-phase="filled"] [data-shadow]{transition-delay:calc(var(--b,0) * var(--m-duration-slow))}
+.V7 .iso[data-phase="filled"] [data-object][data-hero]{translate:none}
+.V6 .card{flex-direction:column}
+.V6 .card .tx{flex:1;padding:14px 16px 4px}   /* text grows, so every picture sits on the same baseline */
+.V6 .card .stage{height:150px;margin:0 8px 8px;border-radius:var(--m-radius-sm)}
+.V6 .card.act .stage{background:var(--m-primary-low)}
+.V6 .iso[data-phase="filled"] path{transition-delay:calc(var(--b,0) * var(--m-duration-slow))}
+.V6 .iso[data-phase="filled"] [data-act]{transition-delay:calc(var(--ab,var(--b,0)) * var(--m-duration-slow) + var(--d,0) * var(--iso-stagger))}
+.V6 .iso[data-phase="filled"] [data-shadow]{transition-delay:calc(var(--b,0) * var(--m-duration-slow))}
+.V6 .iso[data-phase="filled"] [data-object][data-hero],.V6 .card .iso[data-phase="filled"][data-hero="0"] [data-layer="20"]{translate:none}
+
+/* ===== V4-C: Ask-first — no illustration; a plain question, task chips, links that reorder to match ===== */
+.Q .ctr{padding-top:26px;padding-bottom:28px}
+.Q .ask p.lead{margin:10px 0 18px;font-size:.875rem;line-height:1.3rem;color:var(--m-ink-medium)}
+.Q .chips{position:relative;display:flex;flex-wrap:wrap;gap:6px}
+.Q .chip{appearance:none;position:relative;z-index:1;display:inline-flex;align-items:center;min-height:36px;padding:0 14px;border:1px solid var(--m-color-outline-variant);border-radius:var(--m-radius-pill);background:none;font:500 .875rem/1 var(--m-font);color:var(--m-ink);cursor:pointer;transition:color var(--m-duration-base) var(--m-easing-standard),border-color var(--m-duration-base) var(--m-easing-standard)}
+.Q .chip:hover{border-color:var(--m-ink-low)}
+.Q .chip[aria-pressed="true"]{color:#fff;border-color:transparent}
+/* the selected chip's fill glides between chips (translate + scale only, slow · standard) */
+.Q .chip-ind{position:absolute;left:0;top:0;width:100px;height:36px;border-radius:var(--m-radius-pill);background:var(--m-primary);transform-origin:0 0;pointer-events:none;transition:translate var(--m-duration-slow) var(--m-easing-standard),scale var(--m-duration-slow) var(--m-easing-standard)}
+.Q .qlist{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:28px}
+.Q .qi{position:relative;display:grid;gap:2px;padding:12px 12px 12px 0;border-top:1px solid var(--m-outline-low);transition:opacity var(--m-duration-base) var(--m-easing-standard)}
+.Q .qi::after{content:"";position:absolute;left:0;right:0;top:-1px;height:1px;background:var(--m-primary);scale:0 1;transform-origin:0 0;transition:scale var(--m-duration-slow) var(--m-easing-standard)}
+.Q .qi .tag{font:600 .6875rem/1rem var(--m-font);letter-spacing:.06em;text-transform:uppercase;color:var(--m-ink-low);transition:color var(--m-duration-base) var(--m-easing-standard)}
+.Q .qi.match .tag{color:var(--m-primary-pressed)}
+.Q .qi.match::after,.Q .qi:has(.act)::after{scale:1 1}
+.Q .qi.dim{opacity:.4}
+.Q .qa{display:grid;gap:2px}
+.Q .qa .it-l .ic{color:var(--m-primary);opacity:0;translate:-4px 0;transition:opacity var(--m-duration-fast) var(--m-easing-standard),translate var(--m-duration-fast) var(--m-easing-standard)}
+.Q .qa.act .it-l{color:var(--m-primary-pressed)}
+.Q .qa.act .it-l .ic{opacity:1;translate:0 0}
+.Q .qi.flip{transition:translate var(--m-duration-slow) var(--m-easing-standard),opacity var(--m-duration-base) var(--m-easing-standard);transition-delay:calc(var(--d,0) * var(--iso-stagger))}
+.Q .help{display:flex;align-items:center;gap:16px;margin-top:18px;padding:12px 16px;border-radius:var(--m-radius-md);background:var(--m-color-surface-container-low);font-size:.875rem;color:var(--m-ink-medium)}
+.Q .help b{font-weight:600;color:var(--m-ink)}
+.Q .help .ul-link{margin-left:4px}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;overflow:hidden;background:var(--m-surface-bright)}
+.hero canvas.lattice{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero .ctr{position:relative;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:64px;align-items:center;padding-top:64px;padding-bottom:88px;min-height:620px}
+.hero h1{margin:0;font:600 3rem/3.5rem var(--m-font);letter-spacing:-.025em;max-width:500px}
+.term{position:relative;color:var(--m-primary);text-decoration:underline dotted 3px;text-decoration-color:var(--m-primary-high);text-underline-offset:8px;cursor:help;border-radius:var(--m-radius-sm);transition:text-decoration-color var(--m-duration-fast) var(--m-easing-standard)}
+.term:hover,.term:focus-visible{text-decoration-color:var(--m-primary)}
+.tip{position:absolute;left:0;top:calc(100% + 14px);z-index:5;width:280px;padding:14px 16px;background:var(--m-surface-bright);border:1px solid var(--m-color-outline-variant);border-radius:var(--m-radius-md);font:400 .875rem/1.3rem var(--m-font);letter-spacing:0;color:var(--m-ink-medium);opacity:0;translate:0 -4px;pointer-events:none;transition:opacity var(--m-duration-fast) var(--m-easing-standard),translate var(--m-duration-fast) var(--m-easing-standard)}
+.tip b{display:block;font-weight:600;color:var(--m-ink);margin-bottom:2px}
+.term:hover .tip,.term:focus .tip{opacity:1;translate:0 0}
+.hero .body{margin:24px 0 0;font:400 1.25rem/1.75rem var(--m-font);color:var(--m-ink-medium);max-width:33em}
+.hero .acts{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap}
+.est-wrap{position:relative;justify-self:end;width:100%;max-width:480px}
+.est-wrap::before{content:"";position:absolute;inset:9px -9px -9px 9px;border-right:1px solid var(--m-color-outline-variant);border-bottom:1px solid var(--m-color-outline-variant);pointer-events:none}
+.est{position:relative;z-index:1;background:var(--m-surface-bright);border:1px solid var(--m-ink);padding:32px;display:grid}
+.est h2{margin:0 0 28px;font:400 1.75rem/2.25rem var(--m-font);letter-spacing:-.01em;max-width:13em}
+.hist{display:flex;align-items:flex-end;gap:3px;height:64px}
+.hist i{flex:1;background:var(--m-primary-low);transition:background-color var(--m-duration-base) var(--m-easing-standard)}
+.hist i.on{background:var(--m-primary)}
+.est-range{margin:10px 0 8px;font:500 .9375rem/1.25rem var(--m-font);font-variant-numeric:tabular-nums}
+.trk{position:relative;height:28px;touch-action:none;cursor:pointer}
+.trk .base{position:absolute;left:0;right:0;top:50%;height:12px;margin-top:-6px;background:var(--m-primary-low);border-radius:6px}
+.trk .sel{position:absolute;top:50%;height:12px;margin-top:-6px;background:var(--m-primary);cursor:grab}
+.trk .hd{position:absolute;top:0;width:20px;height:28px;margin-left:-10px;display:grid;place-items:center;background:none;border:0;padding:0;cursor:ew-resize}
+.trk .hd::before{content:"";width:3px;height:26px;border-radius:2px;background:var(--m-primary-pressed);outline:3px solid #fff}
+.est-k{margin:28px 0 2px;font-size:.9375rem;color:var(--m-ink-medium)}
+.est-v{margin:0;font:400 1.875rem/2.375rem var(--m-font);font-variant-numeric:tabular-nums}
+.est .btn{justify-self:start;margin-top:16px}
+.est-note{display:flex;gap:8px;margin:20px 0 0;padding-top:16px;border-top:1px solid var(--m-outline-low);font-size:.75rem;line-height:1rem;color:var(--m-ink-medium)}
+
+/* ---------- Concept switcher (review only) ---------- */
+.switch{position:fixed;left:50%;bottom:max(20px, env(safe-area-inset-bottom,0px));translate:-50% 0;z-index:200;display:flex;align-items:center;gap:4px;padding:4px;border-radius:var(--m-radius-pill);background:var(--m-surface-inverse)}
+.switch span{font:500 .75rem/1 var(--m-font);color:#b9b2ac;padding:0 10px 0 12px;letter-spacing:.02em;white-space:nowrap}
+.switch a{white-space:nowrap;font:500 .8125rem/1 var(--m-font);color:var(--m-on-inverse);padding:9px 14px;border-radius:var(--m-radius-pill);transition:background-color var(--m-duration-fast) var(--m-easing-standard),color var(--m-duration-fast) var(--m-easing-standard)}
+.switch a:hover{background:#ffffff14}
+.switch a[aria-current="true"]{background:var(--m-on-inverse);color:var(--m-ink)}
+
+/* ---------- Mobile drawer (overlay 300) ---------- */
+.mdrawer{position:fixed;left:0;right:0;bottom:0;top:var(--hdr-h,60px);z-index:300;background:var(--m-surface-bright);display:flex;flex-direction:column;opacity:0;translate:0 8px;transition:opacity var(--m-duration-base) var(--m-easing-exit),translate var(--m-duration-base) var(--m-easing-exit)}
+.mdrawer[hidden]{display:none}
+.mdrawer:not(.open){pointer-events:none}
+.mdrawer.open{opacity:1;translate:0 0;transition-timing-function:var(--m-easing-enter)}
+.md-vp{position:relative;flex:1;overflow:hidden}
+.md-track{position:absolute;inset:0;display:flex;width:200%;transition:translate var(--m-duration-slow) var(--m-easing-standard)}
+.md-track.deep{translate:-50% 0}
+.md-lvl{width:50%;height:100%;overflow-y:auto;padding:8px 20px 24px}
+.md-l1{list-style:none;margin:0;padding:0}
+.md-l1 li{border-bottom:1px solid var(--m-outline-low)}
+.md-row{appearance:none;border:0;background:none;width:100%;min-height:58px;display:flex;align-items:center;justify-content:space-between;font:500 1.0625rem/1.5rem var(--m-font);color:var(--m-ink);cursor:pointer;padding:0;text-align:left}
+.md-row .ic{color:var(--m-ink-low)}
+.md-util{display:grid;margin-top:16px}
+.md-util a{display:flex;align-items:center;min-height:var(--control);font-size:.9375rem;color:var(--m-ink-medium)}
+.md-back{appearance:none;border:0;background:none;display:inline-flex;align-items:center;gap:4px;min-height:var(--control);font:500 .9375rem/1 var(--m-font);color:var(--m-primary-pressed);cursor:pointer;padding:0 6px 0 0}
+.md-stage{height:170px;margin:4px 0 10px}
+.md-sec{display:none}
+.md-sec.on{display:block}
+.md-sec h2{margin:4px 0 2px;font:600 1.5rem/2rem var(--m-font)}
+.md-sec>p{margin:0 0 6px;color:var(--m-ink-medium);font-size:.9375rem}
+.md-sec ul{list-style:none;margin:0;padding:0}
+.md-sec .it{margin:0;padding:10px 0}
+.md-sec .it::before{display:none}
+.md-foot{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:12px 20px calc(12px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--m-outline-low)}
+
+@media (max-width:1180px){ .hdr-cta .btn-sm{display:none} }
+@media (max-width:1023px){
+  .hdr-util,.nav,.hdr-cta .btn-sm,#dd-root{display:none}
+  .burger{display:grid}
+  .hdr-main .ctr{height:60px}
+  .logo img{height:40px}
+  .hero .ctr{grid-template-columns:minmax(0,1fr);gap:40px;padding-top:40px;padding-bottom:96px;min-height:0}
+  .est-wrap{justify-self:stretch;max-width:none}
+}
+@media (max-width:560px){
+  .ctr{padding-left:max(16px, env(safe-area-inset-left,0px));padding-right:max(16px, env(safe-area-inset-right,0px))}
+  .hero h1{font-size:2.375rem;line-height:2.875rem}
+  .hero .body{font-size:1.0625rem;line-height:1.6rem}
+  .est{padding:24px}
+  .est h2{font-size:1.375rem;line-height:1.875rem}
+  .tip{width:240px}
+  .switch span{display:none}
+  .switch a{padding:9px 10px}
+}
+.still *,.still *::before,.still *::after{animation:none!important;transition:none!important}
+
+/* ---------- Reduced motion: movement → 0 ms, slides → fades, draw-ons and drops off, resting frame shown.
+   Colour and focus changes still happen. (The JS reads the same preference live.) */
+@media (prefers-reduced-motion: reduce){
+  .iso [data-layer],.iso [data-object]{animation:none!important}
+  .iso [data-object],.iso [data-layer]{translate:none!important}
+  .iso path,.iso [data-object],.iso [data-layer],.iso.leaving{transition-duration:var(--m-duration-none)!important}
+  .iso [data-act]{translate:none!important;transition-duration:var(--m-duration-none)!important;transition-delay:0s!important}
+  .P .win .iso{transition-duration:var(--m-duration-none)!important}
+  .T .ti::after,.T .ti .num,.R .ri,.R .ri .ico{transition-duration:var(--m-duration-none)}
+  .W .iso[data-phase="worry"] [data-layer="20"],.D .fr.act .iso svg{translate:none;scale:none}
+  .W .mom,.W .lr,.D .fr .iso svg,.Q .chip-ind,.Q .qi,.Q .qi::after,.Q .qi.flip{transition-duration:var(--m-duration-none)!important;transition-delay:0s!important}
+  .mega,.mega.open{transition-duration:var(--m-duration-none)}
+  .lyr.in{animation-name:m-fade;animation-duration:var(--m-duration-fast)}
+  .nav-ind{transition-property:opacity}
+  .nav-t .chev,.btn .ic,.ul-link .ic,.it-l .ic,.card .tl .ic{transition-duration:var(--m-duration-none)}
+  .btn:hover .ic,.btn:focus-visible .ic,.ul-link:hover .ic,.it-l .ic,.card .tl .ic{translate:none}
+  .mega .cap>div,.toast,.tip{transition-property:opacity}
+  .mega .cap>div.leave,.mega .cap>div.enter,.tip,.toast{translate:none}
+  .toast{translate:-50% 0}
+  .mdrawer{transition-property:opacity;translate:none}
+  .md-track{transition-duration:var(--m-duration-none)}
+}
+</style>
+</head>
+<body data-opt="stage" data-default="askfirst">
+<a class="sr" href="#main">Skip to content</a>
+<header class="hdr" id="hdr">
+  <div class="hdr-util"><div class="ctr">
+    <a href="#">Log in</a><a href="#">Contact us</a>
+    <a href="#"><svg class="ic ic16" viewBox="0 -960 960 960" width="16" height="16" aria-hidden="true"><path d="M480-80q-82 0-155-31.5t-127.5-86Q143-252 111.5-325T80-480q0-83 31.5-155.5t86-127Q252-817 325-848.5T480-880q83 0 155.5 31.5t127 86q54.5 54.5 86 127T880-480q0 82-31.5 155t-86 127.5q-54.5 54.5-127 86T480-80Zm0-82q26-36 45-75t31-83H404q12 44 31 83t45 75Zm-104-16q-18-33-31.5-68.5T322-320H204q29 50 72.5 87t99.5 55Zm208 0q56-18 99.5-55t72.5-87H638q-9 38-22.5 73.5T584-178ZM170-400h136q-3-20-4.5-39.5T300-480q0-21 1.5-40.5T306-560H170q-5 20-7.5 39.5T160-480q0 21 2.5 40.5T170-400Zm216 0h188q3-20 4.5-39.5T580-480q0-21-1.5-40.5T574-560H386q-3 20-4.5 39.5T380-480q0 21 1.5 40.5T386-400Zm268 0h136q5-20 7.5-39.5T800-480q0-21-2.5-40.5T790-560H654q3 20 4.5 39.5T660-480q0 21-1.5 40.5T654-400Zm-16-240h118q-29-50-72.5-87T584-782q18 33 31.5 68.5T638-640Zm-234 0h152q-12-44-31-83t-45-75q-26 36-45 75t-31 83Zm-200 0h118q9-38 22.5-73.5T376-782q-56 18-99.5 55T204-640Z"/></svg>United States - English</a>
+    <a href="#"><svg class="ic ic16" viewBox="0 -960 960 960" width="16" height="16" aria-hidden="true"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg>Search</a>
+  </div></div>
+  <div class="hdr-main"><div class="ctr">
+    <a class="logo" href="#" aria-label="InsureShield Shipping Insurance by UPS Capital, home"><img alt="" src="data:image/png;base64,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"></a>
+    <nav class="nav" aria-label="Main"><ul class="nav-list" id="nav-list"></ul><span class="nav-ind" aria-hidden="true"></span></nav>
+    <div class="hdr-cta">
+      <a class="btn btn-primary btn-sm" href="#">Get a quote</a>
+      <button class="icon-btn burger" type="button" aria-expanded="false" aria-controls="mdrawer" aria-label="Open menu"><svg class="ic ic24" viewBox="0 -960 960 960" width="24" height="24" aria-hidden="true"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></button>
+    </div>
+  </div></div>
+  <div id="dd-root"></div>
+</header>
+<div class="scrim" aria-hidden="true"></div>
+<div class="mdrawer" id="mdrawer" hidden></div>
+
+<main id="main">
+  <section class="hero" aria-labelledby="hero-h">
+    <canvas class="lattice" aria-hidden="true"></canvas>
+    <div class="ctr">
+      <div>
+        <h1 id="hero-h">Shipping insurance for
+          <span class="term" tabindex="0" aria-describedby="tip-lost">lost<span class="tip" role="tooltip" id="tip-lost"><b>Lost shipments</b>A package that never arrives. It may be missing in transit, delivered to the wrong location, or no longer showing tracking updates.</span></span>,
+          <span class="term" tabindex="0" aria-describedby="tip-dmg">damaged<span class="tip" role="tooltip" id="tip-dmg"><b>Damaged shipments</b>A parcel or its contents arrive visibly broken, crushed, cracked, or otherwise physically damaged.</span></span>, or
+          <span class="term" tabindex="0" aria-describedby="tip-stl">stolen<span class="tip" role="tooltip" id="tip-stl"><b>Stolen shipments</b>A package taken after delivery, including porch theft or “porch piracy.”</span></span> shipments</h1>
+        <p class="body">InsureShield® Shipping Insurance helps businesses recover faster after covered loss or damage to a shipment. Explore options for UPS packages, multi-carrier shipments, LTL freight, and international freight.</p>
+        <div class="acts"><a class="btn btn-secondary" href="#">Talk to an expert</a></div>
+      </div>
+      <div class="est-wrap">
+      <form class="est" id="est" aria-labelledby="est-h" onsubmit="return false">
+        <h2 id="est-h">What’s your average package value?</h2>
+        <div class="hist" id="hist" aria-hidden="true"></div>
+        <p class="est-range" id="est-range">$100 to $1,000</p>
+        <div class="trk" id="trk"><span class="base"></span><span class="sel" id="sel"></span>
+          <button type="button" class="hd" id="hd-lo" role="slider" aria-label="Lowest package value"></button>
+          <button type="button" class="hd" id="hd-hi" role="slider" aria-label="Highest package value"></button></div>
+        <p class="est-k">Estimated premium per package</p>
+        <p class="est-v" id="est-v" aria-live="polite">$0.80 to $10.50</p>
+        <button class="btn btn-primary" type="submit">Estimate monthly premium <svg class="ic ic20" viewBox="0 -960 960 960" width="20" height="20" aria-hidden="true"><path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z"/></svg></button>
+        <p class="est-note"><svg class="ic ic16" viewBox="0 -960 960 960" width="16" height="16" aria-hidden="true"><path d="M440-280h80v-240h-80v240Zm40-320q17 0 28.5-11.5T520-640q0-17-11.5-28.5T480-680q-17 0-28.5 11.5T440-640q0 17 11.5 28.5T480-600Zm0 520q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>Estimate only. Actual pricing and availability depend on the shipment, customer, coverage option, and applicable policy terms.</p>
+      </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<nav class="switch" aria-label="Header concept">
+  <span>Momentum iso</span>
+  <a href="insureshield-nav-stage.html" data-o="stage">A · Stage</a>
+  <a href="insureshield-nav-diorama.html" data-o="diorama">C · Diorama</a>
+  <a href="insureshield-nav-panorama.html" data-o="panorama">V3-A · Panorama</a>
+  <a href="insureshield-nav-atelier.html" data-o="atelier">V3-B · Atelier</a>
+  <a href="insureshield-nav-rail.html" data-o="rail">V3-C · Icon rail</a>
+  <a href="insureshield-nav-relief.html" data-o="relief">V4-A · Worry → Relief</a>
+  <a href="insureshield-nav-doorstep.html" data-o="doorstep">V4-B · Doorstep</a>
+  <a href="insureshield-nav-askfirst.html" data-o="askfirst">V4-C · Ask-first</a>
+  <a href="insureshield-nav-v5.html" data-o="v5">V5 · Journey</a>
+  <a href="insureshield-nav-v6.html" data-o="v6">V6 · Light up</a>
+  <a href="insureshield-nav-v7a.html" data-o="v7a">V7-A · Light up (Stage)</a>
+  <a href="insureshield-nav-v7b.html" data-o="v7b">V7-B · Thread of care</a>
+</nav>
+<div class="toast" id="toast" role="status"></div>
+
+<!-- Illustrations, generated by build.mjs from scenes.mjs with iso.js. Stage size and card size. -->
+
+
+<script>
+(function(){
+"use strict";
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const ROOT=document.documentElement;
+const STILL=new URLSearchParams(location.search).has('still');
+const RM=STILL?{matches:true,addEventListener(){}}:matchMedia('(prefers-reduced-motion: reduce)');
+if(STILL) ROOT.classList.add('still');
+// timing comes from the Momentum tokens, never from literals
+const tok=n=>parseFloat(getComputedStyle(ROOT).getPropertyValue(n))||0;
+const TM={fast:tok('--m-duration-fast'),base:tok('--m-duration-base'),slow:tok('--m-duration-slow'),stagger:tok('--iso-stagger'),back:tok('--iso-return')};
+const curve=n=>getComputedStyle(ROOT).getPropertyValue(n).match(/-?[\d.]+/g).map(Number);
+function bezier([x1,y1,x2,y2]){ const B=(a,b,u)=>3*(1-u)*(1-u)*u*a+3*(1-u)*u*u*b+u*u*u;
+  return t=>{ let u=t; for(let i=0;i<10;i++){ const x=B(x1,x2,u)-t, d=3*(1-u)*(1-u)*x1+6*(1-u)*u*(x2-x1)+3*u*u*(1-x2); if(Math.abs(d)<1e-6) break; u=Math.min(1,Math.max(0,u-x/d)); } return B(y1,y2,u); }; }
+const STANDARD=bezier(curve('--m-easing-standard'));
+
+// Material Symbols (Outlined 400), filled glyphs, currentColor, 16 / 20 px
+const G=(d,s=16,c='')=>`<svg class="ic ic${s} ${c}" viewBox="0 -960 960 960" width="${s}" height="${s}" aria-hidden="true"><path d="${d}"/></svg>`;
+const ICON={
+  chev:G('M480-345 240-585l56-56 184 184 184-184 56 56-240 240Z',16,'chev'),
+  arrow:G('M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z'),
+  right:G('M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z',20),
+  left:G('M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z',20),
+  copy:G('M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-560h80v560h440v80H200Zm160-240v-480 480Z')
+};
+
+/* ============ Content: every live link, each with its own illustration ============ */
+const NAV_V3=[
+ {id:'insurance',label:'Shipping Insurance',current:true,lead:'Protect shipments from covered loss, damage, and theft.',over:'Explore shipping insurance',scene:'coveredJourney',
+  groups:[{t:'Coverage by shipment',l:[['Multi-Carrier Shipments','Parcel and freight across UPS, FedEx, DHL, and USPS','carrierPlate'],['UPS Shipments','Coverage designed for packages shipped with UPS','upsParcel'],['Special Commodities','High-value, perishable, and specialty goods','risingItem']]},
+          {t:'Get started',l:[['Select My Coverage','Answer a few questions to find the right fit','steppedFit'],['Get a Quote','Estimate cost for your shipping volume','volumeCoins']]}]},
+ {id:'solutions',label:'Solutions',lead:'Tools that reduce risk before, during, and after delivery.',over:'See all solutions',scene:'threeChecks',
+  groups:[{t:'Products',cols:2,l:[['CommerceShield','Order risk signals and chargeback protection','orderCheck'],['DeliveryDefense','Address confidence scores before you ship','addressPin'],['Delivery Orchestration','Choose delivery options that lower risk','forkRoute'],['InsureShield® Shipping Insurance','Protection against loss, damage, and theft','shieldContrast']]}]},
+ {id:'claims',label:'Claims',href:'#'},
+ {id:'partners',label:'Partners',lead:'Connect InsureShield to the platforms you already ship with.',over:'Partners overview',scene:'platformsJoin',
+  groups:[{t:'Work with us',l:[['Connect with a Partner','Add coverage inside the platforms you use','dockSeat'],['Become a Partner','Offer InsureShield to your customers','storeShips']]}]},
+ {id:'resources',label:'Resources',lead:'Guides, stories, and support for shippers.',over:'All resources',scene:'binders',
+  groups:[{t:'Learn',l:[['Insights','Articles on shipping risk and protection','parcelBars'],['Whitepapers & Guides','In-depth research and how-to guides','routeSheet'],['Customer Stories','How businesses recover faster','lossToCoins']]},{t:'Get help',l:[['Help & Support','Answers about coverage, billing, and claims','answeredDoc']]}]},
+ {id:'about',label:'About',lead:'News, availability, and how to reach us.',over:'About InsureShield',scene:'standsBehind',
+  groups:[{t:'Company',l:[['Announcements','Product and company news','newSheet'],['In The News','Press coverage of UPS Capital','pressStamp'],['Product Availability','Where coverage is offered','regionPins']]},{t:'Talk to us',l:[['Contact Us','Reach our team','mailboxFlag']]}]}
+];
+/* V4 pages: the same links (none added, none removed), regrouped by what the visitor is trying to do.
+   Urgent tasks come first (help before learning, contact before news). Claims stays a one-click top-level link. */
+const TASKS={
+  insurance:[['Find what fits',['Select My Coverage','Get a Quote']],['Cover what you ship',['Multi-Carrier Shipments','UPS Shipments','Special Commodities']]],
+  solutions:[['Before you ship',['DeliveryDefense','Delivery Orchestration']],['At checkout',['CommerceShield']],['If it goes wrong',['InsureShield® Shipping Insurance']]],
+  partners:[['You sell on a platform',['Connect with a Partner']],['You run a platform',['Become a Partner']]],
+  resources:[['Need help now',['Help & Support']],['Learn from others',['Customer Stories','Insights','Whitepapers & Guides']]],
+  about:[['Talk to us',['Contact Us']],['Where we cover',['Product Availability']],["What's new",['Announcements','In The News']]]
+};
+const V4PAGE=['relief','doorstep','askfirst'].includes(document.body.dataset.default);
+const NAV=V4PAGE?NAV_V3.map(n=>{ if(n.href) return n; const L=n.groups.flatMap(g=>g.l), find=t=>L.find(l=>l[0]===t);
+  return {...n,groups:TASKS[n.id].map(([t,ts])=>({t,l:ts.map(find)}))}; }):NAV_V3;
+const MENUS=NAV.filter(n=>!n.href), byId=id=>MENUS.find(m=>m.id===id);
+const amp=s=>s.replace(/&/g,'&amp;');
+const allLinks=m=>m.groups.flatMap(g=>g.l);
+
+/* ============ Illustrations: static iso.js art + phase state machine ============
+   Phases (data-phase on .iso): draw → filled (Stage) · draw → outline ⇄ filled (Diorama).
+   draw    = ground plate, then each object clip-draws on (slow · standard, 34 ms apart), paper tones
+   outline = resting hairline look
+   filled  = token tones (base · standard); the hero lifts 6 units, its hatch thins; stacks settle
+   Reduced motion: the resting frame, no draw, no lift, no drop. */
+const ART={};
+$$('template[data-art]').forEach(t=>{ const set=ART[t.dataset.art]={}; $$('[data-n]',t.content).forEach(d=>set[d.dataset.n]=d.innerHTML); });
+function mountArt(host,set,name){ const el=document.createElement('div'); el.className='iso'; el.innerHTML=ART[set][name]||''; host.appendChild(el);
+  const svg=el.firstElementChild; el.dataset.hero=svg&&svg.querySelector('[data-hero]')?'1':'0'; return el; }
+const drawSpan=el=>{ const svg=el.firstElementChild; return TM.slow+(+(svg&&svg.dataset.objects)||1)*TM.stagger; };
+
+class StagePlayer{
+  constructor(host,set='stage'){ this.host=host; this.set=set; this.cur=null; this.name=null; this.tm=0; }
+  play(name,o={}){
+    if(!o.force && name===this.name) return;
+    this.name=name; clearTimeout(this.tm);
+    const old=this.cur; if(old){ old.classList.add('leaving'); setTimeout(()=>old.remove(),TM.fast); }
+    const el=mountArt(this.host,this.set,name); this.cur=el;
+    if(RM.matches){ el.dataset.phase='filled'; return; }
+    el.dataset.phase='draw';
+    this.tm=setTimeout(()=>{ el.dataset.phase='filled'; el.dataset.fresh=''; },drawSpan(el));
+  }
+  pause(){ clearTimeout(this.tm); if(this.cur && this.cur.dataset.phase==='draw'){ this.cur.dataset.phase='filled'; } }
+  resume(){}
+  svgString(){ const svg=this.cur&&this.cur.querySelector('svg'); if(!svg) return '';
+    const cs=getComputedStyle(ROOT), vb=svg.getAttribute('viewBox').split(' ').map(Number);
+    return svg.outerHTML.replace(/var\((--[\w-]+)\)/g,(m,v)=>cs.getPropertyValue(v).trim()||m).replace('<svg ',`<svg width="${Math.round(vb[2])}" height="${Math.round(vb[3])}" `); }
+}
+class CardArt{
+  constructor(host,name,set='card'){ this.el=mountArt(host,set,name); this.tm=0;
+    if(RM.matches){ this.el.dataset.phase='outline'; return; }
+    this.el.dataset.phase='draw'; this.tm=setTimeout(()=>{ if(this.el.dataset.phase==='draw') this.el.dataset.phase='outline'; },drawSpan(this.el)); }
+  set(on){ clearTimeout(this.tm); this.el.dataset.phase=on?'filled':'outline'; }
+  pause(){ clearTimeout(this.tm); if(this.el.dataset.phase==='draw') this.el.dataset.phase='outline'; }
+}
+
+/* V3-A: the panorama camera. One world per menu; show(world, k) spotlights station k (or 'all' = overview,
+   zoomed out to fit) and pans so the station sits mid-window (slow · standard). Stations not in focus keep the
+   pencil look. Reduced motion: no draw-on, the camera jumps. */
+class PanoPlayer{
+  constructor(host){ this.host=host; this.cur=null; this.world=null; this.tm=0; }
+  show(world,k,force){
+    if(world!==this.world||force){ this.world=world; clearTimeout(this.tm);
+      const old=this.cur; if(old){ old.classList.add('leaving'); setTimeout(()=>old.remove(),TM.fast); }
+      const el=mountArt(this.host,'pano',world); this.cur=el;
+      $$('[data-object]',el).forEach(g=>g.dataset.st=(g.dataset.object.match(/^s(\d+):/)||[,'w'])[1]);
+      $$('[data-shadow]',el).forEach(g=>g.dataset.st=((g.dataset.for||'').match(/^s(\d+):/)||[,'w'])[1]);
+      if(RM.matches) el.dataset.phase='filled'; else { el.dataset.phase='draw'; this.tm=setTimeout(()=>{ el.dataset.phase='filled'; },drawSpan(el)); } }
+    this.spot(k);
+  }
+  spot(k){ const el=this.cur; if(!el) return; const svg=el.querySelector('svg'); if(!svg) return;
+    el.dataset.spot=k; $$('[data-st]',el).forEach(g=>g.classList.toggle('on',k==='all'||g.dataset.st==='w'||g.dataset.st===String(k)));
+    const W=this.host.clientWidth, vb=svg.viewBox.baseVal, sw=vb.width; let z=1, px=(W-sw)/2;
+    if(k==='all'){ z=Math.min(1,(W-32)/sw); px=(W-sw*z)/2; }
+    else if(sw>W){ const pad=el.querySelector(`[data-object="s${k}:pad"]`), b=pad.getBBox(); px=Math.min(0,Math.max(W-sw,W/2-(b.x-vb.x+b.width/2))); }
+    el.style.setProperty('--px',px.toFixed(1)+'px'); el.style.setProperty('--pz',z.toFixed(3)); }
+  pause(){ clearTimeout(this.tm); if(this.cur&&this.cur.dataset.phase==='draw') this.cur.dataset.phase='filled'; }
+}
+
+/* V4-A: the moment panel. draw (paper) → worry (colour on, the worry part showing, subject lifted 4 units)
+   held for the measured 550 ms return beat → filled (the worry part leaves, the teal outcome arrives, all settles).
+   Reduced motion: the relief frame at once. */
+class ReliefPlayer{
+  constructor(host,lines){ this.host=host; this.lines=lines; this.cur=null; this.name=null; this.t1=0; this.t2=0; }
+  play(name,[w,r],o={}){
+    if(!o.force && name===this.name) return;
+    this.name=name; clearTimeout(this.t1); clearTimeout(this.t2);
+    const old=this.cur; if(old){ old.classList.add('leaving'); setTimeout(()=>old.remove(),TM.fast); }
+    const el=mountArt(this.host,'relief',name); this.cur=el; this.host.classList.remove('relief');
+    $('.lw span',this.lines).textContent=w; $('.lr span',this.lines).textContent=r;   // the relief line stays faint until the relief plays
+    const done=()=>{ el.dataset.phase='filled'; this.host.classList.add('relief'); };
+    if(RM.matches){ done(); return; }
+    el.dataset.phase='draw';
+    this.t1=setTimeout(()=>{ el.dataset.phase='worry'; this.t2=setTimeout(done,TM.back); },drawSpan(el));
+  }
+  pause(){ clearTimeout(this.t1); clearTimeout(this.t2); if(this.cur&&this.cur.dataset.phase!=='filled'){ this.cur.dataset.phase='filled'; this.host.classList.add('relief'); } }
+}
+
+/* ============ Toast + copy for Figma (tokens inlined as hex: Figma ignores CSS variables) ============ */
+const toast=(m)=>{ const t=$('#toast'); t.textContent=m; t.classList.add('on'); clearTimeout(toast.h); toast.h=setTimeout(()=>t.classList.remove('on'),2200); };
+function copyText(txt){
+  const ok=()=>toast('SVG copied. Paste it into Figma as vectors.');
+  const fb=()=>{ const ta=document.createElement('textarea'); ta.value=txt; ta.style.position='fixed'; ta.style.opacity='0'; document.body.appendChild(ta); ta.select(); try{ document.execCommand('copy'); ok(); }catch(e){ toast('Copy is blocked here. Select the text instead.'); } ta.remove(); };
+  if(navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(ok,fb); else fb();
+}
+
+/* ============ Header + concepts ============ */
+const hdr=$('#hdr'), list=$('#nav-list'), ind=$('.nav-ind'), dd=$('#dd-root');
+list.innerHTML=NAV.map(n=>n.href?`<li><a class="nav-t" href="${n.href}">${n.label}</a></li>`
+  :`<li><button class="nav-t" type="button" data-id="${n.id}" aria-expanded="false" aria-controls="dd-${n.id}"${n.current?' aria-current="page"':''}>${n.label}${ICON.chev}</button></li>`).join('');
+const triggers=$$('.nav-t[data-id]'), ids=triggers.map(t=>t.dataset.id);
+let opt='stage', openId=null, tOpen=0, tClose=0, layers=[], view=null, cards=[], hoverT=0;
+
+const itemHTML=l=>`<li><a class="it" href="#" data-scene="${l[2]}" data-t="${amp(l[0])}" data-d="${amp(l[1])}"><span class="it-l">${amp(l[0])}${ICON.arrow}</span><span class="it-d">${amp(l[1])}</span></a></li>`;
+const stageHTML=`<div class="stage"><button class="cp" type="button" aria-label="Copy illustration as SVG for Figma">${ICON.copy}Copy SVG</button></div>`;
+
+const CONCEPT={
+  stage:{
+    html(){ return `<div class="mega A" id="mega"><div class="ctr"><div>${stageHTML}<div class="cap"><div><p class="cap-t"></p><p class="cap-d"></p></div></div></div><div class="view">${MENUS.map(m=>
+      `<div class="lyr" data-id="${m.id}" id="dd-${m.id}" role="region" aria-label="${m.label}"><div class="cols">${m.groups.map(g=>`<div class="grp" style="--cols:${g.cols||1}"><p class="gt">${g.t}</p><ul>${g.l.map(itemHTML).join('')}</ul></div>`).join('')}</div>
+      <div class="foot"><a class="ul-link" href="#" data-scene="${m.scene}" data-t="${m.label}" data-d="${amp(m.lead)}">${m.over}${ICON.arrow}</a><span>Point at an option to preview it</span></div></div>`).join('')}</div></div></div>`; },
+    mount(root){ view=new StagePlayer($('.stage',root)); },
+    open(id,first){ const m=byId(id); view.play(m.scene,{force:first}); caption(m.label,m.lead,first); },
+    hover(el){ view.play(el.dataset.scene); caption(el.dataset.t,el.dataset.d); },
+    height(lyr){ return Math.max(lyr.offsetHeight,340)+52; }
+  },
+  diorama:{
+    html(){ return `<div class="mega C" id="mega"><div class="ctr"><div class="view">${MENUS.map(m=>{ const L=allLinks(m);
+      return `<div class="lyr" data-id="${m.id}" id="dd-${m.id}" role="region" aria-label="${m.label}"><div class="head"><h3>${m.label}</h3><p>${m.lead}</p><a class="ul-link" href="#">${m.over}${ICON.arrow}</a></div>
+      <div class="row" style="--n:${L.length}">${L.map(l=>`<a class="card" href="#" data-scene="${l[2]}"><div class="stage"></div><div class="tx"><span class="tl">${amp(l[0])}${ICON.arrow}</span><span class="td">${amp(l[1])}</span></div></a>`).join('')}</div></div>`; }).join('')}</div></div></div>`; },
+    mount(){},
+    open(id){ cards.forEach(c=>{ c.a.pause(); c.a.el.remove(); }); const lyr=$(`#dd-${id}`);
+      cards=$$('.card',lyr).map(el=>{ el.classList.remove('act'); return {el,a:new CardArt($('.stage',el),el.dataset.scene)}; }); },
+    hover(el){ cards.forEach(c=>{ const on=c.el===el; c.el.classList.toggle('act',on); c.a.set(on); }); },
+    height(lyr){ return lyr.offsetHeight+48; }
+  }
+};
+/* V3 concepts share the same menu data; each looks up its own scene per option (V3 map from the concept cards) */
+const V3={"pano":{"world":{"Shipping Insurance":"worldInsurance","Solutions":"worldSolutions","Partners":"worldPartners","Resources":"worldResources","About":"worldAbout"},"station":{"Multi-Carrier Shipments":{"world":"worldInsurance","k":0},"UPS Shipments":{"world":"worldInsurance","k":1},"Special Commodities":{"world":"worldInsurance","k":2},"Select My Coverage":{"world":"worldInsurance","k":3},"Get a Quote":{"world":"worldInsurance","k":4},"CommerceShield":{"world":"worldSolutions","k":0},"DeliveryDefense":{"world":"worldSolutions","k":1},"Delivery Orchestration":{"world":"worldSolutions","k":2},"InsureShield® Shipping Insurance":{"world":"worldSolutions","k":3},"Connect with a Partner":{"world":"worldPartners","k":0},"Become a Partner":{"world":"worldPartners","k":1},"Insights":{"world":"worldResources","k":0},"Whitepapers & Guides":{"world":"worldResources","k":1},"Customer Stories":{"world":"worldResources","k":2},"Help & Support":{"world":"worldResources","k":3},"Announcements":{"world":"worldAbout","k":0},"In The News":{"world":"worldAbout","k":1},"Product Availability":{"world":"worldAbout","k":2},"Contact Us":{"world":"worldAbout","k":3}}},"atelier":{"Shipping Insurance":"xInsurance","Solutions":"xSolutions","Partners":"xPartners","Resources":"xResources","About":"xAbout","Multi-Carrier Shipments":"xMultiCarrier","UPS Shipments":"xUps","Special Commodities":"xSpecial","Select My Coverage":"xSelect","Get a Quote":"xQuote","CommerceShield":"xCommerce","DeliveryDefense":"xDefense","Delivery Orchestration":"xOrchestrate","InsureShield® Shipping Insurance":"xInsureShield","Connect with a Partner":"xConnect","Become a Partner":"xBecome","Insights":"xInsights","Whitepapers & Guides":"xGuides","Customer Stories":"xStories","Help & Support":"xHelp","Announcements":"xNews","In The News":"xPress","Product Availability":"xAvailability","Contact Us":"xContact"},"icon":{"Multi-Carrier Shipments":"iMultiCarrier","UPS Shipments":"iUps","Special Commodities":"iSpecial","Select My Coverage":"iSelect","Get a Quote":"iQuote","CommerceShield":"iCommerce","DeliveryDefense":"iDefense","Delivery Orchestration":"iOrchestrate","InsureShield® Shipping Insurance":"iInsureShield","Connect with a Partner":"iConnect","Become a Partner":"iBecome","Insights":"iInsights","Whitepapers & Guides":"iGuides","Customer Stories":"iStories","Help & Support":"iHelp","Announcements":"iNews","In The News":"iPress","Product Availability":"iAvailability","Contact Us":"iContact"},"feature":{"Shipping Insurance":"fInsurance","Solutions":"fSolutions","Partners":"fPartners","Resources":"fResources","About":"fAbout"},"relief":{"Shipping Insurance":"wInsurance","Solutions":"wSolutions","Partners":"wPartners","Resources":"wResources","About":"wAbout","Select My Coverage":"wSelect","Get a Quote":"wQuote","Multi-Carrier Shipments":"wMulti","UPS Shipments":"wUps","Special Commodities":"wSpecial","DeliveryDefense":"wDefense","Delivery Orchestration":"wOrchestrate","CommerceShield":"wCommerce","InsureShield® Shipping Insurance":"wInsureShield","Connect with a Partner":"wConnect","Become a Partner":"wBecome","Help & Support":"wHelp","Customer Stories":"wStories","Insights":"wInsights","Whitepapers & Guides":"wGuides","Announcements":"wAnnounce","In The News":"wNews","Product Availability":"wAvail","Contact Us":"wContact"},"worry":{"Shipping Insurance":["What if it never arrives?","Covered loss, damage and theft are paid back."],"Solutions":["Want fewer surprises after you ship?","Check, choose and cover before the parcel leaves."],"Partners":["Already selling on a platform?","Add coverage where you already work."],"Resources":["Not sure where to start?","Start with help, then learn at your pace."],"About":["Who stands behind your coverage?","UPS Capital, and a team you can reach."],"Select My Coverage":["Too many options?","A few answers point to the right fit."],"Get a Quote":["Will it cost too much?","See an estimate for your volume first."],"Multi-Carrier Shipments":["Different carriers, different rules?","One policy across UPS, FedEx, DHL and USPS."],"UPS Shipments":["Left at the door, then gone?","Covered UPS packages are paid back."],"Special Commodities":["Fragile, perishable or worth a lot?","Specialty goods have coverage too."],"DeliveryDefense":["Is this address risky?","See a confidence score before you ship."],"Delivery Orchestration":["Is the usual option the safest?","Choose delivery options that lower risk."],"CommerceShield":["Was that order fraud?","Risk signals and chargeback protection."],"InsureShield® Shipping Insurance":["It arrived broken?","Protection against loss, damage and theft."],"Connect with a Partner":["Another tool to set up?","Add coverage inside the platforms you use."],"Become a Partner":["Customers asking about lost parcels?","Offer InsureShield to them."],"Help & Support":["Have a question right now?","Answers on coverage, billing and claims."],"Customer Stories":["Does it really work?","How businesses recover faster."],"Insights":["What risks am I missing?","Articles on shipping risk and protection."],"Whitepapers & Guides":["Need the full picture?","In-depth research and how-to guides."],"Announcements":["What's changed?","Product and company news."],"In The News":["Who stands behind this?","Press coverage of UPS Capital."],"Product Availability":["Is it offered where I am?","See where coverage is offered."],"Contact Us":["Rather talk to someone?","Reach our team."]},"door":{"Select My Coverage":"dSelect","Get a Quote":"dQuote","Multi-Carrier Shipments":"dMulti","UPS Shipments":"dUps","Special Commodities":"dSpecial","DeliveryDefense":"dDefense","Delivery Orchestration":"dOrchestrate","CommerceShield":"dCommerce","InsureShield® Shipping Insurance":"dInsureShield","Connect with a Partner":"dConnect","Become a Partner":"dBecome","Help & Support":"dHelp","Customer Stories":"dStories","Insights":"dInsights","Whitepapers & Guides":"dGuides","Announcements":"dAnnounce","In The News":"dNews","Product Availability":"dAvail","Contact Us":"dContact"},"dream":{"Multi-Carrier Shipments":"mMulti","UPS Shipments":"mUps","Special Commodities":"mSpecial","Select My Coverage":"mSelect","Get a Quote":"mQuote","DeliveryDefense":"mDefense","Delivery Orchestration":"mOrchestrate","CommerceShield":"mCommerce","InsureShield® Shipping Insurance":"mInsure","Connect with a Partner":"mConnect","Become a Partner":"mBecome","Help & Support":"mHelp","Customer Stories":"mStories","Insights":"mInsights","Whitepapers & Guides":"mGuides","Contact Us":"mContact","Product Availability":"mAvail","Announcements":"mAnnounce","In The News":"mNews"},"v7a":{"Shipping Insurance":"oInsurance","Solutions":"oSolutions","Partners":"oPartners","Resources":"oResources","About":"oAbout","Multi-Carrier Shipments":"mMulti","UPS Shipments":"mUps","Special Commodities":"mSpecial","Select My Coverage":"mSelect","Get a Quote":"mQuote","DeliveryDefense":"mDefense","Delivery Orchestration":"mOrchestrate","CommerceShield":"mCommerce","InsureShield® Shipping Insurance":"mInsure","Connect with a Partner":"mConnect","Become a Partner":"mBecome","Help & Support":"mHelp","Customer Stories":"mStories","Insights":"mInsights","Whitepapers & Guides":"mGuides","Contact Us":"mContact","Product Availability":"mAvail","Announcements":"mAnnounce","In The News":"mNews"},"v7b":{"Shipping Insurance":"tInsurance","Solutions":"tSolutions","Partners":"tPartners","Resources":"tResources","About":"tAbout","Multi-Carrier Shipments":"tMulti","UPS Shipments":"tUps","Special Commodities":"tSpecial","Select My Coverage":"tSelect","Get a Quote":"tQuote","CommerceShield":"tCommerce","DeliveryDefense":"tDefense","Delivery Orchestration":"tOrchestrate","InsureShield® Shipping Insurance":"tInsure","Connect with a Partner":"tConnect","Become a Partner":"tBecome","Help & Support":"tHelp","Customer Stories":"tStories","Insights":"tInsights","Whitepapers & Guides":"tGuides","Contact Us":"tContact","Product Availability":"tAvail","Announcements":"tAnnounce","In The News":"tNews"}};
+/* V7: the approved Stage layout exactly (stage 360 · options · footer), only the caption moves above the picture
+   and every option has its own story illustration (V3.v7a / V3.v7b, from the concept cards). */
+function stage7(key,set){ return {
+  html(){ const S=V3[key]; return `<div class="mega A V7" id="mega"><div class="ctr"><div><div class="cap mega-cap"><div><p class="cap-t"></p><p class="cap-d"></p></div></div>${stageHTML}</div><div class="view">${MENUS.map(m=>
+    `<div class="lyr" data-id="${m.id}" id="dd-${m.id}" role="region" aria-label="${m.label}"><div class="cols">${m.groups.map(g=>`<div class="grp" style="--cols:${g.cols||1}"><p class="gt">${g.t}</p><ul>${g.l.map(l=>rowHTML('it',l,S[l[0]])).join('')}</ul></div>`).join('')}</div>
+    <div class="foot"><a class="ul-link" href="#" data-scene="${S[m.label]}" data-t="${m.label}" data-d="${amp(m.lead)}">${m.over}${ICON.arrow}</a><span>Point at an option to see its story</span></div></div>`).join('')}</div></div></div>`; },
+  mount(root){ view=new StagePlayer($('.stage',root),set); },
+  open(id,first){ const m=byId(id); view.play(V3[key][m.label],{force:first}); caption(m.label,m.lead,first); },
+  hover(el){ view.play(el.dataset.scene); caption(el.dataset.t,el.dataset.d); },
+  height(lyr){ return Math.max(lyr.offsetHeight,340)+52; }
+}; }
+const rowHTML=(cls,l,scene,pre='')=>`<li><a class="${cls}" href="#" data-scene="${scene||''}" data-t="${amp(l[0])}" data-d="${amp(l[1])}">${pre}<span class="it-l">${amp(l[0])}${ICON.arrow}</span><span class="it-d">${amp(l[1])}</span></a></li>`;
+const overLink=(m)=>`<a class="ul-link" href="#" data-scene="over" data-t="${m.label}" data-d="${amp(m.lead)}">${m.over}${ICON.arrow}</a>`;
+Object.assign(CONCEPT,{
+  panorama:{
+    html(){ return `<div class="mega P" id="mega"><div class="ctr"><div class="view">${MENUS.map(m=>
+      `<div class="lyr" data-id="${m.id}" id="dd-${m.id}" role="region" aria-label="${m.label}"><div class="cols">${m.groups.map(g=>`<div class="grp" style="--cols:${g.cols||1}"><p class="gt">${g.t}</p><ul>${g.l.map(l=>rowHTML('it',l,'station')).join('')}</ul></div>`).join('')}</div>
+      <div class="foot">${overLink(m)}<span>Point at an option to travel to it</span></div></div>`).join('')}</div>
+      <div><div class="win" aria-hidden="true"></div><div class="cap"><div><p class="cap-t"></p><p class="cap-d"></p></div></div></div></div></div>`; },
+    mount(root){ view=new PanoPlayer($('.win',root)); },
+    open(id,first){ const m=byId(id); view.show(V3.pano.world[m.label],'all',first); caption(m.label,m.lead,first); },
+    hover(el){ const m=byId(el.closest('.lyr').dataset.id), st=V3.pano.station[el.dataset.t];
+      view.show(st?st.world:V3.pano.world[m.label], st?st.k:'all'); caption(el.dataset.t,el.dataset.d); },
+    height(lyr){ return Math.max(lyr.offsetHeight,280+72)+52; }
+  },
+  atelier:{
+    html(){ return `<div class="mega T" id="mega"><div class="ctr"><div class="view">${MENUS.map(m=>{ let n=0;
+      return `<div class="lyr" data-id="${m.id}" id="dd-${m.id}" role="region" aria-label="${m.label}"><div class="head"><h3>${m.label}</h3><p>${m.lead}</p></div>
+      <ul class="lst">${allLinks(m).map(l=>rowHTML('ti',l,V3.atelier[l[0]],`<span class="num" aria-hidden="true">${String(++n).padStart(2,'0')}</span>`)).join('')}</ul>
+      <div class="foot">${overLink(m).replace('data-scene="over"',`data-scene="${V3.atelier[m.label]}"`)}<span>Point at an option to assemble it</span></div></div>`; }).join('')}</div>
+      <div>${stageHTML}<div class="cap"><div><p class="cap-t"></p><p class="cap-d"></p></div></div></div></div></div>`; },
+    mount(root){ view=new StagePlayer($('.stage',root),'atelier'); },
+    open(id,first){ const m=byId(id); view.play(V3.atelier[m.label],{force:first}); caption(m.label,m.lead,first); },
+    hover(el){ view.play(el.dataset.scene); caption(el.dataset.t,el.dataset.d); },
+    height(lyr){ return Math.max(lyr.offsetHeight,400+72)+56; }
+  },
+  rail:{
+    html(){ return `<div class="mega R" id="mega"><div class="ctr"><div class="view">${MENUS.map(m=>
+      `<div class="lyr" data-id="${m.id}" id="dd-${m.id}" role="region" aria-label="${m.label}"><div class="head"><h3>${m.label}</h3><p>${m.lead}</p></div><div class="cols">${m.groups.map(g=>`<div class="grp" style="--cols:${g.cols||1}"><p class="gt">${g.t}</p><ul>${g.l.map(l=>rowHTML('ri',l,V3.icon[l[0]],'<span class="ico"></span>')).join('')}</ul></div>`).join('')}</div></div>`).join('')}</div>
+      <div class="fc"><div class="stage"></div><div class="tx"><p class="fc-t"></p><p class="fc-d"></p><a class="ul-link" href="#">Explore${ICON.arrow}</a></div></div></div></div>`; },
+    mount(root){ view=new StagePlayer($('.fc .stage',root),'feature'); },
+    open(id){ const m=byId(id); cards.forEach(c=>{ c.a.pause(); c.a.el.remove(); });
+      cards=$$(`#dd-${id} .ri`).map(el=>({el,a:new CardArt($('.ico',el),el.dataset.scene,'icon')}));
+      view.play(V3.feature[m.label],{force:true}); const fc=$('.R .fc'); $('.fc-t',fc).textContent=m.label; $('.fc-d',fc).textContent=m.lead; $('.ul-link',fc).firstChild.textContent=m.over; },
+    hover(el){ cards.forEach(c=>c.a.set(c.el===el)); },
+    height(lyr){ return Math.max(lyr.offsetHeight,200+120)+52; }
+  },
+
+  /* ---------- V4-A · Worry → Relief ---------- */
+  relief:{
+    html(){ return `<div class="mega W" id="mega"><div class="ctr"><div class="view">${MENUS.map(m=>{ const [w]=V3.worry[m.label]||[''];
+      return `<div class="lyr" data-id="${m.id}" id="dd-${m.id}" role="region" aria-label="${m.label}" style="display:grid;grid-template-columns:268px minmax(0,1fr);gap:40px">
+      <div class="feel"><p class="eyebrow">${m.label}</p><h3>${amp(w)}</h3><p>${m.lead}</p>${overLink(m).replace('data-scene="over"',`data-scene="${V3.relief[m.label]}"`)}</div>
+      <div class="grps">${m.groups.map(g=>`<div class="grp"><p class="gt">${g.t}</p><ul>${g.l.map(l=>rowHTML('wi',l,V3.relief[l[0]],'<span class="dot" aria-hidden="true"></span>')).join('')}</ul></div>`).join('')}</div></div>`; }).join('')}</div>
+      <div><div class="mom" aria-hidden="true"></div><div class="lines" aria-live="polite"><p class="lw"><b>Worry</b><span></span></p><p class="lr"><b>Relief</b><span></span></p></div></div></div></div>`; },
+    mount(root){ view=new ReliefPlayer($('.mom',root),$('.lines',root)); },
+    open(id,first){ const m=byId(id); view.play(V3.relief[m.label],V3.worry[m.label],{force:first}); },
+    hover(el){ view.play(el.dataset.scene,V3.worry[el.dataset.t]||V3.worry[byId(el.closest('.lyr').dataset.id).label]); },
+    height(lyr){ return Math.max(lyr.offsetHeight,260+70)+56; }
+  },
+
+  /* ---------- V4-B · Doorstep moments ---------- */
+  doorstep:{
+    html(){ return `<div class="mega D" id="mega"><div class="ctr"><div class="view">${MENUS.map(m=>{ let n=0, col=1; const L=allLinks(m);
+      const acts=m.groups.map(g=>{ const h=`<p class="act-t" style="grid-column:${col} / span ${g.l.length}">${g.t}</p>`; col+=g.l.length; return h; }).join('');
+      const frames=L.map(l=>`<a class="fr" href="#" data-scene="${V3.door[l[0]]}" data-t="${amp(l[0])}" data-d="${amp(l[1])}"><div class="stage"></div><div class="tx"><span class="sc">SC ${String(++n).padStart(2,'0')}</span><span class="tl">${amp(l[0])}${ICON.arrow}</span><span class="td">${amp(l[1])}</span></div></a>`).join('');
+      const end=L.length<5?`<div class="end" style="grid-column:${L.length+1} / -1"><p>${m.lead}</p>${overLink(m).replace(' data-scene="over"','')}</div>`:'';
+      return `<div class="lyr" data-id="${m.id}" id="dd-${m.id}" role="region" aria-label="${m.label}"><div class="head"><h3>${m.label}</h3><p>${L.length<5?'Point at a moment to play it':m.lead}</p>${L.length<5?'':overLink(m).replace(' data-scene="over"','')}</div>
+      <div class="board">${acts}${frames}${end}</div></div>`; }).join('')}</div></div></div>`; },
+    mount(){},
+    open(id){ cards.forEach(c=>{ c.a.pause(); c.a.el.remove(); });
+      cards=$$(`#dd-${id} .fr`).map(el=>{ el.classList.remove('act'); const a=new CardArt($('.stage',el),el.dataset.scene,'door'); const svg=a.el.querySelector('svg'); svg&&svg.setAttribute('preserveAspectRatio','xMidYMid slice'); return {el,a}; }); },
+    hover(el){ cards.forEach(c=>{ const on=c.el===el; c.el.classList.toggle('act',on); c.a.set(on); }); },
+    height(lyr){ return lyr.offsetHeight+48; }
+  },
+
+  /* ---------- V7 · the approved Stage layout, caption above the picture; A = Light up the dream, B = Thread of care ---------- */
+  v7a: stage7('v7a','s7a'),
+  v7b: stage7('v7b','s7b'),
+
+  /* ---------- V6 · Light up the dream (approved Diorama, text first, three-beat story art) ---------- */
+  v6:{
+    html(){ return `<div class="mega C V6" id="mega"><div class="ctr"><div class="view">${MENUS.map(m=>{ const L=allLinks(m);
+      return `<div class="lyr" data-id="${m.id}" id="dd-${m.id}" role="region" aria-label="${m.label}"><div class="head"><h3>${m.label}</h3><p>${m.lead}</p><a class="ul-link" href="#">${m.over}${ICON.arrow}</a></div>
+      <div class="row" style="--n:${L.length}">${L.map(l=>`<a class="card" href="#" data-scene="${V3.dream[l[0]]}"><div class="tx"><span class="tl">${amp(l[0])}${ICON.arrow}</span><span class="td">${amp(l[1])}</span></div><div class="stage"></div></a>`).join('')}</div></div>`; }).join('')}</div></div></div>`; },
+    mount(){},
+    open(id){ cards.forEach(c=>{ c.a.pause(); c.a.el.remove(); }); const lyr=$(`#dd-${id}`);
+      cards=$$('.card',lyr).map(el=>{ el.classList.remove('act'); return {el,a:new CardArt($('.stage',el),el.dataset.scene,'dream')}; }); },
+    hover(el){ cards.forEach(c=>{ const on=c.el===el; c.el.classList.toggle('act',on); c.a.set(on); }); },
+    height(lyr){ return lyr.offsetHeight+48; }
+  },
+
+  /* ---------- V4-C · Ask-first (no illustration) ---------- */
+  askfirst:{
+    html(){ return `<div class="mega Q" id="mega"><div class="ctr"><div class="view">${MENUS.map(m=>`<div class="lyr" data-id="${m.id}" id="dd-${m.id}" role="region" aria-label="${m.label}" style="display:grid;grid-template-columns:300px minmax(0,1fr);gap:48px">
+      <div class="ask"><p class="eyebrow">${m.label}</p><h3>What brings you here?</h3><p class="lead">${m.lead}</p>
+        <div class="chips" role="group" aria-label="Show links for"><span class="chip-ind" aria-hidden="true"></span><button class="chip" type="button" data-k="" aria-pressed="true">Everything</button>${m.groups.map((g,i)=>`<button class="chip" type="button" data-k="${i}" aria-pressed="false">${g.t}</button>`).join('')}</div>
+        <p class="sr" aria-live="polite"></p></div>
+      <div><ul class="qlist">${m.groups.flatMap((g,i)=>g.l.map(l=>`<li class="qi" data-k="${i}"><a class="qa" href="#" data-scene="" data-t="${amp(l[0])}"><span class="tag">${g.t}</span><span class="it-l">${amp(l[0])}${ICON.arrow}</span><span class="it-d">${amp(l[1])}</span></a></li>`)).join('')}</ul>
+        <div class="help"><b>Something went wrong?</b><a class="ul-link" href="#">File a claim${ICON.arrow}</a><a class="ul-link" href="#">Help &amp; Support${ICON.arrow}</a></div></div></div>`).join('')}</div></div></div>`; },
+    mount(root){
+      let ct=0;
+      const pick=b=>{ const lyr=b.closest('.lyr'); if(!lyr.classList.contains('in')) return; filterQ(lyr,b.dataset.k); };
+      root.addEventListener('click',e=>{ const b=e.target.closest('.chip'); if(b) pick(b); });
+      root.addEventListener('pointerover',e=>{ const b=e.target.closest('.chip'); if(!b||e.pointerType!=='mouse') return; clearTimeout(ct); ct=setTimeout(()=>pick(b),TM.fast); });
+      root.addEventListener('pointerout',e=>{ if(e.target.closest('.chip')) clearTimeout(ct); });
+      root.addEventListener('focusin',e=>{ const b=e.target.closest('.chip'); if(b) pick(b); });
+    },
+    open(id){ const lyr=$(`#dd-${id}`); requestAnimationFrame(()=>filterQ(lyr,$('.chip[aria-pressed="true"]',lyr).dataset.k,true)); },
+    hover(){},
+    height(lyr){ return lyr.offsetHeight+54; }
+  }
+});
+/* Ask-first: the chosen task's links move to the front (FLIP: translate only, slow · standard, 34 ms apart),
+   the others stay in place but dim. Everything resets the order. Reduced motion: no travel, same result. */
+function filterQ(lyr,k,instant){
+  const chips=$$('.chip',lyr), b=chips.find(c=>c.dataset.k===k)||chips[0], ind=$('.chip-ind',lyr), box=$('.chips',lyr).getBoundingClientRect(), r=b.getBoundingClientRect();
+  chips.forEach(c=>c.setAttribute('aria-pressed',String(c===b)));
+  ind.style.translate=`${r.left-box.left}px ${r.top-box.top}px`; ind.style.scale=`${r.width/100} 1`;
+  const ul=$('.qlist',lyr), rows=$$('.qi',ul), first=new Map(rows.map(x=>[x,x.getBoundingClientRect()]));
+  rows.forEach((x,i)=>{ if(x.dataset.i==null) x.dataset.i=i; });
+  const order=k===''?rows.slice().sort((a,c)=>+a.dataset.i-+c.dataset.i):[...rows.filter(x=>x.dataset.k===k),...rows.filter(x=>x.dataset.k!==k)];
+  order.forEach(x=>{ ul.appendChild(x); x.classList.toggle('match',k!==''&&x.dataset.k===k); x.classList.toggle('dim',k!==''&&x.dataset.k!==k); });
+  const n=order.filter(x=>x.dataset.k===k).length; $('.sr',lyr).textContent=k===''?`Showing all ${rows.length} links`:`Showing ${n} link${n>1?'s':''} for ${b.textContent} first`;
+  if(instant||RM.matches) return;
+  order.forEach((x,i)=>{ const a=first.get(x), z=x.getBoundingClientRect(), dx=a.left-z.left, dy=a.top-z.top; if(!dx&&!dy) return;
+    x.classList.remove('flip'); x.style.translate=`${dx}px ${dy}px`; x.style.setProperty('--d',i); void x.offsetWidth;
+    x.classList.add('flip'); x.style.translate='0px 0px'; });
+}
+function swapText(box,set,instant){ if(instant||RM.matches){ set(); return; }
+  box.classList.add('leave'); setTimeout(()=>{ set(); box.classList.remove('leave'); box.classList.add('enter'); void box.offsetWidth; box.classList.remove('enter'); },TM.fast); }
+function caption(t,d,instant){ const box=$('.mega .cap>div'); if(!box) return; swapText(box,()=>{ $('.cap-t',box).textContent=t; $('.cap-d',box).textContent=d; },instant); }
+
+function placeInd(t){ if(!t){ ind.classList.remove('on'); return; } const nr=$('.nav').getBoundingClientRect(), tr=t.getBoundingClientRect(); ind.style.scale=`${(tr.width-24)/100} 1`; ind.style.translate=`${tr.left-nr.left+12}px 0`; ind.classList.add('on'); }
+function show(id){
+  clearTimeout(tOpen); clearTimeout(tClose); if(openId===id) return;
+  const prev=openId; openId=id;
+  triggers.forEach(t=>t.setAttribute('aria-expanded',String(t.dataset.id===id))); placeInd(triggers[ids.indexOf(id)]);
+  document.body.classList.add('menu-open');
+  layers.forEach(l=>{ const isNew=l.dataset.id===id, isOld=l.dataset.id===prev;
+    $$('.act',l).forEach(a=>a.classList.remove('act'));
+    if(isNew){ l.classList.remove('out','in'); void l.offsetWidth; l.classList.add('in'); l.inert=false; }
+    else if(isOld){ l.classList.remove('in'); l.classList.add('out'); l.inert=true; }
+    else { l.classList.remove('in','out'); l.inert=true; } });
+  const mega=$('#mega'), C=CONCEPT[opt];
+  mega.style.height=C.height($(`#dd-${id}`))+'px'; mega.classList.add('open');
+  C.open(id,!prev);
+}
+function hide(focusBack){
+  clearTimeout(tOpen); clearTimeout(tClose); if(!openId) return;
+  const t=triggers[ids.indexOf(openId)]; openId=null;
+  triggers.forEach(x=>x.setAttribute('aria-expanded','false')); placeInd(null); document.body.classList.remove('menu-open');
+  $('#mega').classList.remove('open');
+  layers.forEach(l=>{ l.inert=true; l.classList.remove('in','out'); });
+  view&&view.pause(); cards.forEach(c=>c.a.pause());
+  if(focusBack&&t) t.focus();
+}
+const mouse=e=>e.pointerType==='mouse';
+triggers.forEach(t=>{
+  // Hover intent: a menu opens or switches only when the pointer rests on a trigger for 100 ms, so a
+  // cursor crossing other triggers on its way down into the open panel doesn't swap or close it.
+  t.addEventListener('pointerenter',e=>{ if(!mouse(e)) return; clearTimeout(tClose); clearTimeout(tOpen); if(openId===t.dataset.id) return; tOpen=setTimeout(()=>show(t.dataset.id),TM.fast); });
+  t.addEventListener('pointerleave',e=>{ if(mouse(e)) clearTimeout(tOpen); });
+  t.addEventListener('click',()=>openId===t.dataset.id?hide(false):show(t.dataset.id));
+  t.addEventListener('keydown',e=>{ if(e.key==='ArrowDown'){ e.preventDefault(); show(t.dataset.id); const f=$(`#dd-${t.dataset.id} [data-scene]`); f&&setTimeout(()=>f.focus(),TM.fast); } });
+});
+$$('.nav-t:not([data-id])').forEach(a=>{ a.addEventListener('pointerenter',e=>{ if(!mouse(e)) return; clearTimeout(tOpen); if(openId){ clearTimeout(tClose); tClose=setTimeout(()=>hide(false),TM.base); } });
+  a.addEventListener('pointerleave',e=>{ if(mouse(e)) clearTimeout(tClose); }); });
+hdr.addEventListener('pointerleave',e=>{ if(!mouse(e)) return; clearTimeout(tOpen); tClose=setTimeout(()=>hide(false),TM.slow); });
+hdr.addEventListener('pointerenter',e=>{ if(mouse(e)) clearTimeout(tClose); });
+hdr.addEventListener('keydown',e=>{ if(e.key==='Escape'&&openId){ e.preventDefault(); hide(true); } });
+hdr.addEventListener('focusout',e=>{ if(openId&&!hdr.contains(e.relatedTarget)) hide(false); });
+document.addEventListener('pointerdown',e=>{ if(openId&&!hdr.contains(e.target)) hide(false); });
+window.addEventListener('scroll',()=>{ if(openId) hide(false); },{passive:true});
+// resize: re-measure only (keeps the hovered option and its illustration)
+window.addEventListener('resize',()=>{ if(!openId) return; placeInd(triggers[ids.indexOf(openId)]); $('#mega').style.height=CONCEPT[opt].height($(`#dd-${openId}`))+'px'; });
+
+// hovering or focusing an option swaps the illustration (short intent delay so sweeping across doesn't flicker)
+function activate(el){
+  const lyr=el.closest('.lyr'); if(!lyr||!lyr.classList.contains('in')) return;
+  $$('.act',lyr).forEach(a=>a!==el&&a.classList.remove('act')); if(!el.matches('.card,.fr')) el.classList.add('act');
+  CONCEPT[opt].hover(el);
+}
+dd.addEventListener('pointerover',e=>{ const el=e.target.closest('[data-scene]'); if(!el) return; clearTimeout(hoverT); hoverT=setTimeout(()=>activate(el),TM.fast); });
+dd.addEventListener('pointerout',e=>{ if(opt!=='diorama'&&opt!=='doorstep'&&opt!=='v6') return; const el=e.target.closest('.card,.fr'); if(el && !el.contains(e.relatedTarget)){ clearTimeout(hoverT); el.classList.remove('act'); const c=cards.find(c=>c.el===el); c&&c.a.set(false); } });
+dd.addEventListener('focusin',e=>{ const el=e.target.closest('[data-scene]'); if(el) activate(el); });
+dd.addEventListener('click',e=>{ const cp=e.target.closest('.cp'); if(cp){ e.preventDefault(); view&&copyText(view.svgString()); return; } if(e.target.closest('a')) e.preventDefault(); });
+
+function setOpt(o){
+  if(!CONCEPT[o]) o='stage';
+  hide(false); cards.forEach(c=>c.a.pause()); cards=[]; view&&view.pause(); view=null;
+  opt=o; document.body.dataset.opt=o; dd.innerHTML=CONCEPT[o].html(); CONCEPT[o].mount(dd);
+  layers=$$('.lyr',dd); layers.forEach(l=>l.inert=true);
+  $$('.switch a').forEach(a=>a.setAttribute('aria-current',String(a.dataset.o===o)));
+}
+
+/* ============ Hero field: the 17.5° ground grid (same projection as the art) ============
+   Still until the pointer arrives; nodes near it lift up to 8 units and take teal; on leave they
+   ease back over 550 ms with the standard curve. Pointer events only (no idle loop); touch ignored. */
+const Field=(function(){
+  const cv=$('canvas.lattice'), ctx=cv.getContext('2d');
+  const TN=Math.tan(17.5*Math.PI/180), CC=Math.SQRT1_2, CP=Math.cos(Math.asin(TN)), GAP=44, REACH=150, LIFT=8;
+  let W=0,H=0,nodes=[],links=[],raf=0,tween=0;
+  function build(){ const r=cv.getBoundingClientRect(); W=r.width; H=r.height; const dpr=Math.min(devicePixelRatio||1,2); cv.width=W*dpr; cv.height=H*dpr; ctx.setTransform(dpr,0,0,dpr,0,0);
+    const ox=W*.72, oy=H*.48, R=Math.ceil((W/CC+H/(CC*TN))/2/GAP)+2, key=new Map(); nodes=[]; links=[];
+    for(let i=-R;i<=R;i++) for(let j=-R;j<=R;j++){ const x=i*GAP, z=j*GAP, sx=ox+(x-z)*CC, sy=oy+(x+z)*CC*TN;
+      if(sx<-GAP||sx>W+GAP||sy<-GAP||sy>H+GAP) continue;
+      const a=Math.max(0,Math.min(1,(sx-W*.42)/(W*.22)))*Math.max(0,1-Math.abs(sy-H*.5)/(H*.6)); if(a<=.02) continue;
+      key.set(i+','+j,nodes.length); nodes.push({sx,sy,a,lift:0,from:0}); }
+    for(const [k,n] of key){ const [i,j]=k.split(',').map(Number); [[i+1,j],[i,j+1]].forEach(([a,b])=>{ const m=key.get(a+','+b); if(m!=null) links.push([n,m]); }); }
+    draw(); }
+  function draw(){ ctx.clearRect(0,0,W,H); ctx.lineWidth=1;
+    for(const [p,q] of links){ const n=nodes[p], m=nodes[q], t=(n.lift+m.lift)/2, a=Math.min(n.a,m.a);
+      ctx.strokeStyle=t>.04?`rgba(10,128,128,${(.14+.6*t)*a})`:`rgba(133,133,142,${.22*a})`;
+      ctx.beginPath(); ctx.moveTo(n.sx,n.sy-n.lift*LIFT*CP); ctx.lineTo(m.sx,m.sy-m.lift*LIFT*CP); ctx.stroke(); } }
+  const frame=()=>{ raf=0; draw(); };
+  const ask=()=>{ if(!raf) raf=requestAnimationFrame(frame); };
+  const hero=$('.hero');
+  hero.addEventListener('pointermove',e=>{ if(RM.matches||e.pointerType==='touch') return; cancelAnimationFrame(tween); tween=0;
+    const r=cv.getBoundingClientRect(), mx=e.clientX-r.left, my=e.clientY-r.top;
+    for(const n of nodes){ const d=Math.hypot(n.sx-mx,n.sy-my); n.lift=d<REACH?STANDARD(1-d/REACH):0; } ask(); });
+  hero.addEventListener('pointerleave',()=>{ if(RM.matches) return; nodes.forEach(n=>n.from=n.lift); const t0=performance.now();
+    const step=now=>{ const k=Math.min(1,(now-t0)/TM.back), e=STANDARD(k); nodes.forEach(n=>n.lift=n.from*(1-e)); draw(); tween=k<1?requestAnimationFrame(step):0; };
+    tween=requestAnimationFrame(step); });
+  addEventListener('resize',build); return {build};
+})();
+
+/* ============ Estimator ============ */
+(function(){
+  const V=[10,25,50,75,100,150,200,250,300,400,500,600,700,800,1000,1250,1500,2000,2500,3000], N=V.length; let lo=4,hi=14;
+  const hist=$('#hist'),trk=$('#trk'),sel=$('#sel'),hl=$('#hd-lo'),hh=$('#hd-hi');
+  hist.innerHTML=V.map((v,i)=>`<i style="height:${(14+Math.pow(i/(N-1),1.25)*86).toFixed(0)}%"></i>`).join(''); const bars=$$('i',hist);
+  const money=n=>'$'+n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2}), val=n=>'$'+n.toLocaleString('en-US');
+  function render(){ const a=lo/N*100,b=(hi+1)/N*100; sel.style.left=a+'%'; sel.style.width=(b-a)+'%'; hl.style.left=a+'%'; hh.style.left=b+'%';
+    bars.forEach((el,i)=>el.classList.toggle('on',i>=lo&&i<=hi)); $('#est-range').textContent=`${val(V[lo])} to ${val(V[hi])}`; $('#est-v').textContent=`${money(V[lo]*.008)} to ${money(V[hi]*.0105)}`;
+    [[hl,lo],[hh,hi]].forEach(([el,i])=>{ el.setAttribute('aria-valuemin',V[0]); el.setAttribute('aria-valuemax',V[N-1]); el.setAttribute('aria-valuenow',V[i]); el.setAttribute('aria-valuetext',val(V[i])); }); }
+  const idxAt=x=>{ const r=trk.getBoundingClientRect(); return Math.max(0,Math.min(N,Math.round((x-r.left)/r.width*N))); }; let mode=null,grab=0;
+  trk.addEventListener('pointerdown',e=>{ const t=e.target; trk.setPointerCapture(e.pointerId); if(t===hl) mode='lo'; else if(t===hh) mode='hi'; else if(t===sel){ mode='band'; grab=idxAt(e.clientX)-lo; } else { const i=idxAt(e.clientX); mode=Math.abs(i-lo)<Math.abs(i-(hi+1))?'lo':'hi'; move(e); } });
+  function move(e){ if(!mode) return; const i=idxAt(e.clientX); if(mode==='lo') lo=Math.min(Math.max(0,i),hi); else if(mode==='hi') hi=Math.max(Math.min(N-1,i-1),lo); else { const w=hi-lo; const n=Math.max(0,Math.min(N-1-w,i-grab)); lo=n; hi=n+w; } render(); }
+  trk.addEventListener('pointermove',move); trk.addEventListener('pointerup',()=>{ mode=null; });
+  const key=w=>e=>{ const d=(e.key==='ArrowRight'||e.key==='ArrowUp')?1:(e.key==='ArrowLeft'||e.key==='ArrowDown')?-1:0; if(!d) return; e.preventDefault(); if(w==='lo') lo=Math.min(Math.max(0,lo+d),hi); else hi=Math.max(Math.min(N-1,hi+d),lo); render(); };
+  hl.addEventListener('keydown',key('lo')); hh.addEventListener('keydown',key('hi')); render();
+})();
+
+/* ============ Mobile drawer ============ */
+(function(){
+  const dr=$('#mdrawer'), bt=$('.burger');
+  dr.innerHTML=`<nav class="md-vp" aria-label="Main"><div class="md-track"><div class="md-lvl md-a"><ul class="md-l1">${NAV.map(n=>n.href?`<li><a class="md-row" href="#">${n.label}${ICON.right}</a></li>`:`<li><button class="md-row" type="button" data-drill="${n.id}">${n.label}${ICON.right}</button></li>`).join('')}</ul>
+    <div class="md-util"><a href="#">Log in</a><a href="#">Contact us</a><a href="#">Search</a><a href="#">United States - English</a></div></div>
+    <div class="md-lvl md-b" inert><button class="md-back" type="button">${ICON.left}All menus</button><div class="stage md-stage"></div>${MENUS.map(m=>`<div class="md-sec" data-id="${m.id}"><h2>${m.label}</h2><p>${m.lead}</p><ul>${allLinks(m).map(itemHTML).join('')}</ul></div>`).join('')}</div></div></nav>
+    <div class="md-foot"><a class="btn btn-primary" href="#">Get a quote</a><a class="btn btn-secondary" href="#">Claims</a></div>`;
+  // each page's drawer shows that page's own art (V3 pages never borrow the V2 illustrations)
+  const DSET=({panorama:'pano',atelier:'atelier',rail:'feature',relief:'relief',doorstep:'door',askfirst:'none',v6:'dream',v7a:'s7a',v7b:'s7b'})[document.body.dataset.default]||'stage';
+  const menuScene=m=>({stage:m.scene,pano:V3.pano&&V3.pano.world[m.label],atelier:V3.atelier&&V3.atelier[m.label],feature:V3.feature&&V3.feature[m.label],relief:V3.relief&&V3.relief[m.label],door:V3.door&&V3.door[allLinks(m)[0][0]],dream:V3.dream&&V3.dream[allLinks(m)[0][0]],s7a:V3.v7a&&V3.v7a[m.label],s7b:V3.v7b&&V3.v7b[m.label],none:null})[DSET];
+  const itemScene=el=>DSET==='stage'?el.dataset.scene:DSET==='atelier'?V3.atelier[el.dataset.t]:DSET==='relief'?V3.relief[el.dataset.t]:DSET==='door'?V3.door[el.dataset.t]:DSET==='dream'?V3.dream[el.dataset.t]:DSET==='s7a'?V3.v7a[el.dataset.t]:DSET==='s7b'?V3.v7b[el.dataset.t]:null;
+  const tr=$('.md-track',dr), a=$('.md-a',dr), b=$('.md-b',dr), mv=new StagePlayer($('.md-stage',dr),DSET); let last=null,th=0;
+  if(DSET==='none'){ $('.md-stage',dr).remove(); mv.play=()=>{}; }   // Ask-first has no illustration
+  function open(){ clearTimeout(th); ROOT.style.setProperty('--hdr-h',hdr.getBoundingClientRect().height+'px'); dr.hidden=false; void dr.offsetWidth; dr.classList.add('open'); bt.setAttribute('aria-expanded','true'); bt.setAttribute('aria-label','Close menu'); document.body.style.overflow='hidden'; setTimeout(()=>$('.md-row',dr).focus(),TM.fast); }
+  function close(){ dr.classList.remove('open'); bt.setAttribute('aria-expanded','false'); bt.setAttribute('aria-label','Open menu'); document.body.style.overflow=''; tr.classList.remove('deep'); a.inert=false; b.inert=true; mv.pause(); th=setTimeout(()=>dr.hidden=true,TM.base); bt.focus(); }
+  bt.addEventListener('click',()=>bt.getAttribute('aria-expanded')==='true'?close():open());
+  $$('[data-drill]',dr).forEach(x=>x.addEventListener('click',()=>{ last=x; const m=byId(x.dataset.drill); $$('.md-sec',dr).forEach(s=>s.classList.toggle('on',s.dataset.id===m.id)); b.scrollTop=0; tr.classList.add('deep'); a.inert=true; b.inert=false; setTimeout(()=>mv.play(menuScene(m),{force:true}),TM.slow); setTimeout(()=>$('.md-back',dr).focus(),TM.slow); }));
+  $('.md-back',dr).addEventListener('click',()=>{ tr.classList.remove('deep'); a.inert=false; b.inert=true; mv.pause(); last&&setTimeout(()=>last.focus(),TM.slow); });
+  b.addEventListener('pointerover',e=>{ const el=e.target.closest('[data-scene]'), sc=el&&itemScene(el); if(sc) mv.play(sc); });
+  dr.addEventListener('keydown',e=>{ if(e.key==='Escape') close(); });
+  dr.addEventListener('click',e=>{ if(e.target.closest('a')) e.preventDefault(); });
+})();
+document.addEventListener('click',e=>{ const a=e.target.closest('a[href="#"]'); if(a) e.preventDefault(); });
+
+// reduced motion read live: on change, settle everything to its resting frame
+RM.addEventListener('change',()=>{ $$('.iso').forEach(el=>{ if(el.dataset.phase==='draw') el.dataset.phase=el.closest('.card')?'outline':'filled'; }); });
+
+/* ============ Boot ============ */
+const fromHash=()=>{ const h=(location.hash||'').replace('#',''); return CONCEPT[h]?h:(document.body.dataset.default||'stage'); };
+addEventListener('hashchange',()=>setOpt(fromHash()));
+Field.build(); setOpt(fromHash());
+const qs=new URLSearchParams(location.search), q=qs.get('open'), hv=qs.get('hover');
+// review links: ?open=<menu>&hover=<option index> (add &still for the resting frame)
+if(q && byId(q)){ show(q); if(hv!=null){ const el=$$(`#dd-${q} [data-scene]`)[+hv]; el&&activate(el); } }
+})();
+</script>
+</body>
+</html>

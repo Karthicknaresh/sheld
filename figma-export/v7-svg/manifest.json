@@ -1,0 +1,338 @@
+[
+ {
+  "set": "a",
+  "scene": "oInsurance",
+  "file": "v7a-oInsurance.svg",
+  "title": "Three homes light up and the parcel at each door turns teal",
+  "kb": 17.4
+ },
+ {
+  "set": "a",
+  "scene": "oSolutions",
+  "file": "v7a-oSolutions.svg",
+  "title": "A home on a plate lights up; a coral cloud fades and the plate turns teal",
+  "kb": 7.4
+ },
+ {
+  "set": "a",
+  "scene": "oPartners",
+  "file": "v7a-oPartners.svg",
+  "title": "A shop and a laptop light up and a teal block seats between them",
+  "kb": 9.6
+ },
+ {
+  "set": "a",
+  "scene": "oResources",
+  "file": "v7a-oResources.svg",
+  "title": "A home with one lit window; a stack of guides arrives, the top one teal",
+  "kb": 8.6
+ },
+ {
+  "set": "a",
+  "scene": "oAbout",
+  "file": "v7a-oAbout.svg",
+  "title": "A building lights up floor by floor; its awning turns teal beside a mailbox",
+  "kb": 10.6
+ },
+ {
+  "set": "a",
+  "scene": "mMulti",
+  "file": "v7a-mMulti.svg",
+  "title": "A small shop lights up; three carrier-striped parcels at its door are sealed with teal tape",
+  "kb": 9.7
+ },
+ {
+  "set": "a",
+  "scene": "mUps",
+  "file": "v7a-mUps.svg",
+  "title": "A home lights up; a UPS parcel lands on the step and the mat under it turns teal",
+  "kb": 8
+ },
+ {
+  "set": "a",
+  "scene": "mSpecial",
+  "file": "v7a-mSpecial.svg",
+  "title": "A blue safe opens on a plate and a teal check ring rises above it",
+  "kb": 8.8
+ },
+ {
+  "set": "a",
+  "scene": "mSelect",
+  "file": "v7a-mSelect.svg",
+  "title": "A question sheet whose rings tick, then a teal shield lights up beside it",
+  "kb": 18.2
+ },
+ {
+  "set": "a",
+  "scene": "mQuote",
+  "file": "v7a-mQuote.svg",
+  "title": "A stack of parcels with coins rising beside it, the top one teal",
+  "kb": 19.9
+ },
+ {
+  "set": "a",
+  "scene": "mDefense",
+  "file": "v7a-mDefense.svg",
+  "title": "Two homes light up and a teal pin lands at one door",
+  "kb": 10.6
+ },
+ {
+  "set": "a",
+  "scene": "mOrchestrate",
+  "file": "v7a-mOrchestrate.svg",
+  "title": "A coral cloud over one branch; the other branch lights teal to a home",
+  "kb": 11.5
+ },
+ {
+  "set": "a",
+  "scene": "mCommerce",
+  "file": "v7a-mCommerce.svg",
+  "title": "A laptop lights up, a coral mark appears and becomes a teal check ring",
+  "kb": 11.7
+ },
+ {
+  "set": "a",
+  "scene": "mInsure",
+  "file": "v7a-mInsure.svg",
+  "title": "A parcel turns coral, then a large teal shield lights up behind it",
+  "kb": 11.2
+ },
+ {
+  "set": "a",
+  "scene": "mConnect",
+  "file": "v7a-mConnect.svg",
+  "title": "A laptop lights up, a teal block seats on it and a route lights out",
+  "kb": 8.8
+ },
+ {
+  "set": "a",
+  "scene": "mBecome",
+  "file": "v7a-mBecome.svg",
+  "title": "A shop lights up, parcels leave and its awning turns teal",
+  "kb": 8.3
+ },
+ {
+  "set": "a",
+  "scene": "mHelp",
+  "file": "v7a-mHelp.svg",
+  "title": "One window lights up, a document arrives and a teal check ring lights over it",
+  "kb": 8.4
+ },
+ {
+  "set": "a",
+  "scene": "mStories",
+  "file": "v7a-mStories.svg",
+  "title": "A dark shop with a coral mark; coins rise and its windows light up again",
+  "kb": 19.1
+ },
+ {
+  "set": "a",
+  "scene": "mInsights",
+  "file": "v7a-mInsights.svg",
+  "title": "Bars on a sheet light up one by one, the tallest teal",
+  "kb": 8.7
+ },
+ {
+  "set": "a",
+  "scene": "mGuides",
+  "file": "v7a-mGuides.svg",
+  "title": "A stack of guides with a teal route drawing across the top and a teal tab",
+  "kb": 10.8
+ },
+ {
+  "set": "a",
+  "scene": "mContact",
+  "file": "v7a-mContact.svg",
+  "title": "A home lights up and its teal mailbox raises its flag",
+  "kb": 6.9
+ },
+ {
+  "set": "a",
+  "scene": "mAvail",
+  "file": "v7a-mAvail.svg",
+  "title": "Pins land on a row of pucks; the nearest lights teal",
+  "kb": 16.3
+ },
+ {
+  "set": "a",
+  "scene": "mAnnounce",
+  "file": "v7a-mAnnounce.svg",
+  "title": "A home lights up and a teal sheet lands on its mat",
+  "kb": 7.9
+ },
+ {
+  "set": "a",
+  "scene": "mNews",
+  "file": "v7a-mNews.svg",
+  "title": "Printed sheets with headlines and a teal shield standing up on top",
+  "kb": 11.9
+ },
+ {
+  "set": "b",
+  "scene": "tInsurance",
+  "file": "v7b-tInsurance.svg",
+  "title": "A teal thread runs from a shop to a home; a shield rises over the home",
+  "kb": 21.7
+ },
+ {
+  "set": "b",
+  "scene": "tSolutions",
+  "file": "v7b-tSolutions.svg",
+  "title": "A teal thread passes three check rings that light in turn on its way to a home",
+  "kb": 19.8
+ },
+ {
+  "set": "b",
+  "scene": "tPartners",
+  "file": "v7b-tPartners.svg",
+  "title": "A teal thread from a laptop through a shop, whose awning turns teal, to a home",
+  "kb": 18.1
+ },
+ {
+  "set": "b",
+  "scene": "tResources",
+  "file": "v7b-tResources.svg",
+  "title": "A teal thread from a home past a guide to a stack of guides that turns teal",
+  "kb": 17.2
+ },
+ {
+  "set": "b",
+  "scene": "tAbout",
+  "file": "v7b-tAbout.svg",
+  "title": "A teal thread from a home to a company building and a mailbox that raises its flag",
+  "kb": 16.9
+ },
+ {
+  "set": "b",
+  "scene": "tMulti",
+  "file": "v7b-tMulti.svg",
+  "title": "Three carrier-striped parcels with threads that meet on one teal plate",
+  "kb": 20.8
+ },
+ {
+  "set": "b",
+  "scene": "tUps",
+  "file": "v7b-tUps.svg",
+  "title": "A teal thread from a UPS parcel to a door; the mat glows teal",
+  "kb": 10.6
+ },
+ {
+  "set": "b",
+  "scene": "tSpecial",
+  "file": "v7b-tSpecial.svg",
+  "title": "A teal thread wraps an open box; a blue item rises and a check ring lights above it",
+  "kb": 14.7
+ },
+ {
+  "set": "b",
+  "scene": "tSelect",
+  "file": "v7b-tSelect.svg",
+  "title": "A teal thread from a parcel visits three plates and stops at the middle one, which turns teal",
+  "kb": 15.2
+ },
+ {
+  "set": "b",
+  "scene": "tQuote",
+  "file": "v7b-tQuote.svg",
+  "title": "A teal thread from a group of parcels past a quote sheet to a coin stack that turns teal",
+  "kb": 28.2
+ },
+ {
+  "set": "b",
+  "scene": "tCommerce",
+  "file": "v7b-tCommerce.svg",
+  "title": "A teal thread from a laptop meets a coral mark that becomes a teal check ring",
+  "kb": 19.5
+ },
+ {
+  "set": "b",
+  "scene": "tDefense",
+  "file": "v7b-tDefense.svg",
+  "title": "A teal thread from a parcel passes one home and ends in a pin at the next",
+  "kb": 20.2
+ },
+ {
+  "set": "b",
+  "scene": "tOrchestrate",
+  "file": "v7b-tOrchestrate.svg",
+  "title": "A teal thread bends round a coral cloud on its way to a home",
+  "kb": 18.7
+ },
+ {
+  "set": "b",
+  "scene": "tInsure",
+  "file": "v7b-tInsure.svg",
+  "title": "A teal thread from a coral parcel past a claim sheet to a teal coin stack",
+  "kb": 27
+ },
+ {
+  "set": "b",
+  "scene": "tConnect",
+  "file": "v7b-tConnect.svg",
+  "title": "A teal thread from a laptop to a block that seats into place",
+  "kb": 13.9
+ },
+ {
+  "set": "b",
+  "scene": "tBecome",
+  "file": "v7b-tBecome.svg",
+  "title": "A teal thread from a shop seals two parcels in teal on its way to a home",
+  "kb": 18.1
+ },
+ {
+  "set": "b",
+  "scene": "tHelp",
+  "file": "v7b-tHelp.svg",
+  "title": "A teal thread from a home to a standing document that gains a teal check",
+  "kb": 13.9
+ },
+ {
+  "set": "b",
+  "scene": "tStories",
+  "file": "v7b-tStories.svg",
+  "title": "A teal thread links three shops; a coin stack rises beside each",
+  "kb": 45.4
+ },
+ {
+  "set": "b",
+  "scene": "tInsights",
+  "file": "v7b-tInsights.svg",
+  "title": "A teal thread links the tops of bars on a sheet; the tallest turns teal",
+  "kb": 14
+ },
+ {
+  "set": "b",
+  "scene": "tGuides",
+  "file": "v7b-tGuides.svg",
+  "title": "A teal thread runs through three stacks of sheets, the last topped teal",
+  "kb": 23.1
+ },
+ {
+  "set": "b",
+  "scene": "tContact",
+  "file": "v7b-tContact.svg",
+  "title": "A teal thread from a home to a teal mailbox that raises its flag",
+  "kb": 11.5
+ },
+ {
+  "set": "b",
+  "scene": "tAvail",
+  "file": "v7b-tAvail.svg",
+  "title": "A teal thread hops across pucks and a pin lands on the last, which turns teal",
+  "kb": 25
+ },
+ {
+  "set": "b",
+  "scene": "tAnnounce",
+  "file": "v7b-tAnnounce.svg",
+  "title": "A teal thread from a stack of news to a home; a teal sheet lands on the mat",
+  "kb": 15.7
+ },
+ {
+  "set": "b",
+  "scene": "tNews",
+  "file": "v7b-tNews.svg",
+  "title": "A teal thread across printed sheets ends in a teal shield standing up",
+  "kb": 17.1
+ }
+]

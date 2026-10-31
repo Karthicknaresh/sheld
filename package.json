@@ -1,0 +1,12 @@
+{
+  "name": "insureshield-nav",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node redesign/build.mjs",
+    "export:v7": "node redesign/figma-export-v7.mjs"
+  },
+  "devDependencies": {
+    "playwright-core": "^1.56.1"
+  }
+}

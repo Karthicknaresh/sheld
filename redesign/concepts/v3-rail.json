@@ -1,0 +1,1415 @@
+{
+ "set": "V3-C Icon rail (5 feature cards + 19 icons)",
+ "cards": [
+  {
+   "id": "fInsurance",
+   "scene": "fInsurance",
+   "slot": "stat",
+   "frequency": "rare",
+   "copy": {
+    "title": "Shipping Insurance",
+    "body": "Protect shipments from covered loss, damage, and theft."
+   },
+   "message": "Coverage scales from one parcel to millions.",
+   "viewerQuestion": "Can it handle my whole volume?",
+   "relationship": "scale",
+   "device": "number made physical",
+   "mapping": [
+    {
+     "concept": "one shipment",
+     "object": "a kraft box"
+    },
+    {
+     "concept": "your volume",
+     "object": "it splits into a block of taped boxes"
+    }
+   ],
+   "breaksDown": "Without a stated number the block is \"many\", not a statistic.",
+   "objects": [
+    {
+     "name": "stack of boxes",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "parcel",
+     "role": "support",
+     "material": "kraft"
+    }
+   ],
+   "layout": "L4",
+   "states": {
+    "rest": "Outline: one object waiting on the card",
+    "active": "one kraft box shrinks into a block of small teal-taped boxes",
+    "meaning": "coverage scales with you"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "choreo:650",
+    "easing": "enter"
+   },
+   "reducedMotion": "show the end state: one kraft box shrinks into a block of small teal-taped boxes",
+   "alt": "One kraft box splitting into a block of small teal-taped boxes.",
+   "alternatives": [
+    {
+     "angle": "transit",
+     "idea": "route past shield (V2)"
+    },
+    {
+     "angle": "metaphor",
+     "idea": "coverage route (Panorama)"
+    }
+   ]
+  },
+  {
+   "id": "fSolutions",
+   "scene": "fSolutions",
+   "slot": "stat",
+   "frequency": "rare",
+   "copy": {
+    "title": "Solutions",
+    "body": "Tools that reduce risk before, during, and after delivery."
+   },
+   "message": "Four tools, one stack of protection.",
+   "viewerQuestion": "How many ways does it protect?",
+   "relationship": "scale",
+   "device": "number made physical",
+   "mapping": [
+    {
+     "concept": "four products",
+     "object": "four plates stacking"
+    },
+    {
+     "concept": "one protection",
+     "object": "shield on top"
+    }
+   ],
+   "breaksDown": "Four layers = four products; the shield on top ties them together.",
+   "objects": [
+    {
+     "name": "stepped plates",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "shield",
+     "role": "support",
+     "material": "teal"
+    }
+   ],
+   "layout": "L4",
+   "states": {
+    "rest": "Outline: one object waiting on the card",
+    "active": "four plates stack one by one and a shield lands on top",
+    "meaning": "the tools add up to one protection"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "choreo:650",
+    "easing": "enter"
+   },
+   "reducedMotion": "show the end state: four plates stack one by one and a shield lands on top",
+   "alt": "Four plates stacking with a shield landing on top.",
+   "alternatives": [
+    {
+     "angle": "transit",
+     "idea": "three checks (V2)"
+    },
+    {
+     "angle": "metaphor",
+     "idea": "stations on a route (Panorama)"
+    }
+   ]
+  },
+  {
+   "id": "fPartners",
+   "scene": "fPartners",
+   "slot": "stat",
+   "frequency": "rare",
+   "copy": {
+    "title": "Partners",
+    "body": "Connect InsureShield to the platforms you already ship with."
+   },
+   "message": "One partner becomes a whole network of covered stores.",
+   "viewerQuestion": "How far does a partnership reach?",
+   "relationship": "scale",
+   "device": "number made physical",
+   "mapping": [
+    {
+     "concept": "a partner",
+     "object": "one storefront"
+    },
+    {
+     "concept": "reach",
+     "object": "a row of small storefronts with teal awnings"
+    }
+   ],
+   "breaksDown": "Many stores read as a mall; they are small and identical.",
+   "objects": [
+    {
+     "name": "storefront",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "policy plate",
+     "role": "support",
+     "material": "neutral"
+    }
+   ],
+   "layout": "L4",
+   "states": {
+    "rest": "Outline: one object waiting on the card",
+    "active": "small storefronts pop up in a row, each awning teal",
+    "meaning": "partners extend coverage to many"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "choreo:650",
+    "easing": "enter"
+   },
+   "reducedMotion": "show the end state: small storefronts pop up in a row, each awning teal",
+   "alt": "A row of small storefronts with teal awnings appearing one by one.",
+   "alternatives": [
+    {
+     "angle": "connect",
+     "idea": "routes into a plate (V2)"
+    },
+    {
+     "angle": "metaphor",
+     "idea": "shared plate (Atelier)"
+    }
+   ]
+  },
+  {
+   "id": "fResources",
+   "scene": "fResources",
+   "slot": "stat",
+   "frequency": "rare",
+   "copy": {
+    "title": "Resources",
+    "body": "Guides, stories, and support for shippers."
+   },
+   "message": "A whole library of help, sheet by sheet.",
+   "viewerQuestion": "How much guidance is there?",
+   "relationship": "scale",
+   "device": "number made physical",
+   "mapping": [
+    {
+     "concept": "resources",
+     "object": "sheets"
+    },
+    {
+     "concept": "the library",
+     "object": "stacks growing"
+    }
+   ],
+   "breaksDown": "Stacks can read as paperwork; keep them crisp and few.",
+   "objects": [
+    {
+     "name": "sheets",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "sheets",
+     "role": "support",
+     "material": "chalk"
+    }
+   ],
+   "layout": "L4",
+   "states": {
+    "rest": "Outline: one object waiting on the card",
+    "active": "three stacks grow sheet by sheet, the tallest topped in teal",
+    "meaning": "there is plenty to learn"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "choreo:650",
+    "easing": "enter"
+   },
+   "reducedMotion": "show the end state: three stacks grow sheet by sheet, the tallest topped in teal",
+   "alt": "Three stacks of sheets growing, the tallest topped in teal.",
+   "alternatives": [
+    {
+     "angle": "metonymy",
+     "idea": "binders (V2)"
+    },
+    {
+     "angle": "inform",
+     "idea": "sheets settling (Atelier)"
+    }
+   ]
+  },
+  {
+   "id": "fAbout",
+   "scene": "fAbout",
+   "slot": "stat",
+   "frequency": "rare",
+   "copy": {
+    "title": "About",
+    "body": "News, availability, and how to reach us."
+   },
+   "message": "Coverage is offered across many places.",
+   "viewerQuestion": "Where does InsureShield operate?",
+   "relationship": "reach",
+   "device": "number made physical",
+   "mapping": [
+    {
+     "concept": "places",
+     "object": "pucks across a plate"
+    },
+    {
+     "concept": "offered",
+     "object": "pins dropping in turn"
+    }
+   ],
+   "breaksDown": "Pins read as a store locator; a grid of pucks reads as regions.",
+   "objects": [
+    {
+     "name": "pin",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "puck",
+     "role": "support",
+     "material": "neutral"
+    }
+   ],
+   "layout": "L4",
+   "states": {
+    "rest": "Outline: one object waiting on the card",
+    "active": "pins drop onto a grid of pucks one after another",
+    "meaning": "coverage is widely available"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "choreo:650",
+    "easing": "enter"
+   },
+   "reducedMotion": "show the end state: pins drop onto a grid of pucks one after another",
+   "alt": "Teal pins dropping onto a grid of pucks.",
+   "alternatives": [
+    {
+     "angle": "metaphor",
+     "idea": "shield on a plate (V2)"
+    },
+    {
+     "angle": "metonymy",
+     "idea": "shield assembling (Atelier)"
+    }
+   ]
+  },
+  {
+   "id": "iMultiCarrier",
+   "scene": "iMultiCarrier",
+   "slot": "table-row",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Multi-Carrier Shipments",
+    "body": "Parcel and freight across UPS, FedEx, DHL, and USPS"
+   },
+   "message": "Every carrier on one policy.",
+   "viewerQuestion": "Covered on any carrier?",
+   "relationship": "protect",
+   "device": "metonymy",
+   "mapping": [
+    {
+     "concept": "carriers",
+     "object": "three striped parcels"
+    },
+    {
+     "concept": "one policy",
+     "object": "the plate"
+    }
+   ],
+   "breaksDown": "At icon size stripes must be bold.",
+   "objects": [
+    {
+     "name": "parcel group",
+     "role": "support",
+     "material": "carrier"
+    },
+    {
+     "name": "policy plate",
+     "role": "hero",
+     "material": "teal"
+    }
+   ],
+   "layout": "L6",
+   "states": {
+    "rest": "Outline icon beside the label",
+    "active": "the plate under the three parcels fills teal",
+    "meaning": "one policy for all"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "base",
+    "easing": "standard"
+   },
+   "reducedMotion": "show the end state: plate under the three parcels fills teal",
+   "alt": "Three striped parcels on a plate.",
+   "alternatives": [
+    {
+     "angle": "metaphor",
+     "idea": "merging routes"
+    },
+    {
+     "angle": "protect",
+     "idea": "four parcels on a plate"
+    }
+   ]
+  },
+  {
+   "id": "iUps",
+   "scene": "iUps",
+   "slot": "table-row",
+   "frequency": "frequent",
+   "copy": {
+    "title": "UPS Shipments",
+    "body": "Coverage designed for packages shipped with UPS"
+   },
+   "message": "UPS packages, covered.",
+   "viewerQuestion": "Coverage for UPS?",
+   "relationship": "protect",
+   "device": "metonymy",
+   "mapping": [
+    {
+     "concept": "UPS package",
+     "object": "a UPS-banded parcel"
+    },
+    {
+     "concept": "covered",
+     "object": "a small teal check on it"
+    }
+   ],
+   "breaksDown": "The band is the only UPS sign; it must be visible.",
+   "objects": [
+    {
+     "name": "parcel",
+     "role": "hero",
+     "material": "carrier"
+    },
+    {
+     "name": "check ring",
+     "role": "support",
+     "material": "teal"
+    }
+   ],
+   "layout": "L6",
+   "states": {
+    "rest": "Outline icon beside the label",
+    "active": "the UPS parcel lifts and a small teal check appears",
+    "meaning": "this package is covered"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "base",
+    "easing": "standard"
+   },
+   "reducedMotion": "show the end state: UPS parcel lifts and a small teal check appears",
+   "alt": "A parcel with a UPS band.",
+   "alternatives": [
+    {
+     "angle": "protect",
+     "idea": "parcel with shield"
+    },
+    {
+     "angle": "metonymy",
+     "idea": "parcel at door"
+    }
+   ]
+  },
+  {
+   "id": "iSpecial",
+   "scene": "iSpecial",
+   "slot": "table-row",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Special Commodities",
+    "body": "High-value, perishable, and specialty goods"
+   },
+   "message": "High-value goods, handled with care.",
+   "viewerQuestion": "Covered for valuables?",
+   "relationship": "protect",
+   "device": "metonymy",
+   "mapping": [
+    {
+     "concept": "valuable",
+     "object": "a blue block"
+    },
+    {
+     "concept": "care",
+     "object": "standing on a puck"
+    }
+   ],
+   "breaksDown": "A block on a puck reads as a display; that is the point.",
+   "objects": [
+    {
+     "name": "item",
+     "role": "hero",
+     "material": "blue"
+    },
+    {
+     "name": "puck",
+     "role": "support",
+     "material": "teal"
+    }
+   ],
+   "layout": "L5",
+   "states": {
+    "rest": "Outline icon beside the label",
+    "active": "the blue block lifts off its puck",
+    "meaning": "special goods covered"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "base",
+    "easing": "standard"
+   },
+   "reducedMotion": "show the end state: blue block lifts off its puck",
+   "alt": "A blue block on a puck.",
+   "alternatives": [
+    {
+     "angle": "before-after",
+     "idea": "item in box"
+    },
+    {
+     "angle": "contrast",
+     "idea": "three box types"
+    }
+   ]
+  },
+  {
+   "id": "iSelect",
+   "scene": "iSelect",
+   "slot": "table-row",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Select My Coverage",
+    "body": "Answer a few questions to find the right fit"
+   },
+   "message": "Find your fit.",
+   "viewerQuestion": "Which plan?",
+   "relationship": "fit",
+   "device": "metaphor",
+   "mapping": [
+    {
+     "concept": "plans",
+     "object": "three plates"
+    },
+    {
+     "concept": "your fit",
+     "object": "the middle one"
+    }
+   ],
+   "breaksDown": "Steps read as tiers; the middle, not the top, lights.",
+   "objects": [
+    {
+     "name": "stepped plates",
+     "role": "hero",
+     "material": "teal"
+    }
+   ],
+   "layout": "L6",
+   "states": {
+    "rest": "Outline icon beside the label",
+    "active": "the middle plate fills teal",
+    "meaning": "your fit is found"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "base",
+    "easing": "standard"
+   },
+   "reducedMotion": "show the end state: middle plate fills teal",
+   "alt": "Three stepped plates.",
+   "alternatives": [
+    {
+     "angle": "metaphor",
+     "idea": "dial"
+    },
+    {
+     "angle": "fit",
+     "idea": "parcel on plate"
+    }
+   ]
+  },
+  {
+   "id": "iQuote",
+   "scene": "iQuote",
+   "slot": "table-row",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Get a Quote",
+    "body": "Estimate cost for your shipping volume"
+   },
+   "message": "A quick price.",
+   "viewerQuestion": "What will it cost?",
+   "relationship": "scale",
+   "device": "metonymy",
+   "mapping": [
+    {
+     "concept": "price",
+     "object": "a short coin stack"
+    },
+    {
+     "concept": "estimate",
+     "object": "one coin added"
+    }
+   ],
+   "breaksDown": "Coins read as payout; keep the stack short.",
+   "objects": [
+    {
+     "name": "coin stack",
+     "role": "hero",
+     "material": "teal"
+    }
+   ],
+   "layout": "L6",
+   "states": {
+    "rest": "Outline icon beside the label",
+    "active": "one coin lands on the stack",
+    "meaning": "your estimate"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "base",
+    "easing": "standard"
+   },
+   "reducedMotion": "show the end state: one coin lands on the stack",
+   "alt": "A short teal coin stack.",
+   "alternatives": [
+    {
+     "angle": "number made physical",
+     "idea": "balance"
+    },
+    {
+     "angle": "metonymy",
+     "idea": "coin on sheet"
+    }
+   ]
+  },
+  {
+   "id": "iCommerce",
+   "scene": "iCommerce",
+   "slot": "table-row",
+   "frequency": "frequent",
+   "copy": {
+    "title": "CommerceShield",
+    "body": "Order risk signals and chargeback protection"
+   },
+   "message": "Orders screened.",
+   "viewerQuestion": "Is this order safe?",
+   "relationship": "verify",
+   "device": "metonymy",
+   "mapping": [
+    {
+     "concept": "order",
+     "object": "parcel"
+    },
+    {
+     "concept": "screened",
+     "object": "check ring above it"
+    }
+   ],
+   "breaksDown": "Ring must sit above the parcel, not inside.",
+   "objects": [
+    {
+     "name": "parcel",
+     "role": "support",
+     "material": "kraft"
+    },
+    {
+     "name": "check ring",
+     "role": "hero",
+     "material": "teal"
+    }
+   ],
+   "layout": "L5",
+   "states": {
+    "rest": "Outline icon beside the label",
+    "active": "the check ring appears above the parcel",
+    "meaning": "order screened"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "base",
+    "easing": "standard"
+   },
+   "reducedMotion": "show the end state: check ring appears above the parcel",
+   "alt": "A parcel with a teal check ring above it.",
+   "alternatives": [
+    {
+     "angle": "contrast",
+     "idea": "coral order held back"
+    },
+    {
+     "angle": "metaphor",
+     "idea": "gate on a route"
+    }
+   ]
+  },
+  {
+   "id": "iDefense",
+   "scene": "iDefense",
+   "slot": "table-row",
+   "frequency": "frequent",
+   "copy": {
+    "title": "DeliveryDefense",
+    "body": "Address confidence scores before you ship"
+   },
+   "message": "Addresses confirmed.",
+   "viewerQuestion": "Will it arrive?",
+   "relationship": "verify",
+   "device": "metonymy",
+   "mapping": [
+    {
+     "concept": "address",
+     "object": "puck"
+    },
+    {
+     "concept": "confirmed",
+     "object": "pin"
+    }
+   ],
+   "breaksDown": "Pin alone reads as maps; the puck grounds it.",
+   "objects": [
+    {
+     "name": "pin",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "puck",
+     "role": "support",
+     "material": "neutral"
+    }
+   ],
+   "layout": "L6",
+   "states": {
+    "rest": "Outline icon beside the label",
+    "active": "the pin drops onto the puck",
+    "meaning": "address confirmed"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "base",
+    "easing": "standard"
+   },
+   "reducedMotion": "show the end state: pin drops onto the puck",
+   "alt": "A teal pin on a puck.",
+   "alternatives": [
+    {
+     "angle": "contrast",
+     "idea": "two homes"
+    },
+    {
+     "angle": "metonymy",
+     "idea": "pin on roof"
+    }
+   ]
+  },
+  {
+   "id": "iOrchestrate",
+   "scene": "iOrchestrate",
+   "slot": "table-row",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Delivery Orchestration",
+    "body": "Choose delivery options that lower risk"
+   },
+   "message": "Safer delivery paths.",
+   "viewerQuestion": "Can I pick safer delivery?",
+   "relationship": "transit",
+   "device": "metaphor",
+   "mapping": [
+    {
+     "concept": "destination",
+     "object": "home"
+    },
+    {
+     "concept": "safer path",
+     "object": "teal route"
+    }
+   ],
+   "breaksDown": "A route at icon size is short; it must touch the home.",
+   "objects": [
+    {
+     "name": "home",
+     "role": "support",
+     "material": "neutral"
+    },
+    {
+     "name": "route",
+     "role": "hero",
+     "material": "teal"
+    }
+   ],
+   "layout": "L5",
+   "states": {
+    "rest": "Outline icon beside the label",
+    "active": "the route draws to the home",
+    "meaning": "a safer path"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "base",
+    "easing": "standard"
+   },
+   "reducedMotion": "show the end state: route draws to the home",
+   "alt": "A short teal route to a small home.",
+   "alternatives": [
+    {
+     "angle": "metaphor",
+     "idea": "stepping stones"
+    },
+    {
+     "angle": "fit",
+     "idea": "plates"
+    }
+   ]
+  },
+  {
+   "id": "iInsureShield",
+   "scene": "iInsureShield",
+   "slot": "table-row",
+   "frequency": "frequent",
+   "copy": {
+    "title": "InsureShield® Shipping Insurance",
+    "body": "Protection against loss, damage, and theft"
+   },
+   "message": "The core protection.",
+   "viewerQuestion": "What is InsureShield?",
+   "relationship": "protect",
+   "device": "metaphor",
+   "mapping": [
+    {
+     "concept": "coverage",
+     "object": "the shield"
+    },
+    {
+     "concept": "approved",
+     "object": "its check"
+    }
+   ],
+   "breaksDown": "The shield alone risks \"security software\"; the check makes it coverage.",
+   "objects": [
+    {
+     "name": "shield",
+     "role": "hero",
+     "material": "teal"
+    }
+   ],
+   "layout": "L6",
+   "states": {
+    "rest": "Outline icon beside the label",
+    "active": "the shield gains its check",
+    "meaning": "covered"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "base",
+    "easing": "standard"
+   },
+   "reducedMotion": "show the end state: shield gains its check",
+   "alt": "A teal shield.",
+   "alternatives": [
+    {
+     "angle": "contrast",
+     "idea": "teal parcel"
+    },
+    {
+     "angle": "metaphor",
+     "idea": "shield layers"
+    }
+   ]
+  },
+  {
+   "id": "iConnect",
+   "scene": "iConnect",
+   "slot": "table-row",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Connect with a Partner",
+    "body": "Add coverage inside the platforms you use"
+   },
+   "message": "Plugs into your tools.",
+   "viewerQuestion": "Works with my software?",
+   "relationship": "connect",
+   "device": "metaphor",
+   "mapping": [
+    {
+     "concept": "your tool",
+     "object": "grey block"
+    },
+    {
+     "concept": "InsureShield",
+     "object": "teal block on it"
+    }
+   ],
+   "breaksDown": "Two blocks read as storage at icon size; offset them.",
+   "objects": [
+    {
+     "name": "dock block",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "dock block",
+     "role": "support",
+     "material": "neutral"
+    }
+   ],
+   "layout": "L6",
+   "states": {
+    "rest": "Outline icon beside the label",
+    "active": "the teal block seats on the grey one",
+    "meaning": "connected"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "base",
+    "easing": "standard"
+   },
+   "reducedMotion": "show the end state: teal block seats on the grey one",
+   "alt": "A teal block on a grey block.",
+   "alternatives": [
+    {
+     "angle": "metaphor",
+     "idea": "module on laptop"
+    },
+    {
+     "angle": "connect",
+     "idea": "route to block"
+    }
+   ]
+  },
+  {
+   "id": "iBecome",
+   "scene": "iBecome",
+   "slot": "table-row",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Become a Partner",
+    "body": "Offer InsureShield to your customers"
+   },
+   "message": "Offer coverage in your store.",
+   "viewerQuestion": "Can I offer it?",
+   "relationship": "protect",
+   "device": "metonymy",
+   "mapping": [
+    {
+     "concept": "your store",
+     "object": "storefront"
+    },
+    {
+     "concept": "coverage",
+     "object": "teal awning"
+    }
+   ],
+   "breaksDown": "Awning must be readable at icon size.",
+   "objects": [
+    {
+     "name": "storefront",
+     "role": "hero",
+     "material": "teal"
+    }
+   ],
+   "layout": "L6",
+   "states": {
+    "rest": "Outline icon beside the label",
+    "active": "the awning fills teal",
+    "meaning": "your store offers coverage"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "base",
+    "easing": "standard"
+   },
+   "reducedMotion": "show the end state: awning fills teal",
+   "alt": "A small storefront with a teal awning.",
+   "alternatives": [
+    {
+     "angle": "scale",
+     "idea": "parcels around a store"
+    },
+    {
+     "angle": "metonymy",
+     "idea": "store assembling"
+    }
+   ]
+  },
+  {
+   "id": "iInsights",
+   "scene": "iInsights",
+   "slot": "table-row",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Insights",
+    "body": "Articles on shipping risk and protection"
+   },
+   "message": "Data on shipping risk.",
+   "viewerQuestion": "What are the risks?",
+   "relationship": "inform",
+   "device": "number made physical",
+   "mapping": [
+    {
+     "concept": "data",
+     "object": "three bars"
+    },
+    {
+     "concept": "insight",
+     "object": "the tallest teal"
+    }
+   ],
+   "breaksDown": "Bars read as generic chart; they are box-shaped.",
+   "objects": [
+    {
+     "name": "bars",
+     "role": "hero",
+     "material": "teal"
+    }
+   ],
+   "layout": "L6",
+   "states": {
+    "rest": "Outline icon beside the label",
+    "active": "the bars rise, the tallest teal",
+    "meaning": "the numbers behind risk"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "base",
+    "easing": "standard"
+   },
+   "reducedMotion": "show the end state: bars rise, the tallest teal",
+   "alt": "Three box bars, the tallest teal.",
+   "alternatives": [
+    {
+     "angle": "metonymy",
+     "idea": "cloud on a sheet"
+    },
+    {
+     "angle": "scale",
+     "idea": "cube of boxes"
+    }
+   ]
+  },
+  {
+   "id": "iGuides",
+   "scene": "iGuides",
+   "slot": "table-row",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Whitepapers & Guides",
+    "body": "In-depth research and how-to guides"
+   },
+   "message": "In-depth guides.",
+   "viewerQuestion": "Is there a guide?",
+   "relationship": "inform",
+   "device": "metonymy",
+   "mapping": [
+    {
+     "concept": "guide",
+     "object": "a sheet stack"
+    },
+    {
+     "concept": "marked",
+     "object": "a teal tab"
+    }
+   ],
+   "breaksDown": "A stack at icon size must show its layers.",
+   "objects": [
+    {
+     "name": "sheets",
+     "role": "hero",
+     "material": "chalk"
+    },
+    {
+     "name": "sheets",
+     "role": "support",
+     "material": "teal"
+    }
+   ],
+   "layout": "L6",
+   "states": {
+    "rest": "Outline icon beside the label",
+    "active": "a teal tab slides out of the stack",
+    "meaning": "the guide is here"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "base",
+    "easing": "standard"
+   },
+   "reducedMotion": "show the end state: a teal tab slides out of the stack",
+   "alt": "A stack of sheets with a teal tab.",
+   "alternatives": [
+    {
+     "angle": "double meaning",
+     "idea": "booklet with shield"
+    },
+    {
+     "angle": "inform",
+     "idea": "sheets falling"
+    }
+   ]
+  },
+  {
+   "id": "iStories",
+   "scene": "iStories",
+   "slot": "table-row",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Customer Stories",
+    "body": "How businesses recover faster"
+   },
+   "message": "Businesses paid back.",
+   "viewerQuestion": "Did others recover?",
+   "relationship": "recovery",
+   "device": "metonymy",
+   "mapping": [
+    {
+     "concept": "their parcel",
+     "object": "a parcel"
+    },
+    {
+     "concept": "recovered",
+     "object": "coins beside it"
+    }
+   ],
+   "breaksDown": "Coins read as price unless paired with the parcel.",
+   "objects": [
+    {
+     "name": "parcel",
+     "role": "support",
+     "material": "kraft"
+    },
+    {
+     "name": "coin stack",
+     "role": "hero",
+     "material": "teal"
+    }
+   ],
+   "layout": "L5",
+   "states": {
+    "rest": "Outline icon beside the label",
+    "active": "a coin lands beside the parcel",
+    "meaning": "recovered"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "base",
+    "easing": "standard"
+   },
+   "reducedMotion": "show the end state: a coin lands beside the parcel",
+   "alt": "A parcel with a teal coin stack beside it.",
+   "alternatives": [
+    {
+     "angle": "before-after",
+     "idea": "storefront check"
+    },
+    {
+     "angle": "cause-effect",
+     "idea": "coins stacking"
+    }
+   ]
+  },
+  {
+   "id": "iHelp",
+   "scene": "iHelp",
+   "slot": "table-row",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Help & Support",
+    "body": "Answers about coverage, billing, and claims"
+   },
+   "message": "Answers when you need them.",
+   "viewerQuestion": "Where is help?",
+   "relationship": "verify",
+   "device": "metonymy",
+   "mapping": [
+    {
+     "concept": "question",
+     "object": "document"
+    },
+    {
+     "concept": "answered",
+     "object": "check"
+    }
+   ],
+   "breaksDown": "Document + check reads as approval; that is the answer.",
+   "objects": [
+    {
+     "name": "claim document",
+     "role": "hero",
+     "material": "chalk"
+    },
+    {
+     "name": "check ring",
+     "role": "support",
+     "material": "teal"
+    }
+   ],
+   "layout": "L6",
+   "states": {
+    "rest": "Outline icon beside the label",
+    "active": "the check appears on the document",
+    "meaning": "answered"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "base",
+    "easing": "standard"
+   },
+   "reducedMotion": "show the end state: check appears on the document",
+   "alt": "A document with a teal check.",
+   "alternatives": [
+    {
+     "angle": "metonymy",
+     "idea": "clock"
+    },
+    {
+     "angle": "cause-effect",
+     "idea": "route to check"
+    }
+   ]
+  },
+  {
+   "id": "iNews",
+   "scene": "iNews",
+   "slot": "table-row",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Announcements",
+    "body": "Product and company news"
+   },
+   "message": "What is new.",
+   "viewerQuestion": "Any news?",
+   "relationship": "inform",
+   "device": "before-after",
+   "mapping": [
+    {
+     "concept": "release",
+     "object": "open box"
+    },
+    {
+     "concept": "new",
+     "object": "teal block"
+    }
+   ],
+   "breaksDown": "At icon size the flaps must read as open.",
+   "objects": [
+    {
+     "name": "open box",
+     "role": "support",
+     "material": "kraft"
+    },
+    {
+     "name": "item",
+     "role": "hero",
+     "material": "teal"
+    }
+   ],
+   "layout": "L6",
+   "states": {
+    "rest": "Outline icon beside the label",
+    "active": "the teal block rises from the box",
+    "meaning": "something new"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "base",
+    "easing": "standard"
+   },
+   "reducedMotion": "show the end state: teal block rises from the box",
+   "alt": "An open box with a teal block.",
+   "alternatives": [
+    {
+     "angle": "before-after",
+     "idea": "sheet lands"
+    },
+    {
+     "angle": "inform",
+     "idea": "teal sheet"
+    }
+   ]
+  },
+  {
+   "id": "iPress",
+   "scene": "iPress",
+   "slot": "table-row",
+   "frequency": "frequent",
+   "copy": {
+    "title": "In The News",
+    "body": "Press coverage of UPS Capital"
+   },
+   "message": "Seen in the press.",
+   "viewerQuestion": "In the news?",
+   "relationship": "inform",
+   "device": "double meaning",
+   "mapping": [
+    {
+     "concept": "press",
+     "object": "a printed sheet"
+    },
+    {
+     "concept": "coverage",
+     "object": "small shield on it"
+    }
+   ],
+   "breaksDown": "A shield on paper is the pun \"coverage\"; column rules sell \"press\".",
+   "objects": [
+    {
+     "name": "sheets",
+     "role": "support",
+     "material": "chalk"
+    },
+    {
+     "name": "shield",
+     "role": "hero",
+     "material": "teal"
+    }
+   ],
+   "layout": "L5",
+   "states": {
+    "rest": "Outline icon beside the label",
+    "active": "the small shield stands up on the sheet",
+    "meaning": "coverage in the press"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "base",
+    "easing": "standard"
+   },
+   "reducedMotion": "show the end state: small shield stands up on the sheet",
+   "alt": "A printed sheet with a small teal shield.",
+   "alternatives": [
+    {
+     "angle": "metonymy",
+     "idea": "pin on sheet"
+    },
+    {
+     "angle": "contrast",
+     "idea": "sheet sliding out"
+    }
+   ]
+  },
+  {
+   "id": "iAvailability",
+   "scene": "iAvailability",
+   "slot": "table-row",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Product Availability",
+    "body": "Where coverage is offered"
+   },
+   "message": "Where it is offered.",
+   "viewerQuestion": "Available here?",
+   "relationship": "reach",
+   "device": "metonymy",
+   "mapping": [
+    {
+     "concept": "places",
+     "object": "two pucks"
+    },
+    {
+     "concept": "offered",
+     "object": "pins"
+    }
+   ],
+   "breaksDown": "Two pins read as a route; they sit side by side.",
+   "objects": [
+    {
+     "name": "pin",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "puck",
+     "role": "support",
+     "material": "neutral"
+    }
+   ],
+   "layout": "L5",
+   "states": {
+    "rest": "Outline icon beside the label",
+    "active": "two pins drop onto their pucks",
+    "meaning": "available here"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "base",
+    "easing": "standard"
+   },
+   "reducedMotion": "show the end state: two pins drop onto their pucks",
+   "alt": "Two teal pins on pucks.",
+   "alternatives": [
+    {
+     "angle": "metonymy",
+     "idea": "region tiles"
+    },
+    {
+     "angle": "reach",
+     "idea": "grid of pucks"
+    }
+   ]
+  },
+  {
+   "id": "iContact",
+   "scene": "iContact",
+   "slot": "table-row",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Contact Us",
+    "body": "Reach our team"
+   },
+   "message": "Reach the team.",
+   "viewerQuestion": "How do I reach you?",
+   "relationship": "contact",
+   "device": "metonymy",
+   "mapping": [
+    {
+     "concept": "contact",
+     "object": "mailbox"
+    },
+    {
+     "concept": "message",
+     "object": "flag up"
+    }
+   ],
+   "breaksDown": "Mailbox must read at icon size: post + box.",
+   "objects": [
+    {
+     "name": "mailbox",
+     "role": "hero",
+     "material": "teal"
+    }
+   ],
+   "layout": "L6",
+   "states": {
+    "rest": "Outline icon beside the label",
+    "active": "the flag rises",
+    "meaning": "message waiting"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "base",
+    "easing": "standard"
+   },
+   "reducedMotion": "show the end state: flag rises",
+   "alt": "A small teal mailbox.",
+   "alternatives": [
+    {
+     "angle": "cause-effect",
+     "idea": "route to mailbox"
+    },
+    {
+     "angle": "metonymy",
+     "idea": "mailbox assembling"
+    }
+   ]
+  }
+ ]
+}

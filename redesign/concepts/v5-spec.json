@@ -1,0 +1,31 @@
+{
+ "sections": [
+  {
+   "id": "v5-header", "pattern": "header", "background": "surface-bright",
+   "intro": null,
+   "components": ["Site header", "Button/Primary/Small", "Tile/Tint=None/Media=Illustration", "Badge", "Hyperlink", "Icon/arrow_forward"],
+   "grid": "tile-matrix",
+   "artSlots": [
+    { "slot": "media", "concept": "journey" },
+    { "slot": "media", "concept": "vSelect" }, { "slot": "media", "concept": "vQuote" }, { "slot": "media", "concept": "vMulti" }, { "slot": "media", "concept": "vUps" }, { "slot": "media", "concept": "vSpecial" },
+    { "slot": "media", "concept": "vDefense" }, { "slot": "media", "concept": "vOrchestrate" }, { "slot": "media", "concept": "vCommerce" }, { "slot": "media", "concept": "vInsureShield" },
+    { "slot": "media", "concept": "vConnect" }, { "slot": "media", "concept": "vBecome" },
+    { "slot": "media", "concept": "vHelp" }, { "slot": "media", "concept": "vStories" }, { "slot": "media", "concept": "vInsights" }, { "slot": "media", "concept": "vGuides" },
+    { "slot": "media", "concept": "vContact" }, { "slot": "media", "concept": "vAvail" }, { "slot": "media", "concept": "vAnnounce" }, { "slot": "media", "concept": "vNews" }
+   ],
+   "states": ["closed", "menu open (overview: parcel at the start)", "stop k pointed (parcel at k, stops ≤ k visited)", "focus = hover"],
+   "phone": "menu button → full-screen sheet; each menu lists its tiles one per row (Tile padding 24) under the journey strip scaled to the sheet width",
+   "motion": ["mega-menu fade + clip reveal 320 standard", "strip draws on once per open (slow, 34 ms)", "parcel travels to the pointed stop (slow, enter, translate only)", "route fills behind the parcel (34 ms per dash)", "stop changes on arrival (base, standard)", "tile tint on hover (base, colour only)", "header hide/show on scroll 320"]
+  },
+  {
+   "id": "v5-hero", "pattern": "hero", "background": "surface",
+   "h1": "Shipping insurance for lost, damaged, or stolen shipments",
+   "components": ["Button/Secondary/Medium", "Instant estimate/Default", "Pattern image/Dots", "Term"],
+   "grid": "split",
+   "artSlots": [{ "slot": "background", "concept": "hero-field" }],
+   "states": ["default", "value entered"],
+   "phone": "stack: copy, CTA, estimate",
+   "motion": ["pattern pointer-only"]
+  }
+ ]
+}

@@ -1,0 +1,1969 @@
+{
+ "set": "InsureShield nav V7 · Option B · Thread of care",
+ "cards": [
+  {
+   "id": "tInsurance",
+   "scene": "tInsurance",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Shipping Insurance",
+    "body": "Protect shipments from covered loss, damage, and theft."
+   },
+   "message": "Care travels with every parcel, from your shop to their door.",
+   "viewerQuestion": "What does shipping insurance do for me?",
+   "relationship": "protect",
+   "device": "metaphor",
+   "mapping": [
+    {
+     "concept": "you",
+     "object": "the shop"
+    },
+    {
+     "concept": "your customer",
+     "object": "the home"
+    },
+    {
+     "concept": "the care",
+     "object": "the thread and the shield over the home"
+    }
+   ],
+   "breaksDown": "A thread could read as a road; it starts at the shop and ends in the shield, not at a vehicle.",
+   "objects": [
+    {
+     "name": "shield",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "storefront",
+     "role": "support",
+     "material": "neutral"
+    },
+    {
+     "name": "home",
+     "role": "support",
+     "material": "neutral"
+    }
+   ],
+   "layout": "L3",
+   "states": {
+    "rest": "Outline: a quiet pencil sketch",
+    "active": "a teal thread starts from the shop → then the thread reaches a parcel halfway, which lights up → then it ends at the home, where a shield rises, which glows teal",
+    "meaning": "the parcel is protected all the way"
+   },
+   "story": [
+    {
+     "beat": 0,
+     "at": "0 ms",
+     "what": "a teal thread starts from the shop"
+    },
+    {
+     "beat": 1,
+     "at": "320 ms",
+     "what": "the thread reaches a parcel halfway, which lights up"
+    },
+    {
+     "beat": 2,
+     "at": "640 ms",
+     "what": "it ends at the home, where a shield rises, which glows teal"
+    }
+   ],
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "motionException": "short story on hover (~1.2 s, no loop), lead-approved",
+   "reducedMotion": "show the final frame: it ends at the home, where a shield rises, which glows teal",
+   "alt": "A teal thread runs from a shop to a home; a shield rises over the home.",
+   "alternatives": [
+    {
+     "angle": "direct claim",
+     "idea": "parcel on plate"
+    },
+    {
+     "angle": "proof",
+     "idea": "many homes"
+    }
+   ]
+  },
+  {
+   "id": "tSolutions",
+   "scene": "tSolutions",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Solutions",
+    "body": "Tools that reduce risk before, during, and after delivery."
+   },
+   "message": "Each tool checks a step of the way.",
+   "viewerQuestion": "Where do these tools help?",
+   "relationship": "verify",
+   "device": "metaphor",
+   "mapping": [
+    {
+     "concept": "the steps",
+     "object": "three rings along the thread"
+    },
+    {
+     "concept": "the end",
+     "object": "the home"
+    }
+   ],
+   "breaksDown": "Rings along a line could read as a progress bar; they stand on the ground as checkpoints.",
+   "objects": [
+    {
+     "name": "check ring",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "route",
+     "role": "support",
+     "material": "teal"
+    },
+    {
+     "name": "home",
+     "role": "support",
+     "material": "neutral"
+    }
+   ],
+   "layout": "L3",
+   "states": {
+    "rest": "Outline: a quiet pencil sketch",
+    "active": "a teal thread starts from the checkout → then the thread reaches three check rings, one by one, which lights up → then it ends at the home, which glows teal",
+    "meaning": "every step is checked"
+   },
+   "story": [
+    {
+     "beat": 0,
+     "at": "0 ms",
+     "what": "a teal thread starts from the checkout"
+    },
+    {
+     "beat": 1,
+     "at": "320 ms",
+     "what": "the thread reaches three check rings, one by one, which lights up"
+    },
+    {
+     "beat": 2,
+     "at": "640 ms",
+     "what": "it ends at the home, which glows teal"
+    }
+   ],
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "motionException": "short story on hover (~1.2 s, no loop), lead-approved",
+   "reducedMotion": "show the final frame: it ends at the home, which glows teal",
+   "alt": "A teal thread passes three check rings that light in turn on its way to a home.",
+   "alternatives": [
+    {
+     "angle": "contrast",
+     "idea": "covered vs uncovered"
+    },
+    {
+     "angle": "mechanism",
+     "idea": "gates"
+    }
+   ]
+  },
+  {
+   "id": "tPartners",
+   "scene": "tPartners",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Partners",
+    "body": "Connect InsureShield to the platforms you already ship with."
+   },
+   "message": "Your platform carries the care on to every shop on it.",
+   "viewerQuestion": "How do partners connect?",
+   "relationship": "connect",
+   "device": "metaphor",
+   "mapping": [
+    {
+     "concept": "the platform",
+     "object": "a laptop"
+    },
+    {
+     "concept": "its merchants",
+     "object": "a shop"
+    },
+    {
+     "concept": "their customers",
+     "object": "a home"
+    }
+   ],
+   "breaksDown": "Three objects in a line could read as a supply chain; the thread is the coverage passing on.",
+   "objects": [
+    {
+     "name": "storefront",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "laptop",
+     "role": "support",
+     "material": "neutral"
+    },
+    {
+     "name": "home",
+     "role": "support",
+     "material": "neutral"
+    }
+   ],
+   "layout": "L3",
+   "states": {
+    "rest": "Outline: a quiet pencil sketch",
+    "active": "a teal thread starts from the laptop → then the thread reaches the shop, whose awning turns teal, which lights up → then it ends at a home, which glows teal",
+    "meaning": "coverage flows through partners"
+   },
+   "story": [
+    {
+     "beat": 0,
+     "at": "0 ms",
+     "what": "a teal thread starts from the laptop"
+    },
+    {
+     "beat": 1,
+     "at": "320 ms",
+     "what": "the thread reaches the shop, whose awning turns teal, which lights up"
+    },
+    {
+     "beat": 2,
+     "at": "640 ms",
+     "what": "it ends at a home, which glows teal"
+    }
+   ],
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "motionException": "short story on hover (~1.2 s, no loop), lead-approved",
+   "reducedMotion": "show the final frame: it ends at a home, which glows teal",
+   "alt": "A teal thread from a laptop through a shop, whose awning turns teal, to a home.",
+   "alternatives": [
+    {
+     "angle": "metonymy",
+     "idea": "dock block"
+    },
+    {
+     "angle": "proof",
+     "idea": "row of shops"
+    }
+   ]
+  },
+  {
+   "id": "tResources",
+   "scene": "tResources",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Resources",
+    "body": "Guides, stories, and support for shippers."
+   },
+   "message": "Every answer you need is linked along one path.",
+   "viewerQuestion": "Where do I find guidance?",
+   "relationship": "inform",
+   "device": "metaphor",
+   "mapping": [
+    {
+     "concept": "your question",
+     "object": "a home"
+    },
+    {
+     "concept": "the answers",
+     "object": "guides along the thread"
+    }
+   ],
+   "breaksDown": "Sheets along a path could read as litter; they are neat stacks, each a stop.",
+   "objects": [
+    {
+     "name": "sheets",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "claim document",
+     "role": "support",
+     "material": "chalk"
+    },
+    {
+     "name": "home",
+     "role": "support",
+     "material": "neutral"
+    }
+   ],
+   "layout": "L3",
+   "states": {
+    "rest": "Outline: a quiet pencil sketch",
+    "active": "a teal thread starts from the home → then the thread reaches a standing guide, which lights up → then it ends at a stack of guides, which glows teal",
+    "meaning": "help is linked up"
+   },
+   "story": [
+    {
+     "beat": 0,
+     "at": "0 ms",
+     "what": "a teal thread starts from the home"
+    },
+    {
+     "beat": 1,
+     "at": "320 ms",
+     "what": "the thread reaches a standing guide, which lights up"
+    },
+    {
+     "beat": 2,
+     "at": "640 ms",
+     "what": "it ends at a stack of guides, which glows teal"
+    }
+   ],
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "motionException": "short story on hover (~1.2 s, no loop), lead-approved",
+   "reducedMotion": "show the final frame: it ends at a stack of guides, which glows teal",
+   "alt": "A teal thread from a home past a guide to a stack of guides that turns teal.",
+   "alternatives": [
+    {
+     "angle": "contact",
+     "idea": "mailbox"
+    },
+    {
+     "angle": "proof",
+     "idea": "binders"
+    }
+   ]
+  },
+  {
+   "id": "tAbout",
+   "scene": "tAbout",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "About",
+    "body": "News, availability, and how to reach us."
+   },
+   "message": "A thread runs straight from you to a person who answers.",
+   "viewerQuestion": "Who is behind InsureShield?",
+   "relationship": "contact",
+   "device": "metonymy",
+   "mapping": [
+    {
+     "concept": "you",
+     "object": "a home"
+    },
+    {
+     "concept": "the team",
+     "object": "a building"
+    },
+    {
+     "concept": "the reply",
+     "object": "the mailbox flag"
+    }
+   ],
+   "breaksDown": "A mailbox reads as post; the raised flag is a reply waiting.",
+   "objects": [
+    {
+     "name": "mailbox",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "home",
+     "role": "support",
+     "material": "neutral"
+    },
+    {
+     "name": "storefront",
+     "role": "support",
+     "material": "neutral"
+    }
+   ],
+   "layout": "L3",
+   "states": {
+    "rest": "Outline: a quiet pencil sketch",
+    "active": "a teal thread starts from the home → then the thread reaches the company building, which lights up → then it ends at a mailbox whose flag rises, which glows teal",
+    "meaning": "a team answers"
+   },
+   "story": [
+    {
+     "beat": 0,
+     "at": "0 ms",
+     "what": "a teal thread starts from the home"
+    },
+    {
+     "beat": 1,
+     "at": "320 ms",
+     "what": "the thread reaches the company building, which lights up"
+    },
+    {
+     "beat": 2,
+     "at": "640 ms",
+     "what": "it ends at a mailbox whose flag rises, which glows teal"
+    }
+   ],
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "motionException": "short story on hover (~1.2 s, no loop), lead-approved",
+   "reducedMotion": "show the final frame: it ends at a mailbox whose flag rises, which glows teal",
+   "alt": "A teal thread from a home to a company building and a mailbox that raises its flag.",
+   "alternatives": [
+    {
+     "angle": "proof",
+     "idea": "press"
+    },
+    {
+     "angle": "metaphor",
+     "idea": "shield"
+    }
+   ]
+  },
+  {
+   "id": "tMulti",
+   "scene": "tMulti",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Multi-Carrier Shipments",
+    "body": "Parcel and freight across UPS, FedEx, DHL, and USPS"
+   },
+   "message": "Three carriers, one thread of care.",
+   "viewerQuestion": "Am I covered whichever carrier I use?",
+   "relationship": "protect",
+   "device": "number made physical",
+   "mapping": [
+    {
+     "concept": "each carrier",
+     "object": "a striped parcel with its own short thread"
+    },
+    {
+     "concept": "one policy",
+     "object": "the plate they all lead to"
+    }
+   ],
+   "breaksDown": "Threads could read as a network map; they are short and end on one plate.",
+   "objects": [
+    {
+     "name": "policy plate",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "parcel group",
+     "role": "support",
+     "material": "carrier"
+    }
+   ],
+   "layout": "L4",
+   "states": {
+    "rest": "Outline: a quiet pencil sketch",
+    "active": "a teal thread starts from three carrier-striped parcels → then the thread reaches a meeting point, which lights up → then it ends at one plate, which glows teal",
+    "meaning": "one policy covers every carrier"
+   },
+   "story": [
+    {
+     "beat": 0,
+     "at": "0 ms",
+     "what": "a teal thread starts from three carrier-striped parcels"
+    },
+    {
+     "beat": 1,
+     "at": "320 ms",
+     "what": "the thread reaches a meeting point, which lights up"
+    },
+    {
+     "beat": 2,
+     "at": "640 ms",
+     "what": "it ends at one plate, which glows teal"
+    }
+   ],
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "motionException": "short story on hover (~1.2 s, no loop), lead-approved",
+   "reducedMotion": "show the final frame: it ends at one plate, which glows teal",
+   "alt": "Three carrier-striped parcels with threads that meet on one teal plate.",
+   "alternatives": [
+    {
+     "angle": "direct claim",
+     "idea": "parcels on a plate"
+    },
+    {
+     "angle": "metaphor",
+     "idea": "shield"
+    }
+   ]
+  },
+  {
+   "id": "tUps",
+   "scene": "tUps",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "UPS Shipments",
+    "body": "Coverage designed for packages shipped with UPS"
+   },
+   "message": "The thread follows your UPS parcel right to the doormat.",
+   "viewerQuestion": "Is it covered once it's delivered?",
+   "relationship": "protect",
+   "device": "metonymy",
+   "mapping": [
+    {
+     "concept": "the parcel",
+     "object": "a UPS-banded parcel"
+    },
+    {
+     "concept": "the doorstep",
+     "object": "a door and mat"
+    },
+    {
+     "concept": "covered",
+     "object": "the mat glowing teal"
+    }
+   ],
+   "breaksDown": "A glowing mat could read as decoration; the thread ties it to the parcel.",
+   "objects": [
+    {
+     "name": "policy plate",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "parcel",
+     "role": "support",
+     "material": "carrier"
+    },
+    {
+     "name": "door",
+     "role": "support",
+     "material": "neutral"
+    }
+   ],
+   "layout": "L5",
+   "states": {
+    "rest": "Outline: a quiet pencil sketch",
+    "active": "a teal thread starts from the UPS parcel → then the thread reaches the door, which lights up → then it ends at the doormat, which glows teal",
+    "meaning": "the package is covered at the door"
+   },
+   "story": [
+    {
+     "beat": 0,
+     "at": "0 ms",
+     "what": "a teal thread starts from the UPS parcel"
+    },
+    {
+     "beat": 1,
+     "at": "320 ms",
+     "what": "the thread reaches the door, which lights up"
+    },
+    {
+     "beat": 2,
+     "at": "640 ms",
+     "what": "it ends at the doormat, which glows teal"
+    }
+   ],
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "motionException": "short story on hover (~1.2 s, no loop), lead-approved",
+   "reducedMotion": "show the final frame: it ends at the doormat, which glows teal",
+   "alt": "A teal thread from a UPS parcel to a door; the mat glows teal.",
+   "alternatives": [
+    {
+     "angle": "proof",
+     "idea": "coins"
+    },
+    {
+     "angle": "before-after",
+     "idea": "parcel teal"
+    }
+   ]
+  },
+  {
+   "id": "tSpecial",
+   "scene": "tSpecial",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Special Commodities",
+    "body": "High-value, perishable, and specialty goods"
+   },
+   "message": "The thread wraps what matters most to you.",
+   "viewerQuestion": "Is something this valuable covered?",
+   "relationship": "protect",
+   "device": "metaphor",
+   "mapping": [
+    {
+     "concept": "something precious",
+     "object": "a blue item in an open box"
+    },
+    {
+     "concept": "wrapped in care",
+     "object": "the thread around it and a check ring"
+    }
+   ],
+   "breaksDown": "A thread around a box could read as string; it is the policy, ending in a check.",
+   "objects": [
+    {
+     "name": "check ring",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "item",
+     "role": "support",
+     "material": "blue"
+    },
+    {
+     "name": "open box",
+     "role": "support",
+     "material": "kraft"
+    }
+   ],
+   "layout": "L2",
+   "states": {
+    "rest": "Outline: a quiet pencil sketch",
+    "active": "a teal thread starts from the open box → then the thread reaches the blue item, which rises, which lights up → then it ends at a check ring above it, which glows teal",
+    "meaning": "special goods are covered"
+   },
+   "story": [
+    {
+     "beat": 0,
+     "at": "0 ms",
+     "what": "a teal thread starts from the open box"
+    },
+    {
+     "beat": 1,
+     "at": "320 ms",
+     "what": "the thread reaches the blue item, which rises, which lights up"
+    },
+    {
+     "beat": 2,
+     "at": "640 ms",
+     "what": "it ends at a check ring above it, which glows teal"
+    }
+   ],
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "motionException": "short story on hover (~1.2 s, no loop), lead-approved",
+   "reducedMotion": "show the final frame: it ends at a check ring above it, which glows teal",
+   "alt": "A teal thread wraps an open box; a blue item rises and a check ring lights above it.",
+   "alternatives": [
+    {
+     "angle": "metonymy",
+     "idea": "safe"
+    },
+    {
+     "angle": "contrast",
+     "idea": "three boxes"
+    }
+   ]
+  },
+  {
+   "id": "tSelect",
+   "scene": "tSelect",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Select My Coverage",
+    "body": "Answer a few questions to find the right fit"
+   },
+   "message": "Follow a few answers and the right fit lights up.",
+   "viewerQuestion": "Which coverage fits what I ship?",
+   "relationship": "fit",
+   "device": "metaphor",
+   "mapping": [
+    {
+     "concept": "the options",
+     "object": "three stepped plates"
+    },
+    {
+     "concept": "your answers",
+     "object": "the thread visiting each"
+    },
+    {
+     "concept": "the fit",
+     "object": "the plate that lights"
+    }
+   ],
+   "breaksDown": "Plates could read as a podium; they stay low and the fit is the middle one.",
+   "objects": [
+    {
+     "name": "stepped plates",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "parcel",
+     "role": "support",
+     "material": "kraft"
+    }
+   ],
+   "layout": "L3",
+   "states": {
+    "rest": "Outline: a quiet pencil sketch",
+    "active": "a teal thread starts from the parcel → then the thread reaches the small and large plates, which lights up → then it ends at the middle plate, which glows teal",
+    "meaning": "the right coverage is found"
+   },
+   "story": [
+    {
+     "beat": 0,
+     "at": "0 ms",
+     "what": "a teal thread starts from the parcel"
+    },
+    {
+     "beat": 1,
+     "at": "320 ms",
+     "what": "the thread reaches the small and large plates, which lights up"
+    },
+    {
+     "beat": 2,
+     "at": "640 ms",
+     "what": "it ends at the middle plate, which glows teal"
+    }
+   ],
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "motionException": "short story on hover (~1.2 s, no loop), lead-approved",
+   "reducedMotion": "show the final frame: it ends at the middle plate, which glows teal",
+   "alt": "A teal thread from a parcel visits three plates and stops at the middle one, which turns teal.",
+   "alternatives": [
+    {
+     "angle": "contrast",
+     "idea": "three shields"
+    },
+    {
+     "angle": "proof",
+     "idea": "a dial"
+    }
+   ]
+  },
+  {
+   "id": "tQuote",
+   "scene": "tQuote",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Get a Quote",
+    "body": "Estimate cost for your shipping volume"
+   },
+   "message": "Your parcels lead straight to a clear price.",
+   "viewerQuestion": "What will it cost?",
+   "relationship": "scale",
+   "device": "number made physical",
+   "mapping": [
+    {
+     "concept": "your volume",
+     "object": "a group of parcels"
+    },
+    {
+     "concept": "the estimate",
+     "object": "a coin stack at the end of the thread"
+    }
+   ],
+   "breaksDown": "Coins could read as payout; they sit at the end as the price.",
+   "objects": [
+    {
+     "name": "coin stack",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "parcel group",
+     "role": "support",
+     "material": "kraft"
+    }
+   ],
+   "layout": "L3",
+   "states": {
+    "rest": "Outline: a quiet pencil sketch",
+    "active": "a teal thread starts from the parcels → then the thread reaches a quote sheet, which lights up → then it ends at a coin stack, which glows teal",
+    "meaning": "the estimate is ready"
+   },
+   "story": [
+    {
+     "beat": 0,
+     "at": "0 ms",
+     "what": "a teal thread starts from the parcels"
+    },
+    {
+     "beat": 1,
+     "at": "320 ms",
+     "what": "the thread reaches a quote sheet, which lights up"
+    },
+    {
+     "beat": 2,
+     "at": "640 ms",
+     "what": "it ends at a coin stack, which glows teal"
+    }
+   ],
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "motionException": "short story on hover (~1.2 s, no loop), lead-approved",
+   "reducedMotion": "show the final frame: it ends at a coin stack, which glows teal",
+   "alt": "A teal thread from a group of parcels past a quote sheet to a coin stack that turns teal.",
+   "alternatives": [
+    {
+     "angle": "metonymy",
+     "idea": "coin on sheet"
+    },
+    {
+     "angle": "contrast",
+     "idea": "small and large"
+    }
+   ]
+  },
+  {
+   "id": "tCommerce",
+   "scene": "tCommerce",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "CommerceShield",
+    "body": "Order risk signals and chargeback protection"
+   },
+   "message": "A doubtful order is caught before it leaves.",
+   "viewerQuestion": "Can I trust this order?",
+   "relationship": "verify",
+   "device": "before-after",
+   "mapping": [
+    {
+     "concept": "the order",
+     "object": "a laptop"
+    },
+    {
+     "concept": "the doubt",
+     "object": "a coral mark on the thread"
+    },
+    {
+     "concept": "screened",
+     "object": "a teal check"
+    }
+   ],
+   "breaksDown": "Must not promise all fraud stops; the check says screened.",
+   "objects": [
+    {
+     "name": "check ring",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "laptop",
+     "role": "support",
+     "material": "neutral"
+    },
+    {
+     "name": "coral mark",
+     "role": "support",
+     "material": "coral"
+    }
+   ],
+   "layout": "L5",
+   "states": {
+    "rest": "Outline: a quiet pencil sketch",
+    "active": "a teal thread starts from the laptop → then the thread reaches a coral mark, which turns into a check, which lights up → then it ends at a parcel ready to ship, which glows teal",
+    "meaning": "the order is screened"
+   },
+   "story": [
+    {
+     "beat": 0,
+     "at": "0 ms",
+     "what": "a teal thread starts from the laptop"
+    },
+    {
+     "beat": 1,
+     "at": "320 ms",
+     "what": "the thread reaches a coral mark, which turns into a check, which lights up"
+    },
+    {
+     "beat": 2,
+     "at": "640 ms",
+     "what": "it ends at a parcel ready to ship, which glows teal"
+    }
+   ],
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "motionException": "short story on hover (~1.2 s, no loop), lead-approved",
+   "reducedMotion": "show the final frame: it ends at a parcel ready to ship, which glows teal",
+   "alt": "A teal thread from a laptop meets a coral mark that becomes a teal check ring.",
+   "alternatives": [
+    {
+     "angle": "contrast",
+     "idea": "two parcels"
+    },
+    {
+     "angle": "mechanism",
+     "idea": "gate"
+    }
+   ]
+  },
+  {
+   "id": "tDefense",
+   "scene": "tDefense",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "DeliveryDefense",
+    "body": "Address confidence scores before you ship"
+   },
+   "message": "The thread finds the right door before the parcel leaves.",
+   "viewerQuestion": "Will this reach the right door?",
+   "relationship": "verify",
+   "device": "before-after",
+   "mapping": [
+    {
+     "concept": "the address",
+     "object": "two homes"
+    },
+    {
+     "concept": "the right one",
+     "object": "the thread ending in a pin"
+    }
+   ],
+   "breaksDown": "A pin reads as maps; it lands before anything ships.",
+   "objects": [
+    {
+     "name": "pin",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "home",
+     "role": "support",
+     "material": "neutral"
+    },
+    {
+     "name": "parcel",
+     "role": "support",
+     "material": "kraft"
+    }
+   ],
+   "layout": "L3",
+   "states": {
+    "rest": "Outline: a quiet pencil sketch",
+    "active": "a teal thread starts from the parcel → then the thread reaches the first home, passing it by, which lights up → then it ends at the right home, where a pin lands, which glows teal",
+    "meaning": "the address is confirmed"
+   },
+   "story": [
+    {
+     "beat": 0,
+     "at": "0 ms",
+     "what": "a teal thread starts from the parcel"
+    },
+    {
+     "beat": 1,
+     "at": "320 ms",
+     "what": "the thread reaches the first home, passing it by, which lights up"
+    },
+    {
+     "beat": 2,
+     "at": "640 ms",
+     "what": "it ends at the right home, where a pin lands, which glows teal"
+    }
+   ],
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "motionException": "short story on hover (~1.2 s, no loop), lead-approved",
+   "reducedMotion": "show the final frame: it ends at the right home, where a pin lands, which glows teal",
+   "alt": "A teal thread from a parcel passes one home and ends in a pin at the next.",
+   "alternatives": [
+    {
+     "angle": "mechanism",
+     "idea": "label check"
+    },
+    {
+     "angle": "proof",
+     "idea": "dial"
+    }
+   ]
+  },
+  {
+   "id": "tOrchestrate",
+   "scene": "tOrchestrate",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Delivery Orchestration",
+    "body": "Choose delivery options that lower risk"
+   },
+   "message": "The thread takes the safer way round.",
+   "viewerQuestion": "Is there a safer way?",
+   "relationship": "transit",
+   "device": "cause-effect",
+   "mapping": [
+    {
+     "concept": "the risk",
+     "object": "a coral cloud on the direct way"
+    },
+    {
+     "concept": "the safer way",
+     "object": "the thread bending round it"
+    }
+   ],
+   "breaksDown": "Must not imply weather is stopped; the thread goes round.",
+   "objects": [
+    {
+     "name": "route",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "cloud",
+     "role": "support",
+     "material": "coral"
+    },
+    {
+     "name": "home",
+     "role": "support",
+     "material": "neutral"
+    }
+   ],
+   "layout": "L3",
+   "states": {
+    "rest": "Outline: a quiet pencil sketch",
+    "active": "a teal thread starts from the parcel → then the thread reaches the bend round the coral cloud, which lights up → then it ends at the home, which glows teal",
+    "meaning": "a safer option is chosen"
+   },
+   "story": [
+    {
+     "beat": 0,
+     "at": "0 ms",
+     "what": "a teal thread starts from the parcel"
+    },
+    {
+     "beat": 1,
+     "at": "320 ms",
+     "what": "the thread reaches the bend round the coral cloud, which lights up"
+    },
+    {
+     "beat": 2,
+     "at": "640 ms",
+     "what": "it ends at the home, which glows teal"
+    }
+   ],
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "motionException": "short story on hover (~1.2 s, no loop), lead-approved",
+   "reducedMotion": "show the final frame: it ends at the home, which glows teal",
+   "alt": "A teal thread bends round a coral cloud on its way to a home.",
+   "alternatives": [
+    {
+     "angle": "contrast",
+     "idea": "two branches"
+    },
+    {
+     "angle": "proof",
+     "idea": "plates"
+    }
+   ]
+  },
+  {
+   "id": "tInsure",
+   "scene": "tInsure",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "InsureShield® Shipping Insurance",
+    "body": "Protection against loss, damage, and theft"
+   },
+   "message": "When a parcel is damaged, the thread leads to recovery.",
+   "viewerQuestion": "What if it arrives damaged?",
+   "relationship": "recovery",
+   "device": "cause-effect",
+   "mapping": [
+    {
+     "concept": "the loss",
+     "object": "a coral damaged parcel"
+    },
+    {
+     "concept": "the recovery",
+     "object": "coins at the end of the thread"
+    }
+   ],
+   "breaksDown": "Coins could read as profit; they are the payout.",
+   "objects": [
+    {
+     "name": "coin stack",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "parcel",
+     "role": "support",
+     "material": "coral"
+    }
+   ],
+   "layout": "L5",
+   "states": {
+    "rest": "Outline: a quiet pencil sketch",
+    "active": "a teal thread starts from the damaged coral parcel → then the thread reaches a claim sheet, which lights up → then it ends at a coin stack, which glows teal",
+    "meaning": "the loss is paid back"
+   },
+   "story": [
+    {
+     "beat": 0,
+     "at": "0 ms",
+     "what": "a teal thread starts from the damaged coral parcel"
+    },
+    {
+     "beat": 1,
+     "at": "320 ms",
+     "what": "the thread reaches a claim sheet, which lights up"
+    },
+    {
+     "beat": 2,
+     "at": "640 ms",
+     "what": "it ends at a coin stack, which glows teal"
+    }
+   ],
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "motionException": "short story on hover (~1.2 s, no loop), lead-approved",
+   "reducedMotion": "show the final frame: it ends at a coin stack, which glows teal",
+   "alt": "A teal thread from a coral parcel past a claim sheet to a teal coin stack.",
+   "alternatives": [
+    {
+     "angle": "proof",
+     "idea": "shield"
+    },
+    {
+     "angle": "mechanism",
+     "idea": "check ring"
+    }
+   ]
+  },
+  {
+   "id": "tConnect",
+   "scene": "tConnect",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Connect with a Partner",
+    "body": "Add coverage inside the platforms you use"
+   },
+   "message": "One thread links your platform to coverage.",
+   "viewerQuestion": "Does it fit what I already use?",
+   "relationship": "connect",
+   "device": "metaphor",
+   "mapping": [
+    {
+     "concept": "your platform",
+     "object": "a laptop"
+    },
+    {
+     "concept": "the connection",
+     "object": "a thread to a teal block"
+    }
+   ],
+   "breaksDown": "A block reads as hardware; the thread makes it a link.",
+   "objects": [
+    {
+     "name": "dock block",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "laptop",
+     "role": "support",
+     "material": "neutral"
+    }
+   ],
+   "layout": "L3",
+   "states": {
+    "rest": "Outline: a quiet pencil sketch",
+    "active": "a teal thread starts from the laptop → then the thread reaches a junction, which lights up → then it ends at a teal block that seats, which glows teal",
+    "meaning": "coverage is connected"
+   },
+   "story": [
+    {
+     "beat": 0,
+     "at": "0 ms",
+     "what": "a teal thread starts from the laptop"
+    },
+    {
+     "beat": 1,
+     "at": "320 ms",
+     "what": "the thread reaches a junction, which lights up"
+    },
+    {
+     "beat": 2,
+     "at": "640 ms",
+     "what": "it ends at a teal block that seats, which glows teal"
+    }
+   ],
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "motionException": "short story on hover (~1.2 s, no loop), lead-approved",
+   "reducedMotion": "show the final frame: it ends at a teal block that seats, which glows teal",
+   "alt": "A teal thread from a laptop to a block that seats into place.",
+   "alternatives": [
+    {
+     "angle": "proof",
+     "idea": "row of blocks"
+    },
+    {
+     "angle": "metonymy",
+     "idea": "awning"
+    }
+   ]
+  },
+  {
+   "id": "tBecome",
+   "scene": "tBecome",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Become a Partner",
+    "body": "Offer InsureShield to your customers"
+   },
+   "message": "Your shop passes care on to every customer.",
+   "viewerQuestion": "Can I offer this to my customers?",
+   "relationship": "protect",
+   "device": "metonymy",
+   "mapping": [
+    {
+     "concept": "your shop",
+     "object": "a storefront"
+    },
+    {
+     "concept": "your customers",
+     "object": "parcels on the thread"
+    },
+    {
+     "concept": "the offer",
+     "object": "their teal tape"
+    }
+   ],
+   "breaksDown": "Tape reads as packing; it seals as the thread reaches each parcel.",
+   "objects": [
+    {
+     "name": "parcel group",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "storefront",
+     "role": "support",
+     "material": "neutral"
+    },
+    {
+     "name": "home",
+     "role": "support",
+     "material": "neutral"
+    }
+   ],
+   "layout": "L3",
+   "states": {
+    "rest": "Outline: a quiet pencil sketch",
+    "active": "a teal thread starts from the shop → then the thread reaches two parcels, sealed teal, which lights up → then it ends at a home, which glows teal",
+    "meaning": "customers are covered"
+   },
+   "story": [
+    {
+     "beat": 0,
+     "at": "0 ms",
+     "what": "a teal thread starts from the shop"
+    },
+    {
+     "beat": 1,
+     "at": "320 ms",
+     "what": "the thread reaches two parcels, sealed teal, which lights up"
+    },
+    {
+     "beat": 2,
+     "at": "640 ms",
+     "what": "it ends at a home, which glows teal"
+    }
+   ],
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "motionException": "short story on hover (~1.2 s, no loop), lead-approved",
+   "reducedMotion": "show the final frame: it ends at a home, which glows teal",
+   "alt": "A teal thread from a shop seals two parcels in teal on its way to a home.",
+   "alternatives": [
+    {
+     "angle": "connect",
+     "idea": "dock"
+    },
+    {
+     "angle": "proof",
+     "idea": "many shops"
+    }
+   ]
+  },
+  {
+   "id": "tHelp",
+   "scene": "tHelp",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Help & Support",
+    "body": "Answers about coverage, billing, and claims"
+   },
+   "message": "Your question is followed all the way to an answer.",
+   "viewerQuestion": "Can someone help me now?",
+   "relationship": "contact",
+   "device": "before-after",
+   "mapping": [
+    {
+     "concept": "your question",
+     "object": "a home"
+    },
+    {
+     "concept": "the answer",
+     "object": "a document"
+    },
+    {
+     "concept": "resolved",
+     "object": "its check"
+    }
+   ],
+   "breaksDown": "A check could read as approval of a claim; here it means answered.",
+   "objects": [
+    {
+     "name": "claim document",
+     "role": "hero",
+     "material": "chalk"
+    },
+    {
+     "name": "check ring",
+     "role": "support",
+     "material": "teal"
+    },
+    {
+     "name": "home",
+     "role": "support",
+     "material": "neutral"
+    }
+   ],
+   "layout": "L3",
+   "states": {
+    "rest": "Outline: a quiet pencil sketch",
+    "active": "a teal thread starts from the home → then the thread reaches a standing document, which lights up → then it ends at a check ring over it, which glows teal",
+    "meaning": "the question is answered"
+   },
+   "story": [
+    {
+     "beat": 0,
+     "at": "0 ms",
+     "what": "a teal thread starts from the home"
+    },
+    {
+     "beat": 1,
+     "at": "320 ms",
+     "what": "the thread reaches a standing document, which lights up"
+    },
+    {
+     "beat": 2,
+     "at": "640 ms",
+     "what": "it ends at a check ring over it, which glows teal"
+    }
+   ],
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "motionException": "short story on hover (~1.2 s, no loop), lead-approved",
+   "reducedMotion": "show the final frame: it ends at a check ring over it, which glows teal",
+   "alt": "A teal thread from a home to a standing document that gains a teal check.",
+   "alternatives": [
+    {
+     "angle": "contact",
+     "idea": "mailbox"
+    },
+    {
+     "angle": "proof",
+     "idea": "clock"
+    }
+   ]
+  },
+  {
+   "id": "tStories",
+   "scene": "tStories",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Customer Stories",
+    "body": "How businesses recover faster"
+   },
+   "message": "Shops like yours, linked by the same recovery.",
+   "viewerQuestion": "Has this worked for others?",
+   "relationship": "recovery",
+   "device": "number made physical",
+   "mapping": [
+    {
+     "concept": "other businesses",
+     "object": "three shops"
+    },
+    {
+     "concept": "their recovery",
+     "object": "a coin stack by each, lit by the thread"
+    }
+   ],
+   "breaksDown": "Coins could read as sales; they rise by each shop as payouts.",
+   "objects": [
+    {
+     "name": "coin stack",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "storefront",
+     "role": "support",
+     "material": "neutral"
+    }
+   ],
+   "layout": "L4",
+   "states": {
+    "rest": "Outline: a quiet pencil sketch",
+    "active": "a teal thread starts from the first shop → then the thread reaches the second shop, which lights up → then it ends at the third shop and its coins, which glows teal",
+    "meaning": "others recovered"
+   },
+   "story": [
+    {
+     "beat": 0,
+     "at": "0 ms",
+     "what": "a teal thread starts from the first shop"
+    },
+    {
+     "beat": 1,
+     "at": "320 ms",
+     "what": "the thread reaches the second shop, which lights up"
+    },
+    {
+     "beat": 2,
+     "at": "640 ms",
+     "what": "it ends at the third shop and its coins, which glows teal"
+    }
+   ],
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "motionException": "short story on hover (~1.2 s, no loop), lead-approved",
+   "reducedMotion": "show the final frame: it ends at the third shop and its coins, which glows teal",
+   "alt": "A teal thread links three shops; a coin stack rises beside each.",
+   "alternatives": [
+    {
+     "angle": "contrast",
+     "idea": "damaged parcel"
+    },
+    {
+     "angle": "proof",
+     "idea": "storefront step"
+    }
+   ]
+  },
+  {
+   "id": "tInsights",
+   "scene": "tInsights",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Insights",
+    "body": "Articles on shipping risk and protection"
+   },
+   "message": "Connect the data and the pattern lights up.",
+   "viewerQuestion": "What does the data say about my risk?",
+   "relationship": "inform",
+   "device": "number made physical",
+   "mapping": [
+    {
+     "concept": "the data",
+     "object": "bars on a sheet"
+    },
+    {
+     "concept": "the pattern",
+     "object": "a thread linking their tops"
+    }
+   ],
+   "breaksDown": "A line over bars reads as a chart; that is the point.",
+   "objects": [
+    {
+     "name": "bars",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "claim document",
+     "role": "support",
+     "material": "chalk"
+    }
+   ],
+   "layout": "L3",
+   "states": {
+    "rest": "Outline: a quiet pencil sketch",
+    "active": "a teal thread starts from the first bar → then the thread reaches the middle bars, which lights up → then it ends at the tallest bar, which glows teal",
+    "meaning": "the pattern is clear"
+   },
+   "story": [
+    {
+     "beat": 0,
+     "at": "0 ms",
+     "what": "a teal thread starts from the first bar"
+    },
+    {
+     "beat": 1,
+     "at": "320 ms",
+     "what": "the thread reaches the middle bars, which lights up"
+    },
+    {
+     "beat": 2,
+     "at": "640 ms",
+     "what": "it ends at the tallest bar, which glows teal"
+    }
+   ],
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "motionException": "short story on hover (~1.2 s, no loop), lead-approved",
+   "reducedMotion": "show the final frame: it ends at the tallest bar, which glows teal",
+   "alt": "A teal thread links the tops of bars on a sheet; the tallest turns teal.",
+   "alternatives": [
+    {
+     "angle": "risk",
+     "idea": "cloud"
+    },
+    {
+     "angle": "metaphor",
+     "idea": "route on sheet"
+    }
+   ]
+  },
+  {
+   "id": "tGuides",
+   "scene": "tGuides",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Whitepapers & Guides",
+    "body": "In-depth research and how-to guides"
+   },
+   "message": "The thread binds the whole guide together.",
+   "viewerQuestion": "Is there a complete guide?",
+   "relationship": "inform",
+   "device": "metaphor",
+   "mapping": [
+    {
+     "concept": "the chapters",
+     "object": "three stacks of sheets"
+    },
+    {
+     "concept": "the guide",
+     "object": "one thread through them"
+    }
+   ],
+   "breaksDown": "A thread through sheets reads as binding; that is intended.",
+   "objects": [
+    {
+     "name": "sheets",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "policy plate",
+     "role": "support",
+     "material": "neutral"
+    }
+   ],
+   "layout": "L2",
+   "states": {
+    "rest": "Outline: a quiet pencil sketch",
+    "active": "a teal thread starts from the first chapter → then the thread reaches the second chapter, which lights up → then it ends at the last chapter, topped teal, which glows teal",
+    "meaning": "the guide is complete"
+   },
+   "story": [
+    {
+     "beat": 0,
+     "at": "0 ms",
+     "what": "a teal thread starts from the first chapter"
+    },
+    {
+     "beat": 1,
+     "at": "320 ms",
+     "what": "the thread reaches the second chapter, which lights up"
+    },
+    {
+     "beat": 2,
+     "at": "640 ms",
+     "what": "it ends at the last chapter, topped teal, which glows teal"
+    }
+   ],
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "motionException": "short story on hover (~1.2 s, no loop), lead-approved",
+   "reducedMotion": "show the final frame: it ends at the last chapter, topped teal, which glows teal",
+   "alt": "A teal thread runs through three stacks of sheets, the last topped teal.",
+   "alternatives": [
+    {
+     "angle": "direct claim",
+     "idea": "binder"
+    },
+    {
+     "angle": "proof",
+     "idea": "tall stack"
+    }
+   ]
+  },
+  {
+   "id": "tContact",
+   "scene": "tContact",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Contact Us",
+    "body": "Reach our team"
+   },
+   "message": "Reach out, and the reply comes back along the same thread.",
+   "viewerQuestion": "Can I talk to someone?",
+   "relationship": "contact",
+   "device": "metonymy",
+   "mapping": [
+    {
+     "concept": "you",
+     "object": "a home"
+    },
+    {
+     "concept": "the reply",
+     "object": "the mailbox flag"
+    }
+   ],
+   "breaksDown": "A mailbox reads as post; the raised flag is a reply.",
+   "objects": [
+    {
+     "name": "mailbox",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "home",
+     "role": "support",
+     "material": "neutral"
+    }
+   ],
+   "layout": "L5",
+   "states": {
+    "rest": "Outline: a quiet pencil sketch",
+    "active": "a teal thread starts from the home → then the thread reaches the mailbox post, which lights up → then it ends at the mailbox, whose flag rises, which glows teal",
+    "meaning": "a reply is waiting"
+   },
+   "story": [
+    {
+     "beat": 0,
+     "at": "0 ms",
+     "what": "a teal thread starts from the home"
+    },
+    {
+     "beat": 1,
+     "at": "320 ms",
+     "what": "the thread reaches the mailbox post, which lights up"
+    },
+    {
+     "beat": 2,
+     "at": "640 ms",
+     "what": "it ends at the mailbox, whose flag rises, which glows teal"
+    }
+   ],
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "motionException": "short story on hover (~1.2 s, no loop), lead-approved",
+   "reducedMotion": "show the final frame: it ends at the mailbox, whose flag rises, which glows teal",
+   "alt": "A teal thread from a home to a teal mailbox that raises its flag.",
+   "alternatives": [
+    {
+     "angle": "proof",
+     "idea": "document"
+    },
+    {
+     "angle": "mechanism",
+     "idea": "route"
+    }
+   ]
+  },
+  {
+   "id": "tAvail",
+   "scene": "tAvail",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Product Availability",
+    "body": "Where coverage is offered"
+   },
+   "message": "The thread reaches all the way to your place.",
+   "viewerQuestion": "Is it offered where I am?",
+   "relationship": "reach",
+   "device": "metaphor",
+   "mapping": [
+    {
+     "concept": "places",
+     "object": "pucks along the thread"
+    },
+    {
+     "concept": "yours",
+     "object": "the last one, where a pin lands"
+    }
+   ],
+   "breaksDown": "Pucks could read as buttons; the pin makes them places.",
+   "objects": [
+    {
+     "name": "puck",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "pin",
+     "role": "support",
+     "material": "teal"
+    }
+   ],
+   "layout": "L3",
+   "states": {
+    "rest": "Outline: a quiet pencil sketch",
+    "active": "a teal thread starts from the first place → then the thread reaches the next places, which lights up → then it ends at your place, where a pin lands, which glows teal",
+    "meaning": "coverage reaches you"
+   },
+   "story": [
+    {
+     "beat": 0,
+     "at": "0 ms",
+     "what": "a teal thread starts from the first place"
+    },
+    {
+     "beat": 1,
+     "at": "320 ms",
+     "what": "the thread reaches the next places, which lights up"
+    },
+    {
+     "beat": 2,
+     "at": "640 ms",
+     "what": "it ends at your place, where a pin lands, which glows teal"
+    }
+   ],
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "motionException": "short story on hover (~1.2 s, no loop), lead-approved",
+   "reducedMotion": "show the final frame: it ends at your place, where a pin lands, which glows teal",
+   "alt": "A teal thread hops across pucks and a pin lands on the last, which turns teal.",
+   "alternatives": [
+    {
+     "angle": "proof",
+     "idea": "region tiles"
+    },
+    {
+     "angle": "metaphor",
+     "idea": "home"
+    }
+   ]
+  },
+  {
+   "id": "tAnnounce",
+   "scene": "tAnnounce",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Announcements",
+    "body": "Product and company news"
+   },
+   "message": "News travels to your door along the thread.",
+   "viewerQuestion": "What's new with InsureShield?",
+   "relationship": "inform",
+   "device": "metonymy",
+   "mapping": [
+    {
+     "concept": "the news",
+     "object": "a sheet"
+    },
+    {
+     "concept": "your door",
+     "object": "a home"
+    }
+   ],
+   "breaksDown": "A sheet at a door could read as junk mail; it lands teal.",
+   "objects": [
+    {
+     "name": "sheets",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "home",
+     "role": "support",
+     "material": "neutral"
+    }
+   ],
+   "layout": "L5",
+   "states": {
+    "rest": "Outline: a quiet pencil sketch",
+    "active": "a teal thread starts from a stack of news → then the thread reaches the path, which lights up → then it ends at the doormat, where a teal sheet lands, which glows teal",
+    "meaning": "the news has arrived"
+   },
+   "story": [
+    {
+     "beat": 0,
+     "at": "0 ms",
+     "what": "a teal thread starts from a stack of news"
+    },
+    {
+     "beat": 1,
+     "at": "320 ms",
+     "what": "the thread reaches the path, which lights up"
+    },
+    {
+     "beat": 2,
+     "at": "640 ms",
+     "what": "it ends at the doormat, where a teal sheet lands, which glows teal"
+    }
+   ],
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "motionException": "short story on hover (~1.2 s, no loop), lead-approved",
+   "reducedMotion": "show the final frame: it ends at the doormat, where a teal sheet lands, which glows teal",
+   "alt": "A teal thread from a stack of news to a home; a teal sheet lands on the mat.",
+   "alternatives": [
+    {
+     "angle": "proof",
+     "idea": "stack"
+    },
+    {
+     "angle": "metaphor",
+     "idea": "open box"
+    }
+   ]
+  },
+  {
+   "id": "tNews",
+   "scene": "tNews",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "In The News",
+    "body": "Press coverage of UPS Capital"
+   },
+   "message": "The story of the company behind your cover, told in print.",
+   "viewerQuestion": "What do others say about them?",
+   "relationship": "protect",
+   "device": "double meaning",
+   "mapping": [
+    {
+     "concept": "the press",
+     "object": "printed sheets"
+    },
+    {
+     "concept": "coverage",
+     "object": "a shield at the end of the thread"
+    }
+   ],
+   "breaksDown": "A shield on paper could read as a certificate; it stands upright.",
+   "objects": [
+    {
+     "name": "shield",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "sheets",
+     "role": "support",
+     "material": "chalk"
+    }
+   ],
+   "layout": "L2",
+   "states": {
+    "rest": "Outline: a quiet pencil sketch",
+    "active": "a teal thread starts from the printed sheets → then the thread reaches their headlines, which lights up → then it ends at a shield standing up, which glows teal",
+    "meaning": "the company is in the news"
+   },
+   "story": [
+    {
+     "beat": 0,
+     "at": "0 ms",
+     "what": "a teal thread starts from the printed sheets"
+    },
+    {
+     "beat": 1,
+     "at": "320 ms",
+     "what": "the thread reaches their headlines, which lights up"
+    },
+    {
+     "beat": 2,
+     "at": "640 ms",
+     "what": "it ends at a shield standing up, which glows teal"
+    }
+   ],
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "motionException": "short story on hover (~1.2 s, no loop), lead-approved",
+   "reducedMotion": "show the final frame: it ends at a shield standing up, which glows teal",
+   "alt": "A teal thread across printed sheets ends in a teal shield standing up.",
+   "alternatives": [
+    {
+     "angle": "proof",
+     "idea": "pin"
+    },
+    {
+     "angle": "metaphor",
+     "idea": "shield behind homes"
+    }
+   ]
+  }
+ ]
+}

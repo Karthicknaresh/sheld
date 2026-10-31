@@ -1,0 +1,116 @@
+[
+ {
+  "scene": "mMulti",
+  "file": "dream-mMulti.svg",
+  "title": "A small shop lights up; three carrier-striped parcels at its door are sealed with teal tape",
+  "kb": 9.2
+ },
+ {
+  "scene": "mUps",
+  "file": "dream-mUps.svg",
+  "title": "A home lights up; a UPS parcel lands on the step and the mat under it turns teal",
+  "kb": 7.7
+ },
+ {
+  "scene": "mSpecial",
+  "file": "dream-mSpecial.svg",
+  "title": "A blue safe opens on a plate and a teal check ring rises above it",
+  "kb": 8.3
+ },
+ {
+  "scene": "mSelect",
+  "file": "dream-mSelect.svg",
+  "title": "A question sheet whose rings tick, then a teal shield lights up beside it",
+  "kb": 17.6
+ },
+ {
+  "scene": "mQuote",
+  "file": "dream-mQuote.svg",
+  "title": "A stack of parcels with coins rising beside it, the top one teal",
+  "kb": 19.5
+ },
+ {
+  "scene": "mDefense",
+  "file": "dream-mDefense.svg",
+  "title": "Two homes light up and a teal pin lands at one door",
+  "kb": 10.3
+ },
+ {
+  "scene": "mOrchestrate",
+  "file": "dream-mOrchestrate.svg",
+  "title": "A coral cloud over one branch; the other branch lights teal to a home",
+  "kb": 11.3
+ },
+ {
+  "scene": "mCommerce",
+  "file": "dream-mCommerce.svg",
+  "title": "A laptop lights up, a coral mark appears and becomes a teal check ring",
+  "kb": 11.3
+ },
+ {
+  "scene": "mInsure",
+  "file": "dream-mInsure.svg",
+  "title": "A parcel turns coral, then a large teal shield lights up behind it",
+  "kb": 10.7
+ },
+ {
+  "scene": "mConnect",
+  "file": "dream-mConnect.svg",
+  "title": "A laptop lights up, a teal block seats on it and a route lights out",
+  "kb": 8.2
+ },
+ {
+  "scene": "mBecome",
+  "file": "dream-mBecome.svg",
+  "title": "A shop lights up, parcels leave and its awning turns teal",
+  "kb": 8.1
+ },
+ {
+  "scene": "mHelp",
+  "file": "dream-mHelp.svg",
+  "title": "One window lights up, a document arrives and a teal check ring lights over it",
+  "kb": 8.2
+ },
+ {
+  "scene": "mStories",
+  "file": "dream-mStories.svg",
+  "title": "A dark shop with a coral mark; coins rise and its windows light up again",
+  "kb": 18.7
+ },
+ {
+  "scene": "mInsights",
+  "file": "dream-mInsights.svg",
+  "title": "Bars on a sheet light up one by one, the tallest teal",
+  "kb": 8.3
+ },
+ {
+  "scene": "mGuides",
+  "file": "dream-mGuides.svg",
+  "title": "A stack of guides with a teal route drawing across the top and a teal tab",
+  "kb": 10.5
+ },
+ {
+  "scene": "mContact",
+  "file": "dream-mContact.svg",
+  "title": "A home lights up and its teal mailbox raises its flag",
+  "kb": 6.7
+ },
+ {
+  "scene": "mAvail",
+  "file": "dream-mAvail.svg",
+  "title": "Pins land on a row of pucks; the nearest lights teal",
+  "kb": 15.5
+ },
+ {
+  "scene": "mAnnounce",
+  "file": "dream-mAnnounce.svg",
+  "title": "A home lights up and a teal sheet lands on its mat",
+  "kb": 7.5
+ },
+ {
+  "scene": "mNews",
+  "file": "dream-mNews.svg",
+  "title": "Printed sheets with headlines and a teal shield standing up on top",
+  "kb": 11.6
+ }
+]

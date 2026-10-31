@@ -1,0 +1,1572 @@
+{
+ "set": "InsureShield nav V4 · Worry → Relief",
+ "cards": [
+  {
+   "id": "wInsurance",
+   "scene": "wInsurance",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Shipping Insurance",
+    "body": "Protect shipments from covered loss, damage, and theft.",
+    "worry": "What if it never arrives?",
+    "relief": "Covered loss, damage and theft are paid back."
+   },
+   "message": "If a shipment goes wrong, coverage is already in place.",
+   "viewerQuestion": "What if it never arrives?",
+   "relationship": "protect",
+   "device": "before-after",
+   "mapping": [
+    {
+     "concept": "the worry",
+     "object": "a coral mark over a kraft parcel"
+    },
+    {
+     "concept": "coverage",
+     "object": "the parcel turning teal on the plate"
+    }
+   ],
+   "breaksDown": "Turning teal must read as \"covered\", not \"repaired\"; the coral mark leaves first.",
+   "objects": [
+    {
+     "name": "parcel",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "policy plate",
+     "role": "support",
+     "material": "neutral"
+    },
+    {
+     "name": "coral mark",
+     "role": "support",
+     "material": "coral"
+    }
+   ],
+   "layout": "L2",
+   "states": {
+    "rest": "Worry: a coral mark above a kraft parcel, lifted 4 units with thin hatch (unsettled)",
+    "active": "the coral mark lifts away, the parcel turns teal and settles onto the plate",
+    "meaning": "the shipment is covered"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "reducedMotion": "show the end state: coral mark lifts away, the parcel turns teal and settles onto the plate",
+   "alt": "A kraft parcel under a coral mark turns teal and settles onto a policy plate.",
+   "alternatives": [
+    {
+     "angle": "proof",
+     "idea": "coins beside an empty porch"
+    },
+    {
+     "angle": "mechanism",
+     "idea": "claim sheet → coins"
+    }
+   ]
+  },
+  {
+   "id": "wSolutions",
+   "scene": "wSolutions",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Solutions",
+    "body": "Tools that reduce risk before, during, and after delivery.",
+    "worry": "Want fewer surprises after you ship?",
+    "relief": "Check, choose and cover before the parcel leaves."
+   },
+   "message": "Each tool brings the risk down before it costs you.",
+   "viewerQuestion": "Can I see trouble coming?",
+   "relationship": "scale",
+   "device": "number made physical",
+   "mapping": [
+    {
+     "concept": "risk level",
+     "object": "bars of stacked boxes"
+    },
+    {
+     "concept": "lowered risk",
+     "object": "the tall coral bar replaced by a short teal one"
+    }
+   ],
+   "breaksDown": "Bars could read as sales growth; the coral one must be the tallest and the teal one shorter.",
+   "objects": [
+    {
+     "name": "bars",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "claim document",
+     "role": "support",
+     "material": "chalk"
+    }
+   ],
+   "layout": "L4",
+   "states": {
+    "rest": "Worry: the tallest bar is coral, lifted 4 units with thin hatch (unsettled)",
+    "active": "the tall coral bar fades and a short teal bar rises in its place",
+    "meaning": "risk goes down"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "reducedMotion": "show the end state: tall coral bar fades and a short teal bar rises in its place",
+   "alt": "A row of bars on a sheet; the tall coral bar is replaced by a short teal one.",
+   "alternatives": [
+    {
+     "angle": "mechanism",
+     "idea": "three gates along a route"
+    },
+    {
+     "angle": "relatable moment",
+     "idea": "a calm route under a clearing cloud"
+    }
+   ]
+  },
+  {
+   "id": "wPartners",
+   "scene": "wPartners",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Partners",
+    "body": "Connect InsureShield to the platforms you already ship with.",
+    "worry": "Already selling on a platform?",
+    "relief": "Add coverage where you already work."
+   },
+   "message": "Coverage plugs into the platform you already run on.",
+   "viewerQuestion": "Will this work with what I use?",
+   "relationship": "connect",
+   "device": "metaphor",
+   "mapping": [
+    {
+     "concept": "your platform",
+     "object": "a grey block with two sockets"
+    },
+    {
+     "concept": "InsureShield",
+     "object": "teal blocks seating into them"
+    }
+   ],
+   "breaksDown": "Two blocks could read as two products; they are one connection in two places.",
+   "objects": [
+    {
+     "name": "dock block",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "policy plate",
+     "role": "support",
+     "material": "neutral"
+    }
+   ],
+   "layout": "L2",
+   "states": {
+    "rest": "Worry: two empty sockets, the blocks hovering apart, lifted 4 units with thin hatch (unsettled)",
+    "active": "two teal blocks seat into the grey platform block",
+    "meaning": "coverage connects to your platform"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "reducedMotion": "show the end state: two teal blocks seat into the grey platform block",
+   "alt": "A grey platform block with two empty sockets; two teal blocks seat into them.",
+   "alternatives": [
+    {
+     "angle": "proof",
+     "idea": "many storefronts on one plate"
+    },
+    {
+     "angle": "direct claim",
+     "idea": "a laptop showing a shield"
+    }
+   ]
+  },
+  {
+   "id": "wResources",
+   "scene": "wResources",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Resources",
+    "body": "Guides, stories, and support for shippers.",
+    "worry": "Not sure where to start?",
+    "relief": "Start with help, then learn at your pace."
+   },
+   "message": "There is a clear first step, and help is one short path away.",
+   "viewerQuestion": "Where do I start?",
+   "relationship": "inform",
+   "device": "metaphor",
+   "mapping": [
+    {
+     "concept": "you are here",
+     "object": "the pin at the start"
+    },
+    {
+     "concept": "the way in",
+     "object": "the route to the sheets"
+    }
+   ],
+   "breaksDown": "A pin can read as a map location; it marks the starting point of the route.",
+   "objects": [
+    {
+     "name": "pin",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "route",
+     "role": "support",
+     "material": "teal"
+    },
+    {
+     "name": "sheets",
+     "role": "support",
+     "material": "chalk"
+    }
+   ],
+   "layout": "L3",
+   "states": {
+    "rest": "Worry: no pin, a faint route, lifted 4 units with thin hatch (unsettled)",
+    "active": "a teal pin lands at the start and the route draws to the sheets",
+    "meaning": "you know where to begin"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "reducedMotion": "show the end state: a teal pin lands at the start and the route draws to the sheets",
+   "alt": "A teal pin lands at the start of a dashed route that leads to a stack of guides.",
+   "alternatives": [
+    {
+     "angle": "direct claim",
+     "idea": "a single guide with a teal tab"
+    },
+    {
+     "angle": "mechanism",
+     "idea": "question ring → check"
+    }
+   ]
+  },
+  {
+   "id": "wAbout",
+   "scene": "wAbout",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "About",
+    "body": "News, availability, and how to reach us.",
+    "worry": "Who stands behind your coverage?",
+    "relief": "UPS Capital, and a team you can reach."
+   },
+   "message": "A real company stands behind every policy.",
+   "viewerQuestion": "Who is behind my coverage?",
+   "relationship": "protect",
+   "device": "metaphor",
+   "mapping": [
+    {
+     "concept": "the people you serve",
+     "object": "a row of small homes"
+    },
+    {
+     "concept": "UPS Capital",
+     "object": "the large shield rising behind them"
+    }
+   ],
+   "breaksDown": "A shield behind homes could read as home insurance; the homes stay small and plain.",
+   "objects": [
+    {
+     "name": "shield",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "home",
+     "role": "support",
+     "material": "neutral"
+    }
+   ],
+   "layout": "L4",
+   "states": {
+    "rest": "Worry: the homes stand alone, lifted 4 units with thin hatch (unsettled)",
+    "active": "a large teal shield rises behind the row of homes",
+    "meaning": "someone stands behind you"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "reducedMotion": "show the end state: a large teal shield rises behind the row of homes",
+   "alt": "A large teal shield rises behind a row of small homes.",
+   "alternatives": [
+    {
+     "angle": "proof",
+     "idea": "a stack of press sheets"
+    },
+    {
+     "angle": "contact",
+     "idea": "a mailbox with its flag raised"
+    }
+   ]
+  },
+  {
+   "id": "wSelect",
+   "scene": "wSelect",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Select My Coverage",
+    "body": "Answer a few questions to find the right fit",
+    "worry": "Too many options?",
+    "relief": "A few answers point to the right fit."
+   },
+   "message": "Of all the options, one fits what you ship.",
+   "viewerQuestion": "Which of these is right for me?",
+   "relationship": "fit",
+   "device": "contrast",
+   "mapping": [
+    {
+     "concept": "too many options",
+     "object": "three grey shields"
+    },
+    {
+     "concept": "the fit",
+     "object": "the one that turns teal"
+    }
+   ],
+   "breaksDown": "Three shields could read as three levels of security; two leave so one remains.",
+   "objects": [
+    {
+     "name": "shield",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "parcel",
+     "role": "support",
+     "material": "kraft"
+    },
+    {
+     "name": "policy plate",
+     "role": "support",
+     "material": "neutral"
+    }
+   ],
+   "layout": "L2",
+   "states": {
+    "rest": "Worry: three grey shields around a parcel, lifted 4 units with thin hatch (unsettled)",
+    "active": "two grey shields fade and the middle one turns teal in front of the parcel",
+    "meaning": "the right coverage is found"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "base",
+    "easing": "standard"
+   },
+   "reducedMotion": "show the end state: two grey shields fade and the middle one turns teal in front of the parcel",
+   "alt": "Three grey shields around a parcel; two fade and the middle one turns teal.",
+   "alternatives": [
+    {
+     "angle": "metaphor",
+     "idea": "a parcel trying three plates"
+    },
+    {
+     "angle": "mechanism",
+     "idea": "a question sheet with rings checking"
+    }
+   ]
+  },
+  {
+   "id": "wQuote",
+   "scene": "wQuote",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Get a Quote",
+    "body": "Estimate cost for your shipping volume",
+    "worry": "Will it cost too much?",
+    "relief": "See an estimate for your volume first."
+   },
+   "message": "The cost becomes clear before you commit.",
+   "viewerQuestion": "What will this cost me?",
+   "relationship": "scale",
+   "device": "before-after",
+   "mapping": [
+    {
+     "concept": "the unknown price",
+     "object": "a ghost coin stack"
+    },
+    {
+     "concept": "the estimate",
+     "object": "coins filling teal"
+    }
+   ],
+   "breaksDown": "Coins could read as a payout; they sit beside the parcels as the price of covering them.",
+   "objects": [
+    {
+     "name": "coin stack",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "parcel group",
+     "role": "support",
+     "material": "kraft"
+    },
+    {
+     "name": "policy plate",
+     "role": "support",
+     "material": "neutral"
+    }
+   ],
+   "layout": "L2",
+   "states": {
+    "rest": "Worry: the coin stack is only an outline, lifted 4 units with thin hatch (unsettled)",
+    "active": "the ghost coin stack fills teal coin by coin",
+    "meaning": "the estimate is clear"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "base",
+    "easing": "standard"
+   },
+   "reducedMotion": "show the end state: ghost coin stack fills teal coin by coin",
+   "alt": "Three parcels on a plate beside a ghost coin stack that fills teal coin by coin.",
+   "alternatives": [
+    {
+     "angle": "proof",
+     "idea": "a quote sheet with one coin"
+    },
+    {
+     "angle": "contrast",
+     "idea": "small and large parcel groups"
+    }
+   ]
+  },
+  {
+   "id": "wMulti",
+   "scene": "wMulti",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Multi-Carrier Shipments",
+    "body": "Parcel and freight across UPS, FedEx, DHL, and USPS",
+    "worry": "Different carriers, different rules?",
+    "relief": "One policy across UPS, FedEx, DHL and USPS."
+   },
+   "message": "Four carriers no longer mean four sets of rules.",
+   "viewerQuestion": "Do I need cover for each carrier?",
+   "relationship": "protect",
+   "device": "contrast",
+   "mapping": [
+    {
+     "concept": "each carrier",
+     "object": "a striped parcel on its own small plate"
+    },
+    {
+     "concept": "one policy",
+     "object": "one long teal plate under all four"
+    }
+   ],
+   "breaksDown": "Four small plates must clearly be separate; the long plate replaces them, it does not stack.",
+   "objects": [
+    {
+     "name": "policy plate",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "parcel group",
+     "role": "support",
+     "material": "carrier"
+    }
+   ],
+   "layout": "L4",
+   "states": {
+    "rest": "Worry: four parcels on four separate grey plates, lifted 4 units with thin hatch (unsettled)",
+    "active": "the four small plates fade and one long teal plate slides in under all the parcels",
+    "meaning": "one policy covers every carrier"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "reducedMotion": "show the end state: four small plates fade and one long teal plate slides in under all the parcels",
+   "alt": "Four carrier-striped parcels move from four small plates onto one long teal plate.",
+   "alternatives": [
+    {
+     "angle": "metaphor",
+     "idea": "four routes merging"
+    },
+    {
+     "angle": "direct claim",
+     "idea": "one shield behind four parcels"
+    }
+   ]
+  },
+  {
+   "id": "wUps",
+   "scene": "wUps",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "UPS Shipments",
+    "body": "Coverage designed for packages shipped with UPS",
+    "worry": "Left at the door, then gone?",
+    "relief": "Covered UPS packages are paid back."
+   },
+   "message": "If a UPS package goes missing at the door, its value comes back.",
+   "viewerQuestion": "What if it is taken from my customer's porch?",
+   "relationship": "recovery",
+   "device": "cause-effect",
+   "mapping": [
+    {
+     "concept": "the loss",
+     "object": "a coral mark at the door where the parcel was"
+    },
+    {
+     "concept": "the payout",
+     "object": "a teal coin stack in its place"
+    }
+   ],
+   "breaksDown": "Must not imply theft is prevented; the coins say \"paid back\".",
+   "objects": [
+    {
+     "name": "coin stack",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "home",
+     "role": "support",
+     "material": "neutral"
+    },
+    {
+     "name": "coral mark",
+     "role": "support",
+     "material": "coral"
+    }
+   ],
+   "layout": "L5",
+   "states": {
+    "rest": "Worry: a coral mark where the UPS parcel was left, lifted 4 units with thin hatch (unsettled)",
+    "active": "the coral mark at the door fades and a teal coin stack rises in its place",
+    "meaning": "the loss is paid back"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "reducedMotion": "show the end state: coral mark at the door fades and a teal coin stack rises in its place",
+   "alt": "A home with a coral mark at its door; the mark is replaced by a teal coin stack.",
+   "alternatives": [
+    {
+     "angle": "proof",
+     "idea": "UPS-banded parcel on a plate"
+    },
+    {
+     "angle": "mechanism",
+     "idea": "claim sheet beside the door"
+    }
+   ]
+  },
+  {
+   "id": "wSpecial",
+   "scene": "wSpecial",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Special Commodities",
+    "body": "High-value, perishable, and specialty goods",
+    "worry": "Fragile, perishable or worth a lot?",
+    "relief": "Specialty goods have coverage too."
+   },
+   "message": "Fragile, perishable or valuable goods still have a policy under them.",
+   "viewerQuestion": "Is what's inside too special to cover?",
+   "relationship": "protect",
+   "device": "before-after",
+   "mapping": [
+    {
+     "concept": "precious goods",
+     "object": "a blue item balanced on a parcel"
+    },
+    {
+     "concept": "the policy",
+     "object": "a teal plate sliding underneath"
+    }
+   ],
+   "breaksDown": "A plate under a wobbly stack could read as \"packing advice\"; the coral mark makes it the risk.",
+   "objects": [
+    {
+     "name": "policy plate",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "item",
+     "role": "support",
+     "material": "blue"
+    },
+    {
+     "name": "parcel",
+     "role": "support",
+     "material": "kraft"
+    },
+    {
+     "name": "coral mark",
+     "role": "support",
+     "material": "coral"
+    }
+   ],
+   "layout": "L2",
+   "states": {
+    "rest": "Worry: a blue item balanced on a parcel, a coral mark beside it, lifted 4 units with thin hatch (unsettled)",
+    "active": "the coral mark fades, a teal plate slides in and the item settles",
+    "meaning": "special goods are covered"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "reducedMotion": "show the end state: coral mark fades, a teal plate slides in and the item settles",
+   "alt": "A blue item balanced on a kraft parcel; a teal plate slides underneath as the coral mark fades.",
+   "alternatives": [
+    {
+     "angle": "metonymy",
+     "idea": "a blue safe"
+    },
+    {
+     "angle": "proof",
+     "idea": "three different boxes on one plate"
+    }
+   ]
+  },
+  {
+   "id": "wDefense",
+   "scene": "wDefense",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "DeliveryDefense",
+    "body": "Address confidence scores before you ship",
+    "worry": "Is this address risky?",
+    "relief": "See a confidence score before you ship."
+   },
+   "message": "You know an address is good before the parcel leaves.",
+   "viewerQuestion": "Is this address going to be a problem?",
+   "relationship": "verify",
+   "device": "before-after",
+   "mapping": [
+    {
+     "concept": "a doubtful address",
+     "object": "a coral pin over the home"
+    },
+    {
+     "concept": "confidence",
+     "object": "the pin turning teal"
+    }
+   ],
+   "breaksDown": "A pin over a home could read as maps; the parcel waiting on the left makes it \"before you ship\".",
+   "objects": [
+    {
+     "name": "pin",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "home",
+     "role": "support",
+     "material": "neutral"
+    },
+    {
+     "name": "parcel",
+     "role": "support",
+     "material": "kraft"
+    }
+   ],
+   "layout": "L5",
+   "states": {
+    "rest": "Worry: a coral pin hovers over the home, lifted 4 units with thin hatch (unsettled)",
+    "active": "the coral pin over the home turns teal and drops onto it",
+    "meaning": "the address is confirmed"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "base",
+    "easing": "standard"
+   },
+   "reducedMotion": "show the end state: coral pin over the home turns teal and drops onto it",
+   "alt": "A parcel waits on the left while a coral pin over a home turns teal and lands.",
+   "alternatives": [
+    {
+     "angle": "mechanism",
+     "idea": "label sheet with a check"
+    },
+    {
+     "angle": "contrast",
+     "idea": "two homes, one pin"
+    }
+   ]
+  },
+  {
+   "id": "wOrchestrate",
+   "scene": "wOrchestrate",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Delivery Orchestration",
+    "body": "Choose delivery options that lower risk",
+    "worry": "Is the usual option the safest?",
+    "relief": "Choose delivery options that lower risk."
+   },
+   "message": "A better delivery choice moves the parcel out of harm's way.",
+   "viewerQuestion": "Is the usual option the safest one?",
+   "relationship": "exposure",
+   "device": "cause-effect",
+   "mapping": [
+    {
+     "concept": "exposure",
+     "object": "a parcel under a coral cloud"
+    },
+    {
+     "concept": "the safer option",
+     "object": "a teal plate it moves onto"
+    }
+   ],
+   "breaksDown": "Must not imply weather is controlled; the parcel moves, the cloud stays and calms.",
+   "objects": [
+    {
+     "name": "policy plate",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "cloud",
+     "role": "support",
+     "material": "coral"
+    },
+    {
+     "name": "parcel",
+     "role": "support",
+     "material": "kraft"
+    }
+   ],
+   "layout": "L5",
+   "states": {
+    "rest": "Worry: a parcel sits under a coral cloud, lifted 4 units with thin hatch (unsettled)",
+    "active": "the parcel slides from under the coral cloud onto a teal plate and the cloud turns grey",
+    "meaning": "a safer option is chosen"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "reducedMotion": "show the end state: parcel slides from under the coral cloud onto a teal plate and the cloud turns grey",
+   "alt": "A parcel slides from under a coral cloud onto a teal plate.",
+   "alternatives": [
+    {
+     "angle": "metaphor",
+     "idea": "a fork in the route"
+    },
+    {
+     "angle": "proof",
+     "idea": "three plates, one teal"
+    }
+   ]
+  },
+  {
+   "id": "wCommerce",
+   "scene": "wCommerce",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "CommerceShield",
+    "body": "Order risk signals and chargeback protection",
+    "worry": "Was that order fraud?",
+    "relief": "Risk signals and chargeback protection."
+   },
+   "message": "A suspicious order is flagged before it costs you.",
+   "viewerQuestion": "Was that order fraud?",
+   "relationship": "verify",
+   "device": "before-after",
+   "mapping": [
+    {
+     "concept": "the order",
+     "object": "the laptop"
+    },
+    {
+     "concept": "the doubt",
+     "object": "a coral mark"
+    },
+    {
+     "concept": "screened",
+     "object": "a teal check ring"
+    }
+   ],
+   "breaksDown": "Must not promise every fraud is stopped; the ring says the order was screened.",
+   "objects": [
+    {
+     "name": "check ring",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "laptop",
+     "role": "support",
+     "material": "neutral"
+    },
+    {
+     "name": "coral mark",
+     "role": "support",
+     "material": "coral"
+    }
+   ],
+   "layout": "L5",
+   "states": {
+    "rest": "Worry: a coral mark above an open laptop, lifted 4 units with thin hatch (unsettled)",
+    "active": "the coral mark above the laptop turns into a teal check ring",
+    "meaning": "the order has been screened"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "base",
+    "easing": "standard"
+   },
+   "reducedMotion": "show the end state: coral mark above the laptop turns into a teal check ring",
+   "alt": "A laptop with a coral mark above it; the mark becomes a teal check ring.",
+   "alternatives": [
+    {
+     "angle": "contrast",
+     "idea": "two parcels, one held back"
+    },
+    {
+     "angle": "mechanism",
+     "idea": "a gate ring on a route"
+    }
+   ]
+  },
+  {
+   "id": "wInsureShield",
+   "scene": "wInsureShield",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "InsureShield® Shipping Insurance",
+    "body": "Protection against loss, damage, and theft",
+    "worry": "It arrived broken?",
+    "relief": "Protection against loss, damage and theft."
+   },
+   "message": "When covered damage happens, the value is made whole again.",
+   "viewerQuestion": "What if it arrives broken?",
+   "relationship": "recovery",
+   "device": "before-after",
+   "mapping": [
+    {
+     "concept": "damage",
+     "object": "a crushed coral parcel"
+    },
+    {
+     "concept": "made whole",
+     "object": "a full-height teal parcel rising in its place"
+    }
+   ],
+   "breaksDown": "The teal parcel is the value restored, not a replacement shipment.",
+   "objects": [
+    {
+     "name": "parcel",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "shield",
+     "role": "support",
+     "material": "ghost"
+    },
+    {
+     "name": "coral mark",
+     "role": "support",
+     "material": "coral"
+    }
+   ],
+   "layout": "L5",
+   "states": {
+    "rest": "Worry: a crushed coral parcel in front of a faint shield, lifted 4 units with thin hatch (unsettled)",
+    "active": "the crushed coral parcel fades and a full-height teal parcel rises in front of the shield",
+    "meaning": "the value is made whole"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "reducedMotion": "show the end state: crushed coral parcel fades and a full-height teal parcel rises in front of the shield",
+   "alt": "A crushed coral parcel is replaced by a full teal parcel in front of a shield.",
+   "alternatives": [
+    {
+     "angle": "proof",
+     "idea": "coins beside the parcel"
+    },
+    {
+     "angle": "mechanism",
+     "idea": "claim → check → coins"
+    }
+   ]
+  },
+  {
+   "id": "wConnect",
+   "scene": "wConnect",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Connect with a Partner",
+    "body": "Add coverage inside the platforms you use",
+    "worry": "Another tool to set up?",
+    "relief": "Add coverage inside the platforms you use."
+   },
+   "message": "Coverage arrives inside the tools you already use, no extra setup.",
+   "viewerQuestion": "Is this another system to learn?",
+   "relationship": "connect",
+   "device": "contrast",
+   "mapping": [
+    {
+     "concept": "extra setup",
+     "object": "a pile of loose sheets"
+    },
+    {
+     "concept": "built in",
+     "object": "a teal block seated on the laptop"
+    }
+   ],
+   "breaksDown": "Sheets could read as reading material; they lift away as the block seats.",
+   "objects": [
+    {
+     "name": "dock block",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "laptop",
+     "role": "support",
+     "material": "neutral"
+    },
+    {
+     "name": "sheets",
+     "role": "support",
+     "material": "chalk"
+    }
+   ],
+   "layout": "L5",
+   "states": {
+    "rest": "Worry: loose sheets pile beside the laptop, lifted 4 units with thin hatch (unsettled)",
+    "active": "the loose sheets fade and a teal block seats on the laptop",
+    "meaning": "coverage is built in"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "base",
+    "easing": "standard"
+   },
+   "reducedMotion": "show the end state: loose sheets fade and a teal block seats on the laptop",
+   "alt": "Loose sheets beside a laptop fade as a teal block seats onto it.",
+   "alternatives": [
+    {
+     "angle": "metaphor",
+     "idea": "a route from laptop to plate"
+    },
+    {
+     "angle": "proof",
+     "idea": "a row of laptops with teal blocks"
+    }
+   ]
+  },
+  {
+   "id": "wBecome",
+   "scene": "wBecome",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Become a Partner",
+    "body": "Offer InsureShield to your customers",
+    "worry": "Customers asking about lost parcels?",
+    "relief": "Offer InsureShield to them."
+   },
+   "message": "Your customers' parcels can be covered through you.",
+   "viewerQuestion": "Can I help my customers worry less?",
+   "relationship": "protect",
+   "device": "number made physical",
+   "mapping": [
+    {
+     "concept": "your customers",
+     "object": "a row of parcels by your storefront"
+    },
+    {
+     "concept": "the offer",
+     "object": "teal tape sealing each parcel"
+    }
+   ],
+   "breaksDown": "Teal tape could read as packing; the coral mark on the first parcel makes it about risk.",
+   "objects": [
+    {
+     "name": "parcel group",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "storefront",
+     "role": "support",
+     "material": "neutral"
+    },
+    {
+     "name": "coral mark",
+     "role": "support",
+     "material": "coral"
+    }
+   ],
+   "layout": "L4",
+   "states": {
+    "rest": "Worry: a coral mark over the first parcel in the row, lifted 4 units with thin hatch (unsettled)",
+    "active": "the coral mark fades and every parcel in the row is sealed with teal tape, one after another",
+    "meaning": "customers are offered coverage"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "reducedMotion": "show the end state: coral mark fades and every parcel in the row is sealed with teal tape, one after another",
+   "alt": "A storefront with a row of parcels; each gets teal tape as a coral mark fades.",
+   "alternatives": [
+    {
+     "angle": "metonymy",
+     "idea": "a storefront with a teal awning"
+    },
+    {
+     "angle": "connect",
+     "idea": "a dock into a platform"
+    }
+   ]
+  },
+  {
+   "id": "wHelp",
+   "scene": "wHelp",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Help & Support",
+    "body": "Answers about coverage, billing, and claims",
+    "worry": "Have a question right now?",
+    "relief": "Answers on coverage, billing and claims."
+   },
+   "message": "Your question gets answered.",
+   "viewerQuestion": "Can someone help me with this now?",
+   "relationship": "verify",
+   "device": "before-after",
+   "mapping": [
+    {
+     "concept": "the open question",
+     "object": "an empty grey ring above the document"
+    },
+    {
+     "concept": "answered",
+     "object": "the ring turning teal with a check"
+    }
+   ],
+   "breaksDown": "An empty ring could read as \"loading\"; it stays still until it fills.",
+   "objects": [
+    {
+     "name": "check ring",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "claim document",
+     "role": "support",
+     "material": "chalk"
+    },
+    {
+     "name": "policy plate",
+     "role": "support",
+     "material": "neutral"
+    }
+   ],
+   "layout": "L2",
+   "states": {
+    "rest": "Worry: an empty grey ring above the document, lifted 4 units with thin hatch (unsettled)",
+    "active": "the grey ring above the standing document fills teal with a check",
+    "meaning": "the question is answered"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "base",
+    "easing": "standard"
+   },
+   "reducedMotion": "show the end state: grey ring above the standing document fills teal with a check",
+   "alt": "A document standing on a plate; the grey ring above it becomes a teal check ring.",
+   "alternatives": [
+    {
+     "angle": "contact",
+     "idea": "a mailbox flag rising"
+    },
+    {
+     "angle": "proof",
+     "idea": "a clock with a short arc"
+    }
+   ]
+  },
+  {
+   "id": "wStories",
+   "scene": "wStories",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Customer Stories",
+    "body": "How businesses recover faster",
+    "worry": "Does it really work?",
+    "relief": "How businesses recover faster."
+   },
+   "message": "Businesses like yours have already recovered.",
+   "viewerQuestion": "Has this worked for others?",
+   "relationship": "recovery",
+   "device": "number made physical",
+   "mapping": [
+    {
+     "concept": "other businesses",
+     "object": "three storefronts"
+    },
+    {
+     "concept": "their recovery",
+     "object": "a coin stack rising beside each"
+    }
+   ],
+   "breaksDown": "Coin stacks could read as profit; keep them small, one per storefront.",
+   "objects": [
+    {
+     "name": "coin stack",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "storefront",
+     "role": "support",
+     "material": "neutral"
+    }
+   ],
+   "layout": "L4",
+   "states": {
+    "rest": "Worry: three storefronts with nothing beside them, lifted 4 units with thin hatch (unsettled)",
+    "active": "a teal coin stack rises beside each storefront, one after another",
+    "meaning": "others have recovered"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "reducedMotion": "show the end state: a teal coin stack rises beside each storefront, one after another",
+   "alt": "Three storefronts, each joined by a teal coin stack that rises in turn.",
+   "alternatives": [
+    {
+     "angle": "proof",
+     "idea": "a damaged parcel and coins"
+    },
+    {
+     "angle": "relatable moment",
+     "idea": "a storefront whose mark clears"
+    }
+   ]
+  },
+  {
+   "id": "wInsights",
+   "scene": "wInsights",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Insights",
+    "body": "Articles on shipping risk and protection",
+    "worry": "What risks am I missing?",
+    "relief": "Articles on shipping risk and protection."
+   },
+   "message": "Knowing the risk takes the edge off it.",
+   "viewerQuestion": "What risks am I missing?",
+   "relationship": "inform",
+   "device": "before-after",
+   "mapping": [
+    {
+     "concept": "the risk",
+     "object": "a coral cloud"
+    },
+    {
+     "concept": "understanding",
+     "object": "a teal sheet landing beneath it"
+    }
+   ],
+   "breaksDown": "Must not imply articles stop weather; the cloud calms because it is understood.",
+   "objects": [
+    {
+     "name": "sheets",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "cloud",
+     "role": "support",
+     "material": "coral"
+    }
+   ],
+   "layout": "L5",
+   "states": {
+    "rest": "Worry: a coral cloud over an empty spot, lifted 4 units with thin hatch (unsettled)",
+    "active": "a teal sheet lands under the coral cloud and the cloud turns grey",
+    "meaning": "the risk is understood"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "base",
+    "easing": "standard"
+   },
+   "reducedMotion": "show the end state: a teal sheet lands under the coral cloud and the cloud turns grey",
+   "alt": "A teal sheet lands under a coral cloud, which turns grey.",
+   "alternatives": [
+    {
+     "angle": "proof",
+     "idea": "bars on a sheet"
+    },
+    {
+     "angle": "mechanism",
+     "idea": "a route drawn on a sheet"
+    }
+   ]
+  },
+  {
+   "id": "wGuides",
+   "scene": "wGuides",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Whitepapers & Guides",
+    "body": "In-depth research and how-to guides",
+    "worry": "Need the full picture?",
+    "relief": "In-depth research and how-to guides."
+   },
+   "message": "The full picture is laid out step by step.",
+   "viewerQuestion": "Where is the complete answer?",
+   "relationship": "inform",
+   "device": "number made physical",
+   "mapping": [
+    {
+     "concept": "scattered facts",
+     "object": "loose sheets hovering"
+    },
+    {
+     "concept": "the full picture",
+     "object": "a stepped stack, top sheet teal"
+    }
+   ],
+   "breaksDown": "A stepped stack could read as stairs; the sheets keep their lines.",
+   "objects": [
+    {
+     "name": "sheets",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "policy plate",
+     "role": "support",
+     "material": "neutral"
+    }
+   ],
+   "layout": "L4",
+   "states": {
+    "rest": "Worry: sheets hover apart, lifted 4 units with thin hatch (unsettled)",
+    "active": "the hovering sheets settle into a stepped stack and the top one turns teal",
+    "meaning": "the full picture is in order"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "reducedMotion": "show the end state: hovering sheets settle into a stepped stack and the top one turns teal",
+   "alt": "Hovering sheets settle into a stepped stack with a teal sheet on top.",
+   "alternatives": [
+    {
+     "angle": "metaphor",
+     "idea": "a route across a sheet"
+    },
+    {
+     "angle": "direct claim",
+     "idea": "a thick binder with a teal tab"
+    }
+   ]
+  },
+  {
+   "id": "wAnnounce",
+   "scene": "wAnnounce",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Announcements",
+    "body": "Product and company news",
+    "worry": "What's changed?",
+    "relief": "Product and company news."
+   },
+   "message": "What changed is easy to spot.",
+   "viewerQuestion": "What's new that affects me?",
+   "relationship": "inform",
+   "device": "before-after",
+   "mapping": [
+    {
+     "concept": "news",
+     "object": "standing sheets in a row"
+    },
+    {
+     "concept": "the latest",
+     "object": "a teal sheet sliding to the front"
+    }
+   ],
+   "breaksDown": "Standing sheets could read as books; they are thin and lined.",
+   "objects": [
+    {
+     "name": "sheets",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "policy plate",
+     "role": "support",
+     "material": "neutral"
+    }
+   ],
+   "layout": "L2",
+   "states": {
+    "rest": "Worry: a row of grey standing sheets, lifted 4 units with thin hatch (unsettled)",
+    "active": "a teal sheet slides in at the front of the row",
+    "meaning": "the news is in front of you"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "base",
+    "easing": "standard"
+   },
+   "reducedMotion": "show the end state: a teal sheet slides in at the front of the row",
+   "alt": "A row of standing sheets on a plate; a teal sheet slides in at the front.",
+   "alternatives": [
+    {
+     "angle": "metonymy",
+     "idea": "a sheet on a doormat"
+    },
+    {
+     "angle": "proof",
+     "idea": "an open box with a teal block"
+    }
+   ]
+  },
+  {
+   "id": "wNews",
+   "scene": "wNews",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "In The News",
+    "body": "Press coverage of UPS Capital",
+    "worry": "Who stands behind this?",
+    "relief": "Press coverage of UPS Capital."
+   },
+   "message": "An established company is behind the cover, and the press says so.",
+   "viewerQuestion": "Can I trust who is behind this?",
+   "relationship": "protect",
+   "device": "double meaning",
+   "mapping": [
+    {
+     "concept": "press coverage",
+     "object": "a stack of printed sheets"
+    },
+    {
+     "concept": "coverage you can trust",
+     "object": "a teal shield standing up from it"
+    }
+   ],
+   "breaksDown": "A shield on paper could read as a certificate; it stands upright behind the stack.",
+   "objects": [
+    {
+     "name": "shield",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "sheets",
+     "role": "support",
+     "material": "chalk"
+    }
+   ],
+   "layout": "L5",
+   "states": {
+    "rest": "Worry: a stack of printed sheets alone, lifted 4 units with thin hatch (unsettled)",
+    "active": "a teal shield rises up behind the stack of printed sheets",
+    "meaning": "the company is trusted"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "reducedMotion": "show the end state: a teal shield rises up behind the stack of printed sheets",
+   "alt": "A stack of printed sheets with a teal shield rising behind it.",
+   "alternatives": [
+    {
+     "angle": "proof",
+     "idea": "a pin on a printed sheet"
+    },
+    {
+     "angle": "metaphor",
+     "idea": "a storefront with a lit door"
+    }
+   ]
+  },
+  {
+   "id": "wAvail",
+   "scene": "wAvail",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Product Availability",
+    "body": "Where coverage is offered",
+    "worry": "Is it offered where I am?",
+    "relief": "See where coverage is offered."
+   },
+   "message": "Find out quickly whether coverage reaches you.",
+   "viewerQuestion": "Is it offered where I am?",
+   "relationship": "reach",
+   "device": "before-after",
+   "mapping": [
+    {
+     "concept": "your place",
+     "object": "a puck on the plate"
+    },
+    {
+     "concept": "available",
+     "object": "the puck turning teal as the pin lands"
+    }
+   ],
+   "breaksDown": "A single puck could read as a button; the pin landing on it makes it a place.",
+   "objects": [
+    {
+     "name": "puck",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "pin",
+     "role": "support",
+     "material": "ghost"
+    },
+    {
+     "name": "policy plate",
+     "role": "support",
+     "material": "neutral"
+    }
+   ],
+   "layout": "L2",
+   "states": {
+    "rest": "Worry: a grey pin hovers over a grey puck, lifted 4 units with thin hatch (unsettled)",
+    "active": "the hovering pin lands and the puck turns teal",
+    "meaning": "coverage is offered there"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "base",
+    "easing": "standard"
+   },
+   "reducedMotion": "show the end state: hovering pin lands and the puck turns teal",
+   "alt": "A pin lands on a puck, which turns teal.",
+   "alternatives": [
+    {
+     "angle": "proof",
+     "idea": "a grid of pucks"
+    },
+    {
+     "angle": "metaphor",
+     "idea": "a route reaching a home"
+    }
+   ]
+  },
+  {
+   "id": "wContact",
+   "scene": "wContact",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Contact Us",
+    "body": "Reach our team",
+    "worry": "Rather talk to someone?",
+    "relief": "Reach our team."
+   },
+   "message": "There is a person ready to answer.",
+   "viewerQuestion": "Can I talk to someone?",
+   "relationship": "contact",
+   "device": "metonymy",
+   "mapping": [
+    {
+     "concept": "reaching out",
+     "object": "a mailbox by the door"
+    },
+    {
+     "concept": "answered",
+     "object": "the flag up and the mailbox teal"
+    }
+   ],
+   "breaksDown": "A mailbox could read as post; the raised flag means a reply is waiting.",
+   "objects": [
+    {
+     "name": "mailbox",
+     "role": "hero",
+     "material": "teal"
+    },
+    {
+     "name": "door",
+     "role": "support",
+     "material": "neutral"
+    }
+   ],
+   "layout": "L5",
+   "states": {
+    "rest": "Worry: a grey mailbox, flag down, lifted 4 units with thin hatch (unsettled)",
+    "active": "the grey mailbox turns teal and its flag rises",
+    "meaning": "a reply is on its way"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "base",
+    "easing": "standard"
+   },
+   "reducedMotion": "show the end state: grey mailbox turns teal and its flag rises",
+   "alt": "A grey mailbox beside a door turns teal and raises its flag.",
+   "alternatives": [
+    {
+     "angle": "proof",
+     "idea": "a document with a check"
+    },
+    {
+     "angle": "mechanism",
+     "idea": "a route from a laptop to a mailbox"
+    }
+   ]
+  }
+ ]
+}

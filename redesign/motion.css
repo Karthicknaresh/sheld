@@ -1,0 +1,50 @@
+/* Momentum motion patterns, rebuilt from the live page's @keyframes and transitions.
+   Requires tokens.css. Every pattern has its reduced-motion twin at the bottom. */
+
+/* Hover cue: trailing arrow / chevron nudges along its axis */
+.m-cue { transition: translate var(--m-duration-fast) var(--m-easing-standard); }
+.m-cue-host:hover .m-cue, .m-cue-host:focus-visible .m-cue { translate: 4px 0; }
+
+/* Disclosure chevron */
+.m-chevron { transition: rotate var(--m-duration-fast) var(--m-easing-standard); }
+[aria-expanded="true"] > .m-chevron { rotate: 180deg; }
+
+/* Tile / card hover: colour only — tiles never lift or scale */
+.m-tile { transition: background-color var(--m-duration-base) var(--m-easing-standard), outline-color var(--m-duration-base) var(--m-easing-standard); }
+
+/* Reveal: content arriving (fade + 8px rise) */
+@keyframes m-reveal { from { opacity: 0; translate: 0 8px; } }
+.m-reveal { animation: m-reveal var(--m-duration-slow) var(--m-easing-enter) both; }
+
+/* Draw-on: left-to-right clip reveal — works with non-scaling strokes (no dasharray maths) */
+@keyframes m-draw { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0); } }
+[data-draw] { animation: m-draw var(--m-duration-slow) var(--m-easing-standard) both; }
+
+/* Bars rising into a chart */
+@keyframes m-bar-in { from { translate: 0 100%; } }
+.m-bar { animation: m-bar-in var(--m-duration-slow) var(--m-easing-enter) both; }
+
+/* Loading sweep */
+@keyframes m-sweep { 0% { transform-origin: 0 50%; transform: scaleX(0); } 50% { transform-origin: 0 50%; transform: scaleX(1); }
+  51% { transform-origin: 100% 50%; transform: scaleX(1); } 100% { transform-origin: 100% 50%; transform: scaleX(0); } }
+
+/* Attention ping (the only always-on loop; 1280ms, exit curve) */
+@keyframes m-ping { 75%, 100% { opacity: 0; scale: 2.4; } }
+.m-pulse::after { animation: m-ping 1280ms var(--m-easing-exit) infinite; }
+
+/* Header hide on scroll: slide + fade out (exit), slide in (standard) */
+.m-header { transition: translate var(--m-duration-slow) var(--m-easing-exit), opacity var(--m-duration-slow) var(--m-easing-exit); }
+
+/* Success pop — the ONE sanctioned overshoot (form submitted) */
+@keyframes m-success-pop { 0% { opacity: 0; transform: scale(.65); } 70% { opacity: 1; transform: scale(1.08); } 100% { transform: scale(1); } }
+
+/* ---------------- reduced motion: movement → none, slides → fades, loops/draw-ons off */
+@media (prefers-reduced-motion: reduce) {
+  .m-cue, .m-chevron, .m-tile { transition-duration: var(--m-duration-none); }
+  .m-cue-host:hover .m-cue, .m-cue-host:focus-visible .m-cue { translate: none; }
+  .m-reveal { animation-name: m-fade; animation-duration: var(--m-duration-fast); }
+  [data-draw], .m-bar, .m-pulse::after { animation: none; }
+  .m-header { transition-property: opacity; transition-duration: var(--m-duration-fast); translate: none; }
+  html { scroll-behavior: auto; }
+}
+@keyframes m-fade { from { opacity: 0; } }

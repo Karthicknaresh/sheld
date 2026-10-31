@@ -1,0 +1,346 @@
+[
+ {
+  "set": "relief",
+  "scene": "wInsurance",
+  "file": "relief-wInsurance.svg",
+  "title": "A kraft parcel under a coral mark turns teal and settles onto a policy plate",
+  "hero": null,
+  "kb": 8.9
+ },
+ {
+  "set": "relief",
+  "scene": "wSolutions",
+  "file": "relief-wSolutions.svg",
+  "title": "Bars on a sheet; the tall coral bar is replaced by a short teal one",
+  "hero": null,
+  "kb": 9.9
+ },
+ {
+  "set": "relief",
+  "scene": "wPartners",
+  "file": "relief-wPartners.svg",
+  "title": "A grey platform block with two empty sockets; two teal blocks seat into them",
+  "hero": null,
+  "kb": 7.2
+ },
+ {
+  "set": "relief",
+  "scene": "wResources",
+  "file": "relief-wResources.svg",
+  "title": "A teal pin lands at the start of a dashed route that leads to a stack of guides",
+  "hero": null,
+  "kb": 10.4
+ },
+ {
+  "set": "relief",
+  "scene": "wAbout",
+  "file": "relief-wAbout.svg",
+  "title": "A large teal shield rises behind a row of small homes",
+  "hero": null,
+  "kb": 14.8
+ },
+ {
+  "set": "relief",
+  "scene": "wSelect",
+  "file": "relief-wSelect.svg",
+  "title": "Three grey shields around a parcel; two fade and the middle one turns teal",
+  "hero": null,
+  "kb": 27.2
+ },
+ {
+  "set": "relief",
+  "scene": "wQuote",
+  "file": "relief-wQuote.svg",
+  "title": "Three parcels on a plate beside a ghost coin stack that fills teal coin by coin",
+  "hero": null,
+  "kb": 35.8
+ },
+ {
+  "set": "relief",
+  "scene": "wMulti",
+  "file": "relief-wMulti.svg",
+  "title": "Four carrier-striped parcels move from four small plates onto one long teal plate",
+  "hero": null,
+  "kb": 15.2
+ },
+ {
+  "set": "relief",
+  "scene": "wUps",
+  "file": "relief-wUps.svg",
+  "title": "A home with a coral mark at its door; the mark is replaced by a teal coin stack",
+  "hero": null,
+  "kb": 20
+ },
+ {
+  "set": "relief",
+  "scene": "wSpecial",
+  "file": "relief-wSpecial.svg",
+  "title": "A blue item balanced on a kraft parcel; a teal plate slides underneath as the coral mark fades",
+  "hero": null,
+  "kb": 8.9
+ },
+ {
+  "set": "relief",
+  "scene": "wDefense",
+  "file": "relief-wDefense.svg",
+  "title": "A parcel waits on the left while a coral pin over a home turns teal and lands",
+  "hero": null,
+  "kb": 6.2
+ },
+ {
+  "set": "relief",
+  "scene": "wOrchestrate",
+  "file": "relief-wOrchestrate.svg",
+  "title": "A parcel slides from under a coral cloud onto a teal plate",
+  "hero": null,
+  "kb": 13.5
+ },
+ {
+  "set": "relief",
+  "scene": "wCommerce",
+  "file": "relief-wCommerce.svg",
+  "title": "A laptop with a coral mark above it; the mark becomes a teal check ring",
+  "hero": null,
+  "kb": 11.3
+ },
+ {
+  "set": "relief",
+  "scene": "wInsureShield",
+  "file": "relief-wInsureShield.svg",
+  "title": "A crushed coral parcel is replaced by a full teal parcel in front of a shield",
+  "hero": null,
+  "kb": 9.8
+ },
+ {
+  "set": "relief",
+  "scene": "wConnect",
+  "file": "relief-wConnect.svg",
+  "title": "Loose sheets beside a laptop fade as a teal block seats onto it",
+  "hero": null,
+  "kb": 9.1
+ },
+ {
+  "set": "relief",
+  "scene": "wBecome",
+  "file": "relief-wBecome.svg",
+  "title": "A storefront with a row of parcels; each gets teal tape as a coral mark fades",
+  "hero": null,
+  "kb": 13.8
+ },
+ {
+  "set": "relief",
+  "scene": "wHelp",
+  "file": "relief-wHelp.svg",
+  "title": "A document standing on a plate; the grey ring above it becomes a teal check ring",
+  "hero": null,
+  "kb": 11.2
+ },
+ {
+  "set": "relief",
+  "scene": "wStories",
+  "file": "relief-wStories.svg",
+  "title": "Three storefronts, each joined by a teal coin stack that rises in turn",
+  "hero": null,
+  "kb": 35.5
+ },
+ {
+  "set": "relief",
+  "scene": "wInsights",
+  "file": "relief-wInsights.svg",
+  "title": "A teal sheet lands under a coral cloud, which turns grey",
+  "hero": null,
+  "kb": 11.3
+ },
+ {
+  "set": "relief",
+  "scene": "wGuides",
+  "file": "relief-wGuides.svg",
+  "title": "Hovering sheets settle into a stepped stack with a teal sheet on top",
+  "hero": null,
+  "kb": 9.1
+ },
+ {
+  "set": "relief",
+  "scene": "wAnnounce",
+  "file": "relief-wAnnounce.svg",
+  "title": "A row of standing sheets on a plate; a teal sheet slides in at the front",
+  "hero": null,
+  "kb": 8.2
+ },
+ {
+  "set": "relief",
+  "scene": "wNews",
+  "file": "relief-wNews.svg",
+  "title": "A stack of printed sheets with a teal shield rising behind it",
+  "hero": null,
+  "kb": 13.2
+ },
+ {
+  "set": "relief",
+  "scene": "wAvail",
+  "file": "relief-wAvail.svg",
+  "title": "A pin lands on a puck, which turns teal",
+  "hero": null,
+  "kb": 10.4
+ },
+ {
+  "set": "relief",
+  "scene": "wContact",
+  "file": "relief-wContact.svg",
+  "title": "A grey mailbox beside a door turns teal and raises its flag",
+  "hero": null,
+  "kb": 9.1
+ },
+ {
+  "set": "door",
+  "scene": "dSelect",
+  "file": "door-dSelect.svg",
+  "title": "Close-up of a question sheet whose three rings tick, the last in teal",
+  "hero": null,
+  "kb": 12.6
+ },
+ {
+  "set": "door",
+  "scene": "dQuote",
+  "file": "door-dQuote.svg",
+  "title": "Close-up of a parcel corner with a teal coin landing on a short stack",
+  "hero": null,
+  "kb": 14.3
+ },
+ {
+  "set": "door",
+  "scene": "dMulti",
+  "file": "door-dMulti.svg",
+  "title": "A pile of carrier-striped parcels on a doorstep, each sealed with teal tape",
+  "hero": null,
+  "kb": 10.2
+ },
+ {
+  "set": "door",
+  "scene": "dUps",
+  "file": "door-dUps.svg",
+  "title": "Close-up of a UPS-banded parcel on a doormat that turns teal",
+  "hero": null,
+  "kb": 7.9
+ },
+ {
+  "set": "door",
+  "scene": "dSpecial",
+  "file": "door-dSpecial.svg",
+  "title": "Close-up of a blue safe whose door slides open as the plate beneath turns teal",
+  "hero": null,
+  "kb": 6.3
+ },
+ {
+  "set": "door",
+  "scene": "dDefense",
+  "file": "door-dDefense.svg",
+  "title": "Close-up of a parcel label with a teal pin landing on it",
+  "hero": null,
+  "kb": 5.1
+ },
+ {
+  "set": "door",
+  "scene": "dOrchestrate",
+  "file": "door-dOrchestrate.svg",
+  "title": "Close-up of a route forking from a parcel, the teal branch reaching a mailbox",
+  "hero": null,
+  "kb": 12.4
+ },
+ {
+  "set": "door",
+  "scene": "dCommerce",
+  "file": "door-dCommerce.svg",
+  "title": "Close-up of a laptop with a teal check ring rising from the screen",
+  "hero": null,
+  "kb": 7.6
+ },
+ {
+  "set": "door",
+  "scene": "dInsureShield",
+  "file": "door-dInsureShield.svg",
+  "title": "Close-up of a parcel with a large teal shield rising behind it",
+  "hero": null,
+  "kb": 8.9
+ },
+ {
+  "set": "door",
+  "scene": "dConnect",
+  "file": "door-dConnect.svg",
+  "title": "Close-up of a laptop edge with a teal block seating against it",
+  "hero": null,
+  "kb": 5.1
+ },
+ {
+  "set": "door",
+  "scene": "dBecome",
+  "file": "door-dBecome.svg",
+  "title": "Close-up of a storefront whose window shows a teal shield",
+  "hero": null,
+  "kb": 7.2
+ },
+ {
+  "set": "door",
+  "scene": "dHelp",
+  "file": "door-dHelp.svg",
+  "title": "Close-up of a stack of sheets with a teal sheet sliding out",
+  "hero": null,
+  "kb": 6.9
+ },
+ {
+  "set": "door",
+  "scene": "dStories",
+  "file": "door-dStories.svg",
+  "title": "Close-up of a storefront step with a teal coin stack rising beside it",
+  "hero": null,
+  "kb": 16.5
+ },
+ {
+  "set": "door",
+  "scene": "dInsights",
+  "file": "door-dInsights.svg",
+  "title": "Close-up of a sheet with bars, the tallest turning teal",
+  "hero": null,
+  "kb": 8.9
+ },
+ {
+  "set": "door",
+  "scene": "dGuides",
+  "file": "door-dGuides.svg",
+  "title": "Close-up of two open sheets with a teal tab sliding out between them",
+  "hero": null,
+  "kb": 7.9
+ },
+ {
+  "set": "door",
+  "scene": "dAnnounce",
+  "file": "door-dAnnounce.svg",
+  "title": "Close-up of a doorstep where a teal sheet lands on the mat",
+  "hero": null,
+  "kb": 5.7
+ },
+ {
+  "set": "door",
+  "scene": "dNews",
+  "file": "door-dNews.svg",
+  "title": "Close-up of printed sheets with a teal shield stamped on the top one",
+  "hero": null,
+  "kb": 8.2
+ },
+ {
+  "set": "door",
+  "scene": "dAvail",
+  "file": "door-dAvail.svg",
+  "title": "Close-up of a row of pucks; a pin lands on the nearest, which turns teal",
+  "hero": null,
+  "kb": 14.4
+ },
+ {
+  "set": "door",
+  "scene": "dContact",
+  "file": "door-dContact.svg",
+  "title": "Close-up of a teal mailbox at the curb in front of a home, flag rising",
+  "hero": null,
+  "kb": 6.4
+ }
+]

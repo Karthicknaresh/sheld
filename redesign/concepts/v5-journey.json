@@ -1,0 +1,75 @@
+{
+ "set": "InsureShield nav V5 · Journey (mechanism)",
+ "cards": [
+  {
+   "id": "journey",
+   "scene": "journey",
+   "slot": "media",
+   "frequency": "frequent",
+   "copy": {
+    "title": "Shipping Insurance",
+    "body": "Protect shipments from covered loss, damage, and theft.",
+    "status": "Point at a stop to send your parcel there"
+   },
+   "message": "Your parcel is looked after at every stop of its journey.",
+   "viewerQuestion": "Where does InsureShield help along the way?",
+   "relationship": "transit",
+   "device": "metaphor",
+   "mapping": [
+    {
+     "concept": "your shipment",
+     "object": "the parcel travelling the route"
+    },
+    {
+     "concept": "the InsureShield process",
+     "object": "the teal route filling behind it"
+    },
+    {
+     "concept": "each product or answer",
+     "object": "a stop on the route"
+    }
+   ],
+   "breaksDown": "A travelling parcel could read as delivery; InsureShield does not deliver. The parcel is the merchant's shipment and the route is the process, never a road.",
+   "objects": [
+    {
+     "name": "parcel",
+     "role": "hero",
+     "material": "kraft"
+    },
+    {
+     "name": "route",
+     "role": "support",
+     "material": "teal"
+    },
+    {
+     "name": "policy plate",
+     "role": "support",
+     "material": "neutral"
+    }
+   ],
+   "layout": "L3",
+   "states": {
+    "rest": "Outline: ghost hairline on the strip, waiting for the parcel",
+    "active": "the parcel travels to the pointed stop, the route fills teal behind it and its tape turns teal",
+    "meaning": "the shipment is covered as it goes"
+   },
+   "motion": {
+    "trigger": "hover",
+    "duration": "slow",
+    "easing": "enter"
+   },
+   "reducedMotion": "show the end state: parcel travels to the pointed stop, the route fills teal behind it and its tape turns teal",
+   "alt": "A kraft parcel on a dashed route that runs through a row of stops; the route turns teal behind it.",
+   "alternatives": [
+    {
+     "angle": "proof",
+     "idea": "a stop counter made of boxes"
+    },
+    {
+     "angle": "direct claim",
+     "idea": "one long policy plate under the whole route"
+    }
+   ]
+  }
+ ]
+}
